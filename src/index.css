@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-cyan-500 text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-cyan-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-800/50 backdrop-blur-sm text-gray-400 px-8 py-4 rounded-full font-semibold border border-gray-700 hover:bg-gray-700/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl;
+  }
+  
+  .container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Custom animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+
+  .delay-1000 {
+    animation-delay: 1s;
+  }
+
+  /* Ticker animation */
+  @keyframes ticker {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-ticker {
+    animation: ticker 40s linear infinite;
+  }
+
+  .animate-ticker-pause {
+    animation-play-state: paused;
+  }
+
+  /* Hover effects for project cards */
+  .project-card {
+    @apply bg-gray-700 rounded-3xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/10;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-gray-800/50 backdrop-blur-sm border border-gray-700/50;
+  }
+
+  /* Secondary text colors */
+  .text-secondary {
+    @apply text-gray-400;
+  }
+
+  .text-secondary-hover {
+    @apply hover:text-gray-300;
+  }
+
+  /* DM Sans specific styles */
+  .font-display {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  .font-body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 400;
+  }
+
+  .font-medium-dm {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 500;
+  }
+
+  .font-semibold-dm {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 600;
+  }
+
+  .font-bold-dm {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  /* Round button styles */
+  .btn-round {
+    @apply rounded-full;
+  }
+
+  .btn-round-lg {
+    @apply rounded-full px-8 py-4;
+  }
+
+  .btn-round-sm {
+    @apply rounded-full px-6 py-3;
+  }
+
+  /* Round card styles */
+  .card-round {
+    @apply rounded-3xl;
+  }
+
+  .card-round-lg {
+    @apply rounded-3xl p-8;
+  }
+
+  /* Round input styles */
+  .input-round {
+    @apply rounded-full border-gray-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20;
+  }
+}
