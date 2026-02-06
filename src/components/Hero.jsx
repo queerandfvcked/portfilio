@@ -45,11 +45,14 @@ const Hero = () => {
               {[...skills, ...skills, ...skills, ...skills].map((skill, index) => (
                 <div 
                   key={index}
-                  className="flex items-center px-6 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full whitespace-nowrap"
                 >
-                  <span className="text-slate-400 text-sm font-medium">
-                    {skill}
-                  </span>
+                  <div className="flex items-center px-6 py-3 rounded-full whitespace-nowrap backdrop-blur-sm"
+                    style={{ backgroundColor: '#181A1F', border: '1px solid #2A2D3A' }}
+                  >
+                    <span className="text-slate-400 text-sm font-medium">
+                      {skill}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>

@@ -14,7 +14,9 @@ const CaseCard = ({
   return (
     <div 
       className={`project-card group cursor-pointer ${className}`}
-      style={{ animationDelay: `${index * 0.1}s` }}
+      style={{ 
+        animationDelay: `${index * 0.1}s`
+      }}
     >
       {/* Desktop/Tablet: Horizontal layout */}
       <div className="hidden md:flex">

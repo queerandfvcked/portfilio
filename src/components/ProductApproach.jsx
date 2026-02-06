@@ -74,8 +74,12 @@ const ProductApproach = () => {
           {approaches.map((approach, index) => (
             <div 
               key={index}
-              className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:bg-gray-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="rounded-2xl p-6 hover:scale-105 transition-all duration-300 hover:shadow-xl group backdrop-blur-sm"
+              style={{ 
+                backgroundColor: '#181A1F', 
+                border: '1px solid #2A2D3A',
+                animationDelay: `${index * 0.1}s` 
+              }}
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center group-hover:bg-cyan-500/30 transition-colors duration-300">

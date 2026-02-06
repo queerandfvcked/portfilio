@@ -8,54 +8,38 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-commerce Platform Redesign',
-      subtitle: 'Mobile App Design',
-      description: 'Complete redesign of mobile e-commerce application with focus on user experience and conversion optimization. Implemented new design system and improved user flow from product discovery to checkout.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-      tags: ['E-commerce', 'Mobile', 'Prototyping'],
-      metrics: [
-        { value: '+30%', label: 'Conversion Rate' },
-        { value: '+20%', label: 'Avg Order Value' }
-      ],
+      image: '/assets/keepl app.png',
+      title: 'Keepl App',
+      subtitle: 'Web & Mobile',
+      description: 'Веб-приложение для достижения целей. Проектирование продукта с нуля: от анализа рынка и гипотез до разработки адаптивной дизайн-системы. В рамках кейса я проработал сложные сценарии визуализации данных и самостоятельно реализовал фронтенд-часть на React, чтобы валидировать UX-паттерны в живом интерфейсе.',
+      tags: ['Product Design', 'Web App', 'Frontend (React)'],
       link: '#'
     },
     {
       id: 2,
-      title: 'Banking Dashboard',
-      subtitle: 'Web Application',
-      description: 'Design and development of comprehensive banking dashboard with real-time data visualization and analytics. Created intuitive interface for complex financial data management.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-      tags: ['FinTech', 'Dashboard', 'Data Viz'],
-      metrics: [
-        { value: '+45%', label: 'User Engagement' },
-        { value: '-60%', label: 'Task Time' }
-      ],
+      title: 'Keepl Landing page',
+      subtitle: 'Landing page',
+      description: 'Keepl Landing Page — лендинг для экосистемы трекинга целей. Спроектировал структуру страницы, выстраивая повествование от «боли» пользователя к решению, чтобы удержать внимание и максимально раскрыть ценность продукта. Перенес визуальный концепт приложения в адаптивный веб-дизайн и реализовал фронтенд с помощью ИИ, обеспечивая точность и соответствие интерфейса оригиналу.',
+      image: '/assets/landing.png',
+      tags: ['Product Design', 'Web', 'Mobile', 'Frontend (React)'],
       link: '#'
     },
     {
       id: 3,
-      title: 'Healthcare Patient Portal',
-      subtitle: 'Web & Mobile',
-      description: 'End-to-end design of patient portal system with appointment scheduling and medical records management. Focused on accessibility and ease of use for all age groups.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop',
-      tags: ['Healthcare', 'Portal', 'Mobile'],
-      metrics: [
-        { value: '+25%', label: 'Patient Satisfaction' },
-        { value: '+40%', label: 'Appointment Rate' }
-      ],
+      title: 'Проектирование интерфейса добавления операций',
+      subtitle: 'Mobile App',
+      description: 'Оптимизация процесса учета расходов. Провел UX-анализ причин оттока пользователей и полностью переработал флоу фиксации операций, сократив время ввода до 2-3 секунд. Спроектировал одноэкранный интерфейс с выбором категорий, минимизировал когнитивную нагрузку и подготовил финальный UI, сфокусированный на скорости использования «на ходу».',
+      image: '/assets/fintech.png',
+      tags: ['FinTech', 'Mobile', 'Product Design'],
       link: '#'
     },
     {
       id: 4,
-      title: 'SaaS Analytics Platform',
-      subtitle: 'Enterprise Solution',
-      description: 'Design of comprehensive analytics platform for enterprise clients with custom dashboards, reporting tools, and data visualization capabilities.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-      tags: ['SaaS', 'Analytics', 'Enterprise'],
-      metrics: [
-        { value: '+35%', label: 'User Retention' },
-        { value: '+50%', label: 'Data Accuracy' }
-      ],
+      title: 'Hired App',
+      subtitle: 'Mobile App',
+      description: 'Проектирование платформы по поиску работы с нуля. Создал полный пользовательский опыт: от этапа исследования и JTBD-фреймворков до финальных интерфейсов. Разработал сложную архитектуру продукта, многошаговые сценарии и масштабируемую дизайн-систему.',
+      image: '/assets/hired app.png',
+      tags: ['Product Design', 'Mobile'],
       link: '#'
     }
   ]
@@ -69,19 +53,21 @@ const Projects = () => {
           </h2>
         </div>
 
-        <div className="space-y-8">
+        <div>
           {projects.map((project, index) => (
-            <CaseCard
-              key={project.id}
-              title={project.title}
-              subtitle={project.subtitle}
-              description={project.description}
-              image={project.image}
-              tags={project.tags}
-              metrics={project.metrics}
-              link={project.link}
-              index={index}
-            />
+            <div key={project.id} className="mb-20">
+              <CaseCard
+                key={project.id}
+                title={project.title}
+                subtitle={project.subtitle}
+                description={project.description}
+                image={project.image}
+                tags={project.tags}
+                metrics={project.metrics}
+                link={project.link}
+                index={index}
+              />
+            </div>
           ))}
         </div>
       </div>

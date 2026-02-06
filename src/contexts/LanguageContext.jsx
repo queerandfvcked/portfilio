@@ -132,6 +132,10 @@ const translations = {
       contactMe: 'Contact Me',
       writeMe: 'Write Me',
       sendMessage: 'Send Message',
+      formetrics: {
+        userRetention: '+25%',
+        taskCompletion: '+40%'
+      },
       form: {
         name: 'Your Name',
         email: 'Your Email',

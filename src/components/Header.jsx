@@ -23,8 +23,12 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-gray-900/95 backdrop-blur-sm border-b border-gray-700' : 'bg-transparent'
-    }`}>
+      isScrolled ? 'backdrop-blur-md border-b' : 'bg-transparent'
+    }`}
+      style={{ 
+        backgroundColor: isScrolled ? '#181A1F99' : 'transparent',
+        borderColor: isScrolled ? '#2A2D3A' : 'transparent'
+      }}>
       <div className="container">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
@@ -72,7 +76,11 @@ const Header = () => {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-900 border-t border-gray-700">
+        <div className="md:hidden backdrop-blur-md border-t"
+            style={{ 
+              backgroundColor: '#181A1F99',
+              borderColor: '#2A2D3A'
+            }}>
           <div className="container">
             <ul className="py-4 space-y-3">
               {navItems.map((item) => (

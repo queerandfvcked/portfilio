@@ -86,7 +86,14 @@
 
   /* Hover effects for project cards */
   .project-card {
-    @apply bg-gray-700 rounded-3xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/10;
+    background-color: #181A1F;
+    border: 1px solid #2A2D3A;
+    @apply rounded-3xl shadow-lg overflow-hidden transition-all duration-300;
+  }
+  
+  .project-card:hover {
+    @apply scale-105 shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.1);
   }
 
   /* Gradient text effect */
