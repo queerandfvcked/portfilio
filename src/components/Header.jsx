@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from '../contexts/LanguageContext'
+import ContactSidebar from './ContactSidebar'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isContactOpen, setIsContactOpen] = useState(false)
   const { language, toggleLanguage, t } = useTranslation()
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const Header = () => {
     { name: t('nav.projects'), href: '#projects' },
     { name: t('nav.about'), href: '#about' },
     { name: t('nav.resume'), href: '#resume' },
-    { name: t('nav.contact'), href: '#contact' }
+    { name: t('nav.contact'), action: 'contact' }
   ]
 
   return (
@@ -39,12 +41,21 @@ const Header = () => {
             <ul className="flex items-center space-x-8">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="text-gray-300 hover:text-white transition-colors font-medium"
-                  >
-                    {item.name}
-                  </a>
+                  {item.action === 'contact' ? (
+                    <button
+                      onClick={() => setIsContactOpen(true)}
+                      className="text-gray-300 hover:text-white transition-colors font-medium"
+                    >
+                      {item.name}
+                    </button>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="text-gray-300 hover:text-white transition-colors font-medium"
+                    >
+                      {item.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -85,19 +96,34 @@ const Header = () => {
             <ul className="py-4 space-y-3">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
+                  {item.action === 'contact' ? (
+                    <button
+                      onClick={() => {
+                        setIsContactOpen(true)
+                        setIsMobileMenuOpen(false)
+                      }}
+                      className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+                    >
+                      {item.name}
+                    </button>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
         </div>
       )}
+      
+      {/* Contact Sidebar */}
+      <ContactSidebar isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </header>
   )
 }
