@@ -12,6 +12,9 @@ const CaseStudy = () => {
   const [expandedSections, setExpandedSections] = useState({})
   const [selectedImage, setSelectedImage] = useState(null)
   const [imageScale, setImageScale] = useState(1)
+  const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 })
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
   const contentRef = useRef(null)
 
   // Toggle section expansion
@@ -32,16 +35,66 @@ const CaseStudy = () => {
   const closeImageModal = () => {
     setSelectedImage(null)
     setImageScale(1)
+    setImagePosition({ x: 0, y: 0 })
+    setIsDragging(false)
     document.body.style.overflow = 'auto'
   }
 
   // Handle image zoom with mouse wheel
   const handleImageWheel = (e) => {
+    // Disable zoom on mobile/tablet devices
+    if (window.innerWidth <= 768) return
+    
     e.preventDefault()
     const delta = e.deltaY > 0 ? 0.9 : 1.1
     const newScale = Math.min(Math.max(0.5, imageScale * delta), 3)
     setImageScale(newScale)
+    
+    // Reset position when zooming back to 1x
+    if (newScale === 1) {
+      setImagePosition({ x: 0, y: 0 })
+    }
   }
+
+  // Handle mouse down for dragging
+  const handleMouseDown = (e) => {
+    if (imageScale <= 1) return // Only allow dragging when zoomed in
+    
+    setIsDragging(true)
+    setDragStart({
+      x: e.clientX - imagePosition.x,
+      y: e.clientY - imagePosition.y
+    })
+    e.preventDefault()
+  }
+
+  // Handle mouse move for dragging
+  const handleMouseMove = (e) => {
+    if (!isDragging || imageScale <= 1) return
+    
+    const newX = e.clientX - dragStart.x
+    const newY = e.clientY - dragStart.y
+    
+    setImagePosition({ x: newX, y: newY })
+  }
+
+  // Handle mouse up to stop dragging
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  // Add global mouse event listeners
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove)
+      document.addEventListener('mouseup', handleMouseUp)
+      
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove)
+        document.removeEventListener('mouseup', handleMouseUp)
+      }
+    }
+  }, [isDragging, dragStart])
 
   // Format content with markdown-like syntax
   const formatContent = (content) => {
@@ -294,24 +347,9 @@ const CaseStudy = () => {
           </div>
         </div>
 
-        {/* Images for this section */}
-        {section.images && section.images.length > 0 && (
-          <div className="space-y-8">
-            {section.images.map((image, index) => (
-              <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
-                <img
-                  src={image}
-                  alt={`${section.title} - Image ${index + 1}`}
-                  className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
-        )}
-
         {/* Image pairs for desktop/mobile comparison */}
         {section.imagePairs && section.imagePairs.length > 0 && (
-          <div className="space-y-8">
+          <div className="space-y-8 mb-8">
             {section.imagePairs.map((pair, pairIndex) => (
               <div key={pairIndex} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="cursor-pointer group" onClick={() => openImageModal(pair.desktop)}>
@@ -332,6 +370,39 @@ const CaseStudy = () => {
                 </div>
               </div>
             ))}
+          </div>
+        )}
+
+        {/* Images for this section */}
+        {section.images && section.images.length > 0 && (
+          <div className="space-y-8">
+            {section.images.map((image, index) => (
+              <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                <img
+                  src={image}
+                  alt={`${section.title} - Image ${index + 1}`}
+                  className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Additional text after image pairs for UI section */}
+        {section.id === 'ui' && (
+          <div className="prose prose-lg text-gray-300 max-w-none">
+            <div className="text-lg leading-relaxed">
+              <p className="text-gray-300 mb-3">
+                После регистрации пользователь проходит через короткий онбординг, который подсвечивает ключевые возможности. Моя цель - сократить Time to Value, чтобы юзер максимально быстро осознал пользу приложения.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Onboarding slider for UI section */}
+        {section.id === 'ui' && section.onboardingImages && section.onboardingImages.length > 0 && (
+          <div className="mt-8">
+            <ImageSlider images={section.onboardingImages} />
           </div>
         )}
       </section>
@@ -403,13 +474,19 @@ const CaseStudy = () => {
         {
           id: 'ui',
           title: 'UI',
-          content: 'Дизайн Keepl отошел от агрессивных интерфейсов продуктивности и сфокусировался на создании поддерживающей, гибкой и осознанной среды для достижения целей. Я использовал мягкие скругления для снижения визуальной резкости, такую же мягкую тень для создания легкой, но быстрой узнаваемости интерактивных элементов, и спокойную цветовую палитру, не режущую глаз при ежедневном использовании приложения.\n\nМобильная адаптация реализована в виде PWA - пользователь сможет "сохранить" веб страницу на свой хоум скрин и использовать как обычное мобильное приложение. Для этого я переработал некоторые элементы интерфейса, чтобы приложение вело себя нативно: сайд бар сменился привычным таб баром, модалки стали bottom sheet.\n\n## Первый вход в приложение и создание цели',
+          content: 'Дизайн Keepl отошел от агрессивных интерфейсов продуктивности и сфокусировался на создании поддерживающей, гибкой и осознанной среды для достижения целей. Я использовал мягкие скругления для снижения визуальной резкости, такую же мягкую тень для создания легкой, но быстрой узнаваемости интерактивных элементов, и спокойную цветовую палитру, не режущую глаз при ежедневном использовании приложения.\n\nМобильная адаптация реализована в виде PWA - пользователь сможет "сохранить" веб страницу на свой хоум скрин и использовать как обычное мобильное приложение. Для этого я переработал некоторые элементы интерфейса, чтобы приложение вело себя нативно: сайд бар сменился привычным таб баром, модалки стали bottom sheet.\n\n## Первый вход в приложение и создание цель',
           images: [],
           imagePairs: [
             {
               desktop: '/assets/keepl app/log_in.png',
               mobile: '/assets/keepl app/log_in 1.png'
             }
+          ],
+          onboardingImages: [
+            '/assets/keepl app/onboarding.png',
+            '/assets/keepl app/onboarding 2.png',
+            '/assets/keepl app/onboarding 3.png',
+            '/assets/keepl app/onboarding 4.png'
           ]
         },{
           id: 'results',
@@ -614,22 +691,28 @@ const CaseStudy = () => {
             onClick={closeImageModal}
           >
             <div className="relative max-w-6xl max-h-full animate-scale-in">
-              <div className="overflow-auto max-h-[90vh]">
+              <div className="overflow-hidden max-h-[90vh] relative">
                 <img
                   src={selectedImage}
                   alt="Enlarged view"
-                  className="object-contain rounded-lg cursor-zoom-in transition-transform duration-200"
+                  className={`object-contain rounded-lg transition-transform duration-200 ${
+                    imageScale > 1 && window.innerWidth > 768 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'
+                  }`}
                   style={{ 
-                    transform: `scale(${imageScale})`,
+                    transform: `scale(${imageScale}) translate(${imagePosition.x / imageScale}px, ${imagePosition.y / imageScale}px)`,
                     transformOrigin: 'center',
                     maxHeight: '90vh',
-                    minWidth: '200px'
+                    minWidth: '200px',
+                    userSelect: 'none'
                   }}
                   onWheel={handleImageWheel}
+                  onMouseDown={handleMouseDown}
                   onClick={(e) => e.stopPropagation()}
                 />
               </div>
-              <p className="text-center text-gray-400 text-sm mt-2">Используйте колесико мыши для масштабирования</p>
+              {window.innerWidth > 768 && (
+                <p className="text-center text-gray-400 text-sm mt-2">Используйте колесико мыши для масштабирования</p>
+              )}
             </div>
           </div>
         </>
