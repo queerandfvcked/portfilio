@@ -11,6 +11,7 @@ const CaseStudy = () => {
   const [activeSection, setActiveSection] = useState('overview')
   const [expandedSections, setExpandedSections] = useState({})
   const [selectedImage, setSelectedImage] = useState(null)
+  const [imageScale, setImageScale] = useState(1)
   const contentRef = useRef(null)
 
   // Toggle section expansion
@@ -24,11 +25,22 @@ const CaseStudy = () => {
   // Open image modal
   const openImageModal = (imageSrc) => {
     setSelectedImage(imageSrc)
+    document.body.style.overflow = 'hidden'
   }
 
   // Close image modal
   const closeImageModal = () => {
     setSelectedImage(null)
+    setImageScale(1)
+    document.body.style.overflow = 'auto'
+  }
+
+  // Handle image zoom with mouse wheel
+  const handleImageWheel = (e) => {
+    e.preventDefault()
+    const delta = e.deltaY > 0 ? 0.9 : 1.1
+    const newScale = Math.min(Math.max(0.5, imageScale * delta), 3)
+    setImageScale(newScale)
   }
 
   // Format content with markdown-like syntax
@@ -45,6 +57,13 @@ const CaseStudy = () => {
           <h3 key={index} className="text-xl font-bold text-gray-200 mt-6 mb-3">
             {line.replace('### ', '')}
           </h3>
+        )
+      } else if (line.startsWith('## ')) {
+        afterBullet = false
+        return (
+          <h2 key={index} className="text-2xl font-bold text-gray-200 mt-8 mb-4">
+            {line.replace('## ', '')}
+          </h2>
         )
       } else if (line.startsWith('| ') && line.endsWith(' |')) {
         afterBullet = false
@@ -98,17 +117,26 @@ const CaseStudy = () => {
         )
         tableContent = []
         return table
+      } else if (line.startsWith('• ')) {
+        afterBullet = true
+        return (
+          <div key={index} className="flex items-start space-x-2 mb-2">
+            <span className="text-cyan-400">•</span>
+            <span className="text-gray-300">{line.replace('• ', '')}</span>
+          </div>
+        )
       } else if (line.startsWith('- ')) {
         afterBullet = true
         return (
           <div key={index} className="flex items-start space-x-2 mb-2">
             <span className="text-cyan-400">•</span>
-            <span className="text-gray-300 font-semibold">{line.replace('- ', '')}</span>
+            <span className="text-gray-300">{line.replace('- ', '')}</span>
           </div>
         )
-      } else if (afterBullet && line.trim() !== '') {
+      } else if (line.startsWith('Таким образом, рынок закрывает разные аспекты')) {
+        afterBullet = false
         return (
-          <p key={index} className="text-gray-300 mb-3 ml-4">
+          <p key={index} className="text-gray-300 mb-3 mt-8">
             {line}
           </p>
         )
@@ -119,10 +147,25 @@ const CaseStudy = () => {
             {line}
           </p>
         )
-      } else if (line.startsWith('Таким образом, рынок закрывает разные аспекты')) {
-        afterBullet = false
+      } else if (line.startsWith('• ')) {
+        afterBullet = true
         return (
-          <p key={index} className="text-gray-300 mb-3 mt-6">
+          <div key={index} className="flex items-start space-x-2 mb-2">
+            <span className="text-cyan-400">•</span>
+            <span className="text-gray-300">{line.replace('• ', '')}</span>
+          </div>
+        )
+      } else if (line.startsWith('- ')) {
+        afterBullet = true
+        return (
+          <div key={index} className="flex items-start space-x-2 mb-2">
+            <span className="text-cyan-400">•</span>
+            <span className="text-gray-300">{line.replace('- ', '')}</span>
+          </div>
+        )
+      } else if (afterBullet && line.trim() !== '') {
+        return (
+          <p key={index} className="text-gray-300 mb-3 ml-4">
             {line}
           </p>
         )
@@ -138,6 +181,13 @@ const CaseStudy = () => {
       }
     }).filter(Boolean) // Filter out null values
   }
+
+  // Clean up body overflow on unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
 
   // Sections that should have toggle functionality
   const toggleableSections = ['overview', 'product-discovery', 'jtbd', 'user-flow', 'results']
@@ -194,6 +244,32 @@ const CaseStudy = () => {
                 ))}
               </div>
             )}
+            
+            {/* Image pairs for desktop/mobile comparison */}
+            {section.imagePairs && section.imagePairs.length > 0 && (
+              <div className="space-y-8">
+                {section.imagePairs.map((pair, pairIndex) => (
+                  <div key={pairIndex} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="cursor-pointer group" onClick={() => openImageModal(pair.desktop)}>
+                      <img
+                        src={pair.desktop}
+                        alt={`${section.title} - Desktop ${pairIndex + 1}`}
+                        className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                    </div>
+                    <div className="cursor-pointer group" onClick={() => openImageModal(pair.mobile)}>
+                      <img
+                        src={pair.mobile}
+                        alt={`${section.title} - Mobile ${pairIndex + 1}`}
+                        className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -222,18 +298,37 @@ const CaseStudy = () => {
         {section.images && section.images.length > 0 && (
           <div className="space-y-8">
             {section.images.map((image, index) => (
-              <div key={index} className="bg-gray-800/50 rounded-lg p-6 border border-gray-700/50 cursor-pointer group" onClick={() => openImageModal(image)}>
+              <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
                 <img
                   src={image}
                   alt={`${section.title} - Image ${index + 1}`}
                   className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <div className="bg-black/50 rounded-full p-3">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                    </svg>
-                  </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Image pairs for desktop/mobile comparison */}
+        {section.imagePairs && section.imagePairs.length > 0 && (
+          <div className="space-y-8">
+            {section.imagePairs.map((pair, pairIndex) => (
+              <div key={pairIndex} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="cursor-pointer group" onClick={() => openImageModal(pair.desktop)}>
+                  <img
+                    src={pair.desktop}
+                    alt={`${section.title} - Desktop ${pairIndex + 1}`}
+                    className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                  />
+                  <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                </div>
+                <div className="cursor-pointer group" onClick={() => openImageModal(pair.mobile)}>
+                  <img
+                    src={pair.mobile}
+                    alt={`${section.title} - Mobile ${pairIndex + 1}`}
+                    className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                  />
+                  <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
                 </div>
               </div>
             ))}
@@ -290,35 +385,36 @@ const CaseStudy = () => {
         {
           id: 'hypothesis',
           title: 'Гипотеза',
-          content: 'Основная гипотеза: если дать пользователю возможность кастомизировать цели под свой стиль и состояние, добавить эмоциональный фидбек (трекер настроения, фото, поддерживающие тексты) и легкую альтернативу, то это поможет ему дольше сохранять мотивацию и ощущение контроля. Что, в свою очередь, приведет к росту retention, stickness (DAU) и снижит drop-off rate. Ключевые метрики для оценки успеха: Retention через 28 дней - ключевой индикатор долгосрочной ценности. Мы ожидаем, что гибкость системы удержит пользователя в продукте дольше, чем классические аналоги.',
-          images: ['/assets/keepl app/Frame_5202.png']
+          content: 'Если дать пользователю возможность кастомизировать цели под свой стиль и состояние, добавить эмоциональный фидбек (трекер настроения, фото, поддерживающие тексты) и легкую альтернативу, то это поможет ему дольше сохранять мотивацию и ощущение прогресса. Что, в свою очередь, приведет к росту retention, stickness (DAU) и снизит drop-off rate.',
+          images: []
         },
         {
           id: 'user-flow',
           title: 'User flow',
-          content: 'Три сценария пользователя: создание цели, отметка выполнения ежедневной мини-цели и замена мини-цели на более легкую альтернативу. Флоу простой и наглядный, чтобы показать, как пользователь взаимодействует с сервисом. Моя цель - сократить когнитивную нагрузку и борьбу с эффектом, когда "слишком много нужно сделать". Гибкая настройка единиц измерения и структуры цели под себя. Предварительное добавление легкой альтернативы в момент создания цели - ключевое продуктовое решение для удержания на длинной дистанции.',
+          content: 'Три сценария пользователя: создание цели, отметка выполнения ежедневной мини-цели и замена мини-цели на более легкую альтернативу. Флоу простой и наглядный, чтобы показать, как пользователь взаимодействует с сервисом.\n\n### Сценарий 1: пользователь создает новую цель.\n\nФлоу создания цели сфокусирован на минимизации когнитивной нагрузки и борьбе с эффектом, когда "слишком много нужно сделать". Гибкая настройка единиц измерения и превентивное добавление легкой альтернативы в момент создания цели - ключевое продуктовое решение.\n\nМы даем пользователю полный контроль над своим планом Б, позволяя ему заранее установить реалистичный, упрощенный шаг на случай низкой мотивации. Пользователю не нужно импровизировать или пропускать шаг, что напрямую решает проблему "сложно начать и отсутствие гибкости".\n\n### Сценарий 2: пользователь отмечает ежедневный прогресс.\n\nЭтот флоу сознательно отказывается от агрессивного акцента на стриках, смещая фокус на сам прогресс. Ручной ввод результата заставляет пользователя осознанно оценить свое усилие. Визуализация прогресса, даже минимального, сразу после ввода дает позитивное подкрепление и борется с ощущением, что усилия тщетны.\n\nОпциональный трекинг настроения на оверлее интегрирован для сбора данных о корреляции между действием и эмоциональным состоянием: пользователь видит, что в прошлый раз, когда он выполнил задачу, он почувствовал себя лучше, а значит, имеет смысл сделать усилие и в этот раз.\n\n### Сценарий 3: Пользователь устал и не может выполнить цель полностью.\n\nЭтот сценарий - решение для инсайта "пользователь чувствует вину и бросает цель, когда не может ее выполнить полностью". Вместо пропуска задачи флоу предлагает активировать заранее определенный пользователем упрощенный путь. Это сохраняет привычку и снимает эмоциональное давление, используя решение, принятое самим пользователем в более мотивированном состоянии, что является критически важным для долгосрочного удержания.',
           images: ['/assets/keepl app/flow.png']
         },
         {
           id: 'metrics',
           title: 'Метрики и план проверки гипотезы',
-          content: 'Основная гипотеза: если дать пользователю возможность кастомизировать цели под свой стиль и состояние, добавить эмоциональный фидбек (трекер настроения, фото, поддерживающие тексты) и легкую альтернативу, то это поможет ему дольше сохранять мотивацию и ощущение контроля. Что, в свою очередь, приведет к росту retention, stickness (DAU) и снижит drop-off rate. Ключевые метрики для оценки успеха: Retention через 28 дней - ключевой индикатор долгосрочной ценности. Мы ожидаем, что гибкость системы удержит пользователя в продукте дольше, чем классические аналоги.',
-          images: ['/assets/keepl app/goal.png']
+          content: '### Основная гипотеза\n\nЖесткие системы "выполнено/пропущено" создают давление на пользователя и чувство вины при пропуске. Внедрение кастомизации под текущее состояние пользователя (ручной ввод прогресса, легкая альтернатива и эмоциональный фидбек) позволит сохранить ощущение контроля и мотивацию на длинной дистанции.\n\n### Ключевые метрики\n\nДля оценки успеха мы будем отслеживать следующие показатели:\n\n- Retention через 30 дней - ключевой индикатор долгосрочной ценности. Мы ожидаем, что гибкость системы удержит пользователя в продукте дольше, чем классические аналоги\n- Stickiness (DAU/MAU) - частота возвратов. Покажет, стало ли приложение ежедневным помощником благодаря "легким альтернативам".\n- Feature Adoption Rate - процент использования функций "lighter alternative" и ручного инпута. Это подтвердит, что пользователи находят эти инструменты полезными в моменты усталости.\n- Completion Rate - процент целей, доведенных до конца. Позволит увидеть, помогает ли "легкая альтернатива" не бросать сложные задачи, а дожимать их до финала.',
+          images: []
         },
         {
           id: 'ui',
           title: 'UI',
-          content: 'Дизайн Keepl отошел от агрессивных интерфейсов продуктивности и сфокусировался на создании поддерживающей, гибкой и осознанной среды для достижения целей. Я использовал мягкие скругления для снижения визуальной резкости, такую же мягкую тень для создания легкой, но быстрой узнаваемости интерактивных элементов, и спокойную цветовую палитру, не режущую глаз при ежедневном использовании приложения.',
-          images: [
-            '/assets/keepl app/log_in.png',
-            '/assets/keepl app/onboarding.png',
-            '/assets/keepl app/create_new_goal.png'
+          content: 'Дизайн Keepl отошел от агрессивных интерфейсов продуктивности и сфокусировался на создании поддерживающей, гибкой и осознанной среды для достижения целей. Я использовал мягкие скругления для снижения визуальной резкости, такую же мягкую тень для создания легкой, но быстрой узнаваемости интерактивных элементов, и спокойную цветовую палитру, не режущую глаз при ежедневном использовании приложения.\n\nМобильная адаптация реализована в виде PWA - пользователь сможет "сохранить" веб страницу на свой хоум скрин и использовать как обычное мобильное приложение. Для этого я переработал некоторые элементы интерфейса, чтобы приложение вело себя нативно: сайд бар сменился привычным таб баром, модалки стали bottom sheet.\n\n## Первый вход в приложение и создание цели',
+          images: [],
+          imagePairs: [
+            {
+              desktop: '/assets/keepl app/log_in.png',
+              mobile: '/assets/keepl app/log_in 1.png'
+            }
           ]
-        },
-        {
+        },{
           id: 'results',
           title: 'Статус проекта',
-          content: 'Разработал полный пользовательский опыт: от этапа исследования и JTBD-фреймворков до финальных интерфейсов. Создал адаптивную дизайн-систему и реализовал фронтенд на React для валидации UX-паттернов в живом интерфейсе.',
+          content: 'Спроектирован и реализован полный пользовательский опыт для трекера целей. Создано 15+ экранов с адаптивным дизайном, разработана дизайн-система из 50+ компонентов. Реализована сложная навигация с сохранением контекста пользователя. Идет работа над бэком.',
           images: ['/assets/keepl app/goal.png']
         }
       ]
@@ -504,26 +600,39 @@ const CaseStudy = () => {
 
       {/* Image Modal */}
       {selectedImage && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-fade-in"
-          onClick={closeImageModal}
-        >
-          <div className="relative max-w-6xl max-h-full animate-scale-in">
-            <button
-              className="absolute -top-12 right-0 text-white hover:text-cyan-400 transition-colors animate-slide-down"
-              onClick={closeImageModal}
-            >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <img
-              src={selectedImage}
-              alt="Enlarged view"
-              className="max-w-full max-h-full object-contain rounded-lg"
-            />
+        <>
+          <button
+            className="fixed top-4 right-4 z-[60] text-white hover:text-cyan-400 transition-colors animate-slide-down"
+            onClick={closeImageModal}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-fade-in overflow-auto"
+            onClick={closeImageModal}
+          >
+            <div className="relative max-w-6xl max-h-full animate-scale-in">
+              <div className="overflow-auto max-h-[90vh]">
+                <img
+                  src={selectedImage}
+                  alt="Enlarged view"
+                  className="object-contain rounded-lg cursor-zoom-in transition-transform duration-200"
+                  style={{ 
+                    transform: `scale(${imageScale})`,
+                    transformOrigin: 'center',
+                    maxHeight: '90vh',
+                    minWidth: '200px'
+                  }}
+                  onWheel={handleImageWheel}
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </div>
+              <p className="text-center text-gray-400 text-sm mt-2">Используйте колесико мыши для масштабирования</p>
+            </div>
           </div>
-        </div>
+        </>
       )}
 
       {/* Add custom styles for animations */}
