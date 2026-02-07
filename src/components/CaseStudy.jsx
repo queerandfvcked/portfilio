@@ -107,14 +107,14 @@ const CaseStudy = () => {
       if (line.startsWith('### ')) {
         afterBullet = false
         return (
-          <h3 key={index} className="text-xl font-bold text-gray-200 mt-6 mb-3">
+          <h3 key={index} className="text-xl font-bold text-cyan-300 mt-6 mb-3">
             {line.replace('### ', '')}
           </h3>
         )
       } else if (line.startsWith('## ')) {
         afterBullet = false
         return (
-          <h2 key={index} className="text-2xl font-bold text-gray-200 mt-8 mb-4">
+          <h2 key={index} className="text-2xl font-bold text-cyan-200 mt-8 mb-4">
             {line.replace('## ', '')}
           </h2>
         )
@@ -144,11 +144,11 @@ const CaseStudy = () => {
         inTable = false
         const table = (
           <div key={index} className="overflow-x-auto mb-8">
-            <table className="w-full border-collapse border border-gray-600 rounded-lg text-xs">
+            <table className="w-full border-collapse border border-cyan-800/30 rounded-lg text-xs">
               <thead>
-                <tr className="bg-gray-800">
+                <tr className="bg-cyan-900/20">
                   {tableContent[0].map((cell, cellIndex) => (
-                    <th key={cellIndex} className="border border-gray-600 px-2 py-2 text-left text-gray-200 font-semibold break-words max-w-[120px]">
+                    <th key={cellIndex} className="border border-cyan-800/30 px-2 py-2 text-left text-cyan-100 font-semibold break-words max-w-[120px]">
                       {cell.replace(/\*\*/g, '')}
                     </th>
                   ))}
@@ -156,9 +156,9 @@ const CaseStudy = () => {
               </thead>
               <tbody>
                 {tableContent.slice(1).map((row, rowIndex) => (
-                  <tr key={rowIndex} className="hover:bg-gray-800/50">
+                  <tr key={rowIndex} className="hover:bg-cyan-900/10">
                     {row.map((cell, cellIndex) => (
-                      <td key={cellIndex} className="border border-gray-600 px-2 py-1 text-gray-300 break-words max-w-[120px]">
+                      <td key={cellIndex} className="border border-cyan-800/30 px-2 py-1 text-gray-200 break-words max-w-[120px]">
                         {cell.replace(/\*\*/g, '')}
                       </td>
                     ))}
@@ -175,7 +175,7 @@ const CaseStudy = () => {
         return (
           <div key={index} className="flex items-start space-x-2 mb-2">
             <span className="text-cyan-400">•</span>
-            <span className="text-gray-300">{line.replace('• ', '')}</span>
+            <span className="text-gray-200">{line.replace('• ', '')}</span>
           </div>
         )
       } else if (line.startsWith('- ')) {
@@ -183,20 +183,20 @@ const CaseStudy = () => {
         return (
           <div key={index} className="flex items-start space-x-2 mb-2">
             <span className="text-cyan-400">•</span>
-            <span className="text-gray-300">{line.replace('- ', '')}</span>
+            <span className="text-gray-200">{line.replace('- ', '')}</span>
           </div>
         )
       } else if (line.startsWith('Таким образом, рынок закрывает разные аспекты')) {
         afterBullet = false
         return (
-          <p key={index} className="text-gray-300 mb-3 mt-8">
+          <p key={index} className="text-gray-200 mb-3 mt-8 font-medium">
             {line}
           </p>
         )
       } else if (line.startsWith('Чтобы глубже понять рынок, я проанализировал конкретные продукты из этих категорий:')) {
         afterBullet = false
         return (
-          <p key={index} className="text-gray-300 mb-6">
+          <p key={index} className="text-gray-200 mb-6 font-medium">
             {line}
           </p>
         )
@@ -205,7 +205,7 @@ const CaseStudy = () => {
         return (
           <div key={index} className="flex items-start space-x-2 mb-2">
             <span className="text-cyan-400">•</span>
-            <span className="text-gray-300">{line.replace('• ', '')}</span>
+            <span className="text-gray-200">{line.replace('• ', '')}</span>
           </div>
         )
       } else if (line.startsWith('- ')) {
@@ -213,12 +213,12 @@ const CaseStudy = () => {
         return (
           <div key={index} className="flex items-start space-x-2 mb-2">
             <span className="text-cyan-400">•</span>
-            <span className="text-gray-300">{line.replace('- ', '')}</span>
+            <span className="text-gray-200">{line.replace('- ', '')}</span>
           </div>
         )
       } else if (afterBullet && line.trim() !== '') {
         return (
-          <p key={index} className="text-gray-300 mb-3 ml-4">
+          <p key={index} className="text-gray-200 mb-3 ml-4">
             {line}
           </p>
         )
@@ -227,7 +227,7 @@ const CaseStudy = () => {
       } else {
         afterBullet = false
         return (
-          <p key={index} className="text-gray-300 mb-3">
+          <p key={index} className="text-gray-200 mb-3">
             {line}
           </p>
         )
@@ -252,6 +252,7 @@ const CaseStudy = () => {
     return (
       <div 
         id={section.id}
+        data-section={section.id}
         className={`mb-16 scroll-mt-24`}
       >
         {/* Section header with toggle */}
@@ -272,7 +273,7 @@ const CaseStudy = () => {
         {/* Expandable content */}
         <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'max-h-none opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="space-y-6">
-            <div className="text-gray-300 text-lg leading-relaxed">
+            <div className="text-gray-200 text-lg leading-relaxed">
               {formatContent(section.content)}
             </div>
             
@@ -341,73 +342,425 @@ const CaseStudy = () => {
           {section.title}
         </h2>
         
-        <div className="prose prose-lg text-gray-300 max-w-none mb-8">
+        <div className="prose prose-lg text-gray-200 max-w-none mb-8">
           <div className="text-lg leading-relaxed">
             {formatContent(section.content)}
           </div>
         </div>
 
-        {/* Image pairs for desktop/mobile comparison */}
-        {section.imagePairs && section.imagePairs.length > 0 && (
-          <div className="space-y-8 mb-8">
-            {section.imagePairs.map((pair, pairIndex) => (
-              <div key={pairIndex} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="cursor-pointer group" onClick={() => openImageModal(pair.desktop)}>
-                  <img
-                    src={pair.desktop}
-                    alt={`${section.title} - Desktop ${pairIndex + 1}`}
-                    className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
-                  />
-                  <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
-                </div>
-                <div className="cursor-pointer group" onClick={() => openImageModal(pair.mobile)}>
-                  <img
-                    src={pair.mobile}
-                    alt={`${section.title} - Mobile ${pairIndex + 1}`}
-                    className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
-                  />
-                  <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
         {/* Images for this section */}
         {section.images && section.images.length > 0 && (
-          <div className="space-y-8">
+          <div className="space-y-8 mb-8">
             {section.images.map((image, index) => (
               <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
                 <img
                   src={image}
                   alt={`${section.title} - Image ${index + 1}`}
-                  className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
                 />
+                <p className="text-center text-gray-400 text-sm mt-2">Image</p>
               </div>
             ))}
           </div>
         )}
 
-        {/* Additional text after image pairs for UI section */}
+        {/* UI section specific content */}
         {section.id === 'ui' && (
-          <div className="prose prose-lg text-gray-300 max-w-none">
-            <div className="text-lg leading-relaxed">
-              <p className="text-gray-300 mb-3">
-                После регистрации пользователь проходит через короткий онбординг, который подсвечивает ключевые возможности. Моя цель - сократить Time to Value, чтобы юзер максимально быстро осознал пользу приложения.
-              </p>
-            </div>
-          </div>
-        )}
+          <>
+            {/* Image pairs for desktop/mobile comparison */}
+            {section.imagePairs && section.imagePairs.length > 0 && (
+              <div className="space-y-8">
+                {section.imagePairs.map((pair, pairIndex) => (
+                  <div key={pairIndex} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="cursor-pointer group" onClick={() => openImageModal(pair.desktop)}>
+                      <img
+                        src={pair.desktop}
+                        alt={`${section.title} - Desktop ${pairIndex + 1}`}
+                        className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                      />
+                      <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                    </div>
+                    <div className="cursor-pointer group" onClick={() => openImageModal(pair.mobile)}>
+                      <img
+                        src={pair.mobile}
+                        alt={`${section.title} - Mobile ${pairIndex + 1}`}
+                        className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                      />
+                      <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
 
-        {/* Onboarding slider for UI section */}
-        {section.id === 'ui' && section.onboardingImages && section.onboardingImages.length > 0 && (
-          <div className="mt-8">
-            <ImageSlider images={section.onboardingImages} />
-          </div>
+            {/* Additional text after onboarding slider for UI section */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  После регистрации пользователь проходит через короткий онбординг, который подсвечивает ключевые возможности. Моя цель - сократить Time to Value, чтобы юзер максимально быстро осознал пользу приложения.
+                </p>
+              </div>
+            </div>
+
+            {/* Additional text after onboarding slider for UI section */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  Экран Home сразу предлагает создать новую цель, по кнопке пользователь попадает на экран создания цели.
+                </p>
+              </div>
+            </div>
+
+            {/* Home screen images for UI section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/home_placeholder.png')}>
+                <img
+                  src="/assets/keepl app/home_placeholder.png"
+                  alt="Home placeholder"
+                  className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Home</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/create_new_goal.png')}>
+                <img
+                  src="/assets/keepl app/create_new_goal.png"
+                  alt="Create new goal"
+                  className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Create Goal</p>
+              </div>
+            </div>
+
+            {/* Additional text after Home images for UI section */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  В отличие от большинства аналогичных сервисов, Keepl позволяет пользователю кастомизировать цель: самостоятельно выбирать единицы измерения задачи, группировать подцели и добавлять легкую альтернативу.
+                </p>
+                <p className="text-gray-200 mb-3">
+                  Чтобы высокая гибкость не ударила по Activation Rate, я использовал паттерн постепенного раскрытия: сложные настройки остаются опциональными, сохраняя когнитивную нагрузку на низком уровне для новых юзеров.
+                </p>
+                <p className="text-gray-200 mb-3">
+                  В зависимости от характера цели пользователь может сделать ее одноразовой или долгосрочной, включить добавление изображений, трекер настроения. Разбивание цели на сабголы и ручной ввод результата позволяет точнее отслеживать метрику и видеть прогресс.
+                </p>
+                <p className="text-gray-200 mb-3">
+                  Это ключевое решение для мотивации пользователя. Даже частичное выполнение задачи отражается на графиках, что предотвращает отток из-за чувства вины. Сервис не "принуждает", а мотивирует через визуализацию любого вложенного усилия.
+                </p>
+                <p className="text-gray-200 mb-3">
+                  Настройки опциональны, при желании keepl может использоваться так же, как и обыкновенный трекер привычек. Например, цель можно сделать одноразовой - в этом случае сабголы не обновляются ежедневно, а после их выполнения цель отмечается завершенной.
+                </p>
+              </div>
+            </div>
+
+            {/* Goal creation images for UI section */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+                  <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/create_new_goal 1.png')}>
+                    <img
+                      src="/assets/keepl app/create_new_goal 1.png"
+                      alt="Create goal mobile"
+                      className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                    />
+                    <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                  </div>
+                  <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/create_goal.png')}>
+                    <img
+                      src="/assets/keepl app/create_goal.png"
+                      alt="Create goal desktop"
+                      className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                    />
+                    <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                  </div>
+                </div>
+
+            {/* Additional text after goal creation images for UI section */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  После сохранения цели пользователь попадает на экран только что созданной цели. Круглый прогресс-бар за текущий день создает мгновенную обратную связь, а карточка-мотиватор работает на эмоциональную вовлеченность. Это помогает пользователю сразу почувствовать ценность продукта и повышает вероятность того, что он вернется завтра, чтобы увидеть, как изменятся эти цифры.
+                </p>
+              </div>
+            </div>
+
+            {/* Goal detail screen images for UI section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/goal screen desktop.png')}>
+                <img
+                  src="/assets/keepl app/goal screen desktop.png"
+                  alt="Goal screen desktop"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/goal screen mobile.png')}>
+                <img
+                  src="/assets/keepl app/goal screen mobile.png"
+                  alt="Goal screen mobile"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+              </div>
+            </div>
+
+            {/* H2 heading for daily progress section */}
+            <h2 className="text-2xl font-bold text-cyan-200 mt-12 mb-6">Отметка ежедневного прогресса и эмоциональный фидбек</h2>
+
+            {/* Additional text about daily progress tracking */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  Чтобы сохранить мотивацию и создать ощущение движения, даже если цель выполнена не полностью, я добавил возможность ввода результата вручную. Это позволяет фиксировать даже частичный успех, напрямую влияя на регулярность и поддерживая North Star Metric - weekly active goal days. Мгновенная визуализация на прогресс-баре дает дофаминовый отклик и закрепляет паттерн ежедневного использования.
+                </p>
+                <p className="text-gray-200 mb-3">
+                  Интеграция опционального трекера настроения позволяет собирать качественные данные для глубокой рефлексии. В будущем это помогает пользователю увидеть корреляцию между своими привычками и эмоциональным состоянием.
+                </p>
+              </div>
+            </div>
+
+            {/* Modal and overlay images for UI section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/modal.png')}>
+                <img
+                  src="/assets/keepl app/modal.png"
+                  alt="Modal screen"
+                  className="w-full max-w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/overlay.png')}>
+                <img
+                  src="/assets/keepl app/overlay.png"
+                  alt="Overlay screen"
+                  className="w-full max-w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+              </div>
+            </div>
+
+            {/* Additional text about Home screen task management */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  Пользователь также может отмечать таски выполненными на главном экране Home. Там же заодно он увидит быструю сводку по сегодняшнему прогрессу, сколько задач он выполнил по каждой из целей, свой средний муд и совет-подсказку. Ниже располагаются сами карточки сабголов, которые можно отметить выполненными сразу или же дополнять прогресс постепенно, используя мануальный ввод.
+                </p>
+              </div>
+            </div>
+
+            {/* Home screen task management images for UI section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/home.png')}>
+                <img
+                  src="/assets/keepl app/home.png"
+                  alt="Home screen"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/home mobile.png')}>
+                <img
+                  src="/assets/keepl app/home mobile.png"
+                  alt="Home screen mobile"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+              </div>
+            </div>
+
+            {/* H2 heading for analytics section */}
+            <h2 className="text-2xl font-bold text-cyan-200 mt-12 mb-6">Анализ и визуализация прогресса</h2>
+
+            {/* Additional text about analytics and progress visualization */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  Для борьбы с выгоранием и повышения осознанности Keepl предоставляет глубокую аналитику. Пользователь может отслеживать прогресс по конкретной цели во вкладках "Неделя" и "Месяц", чтобы видеть динамику и не терять фокус.
+                </p>
+              </div>
+            </div>
+
+            {/* Goal 2 images for UI section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/goal 2 desktop.png')}>
+                <img
+                  src="/assets/keepl app/goal 2 desktop.png"
+                  alt="Goal 2 desktop"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/goal 2 mobile.png')}>
+                <img
+                  src="/assets/keepl app/goal 2 mobile.png"
+                  alt="Goal 2 mobile"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+              </div>
+            </div>
+
+            {/* Additional text about calendar navigation */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  Календарь позволяет удобно перемещаться между временными периодами.
+                </p>
+              </div>
+            </div>
+
+            {/* Goal detail calendar image for UI section */}
+            <div className="cursor-pointer group mt-8" onClick={() => openImageModal('/assets/keepl app/goaldetail calendar.png')}>
+              <img
+                src="/assets/keepl app/goaldetail calendar.png"
+                alt="Goal detail calendar"
+                className="w-full max-w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+              />
+            </div>
+
+            {/* Additional text about overall progress page */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  Общая страница Progress дает суммарную оценку активности по всем целям. Переход от детализации к обобщению помогает пользователю увидеть масштаб проделанной работы, что напрямую влияет на User Self-Efficacy.
+                </p>
+              </div>
+            </div>
+
+            {/* Progress images for UI section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/progress desktop.png')}>
+                <img
+                  src="/assets/keepl app/progress desktop.png"
+                  alt="Progress screen"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/progress mobile.png')}>
+                <img
+                  src="/assets/keepl app/progress mobile.png"
+                  alt="Progress screen mobile"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+              </div>
+            </div>
+
+            {/* Additional text about gallery integration */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  Для визуально-ориентированных целей (например, фитнеса) я интегрировал Галерею. При создании цели пользователь отмечает, хочет ли он добавить опцию загрузки фото. Если да, то на странице цели появляется опция добавлять изображения. Просматривать их можно там же, либо перейти во вкладку "галерея" - не просто хранилище, а инструмент Emotional Retention: возможность увидеть свой путь через фото создает мощное визуальное подкрепление.
+                </p>
+              </div>
+            </div>
+
+            {/* Gallery images for UI section */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/gallery 1 desktop.png')}>
+                <img
+                  src="/assets/keepl app/gallery 1 desktop.png"
+                  alt="Gallery 1 desktop"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/gallery 2 desktop.png')}>
+                <img
+                  src="/assets/keepl app/gallery 2 desktop.png"
+                  alt="Gallery 2 desktop"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/gallery 1 mobile.png')}>
+                <img
+                  src="/assets/keepl app/gallery 1 mobile.png"
+                  alt="Gallery 1 mobile"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/gallery 2 mobile.png')}>
+                <img
+                  src="/assets/keepl app/gallery 2 mobile.png"
+                  alt="Gallery 2 mobile"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+              </div>
+            </div>
+
+            {/* H2 heading for goal completion section */}
+            <h2 className="text-2xl font-bold text-cyan-200 mt-12 mb-6">Завершение цели</h2>
+
+            {/* Additional text about goal completion */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  В Keepl процесс завершения цели полностью подконтролен пользователю. Я намеренно отказался от жестких дедлайнов, чтобы снизить уровень тревожности и избежать негативного давления временных рамок.
+                </p>
+                <p className="text-gray-200 mb-3">
+                  Когда пользователь чувствует, что результат достигнут, он может завершить цель через интуитивно понятный флоу. Тогда цель попадет в "завершенные", там все графики, фото и история успехов остаются доступными для рефлексии. Возможность реактивации цели в один клик обеспечивает гибкость системы - если юзер решит вернуться к привычке, ему не нужно настраивать все заново.
+                </p>
+              </div>
+            </div>
+
+            {/* Goals images for UI section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/goals desktop.png')}>
+                <img
+                  src="/assets/keepl app/goals desktop.png"
+                  alt="Goals screen"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/goals mobile.png')}>
+                <img
+                  src="/assets/keepl app/goals mobile.png"
+                  alt="Goals screen mobile"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+              </div>
+            </div>
+
+            {/* H2 heading for profile section */}
+            <h2 className="text-2xl font-bold text-cyan-200 mt-12 mb-6">Профиль</h2>
+
+            {/* Additional text about profile */}
+            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+              <div className="text-lg leading-relaxed">
+                <p className="text-gray-200 mb-3">
+                  Поскольку сервис находится на стадии MVP, у нас достаточно мало настроек. Пока что пользователь может сменить аватарку, юзернейм, поменять пароль и удалить аккаунт, но в будущем возможностей управления аккаунтом станет больше.
+                </p>
+                <p className="text-gray-200 mb-3">
+                  Также я реализовал раздел Quick Stats, который суммирует общие показатели: количество активных дней и общее число выполненных подцелей. Это дает пользователю ощущение масштаба проделанной работы на самом верхнем уровне.
+                </p>
+              </div>
+            </div>
+
+            {/* Profile images for UI section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/profile desktop.png')}>
+                <img
+                  src="/assets/keepl app/profile desktop.png"
+                  alt="Profile screen"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+              </div>
+              <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/profile mobile.png')}>
+                <img
+                  src="/assets/keepl app/profile mobile.png"
+                  alt="Profile screen mobile"
+                  className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+              </div>
+            </div>
+          </>
         )}
       </section>
     )
-  }
+  }  
 
   // Case study data based on HTML files
   const caseStudies = {
@@ -474,7 +827,7 @@ const CaseStudy = () => {
         {
           id: 'ui',
           title: 'UI',
-          content: 'Дизайн Keepl отошел от агрессивных интерфейсов продуктивности и сфокусировался на создании поддерживающей, гибкой и осознанной среды для достижения целей. Я использовал мягкие скругления для снижения визуальной резкости, такую же мягкую тень для создания легкой, но быстрой узнаваемости интерактивных элементов, и спокойную цветовую палитру, не режущую глаз при ежедневном использовании приложения.\n\nМобильная адаптация реализована в виде PWA - пользователь сможет "сохранить" веб страницу на свой хоум скрин и использовать как обычное мобильное приложение. Для этого я переработал некоторые элементы интерфейса, чтобы приложение вело себя нативно: сайд бар сменился привычным таб баром, модалки стали bottom sheet.\n\n## Первый вход в приложение и создание цель',
+          content: 'Дизайн Keepl отошел от агрессивных интерфейсов продуктивности и сфокусировался на создании поддерживающей, гибкой и осознанной среды для достижения целей. Я использовал мягкие скругления для снижения визуальной резкости, такую же мягкую тень для создания легкой, но быстрой узнаваемости интерактивных элементов, и спокойную цветовую палитру, не режущую глаз при ежедневном использовании приложения.\n\nМобильная адаптация реализована в виде PWA - пользователь сможет "сохранить" веб страницу на свой хоум скрин и использовать как обычное мобильное приложение. Для этого я переработал некоторые элементы интерфейса, чтобы приложение вело себя нативно: сайд бар сменился привычным таб баром, модалки стали bottom sheet.\n\n## Первый вход в приложение и создание цели',
           images: [],
           imagePairs: [
             {
@@ -492,7 +845,7 @@ const CaseStudy = () => {
           id: 'results',
           title: 'Статус проекта',
           content: 'Спроектирован и реализован полный пользовательский опыт для трекера целей. Создано 15+ экранов с адаптивным дизайном, разработана дизайн-система из 50+ компонентов. Реализована сложная навигация с сохранением контекста пользователя. Идет работа над бэком.',
-          images: ['/assets/keepl app/goal.png']
+          images: []
         }
       ]
     },
@@ -550,9 +903,22 @@ const CaseStudy = () => {
         const scrollPosition = window.scrollY + 100
 
         sections.forEach(section => {
-          const sectionTop = section.offsetTop
+          const sectionId = section.dataset.section
+          const isToggleable = toggleableSections.includes(sectionId)
+          const isExpanded = expandedSections[sectionId] || !isToggleable
+          
+          let sectionTop = section.offsetTop
+          
+          // For collapsed sections, find the first visible element inside
+          if (!isExpanded) {
+            const header = section.querySelector('h2, h3')
+            if (header) {
+              sectionTop = header.offsetTop + section.offsetTop
+            }
+          }
+          
           if (scrollPosition >= sectionTop) {
-            setActiveSection(section.dataset.section)
+            setActiveSection(sectionId)
           }
         })
       }
@@ -560,13 +926,21 @@ const CaseStudy = () => {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [expandedSections, toggleableSections])
 
   const scrollToSection = (sectionId) => {
-    const element = document.querySelector(`[data-section="${sectionId}"]`)
+    const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
+  }
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
 
   if (!currentCase) {
@@ -604,7 +978,6 @@ const CaseStudy = () => {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7 7 7" />
             </svg>
-            <span>Назад</span>
           </button>
           
           {/* Content */}
@@ -763,6 +1136,22 @@ const CaseStudy = () => {
           animation: slide-down 0.3s ease-out 0.1s both;
         }
       `}</style>
+
+      {/* Scroll to top button */}
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 z-40 p-3 bg-cyan-500/20 backdrop-blur-xl rounded-full border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/30 hover:text-cyan-300 hover:border-cyan-500/50 transition-all duration-300 group"
+        aria-label="Наверх"
+      >
+        <svg 
+          className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-1" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </button>
     </div>
   )
 }

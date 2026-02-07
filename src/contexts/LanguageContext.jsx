@@ -4,6 +4,7 @@ const translations = {
   ru: {
     // Navigation
     nav: {
+      home: 'Главная',
       projects: 'Кейсы',
       about: 'Подход к продукту',
       resume: 'Резюме',
@@ -75,6 +76,7 @@ const translations = {
   en: {
     // Navigation
     nav: {
+      home: 'Home',
       projects: 'Cases',
       about: 'Product Approach',
       resume: 'Resume',

@@ -7,6 +7,7 @@ import ProductApproach from './components/ProductApproach'
 import Projects from './components/Projects'
 import CaseStudy from './components/CaseStudy'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
@@ -15,16 +16,18 @@ function App() {
         <div className="min-h-screen" style={{ backgroundColor: '#111318' }}>
           <Header />
           <main>
-            <Routes>
-              <Route path="/" element={
-                <>
-                  <Hero />
-                  <ProductApproach />
-                  <Projects />
-                </>
-              } />
-              <Route path="/:slug" element={<CaseStudy />} />
-            </Routes>
+            <ScrollToTop>
+              <Routes>
+                <Route path="/" element={
+                  <>
+                    <Hero />
+                    <ProductApproach />
+                    <Projects />
+                  </>
+                } />
+                <Route path="/:slug" element={<CaseStudy />} />
+              </Routes>
+            </ScrollToTop>
           </main>
           <Footer />
         </div>
