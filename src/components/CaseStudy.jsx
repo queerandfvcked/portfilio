@@ -356,11 +356,113 @@ const CaseStudy = () => {
                 <img
                   src={image}
                   alt={`${section.title} - Image ${index + 1}`}
-                  className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                  className={`w-full transition-transform duration-300 group-hover:scale-105 bg-transparent ${
+                    section.imageFullWidth ? 'h-auto' : 'h-80 object-contain'
+                  }`}
                 />
-                <p className="text-center text-gray-400 text-sm mt-2">Image</p>
               </div>
             ))}
+          </div>
+        )}
+
+        {/* Additional content after images */}
+        {section.additionalContent && (
+          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+            <div className="text-lg leading-relaxed">
+              {formatContent(section.additionalContent)}
+            </div>
+          </div>
+        )}
+
+        {/* Additional images after content */}
+        {section.additionalImages && section.additionalImages.length > 0 && (
+          <div className="space-y-8 mb-8">
+            {section.additionalImages.map((image, index) => (
+              <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                <img
+                  src={image}
+                  alt={`${section.title} - Additional Image ${index + 1}`}
+                  className={`w-full transition-transform duration-300 group-hover:scale-105 bg-transparent ${
+                    section.imageFullWidth ? 'h-auto' : 'h-80 object-contain'
+                  }`}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* More content after additional images */}
+        {section.moreContent && (
+          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+            <div className="text-lg leading-relaxed">
+              {formatContent(section.moreContent)}
+            </div>
+          </div>
+        )}
+
+        {/* Final images after more content */}
+        {section.finalImages && section.finalImages.length > 0 && (
+          <div className="space-y-8 mb-8">
+            {section.finalImages.map((image, index) => (
+              <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                <img
+                  src={image}
+                  alt={`${section.title} - Final Image ${index + 1}`}
+                  className={`w-full transition-transform duration-300 group-hover:scale-105 bg-transparent ${
+                    section.imageFullWidth ? 'h-auto' : 'h-80 object-contain'
+                  }`}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Last content after final images */}
+        {section.lastContent && (
+          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+            <div className="text-lg leading-relaxed">
+              {formatContent(section.lastContent)}
+            </div>
+          </div>
+        )}
+
+        {/* Image pairs for card demonstrations */}
+        {section.imagePairs && section.imagePairs.length > 0 && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+            {section.imagePairs.map((pair, pairIndex) => (
+              <div key={pairIndex} className="cursor-pointer group" onClick={() => openImageModal(pair.desktop)}>
+                <img
+                  src={pair.desktop}
+                  alt={`${section.title} - Card ${pairIndex + 1}`}
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                />
+                <p className="text-center text-gray-400 text-sm mt-2">Card {pairIndex + 1}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Final section and CTA image */}
+        {section.finalSection && (
+          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+            <div className="text-lg leading-relaxed">
+              {formatContent(section.finalSection)}
+            </div>
+          </div>
+        )}
+
+        {/* CTA and footer image */}
+        {section.ctaImage && (
+          <div className="space-y-8 mb-8">
+            <div className="cursor-pointer group" onClick={() => openImageModal(section.ctaImage)}>
+              <img
+                src={section.ctaImage}
+                alt={`${section.title} - CTA and Footer`}
+                className={`w-full transition-transform duration-300 group-hover:scale-105 bg-transparent ${
+                  section.imageFullWidth ? 'h-auto' : 'h-80 object-contain'
+                }`}
+              />
+            </div>
           </div>
         )}
 
@@ -889,6 +991,68 @@ const CaseStudy = () => {
           title: 'Результаты',
           content: 'Создал полнофункциональную платформу с продуманным пользовательским опытом. Реализовал сложные сценарии взаимодействия и обеспечил масштабируемость для будущего роста продукта.',
           images: ['/assets/hired app/image.png']
+        }
+      ]
+    },
+    'keepl-landing': {
+      title: 'Keepl Landing Page',
+      subtitle: 'Landing Page',
+      description: 'Keepl Landing Page — лендинг для экосистемы трекинга целей. Спроектировал структуру страницы, выстраивая повествование от «боли» пользователя к решению, чтобы удержать внимание и максимально раскрыть ценность продукта. Перенес визуальный концепт приложения в адаптивный веб-дизайн и реализовал фронтенд с помощью ИИ, обеспечивая точность и соответствие интерфейса оригиналу.',
+      tags: ['Product Design', 'Web', 'Mobile', 'Frontend (React)'],
+      heroImage: '/assets/landing.png',
+      heroImages: [
+        '/assets/landing.png',
+        '/assets/keepl landing page/desktop.png',
+        '/assets/keepl landing page/mobile.png'
+      ],
+      sections: [
+        {
+          id: 'problem',
+          title: 'Проблема',
+          content: '### Контекст\n\nKeepl - это MVP адаптивного трекера целей, который строится на гибкой методологии. Продукт нацелен на аудиторию, склонную к выгоранию от классических жестких таск-менеджеров.\n\n### Продуктовая проблема\n\nИз-за технических ограничений мы не смогли избежать обязательной регистрации аккаунта для использования приложения. В условиях перенасыщенного рынка трекеров привычек это создает две критические проблемы:\n\n- Высокий Friction: пользователь еще не доверяет продукту, но уже должен отдать свои данные.\n- Delayed TTV: момент осознания ценности продукта откладывается до завершения онбординга внутри приложения.\n\n### Бизнес-риск\n\nБез "прогрева" на лендинге большинство пользователей отвалятся на этапе авторизации, так и не узнав, чем keepl отличается от десятков аналогов.',
+          images: []
+        },
+        {
+          id: 'task-hypothesis',
+          title: 'Задача и гипотеза',
+          content: 'Как заставить пользователя пройти через "стену" регистрации, когда он еще ничего не знает о продукте?\n\n### Гипотеза\n\nЕсли мы вынесем демонстрацию ценности (aha-moment) на лендинг, то:\n\n- Конверсия в регистрацию вырастет, так как юзер будет мотивирован конкретным профитом, а не просто любопытством.\n- Activation Rate внутри приложения увеличится, так как пользователь придет уже "подготовленным" и будет знать, как работают ключевые фичи.',
+          images: []
+        },
+        {
+          id: 'solution',
+          title: 'Решение',
+          content: 'Спроектировать лендинг, который работает как инструмент пре-активации: снимает страх перед обязательной регистрацией, обучая пользователя методологии Keepl и демонстрируя ценность продукта еще до создания аккаунта.',
+          images: []
+        },
+        {
+          id: 'implementation',
+          title: 'Реализация',
+          content: '## Hero-section & Philosophy\n\nПоскольку продукт требует регистрации, нужно было зацепить внимание пользователя не функционалом, а общностью ценностей.\n\nТекст о неидеальных днях бьет в боль целевой аудитории и объясняет зачем им нужен еще один трекер.',
+          images: ['/assets/keepl landing page/Hero-section & Philosophy.png'],
+          imageFullWidth: true,
+          additionalContent: '## What can you do with Keepl?\n\nБлок служит мостом между философией и интерфейсом. Я выделил конкретные действия, чтобы пользователь сразу "примерил" продукт на свой образ жизни.\n\nЭто снижает когнитивную нагрузку и готовит юзера к онбордингу внутри приложения.',
+          additionalImages: ['/assets/keepl landing page/What can you do with Keepl.png'],
+          moreContent: '## Features\n\nВместо простого перечисления функций, каждый блок закрывает конкретный страх пользователя: сложность старта, риск выгорания, непонимание прогресса и отсутствие эмоциональной связи с результатом.',
+          finalImages: ['/assets/keepl landing page/Features.png'],
+          lastContent: 'Для того, чтобы пользователь смог "пощупать" продукт до регистрации, я добавил интерактивности элементам интерфейса.\n\nНапример, принцип работы легкой альтернативы юзер сможет понять, нажав на кнопку в карточке:',
+          imagePairs: [
+            {
+              desktop: '/assets/keepl landing page/card 1.png',
+              mobile: '/assets/keepl landing page/card 1.png'
+            },
+            {
+              desktop: '/assets/keepl landing page/card 2.png',
+              mobile: '/assets/keepl landing page/card 2.png'
+            }
+          ],
+          finalSection: '## Финальный CTA и футер',
+          ctaImage: '/assets/keepl landing page/CTA and footer.png'
+        },
+        {
+          id: 'results',
+          title: 'Результат',
+          content: 'На текущем этапе спроектирована целостная точка входа, которая транслирует методологию Keepl и подготавливает пользователя к регистрации.',
+          images: []
         }
       ]
     }
