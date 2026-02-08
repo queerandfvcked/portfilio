@@ -118,6 +118,131 @@ const CaseStudy = () => {
             {line.replace('## ', '')}
           </h2>
         )
+      } else if (line.includes('ZENMONEY_IMAGES_START')) {
+        // Handle ZenMoney special marker
+        return (
+          <div key={index} className="flex flex-row gap-4 justify-center items-center w-full my-8">
+            <img 
+              src="/assets/New folder/Competitive analysis/zenmoney 1.png" 
+              alt="ZenMoney 1"
+              className="w-2/5 h-80 object-contain"
+            />
+            <img 
+              src="/assets/New folder/Competitive analysis/zenmoney 2.png" 
+              alt="ZenMoney 2"
+              className="w-2/5 h-80 object-contain"
+            />
+            <img 
+              src="/assets/New folder/Competitive analysis/zenmoney 3.png" 
+              alt="ZenMoney 3"
+              className="w-2/5 h-80 object-contain"
+            />
+          </div>
+        )
+      } else if (line.includes('MONEFY_IMAGES_START')) {
+        // Handle Monefy special marker
+        return (
+          <div key={index} className="flex flex-row gap-4 justify-center items-center w-full my-8">
+            <img 
+              src="/assets/New folder/Competitive analysis/monefy 1.png" 
+              alt="Monefy 1"
+              className="w-2/5 h-80 object-contain"
+            />
+            <img 
+              src="/assets/New folder/Competitive analysis/monefy 2.png" 
+              alt="Monefy 2"
+              className="w-2/5 h-80 object-contain"
+            />
+            <img 
+              src="/assets/New folder/Competitive analysis/monefy 3.png" 
+              alt="Monefy 3"
+              className="w-2/5 h-80 object-contain"
+            />
+          </div>
+        )
+      } else if (line.includes('SPENDEE_IMAGES_START')) {
+        // Handle Spendee special marker
+        return (
+          <div key={index} className="flex flex-row gap-4 justify-center items-center w-full my-8">
+            <img 
+              src="/assets/New folder/Competitive analysis/spendee 1.png" 
+              alt="Spendee 1"
+              className="w-2/5 h-80 object-contain"
+            />
+            <img 
+              src="/assets/New folder/Competitive analysis/spendee 2.png" 
+              alt="Spendee 2"
+              className="w-2/5 h-80 object-contain"
+            />
+            <img 
+              src="/assets/New folder/Competitive analysis/spendee 3.png" 
+              alt="Spendee 3"
+              className="w-2/5 h-80 object-contain"
+            />
+          </div>
+        )
+      } else if (line.includes('MONEYMGR_IMAGES_START')) {
+        // Handle Money Mgr special marker
+        return (
+          <div key={index} className="flex flex-row gap-4 justify-center items-center w-full my-8">
+            <img 
+              src="/assets/New folder/Competitive analysis/money mgr 1.png" 
+              alt="Money Mgr 1"
+              className="w-2/5 h-80 object-contain"
+            />
+            <img 
+              src="/assets/New folder/Competitive analysis/money mgr 2.png" 
+              alt="Money Mgr 2"
+              className="w-2/5 h-80 object-contain"
+            />
+            <img 
+              src="/assets/New folder/Competitive analysis/money mgr 3.png" 
+              alt="Money Mgr 3"
+              className="w-2/5 h-80 object-contain"
+            />
+          </div>
+        )
+      } else if (line.trim().startsWith('<div')) {
+        // Handle HTML div tags for flex layouts
+        if (line.includes('zenmoney')) {
+          return (
+            <div key={index} className="flex flex-row gap-4 justify-center items-center w-full my-4">
+              <img 
+                src="/assets/New folder/Competitive analysis/zenmoney 1.png" 
+                alt="ZenMoney 1"
+                className="w-1/3 h-64 object-contain"
+              />
+              <img 
+                src="/assets/New folder/Competitive analysis/zenmoney 2.png" 
+                alt="ZenMoney 2"
+                className="w-1/3 h-64 object-contain"
+              />
+              <img 
+                src="/assets/New folder/Competitive analysis/zenmoney 3.png" 
+                alt="ZenMoney 3"
+                className="w-1/3 h-64 object-contain"
+              />
+            </div>
+          )
+        }
+        return null
+      } else if (line.trim().startsWith('<img ')) {
+        // Handle HTML img tags
+        const imgMatch = line.match(/<img src="([^"]+)"[^>]*>/);
+        if (imgMatch) {
+          const src = imgMatch[1];
+          return (
+            <div key={index} className="my-4">
+              <img
+                src={src}
+                alt="Screenshot"
+                className="w-full max-w-full h-auto rounded-lg object-contain transition-transform duration-300 hover:scale-105 bg-transparent"
+                style={{ maxWidth: '90%', margin: '0 auto', display: 'block' }}
+              />
+            </div>
+          )
+        }
+        return null
       } else if (line.startsWith('| ') && line.endsWith(' |')) {
         afterBullet = false
         // Table row
@@ -243,7 +368,7 @@ const CaseStudy = () => {
   }, [])
 
   // Sections that should have toggle functionality
-  const toggleableSections = ['overview', 'product-discovery', 'jtbd', 'user-flow', 'results']
+  const toggleableSections = ['overview', 'product-discovery', 'jtbd', 'user-flow', 'results', 'goal-context', 'competitor-solutions']
 
   // Expandable section component
   const ExpandableSection = ({ section, isActive }) => {
@@ -353,13 +478,26 @@ const CaseStudy = () => {
           <div className="space-y-8 mb-8">
             {section.images.map((image, index) => (
               <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
-                <img
-                  src={image}
-                  alt={`${section.title} - Image ${index + 1}`}
-                  className={`w-full transition-transform duration-300 group-hover:scale-105 bg-transparent ${
-                    section.imageFullWidth ? 'h-auto' : 'h-80 object-contain'
-                  }`}
-                />
+                {section.id === 'competitor-solutions' && index === 0 ? (
+                  <div className="flex justify-center">
+                    <img
+                      src={image}
+                      alt={`${section.title} - Image ${index + 1}`}
+                      style={{ maxWidth: '50% !important', height: '128px !important', width: 'auto !important', maxHeight: '128px !important' }}
+                      className="object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                      width="auto"
+                      height="128"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={image}
+                    alt={`${section.title} - Image ${index + 1}`}
+                    className={`w-full transition-transform duration-300 group-hover:scale-105 bg-transparent ${
+                      section.imageFullWidth ? 'h-auto' : 'h-80 object-contain'
+                    }`}
+                  />
+                )}
               </div>
             ))}
           </div>
@@ -463,6 +601,58 @@ const CaseStudy = () => {
                 }`}
               />
             </div>
+          </div>
+        )}
+
+        {/* More section */}
+        {section.moreSection && (
+          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+            <div className="text-lg leading-relaxed">
+              {formatContent(section.moreSection)}
+            </div>
+          </div>
+        )}
+
+        {/* More section images */}
+        {section.moreSectionImages && section.moreSectionImages.length > 0 && (
+          <div className="space-y-8 mb-8">
+            {section.moreSectionImages.map((image, index) => (
+              <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                <img
+                  src={image}
+                  alt={`${section.title} - More Section Image ${index + 1}`}
+                  className={`w-full transition-transform duration-300 group-hover:scale-105 bg-transparent ${
+                    section.imageFullWidth ? 'h-auto' : 'h-80 object-contain'
+                  }`}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Ultimate content */}
+        {section.ultimateContent && (
+          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+            <div className="text-lg leading-relaxed">
+              {formatContent(section.ultimateContent)}
+            </div>
+          </div>
+        )}
+
+        {/* Ultimate images */}
+        {section.ultimateImages && section.ultimateImages.length > 0 && (
+          <div className="space-y-8 mb-8">
+            {section.ultimateImages.map((image, index) => (
+              <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                <img
+                  src={image}
+                  alt={`${section.title} - Ultimate Image ${index + 1}`}
+                  className={`w-full transition-transform duration-300 group-hover:scale-105 bg-transparent ${
+                    section.imageFullWidth ? 'h-auto' : 'h-80 object-contain'
+                  }`}
+                />
+              </div>
+            ))}
           </div>
         )}
 
@@ -1055,10 +1245,121 @@ const CaseStudy = () => {
           images: []
         }
       ]
+    },
+    'add-transition': {
+      title: 'Проектирование интерфейса добавления операций',
+      subtitle: 'Interface Design',
+      description: 'Проектирование интерфейса добавления операций для финансового приложения. Разработка интуитивного и удобного пользовательского опыта для ввода финансовых транзакций.',
+      tags: ['UI/UX Design', 'Interface Design', 'Financial App'],
+      heroImage: '/assets/New folder/hero.png',
+      heroImages: [
+        '/assets/New folder/hero.png'
+      ],
+      sections: [
+        {
+          id: 'goal-context',
+          title: 'Цель и контекст',
+          content: '### Задача\n\nРазработка интерфейса экрана добавления новой операции для мобильного приложения по учету личных финансов.\n\n### Целевая аудитория\n\nМолодые люди (25-35 лет), которые хотят контролировать расходы и доходы.\n\n### Главная цель UX\n\nСоздание максимально быстрого и удобного флоу ввода для ежедневного использования, минимизация когнитивной нагрузки и количества тапов.',
+          images: []
+        },
+        {
+          id: 'user-problem',
+          title: 'Основная проблема пользователей',
+          content: 'Анализ решений конкурентов показал, что основные проблемы похожих приложений это разрывы в флоу и низкий приоритет скорости:\n\n- Пользователь вынужден проходить 3-4 шага (ввод суммы, выбор типа, переход к категориям, выбор категории, сохранение) для фиксации простой траты\n- Опциональные поля создают визуальный шум и перегружают интерфейс\n- Инпуты одинакового визуального веса, из-за чего теряется фокус на ключевом - ввод суммы\n- Клавиатура часто перекрывает важные элементы, а кнопка "сохранить" прячется за скроллом',
+          images: []
+        },
+        {
+          id: 'competitor-solutions',
+          title: 'Решения конкурентов',
+          content: '### Coinkeeper\n\nОчень перегружено, глаза разбегаются, что совсем не экономит время при выполнении задачи. Приходится вчитываться в текст, чтобы понять, что я вообще вижу.\n\n<img src="/assets/New folder/Competitive analysis/coinkeeper.png">\n\n### Money Manager\n\nЭкран выглядит перегруженным, теги, комментарий, фото занимают много место, являясь второстепенными опциями.\n\n<img src="/assets/New folder/Competitive analysis/money manager.png">\n\n### Incomes\n\nХод с кастомной клавиатурой действительно экономит время пользователя - не приходится жать на инпут и ждать выдвижения системной клавиатуры. Но в остальном...\n\n<img src="/assets/New folder/Competitive analysis/incomes.png">\n\n### ZenMoney\n\nЛишний шаг при переходе на экран создания транзакции: мне сразу предлагают выбрать тип операции, но чаще всего пользователь записывает расходы. На мой взгляд, по умолчанию должен открываться "расход", при необходимости уже на самом экране юзер переключится на другой тип.\n\nПоле для суммы не является центральным элементом и теряется среди других инпутов. приходится "сканировать" форму, а не сразу вводить сумму.\n\nZENMONEY_IMAGES_START\n\n### Monefy\n\nНе нравится флоу с кнопкой "выбрать категорию". Пользователь не видит категории сразу, не может быстро нажать на нужную, сначала он обязан ввести сумму и только потом ему покажут категории.\n\nMONEFY_IMAGES_START\n\n### Spendee\n\nРазработчики постарались ускорить флоу тем, что при заходе на экран сразу предлагают выбрать категорию, после этого появляется клавиатура для ввода суммы, а потом уже юзер может заполнить опциональные поля или завершить задачу.\n\nЯ бы сначала сделал акцент на сумме, а потом уже на категории, потому что сумма это основа. Еще для каждой категории у них свой цвет, меняющий весь цвет интерфейса на экране. для шоппинга розовый, для культуры - оранжевый. Бьет по глазам и сбивает с толку (я не сразу понял, что эти скрины относятся к одному приложению, когда сортировал всех конкурентов)\n\nSPENDEE_IMAGES_START\n\n### Money Mgr\n\nНет визуальной иерархии, категории требуют bottom sheet для показа. Приложение заставляет меня выбрать account, без этого сохранить не дает...\n\nMONEYMGR_IMAGES_START',
+          images: []
+        },
+        {
+          id: 'ux-solutions',
+          title: 'UX-решения',
+          content: 'Предложенные UX-решения для решения проблем пользователей.',
+          images: []
+        },
+        {
+          id: 'flow',
+          title: 'Флоу',
+          content: 'Описание пользовательского пути и флоу взаимодействия.',
+          images: []
+        },
+        {
+          id: 'layout',
+          title: 'Макет',
+          content: 'Описание финального макета и интерфейса.',
+          images: []
+        },
+        {
+          id: 'result',
+          title: 'Итог',
+          content: 'Итоги проекта и достигнутые результаты.',
+          images: []
+        }
+      ]
     }
   }
 
   const currentCase = caseStudies[slug]
+
+  // Add custom CSS for competitor images
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      img[src*="coinkeeper.png"] {
+        max-width: 90% !important;
+        height: 400px !important;
+        width: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+      }
+      img[src*="money manager.png"] {
+        max-width: 90% !important;
+        height: 400px !important;
+        width: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+      }
+      img[src*="incomes.png"] {
+        max-width: 90% !important;
+        height: 400px !important;
+        width: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+      }
+      img[src*="zenmoney 1"], img[src*="zenmoney 2"], img[src*="zenmoney 3"] {
+        max-width: 40% !important;
+        height: 320px !important;
+        width: auto !important;
+        object-fit: contain !important;
+      }
+      img[src*="monefy 1"], img[src*="monefy 2"], img[src*="monefy 3"] {
+        max-width: 40% !important;
+        height: 320px !important;
+        width: auto !important;
+        object-fit: contain !important;
+      }
+      img[src*="spendee 1"], img[src*="spendee 2"], img[src*="spendee 3"] {
+        max-width: 40% !important;
+        height: 320px !important;
+        width: auto !important;
+        object-fit: contain !important;
+      }
+      img[src*="money mgr 1"], img[src*="money mgr 2"], img[src*="money mgr 3"] {
+        max-width: 40% !important;
+        height: 320px !important;
+        width: auto !important;
+        object-fit: contain !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -1134,16 +1435,6 @@ const CaseStudy = () => {
         </div>
         
         <div className="container relative z-10 pt-32">
-          {/* Back Button - positioned in container */}
-          <button
-            onClick={() => navigate('/')}
-            className="absolute -top-16 left-0 z-30 flex items-center gap-2 px-4 py-2 bg-gray-800/50 backdrop-blur-xl rounded-lg border border-gray-700/50 text-gray-300 hover:bg-gray-700/70 hover:text-white transition-all duration-300"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7 7 7" />
-            </svg>
-          </button>
-          
           {/* Content */}
           <div className="space-y-6 text-left">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
