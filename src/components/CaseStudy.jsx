@@ -202,6 +202,93 @@ const CaseStudy = () => {
             />
           </div>
         )
+      } else if (line.includes('LAYOUT_START')) {
+        // Handle layout section with image and text side by side
+        return (
+          <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
+            <div className="lg:w-1/2">
+              <img 
+                src="/assets/New folder/iPhone_13_mini.png" 
+                alt="iPhone 13 mini mockup"
+                className="w-full h-auto rounded-lg object-contain"
+              />
+            </div>
+            <div className="lg:w-1/2">
+              <div className="space-y-4">
+                <div className="flex items-start space-x-2">
+                  <span className="text-cyan-400">•</span>
+                  <span className="text-gray-200">По умолчанию видны 4 категории. Предполагается, что первыми стоят используемые чаще всего, чтобы не вынуждать пользователя лишний раз разворачивать список</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span className="text-cyan-400">•</span>
+                  <span className="text-gray-200">Кнопка неактивна, пока не будет введена сумма и выбрана категория</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span className="text-cyan-400">•</span>
+                  <span className="text-gray-200">При заходе на экран инпут суммы сразу в фокусе, клавиатура открыта. Так мы сократим время на тапе и сразу позволим ввести сумму (за этим пользователь и пришел на экран)</span>
+                </div>
+              </div>
+              <div className="mt-6 text-gray-400 text-sm italic">
+                Для удобства и скорости можно также использовать кастомную клавиатуру на экране, как у конкурентов, но я посчитал, что автоматический фокус на инпуте сработает не хуже, а системная клавиатура будет привычнее для пользователя.
+              </div>
+            </div>
+          </div>
+        )
+      } else if (line.includes('LAYOUT_SECOND')) {
+        // Handle second layout section with image and text side by side
+        return (
+          <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
+            <div className="lg:w-1/2">
+              <img 
+                src="/assets/New folder/iPhone_13_mini 1.png" 
+                alt="iPhone 13 mini mockup 1"
+                className="w-full h-auto rounded-lg object-contain"
+              />
+            </div>
+            <div className="lg:w-1/2">
+              <div className="space-y-4">
+                <div className="flex items-start space-x-2">
+                  <span className="text-cyan-400">•</span>
+                  <span className="text-gray-200">Выделил категории разными цветами, но сделал их пастельными, не яркими, чтоб не резали глаз при ежедневном использовании. Если для каждой категории установить фиксированный цвет, то юзер может ориентироваться еще и по цвету в выборе категории</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span className="text-cyan-400">•</span>
+                  <span className="text-gray-200">Дата по умолчанию стоит "сегодня". При необходимости юзер нажмет на иконку и в боттом шит календаре выберет нужную дату</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span className="text-cyan-400">•</span>
+                  <span className="text-gray-200">Инпут комментария не занимает много места, лейбл в плейсхолдере. Сразу указал в нем на опциональность функции, чтобы пользователь точно не запутался</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      } else if (line.includes('LAYOUT_IMAGES')) {
+        // Handle three layout images in row
+        return (
+          <div key={index}>
+            <div className="flex flex-col lg:flex-row gap-6 justify-start items-center w-full my-12">
+              <img 
+                src="/assets/New folder/iPhone_13_mini 2.png" 
+                alt="iPhone 13 mini mockup 2"
+                className="w-full lg:w-[30%] h-auto object-contain"
+              />
+              <img 
+                src="/assets/New folder/iPhone_13_mini 3.png" 
+                alt="iPhone 13 mini mockup 3"
+                className="w-full lg:w-[30%] h-auto object-contain"
+              />
+              <img 
+                src="/assets/New folder/iPhone_13_mini 4.png" 
+                alt="iPhone 13 mini mockup 4"
+                className="w-full lg:w-[30%] h-auto object-contain"
+              />
+            </div>
+            <div className="mt-6 text-gray-400 text-sm italic">
+              Если категорий много, то можно использовать боттом шит с поиском, чтобы не нагружать основной экран и сделать поиск более удобным.
+            </div>
+          </div>
+        )
       } else if (line.trim().startsWith('<div')) {
         // Handle HTML div tags for flex layouts
         if (line.includes('zenmoney')) {
@@ -1277,25 +1364,25 @@ const CaseStudy = () => {
         {
           id: 'ux-solutions',
           title: 'UX-решения',
-          content: 'Предложенные UX-решения для решения проблем пользователей.',
+          content: '- Главный фокус на сумме: крупный доминирующий инпут, сразу получает фокус и вызывает клавиатуру\n\n- Тип операции по умолчанию - расход: 80–90% операций у пользователей составляют траты, поэтому дефолт снижает один шаг\n\n- Быстрый выбор категории: отображается 4–5 самых частых категорий (на основе истории или времени дня). Полный список можно открыть тапом\n\n- Кнопка "сохранить" всегда в зоне видимости: становится активной после ввода суммы и выбора категории',
           images: []
         },
         {
           id: 'flow',
           title: 'Флоу',
-          content: 'Описание пользовательского пути и флоу взаимодействия.',
+          content: 'Сценарий для быстрой фиксации расхода: \n\n1. Юзер нажимает "добавить операцию" (на главном экране, например)\n2. Переходит на экран. Фокус сразу на поле для суммы, открывается клавиатура\n3. Пользователь вводит сумму, тип операции по умолчанию "расход"\n4. Выбирает категорию одним тапом из 4-5 предложенных иконок\n5. Нажимает "сохранить"\n\nОбщее количество действий  2-3 тапа, все происходит на одном экране без переходов.',
           images: []
         },
         {
           id: 'layout',
           title: 'Макет',
-          content: 'Описание финального макета и интерфейса.',
+          content: 'LAYOUT_START\n\nLAYOUT_SECOND\n\nLAYOUT_IMAGES',
           images: []
         },
         {
           id: 'result',
           title: 'Итог',
-          content: 'Итоги проекта и достигнутые результаты.',
+          content: '- Чистая визуальная иерархия: я выделил два главных действия - ввод суммы и выбор категории. Это позволяет пользователю совершить операцию за минимальное количество времени.\n\n- Снижение когнитивной нагрузки: все второстепенные опции (дата, комментарий) вынесены в лаконичный список.\n\n- Скорость: горизонтальная сетка категорий и оптимизированный список позволяют добавить операцию "на ходу" одной рукой, что является критическим сценарием для финансового трекера.',
           images: []
         }
       ]
