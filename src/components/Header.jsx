@@ -65,7 +65,7 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1 text-sm font-medium bg-amber-500 text-gray-900 rounded-lg hover:bg-amber-400 transition-colors"
+              className="px-3 py-1 text-sm font-medium bg-gray-600 text-gray-200 rounded-lg hover:bg-gray-700 transition-colors"
             >
               {language === 'ru' ? 'EN' : 'RU'}
             </button>

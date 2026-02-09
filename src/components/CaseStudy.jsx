@@ -566,6 +566,7 @@ const CaseStudy = () => {
     return (
       <section 
         key={section.id}
+        id={section.id}
         data-section={section.id}
         className={`scroll-mt-16 mb-16`}
       >
@@ -1751,14 +1752,21 @@ const CaseStudy = () => {
         const sections = contentRef.current.querySelectorAll('[data-section]')
         const scrollPosition = window.scrollY + 100
 
-        sections.forEach(section => {
+        console.log('📜 Scroll position:', scrollPosition)
+        console.log('📜 Found sections:', sections.length)
+
+        let currentActiveSection = null
+        
+        // Проверяем секции в обратном порядке (снизу вверх)
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i]
           const sectionId = section.dataset.section
           const isToggleable = toggleableSections.includes(sectionId)
           const isExpanded = expandedSections[sectionId] || !isToggleable
           
           let sectionTop = section.offsetTop
           
-          // For collapsed sections, find the first visible element inside
+          // For collapsed sections, find first visible element inside
           if (!isExpanded) {
             const header = section.querySelector('h2, h3')
             if (header) {
@@ -1766,10 +1774,18 @@ const CaseStudy = () => {
             }
           }
           
+          console.log(`📜 Section "${sectionId}": top=${sectionTop}, expanded=${isExpanded}`)
+          
           if (scrollPosition >= sectionTop) {
-            setActiveSection(sectionId)
+            currentActiveSection = sectionId
+            console.log(`✅ Setting active section to: ${sectionId}`)
+            break // Нашли подходящую секцию, выходим из цикла
           }
-        })
+        }
+        
+        if (currentActiveSection) {
+          setActiveSection(currentActiveSection)
+        }
       }
     }
 
@@ -1778,9 +1794,23 @@ const CaseStudy = () => {
   }, [expandedSections, toggleableSections])
 
   const scrollToSection = (sectionId) => {
+    console.log('🎯 scrollToSection called with:', sectionId)
     const element = document.getElementById(sectionId)
+    console.log('📍 Element found:', element)
+    
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      console.log('📏 Element position:', element.offsetTop)
+      console.log('📏 Element height:', element.offsetHeight)
+      console.log('📏 Current scroll position:', window.scrollY)
+      
+      try {
+        element.scrollIntoView({ behavior: 'smooth' })
+        console.log('✅ scrollIntoView executed successfully')
+      } catch (error) {
+        console.error('❌ scrollIntoView failed:', error)
+      }
+    } else {
+      console.error('❌ Element not found with ID:', sectionId)
     }
   }
 
