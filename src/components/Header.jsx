@@ -20,7 +20,7 @@ const Header = () => {
     { name: t('nav.home'), href: '/' },
     { name: t('nav.projects'), href: '/#projects' },
     { name: t('nav.about'), href: '/#about' },
-    { name: t('nav.resume'), href: '/#resume' },
+    { name: t('nav.resume'), href: '/assets/Resume Andrian Shtark.pdf', download: true },
     { name: t('nav.contact'), action: 'contact' }
   ]
 
@@ -38,37 +38,31 @@ const Header = () => {
             <h1 className="text-xl font-bold text-white">Andrian Shtark</h1>
           </div>
           
-          <nav className="hidden md:block">
-            <ul className="flex items-center space-x-8">
-              {navItems.map((item) => (
-                <li key={item.name}>
-                  {item.action === 'contact' ? (
-                    <button
-                      onClick={() => setIsContactOpen(true)}
-                      className="text-gray-300 hover:text-white transition-colors font-medium"
-                    >
-                      {item.name}
-                    </button>
-                  ) : (
-                    <a
-                      href={item.href}
-                      className="text-gray-300 hover:text-white transition-colors font-medium"
-                    >
-                      {item.name}
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
-
           <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleLanguage}
-              className="px-3 py-1 text-sm font-medium bg-gray-600 text-gray-200 rounded-lg hover:bg-gray-700 transition-colors"
-            >
-              {language === 'ru' ? 'EN' : 'RU'}
-            </button>
+            <nav className="hidden md:block">
+              <ul className="flex items-center space-x-8">
+                {navItems.map((item) => (
+                  <li key={item.name}>
+                    {item.action === 'contact' ? (
+                      <button
+                        onClick={() => setIsContactOpen(true)}
+                        className="text-gray-300 hover:text-white transition-colors font-medium"
+                      >
+                        {item.name}
+                      </button>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="text-gray-300 hover:text-white transition-colors font-medium"
+                        {...(item.download && { download: true, target: '_blank' })}
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
             
             <button
               className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800"
@@ -112,6 +106,7 @@ const Header = () => {
                       href={item.href}
                       className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                       onClick={() => setIsMobileMenuOpen(false)}
+                      {...(item.download && { download: true, target: '_blank' })}
                     >
                       {item.name}
                     </a>
