@@ -18,10 +18,10 @@ const Footer = () => {
               </p>
             </div>
             <div className="flex space-x-6">
-              <a href="#projects" className="text-gray-500 hover:text-gray-300 transition-colors">
+              <a href="/#projects" className="text-gray-500 hover:text-gray-300 transition-colors">
                 {t('nav.projects')}
               </a>
-              <a href="#about" className="text-gray-500 hover:text-gray-300 transition-colors">
+              <a href="/#about" className="text-gray-500 hover:text-gray-300 transition-colors">
                 {t('nav.about')}
               </a>
               <button

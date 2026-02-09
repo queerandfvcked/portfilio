@@ -18,9 +18,9 @@ const Header = () => {
 
   const navItems = [
     { name: t('nav.home'), href: '/' },
-    { name: t('nav.projects'), href: '#projects' },
-    { name: t('nav.about'), href: '#about' },
-    { name: t('nav.resume'), href: '#resume' },
+    { name: t('nav.projects'), href: '/#projects' },
+    { name: t('nav.about'), href: '/#about' },
+    { name: t('nav.resume'), href: '/#resume' },
     { name: t('nav.contact'), action: 'contact' }
   ]
 
