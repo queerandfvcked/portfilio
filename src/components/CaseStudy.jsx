@@ -865,8 +865,8 @@ const CaseStudy = () => {
           </div>
         )}
 
-        {/* Image pairs for card demonstrations */}
-        {section.imagePairs && section.imagePairs.length > 0 && (
+        {/* Image pairs for card demonstrations (non-UI sections) */}
+        {section.imagePairs && section.imagePairs.length > 0 && section.id !== 'ui' && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
             {section.imagePairs.map((pair, pairIndex) => (
               <div key={pairIndex} className="cursor-pointer group" onClick={() => openImageModal(pair.desktop)}>
@@ -875,7 +875,6 @@ const CaseStudy = () => {
                   alt={`${section.title} - Card ${pairIndex + 1}`}
                   className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
                 />
-                <p className="text-center text-gray-400 text-sm mt-2">Card {pairIndex + 1}</p>
               </div>
             ))}
           </div>
@@ -960,16 +959,16 @@ const CaseStudy = () => {
         {/* UI section specific content */}
         {section.id === 'ui' && (
           <>
-            {/* Image pairs for desktop/mobile comparison */}
+            {/* Image pairs for desktop/mobile comparison in UI section */}
             {section.imagePairs && section.imagePairs.length > 0 && (
-              <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
                 {section.imagePairs.map((pair, pairIndex) => (
-                  <div key={pairIndex} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <React.Fragment key={pairIndex}>
                     <div className="cursor-pointer group" onClick={() => openImageModal(pair.desktop)}>
                       <img
                         src={pair.desktop}
                         alt={`${section.title} - Desktop ${pairIndex + 1}`}
-                        className="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                        className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
                       />
                       <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
                     </div>
@@ -981,7 +980,7 @@ const CaseStudy = () => {
                       />
                       <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
                     </div>
-                  </div>
+                  </React.Fragment>
                 ))}
               </div>
             )}
