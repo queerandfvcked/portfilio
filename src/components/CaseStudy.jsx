@@ -15,6 +15,7 @@ const CaseStudy = () => {
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
+  const [currentSlide, setCurrentSlide] = useState(0)
   const contentRef = useRef(null)
 
   // Toggle section expansion
@@ -98,6 +99,7 @@ const CaseStudy = () => {
 
   // Format content with markdown-like syntax
   const formatContent = (content) => {
+    if (!content) return null
     const lines = content.split('\n')
     let inTable = false
     let tableContent = []
@@ -577,8 +579,122 @@ const CaseStudy = () => {
           </div>
         </div>
 
-        {/* Images for this section */}
-        {section.images && section.images.length > 0 && (
+        {/* Special rendering for final-mockups */}
+        {section.id === 'final-mockups' ? (
+          <div>
+            <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-8">
+              <div className="text-lg leading-relaxed">
+                {formatContent(section.additionalContent)}
+              </div>
+            </div>
+            
+            <div className="mt-8">
+              {section.images.map((image, index) => (
+                <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                  <img
+                    src={image}
+                    alt="Jobs, Filter, Found Screens"
+                    className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+              <div className="text-lg leading-relaxed">
+                {formatContent(section.additionalContent2)}
+              </div>
+            </div>
+            
+            {/* Additional images for final-mockups */}
+            {section.additionalImages && section.additionalImages.length > 0 && (
+              <div className="mt-8">
+                {section.additionalImages.map((image, index) => (
+                  <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                    <img
+                      src={image}
+                      alt={`${section.title} - Additional Image ${index + 1}`}
+                      className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+            
+            {/* Additional content 3 for final-mockups */}
+            {section.additionalContent3 && (
+              <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+                <div className="text-lg leading-relaxed">
+                  {formatContent(section.additionalContent3)}
+                </div>
+              </div>
+            )}
+            
+            {/* Additional content 4 for final-mockups */}
+            {section.additionalContent4 && (
+              <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-4">
+                <div className="text-lg leading-relaxed">
+                  {formatContent(section.additionalContent4)}
+                </div>
+              </div>
+            )}
+            
+            {/* Additional images 2 for final-mockups */}
+            {section.additionalImages2 && section.additionalImages2.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                {section.additionalImages2.map((image, index) => (
+                  <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                    <img
+                      src={image}
+                      alt={index === 0 ? 'profile' : 'profile2'}
+                      className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+            
+            {/* Additional content 5 for final-mockups */}
+            {section.additionalContent5 && (
+              <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+                <div className="text-lg leading-relaxed">
+                  {formatContent(section.additionalContent5)}
+                </div>
+              </div>
+            )}
+            
+            {/* Additional images 3 for final-mockups */}
+            {section.additionalImages3 && section.additionalImages3.length > 0 && (
+              <div className="mt-8">
+                {section.additionalImages3.map((image, index) => (
+                  <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                    <img
+                      src={image}
+                      alt={`${section.title} - Resume Creating`}
+                      className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+            
+            {/* Additional content 6 for final-mockups */}
+            {section.additionalContent6 && (
+              <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+                <div className="text-lg leading-relaxed">
+                  {formatContent(section.additionalContent6)}
+                </div>
+              </div>
+            )}
+            
+            {/* Additional content 7 for final-mockups */}
+            {section.additionalContent7 && (
+              <div className="w-full mb-8 mt-12">
+                <div dangerouslySetInnerHTML={{ __html: section.additionalContent7 }} />
+              </div>
+            )}
+          </div>
+        ) : (
           <div className={section.id === 'research-analysis' ? "grid grid-cols-1 md:grid-cols-2 gap-4 mt-8" : "space-y-8 mb-8"}>
             {section.images.map((image, index) => (
               <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
@@ -604,7 +720,7 @@ const CaseStudy = () => {
         )}
         
         {/* Additional content after images */}
-        {section.additionalContent && (
+        {section.additionalContent && section.id !== 'final-mockups' && (
           <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
             <div className="text-lg leading-relaxed">
               {formatContent(section.additionalContent)}
@@ -622,11 +738,20 @@ const CaseStudy = () => {
         )}
 
         {/* Additional images after content */}
-        {section.additionalImages && section.additionalImages.length > 0 && (
+        {section.additionalImages && section.additionalImages.length > 0 && section.id !== 'final-mockups' && (
           <div className={section.id === 'research-analysis' ? "grid grid-cols-1 md:grid-cols-2 gap-4 mt-8" : "space-y-8 mb-8"}>
             {section.additionalImages.map((image, index) => (
               <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
-                {section.id === 'structure-design' ? (
+                {section.id === 'research-analysis' ? (
+                  <div>
+                    <img
+                      src={image}
+                      alt={index === 0 ? 'hh vs hired 1' : 'hh vs hired 2'}
+                      className="w-full max-w-full h-auto lg:h-96 lg:h-[32rem] object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                    />
+                    <p className="text-center text-gray-400 text-sm mt-2">{index === 0 ? 'HH' : 'Hired'}</p>
+                  </div>
+                ) : section.id === 'structure-design' ? (
                   <div>
                     <img
                       src={image}
@@ -649,7 +774,7 @@ const CaseStudy = () => {
         )}
 
         {/* More content after additional images */}
-        {section.moreContent && section.id !== 'structure-design' && (
+        {section.moreContent && section.id !== 'structure-design' && section.id !== 'final-mockups' && (
           <div className={`prose prose-lg text-gray-200 max-w-none mb-8 ${section.id === 'structure-design' ? 'mt-4' : 'mt-12'}`}>
             <div className="text-lg leading-relaxed">
               {formatContent(section.moreContent)}
@@ -658,7 +783,7 @@ const CaseStudy = () => {
         )}
 
         {/* Additional content 2 after more content */}
-        {section.additionalContent2 && (
+        {section.additionalContent2 && section.id !== 'final-mockups' && (
           <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
             <div className="text-lg leading-relaxed">
               {formatContent(section.additionalContent2)}
@@ -667,7 +792,7 @@ const CaseStudy = () => {
         )}
 
         {/* Additional content 3 after content 2 */}
-        {section.additionalContent3 && (
+        {section.additionalContent3 && section.id !== 'final-mockups' && (
           <div key="content3" className="cursor-pointer group" onClick={() => openImageModal(section.additionalContent3)}>
             <div>
               <img
@@ -680,11 +805,18 @@ const CaseStudy = () => {
         )}
 
         {/* Additional content 4 after content 3 */}
-        {section.additionalContent4 && (
+        {section.additionalContent4 && section.id !== 'final-mockups' && (
           <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
             <div className="text-lg leading-relaxed">
               {formatContent(section.additionalContent4)}
             </div>
+          </div>
+        )}
+
+        {/* Additional content 5 after content 4 */}
+        {section.additionalContent5 && section.id !== 'final-mockups' && (
+          <div className="w-full mb-8">
+            <div dangerouslySetInnerHTML={{ __html: section.additionalContent5 }} />
           </div>
         )}
 
@@ -862,6 +994,56 @@ const CaseStudy = () => {
                 </p>
               </div>
             </div>
+
+            {/* Onboarding images slider for UI section */}
+            {section.onboardingImages && section.onboardingImages.length > 0 && (
+              <div className="relative mt-8">
+                <div className="overflow-hidden rounded-lg">
+                  <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                    {section.onboardingImages.map((image, index) => (
+                      <div key={index} className="flex-shrink-0 w-full">
+                        <div className="cursor-pointer group" onClick={() => openImageModal(image)}>
+                          <img
+                            src={image}
+                            alt={`${section.title} - Onboarding ${index + 1}`}
+                            className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 bg-transparent"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Navigation dots */}
+                <div className="flex justify-center mt-4 space-x-2">
+                  {section.onboardingImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-3 h-3 rounded-full transition-colors ${
+                        index === currentSlide ? 'bg-cyan-400' : 'bg-gray-600'
+                      }`}
+                    />
+                  ))}
+                </div>
+                
+                {/* Navigation arrows */}
+                <button
+                  onClick={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
+                  disabled={currentSlide === 0}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={() => setCurrentSlide(Math.min(section.onboardingImages.length - 1, currentSlide + 1))}
+                  disabled={currentSlide === section.onboardingImages.length - 1}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  ›
+                </button>
+              </div>
+            )}
 
             {/* Additional text after onboarding slider for UI section */}
             <div className="prose prose-lg text-gray-200 max-w-none mt-8">
@@ -1366,13 +1548,24 @@ const CaseStudy = () => {
           additionalContent2: '## Информационная архитектура\n\nОпределил, какие разделы будут, как они связаны и как логически выстроена навигация.',
           additionalContent3: '/assets/hired app/Frame_1984077494 1.png',
           additionalContent4: '## Вайрфреймы\n\nСделал черновую отрисовку ключевых экранов, чтобы оценить, как будет выглядеть интерфейс и где у пользователя могут возникнуть проблемы.',
+          additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
           finalImages: []
         },
         {
           id: 'final-mockups',
           title: 'Финальные макеты и прототип',
-          content: 'Описание финальных макетов и прототипов.',
-          images: []
+          content: 'Полный визуал кейса я оформил на behance, сюда вставлю только пару ключевых флоу.',
+          additionalContent: '## Поиск вакансии и отклик\n\nПользователь быстро находит релевантные вакансии благодаря гибкому фильтру, который позволяет комбинировать локальные и удаленные форматы работы. Это устраняет необходимость просматривать сотни неподходящих предложений.',
+          images: ['/assets/hired app/pics.png'],
+          additionalContent2: 'После того, как пользователь нашел подходящую вакансию, он откликается на нее, предварительно выбрав резюме для отклика и по желанию прикрепив сопроводительное письмо. На странице вакансии отмечается, с каким резюме был отправлен отклик.',
+          additionalImages: ['/assets/hired app/stack.png'],
+          additionalContent3: '## Создание резюме',
+          additionalContent4: 'Опция создания резюме появляется сразу после регистрации. Также пользователь может в любой момент добавить новое резюме через вкладку "профиль".',
+          additionalImages2: ['/assets/hired app/profile.png', '/assets/hired app/profile2.png'],
+          additionalContent5: 'Чтобы снизить барьер входа и мотивировать пользователя к отклику, процесс создания резюме был максимально упрощен. Мы разбили заполнение на 5 логических, пошаговых этапов, исключив избыточную информацию и фокусируясь только на том, что первостепенно важно.',
+          additionalImages3: ['/assets/hired app/resume creating.png'],
+          additionalContent6: '## Прототип',
+          additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
         }
       ]
     },
