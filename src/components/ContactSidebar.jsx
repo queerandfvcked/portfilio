@@ -48,22 +48,20 @@ const ContactSidebar = ({ isOpen, onClose }) => {
     }
   ]
 
-  if (!isOpen) return null
-
   return (
     <>
       {/* Overlay with fade animation */}
       <div 
-        className={`fixed inset-0 bg-black z-40 transition-all duration-300 ${
-          isOpen ? 'opacity-50' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 bg-black z-40 transition-all duration-500 ease-in-out ${
+          isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
       />
       
       {/* Sidebar with slide-out animation */}
       <div 
-        className={`fixed right-0 top-0 h-screen w-full md:h-full md:w-96 shadow-2xl z-50 transition-all duration-500 ease-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed right-0 top-0 h-screen w-full md:h-full md:w-96 shadow-2xl z-50 transition-all duration-700 ease-in-out transform ${
+          isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
         }`}
         style={{
           backgroundColor: '#111318'
