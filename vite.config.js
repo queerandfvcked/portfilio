@@ -9,6 +9,14 @@ export default defineConfig({
     assetsDir: 'assets'
   },
   server: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    headers: {
+      'Content-Type': 'image/svg+xml'
+    }
+  },
+  preview: {
+    headers: {
+      'Content-Type': 'image/svg+xml'
+    }
   }
 })
