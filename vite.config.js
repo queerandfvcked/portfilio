@@ -6,17 +6,11 @@ export default defineConfig({
   base: '/',
   build: {
     outDir: 'dist',
-    assetsDir: 'assets'
+    assetsDir: 'assets',
+    copyPublicDir: true  // Добавь эту строку!
   },
   server: {
-    historyApiFallback: true,
-    headers: {
-      'Content-Type': 'image/svg+xml'
-    }
-  },
-  preview: {
-    headers: {
-      'Content-Type': 'image/svg+xml'
-    }
+    port: 5173,  // Явно укажи порт
+    open: true    // Автооткрытие браузера
   }
 })

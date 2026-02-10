@@ -4,18 +4,7 @@ import { useTranslation } from '../contexts/LanguageContext'
 const Hero = () => {
   const { t } = useTranslation()
 
-  const skills = [
-    'Продуктовая логика',
-    'Проектирование MVP', 
-    'UX-исследования',
-    'Информационная архитектура',
-    'Дизайн-системы',
-    'Вайбкодинг',
-    'Прототипирование',
-    'Адаптивный дизайн',
-    'Продуктовые метрики',
-    'Доступность'
-  ]
+  const skills = t('skills')
 
   return (
     <section className="min-h-screen flex items-center pt-16 relative overflow-hidden">
