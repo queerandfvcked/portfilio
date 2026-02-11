@@ -250,6 +250,48 @@ const translations = {
             images: []
           }
         ]
+      },
+      keeplLanding: {
+        title: 'Keepl Landing Page',
+        subtitle: 'Landing Page',
+        description: 'Keepl Landing Page — лендинг для экосистемы трекинга целей. Спроектировал структуру страницы, выстраивая повествование от «боли» пользователя к решению, чтобы удержать внимание и максимально раскрыть ценность продукта. Перенес визуальный концепт приложения в адаптивный веб-дизайн и реализовал фронтенд с помощью ИИ, обеспечивая точность и соответствие интерфейса оригиналу.',
+        tags: ['Product Design', 'Web', 'Mobile', 'Frontend (React)'],
+        sections: [
+          {
+            id: 'problem',
+            title: 'Проблема',
+            content: '### Контекст\n\nKeepl - это MVP адаптивного трекера целей, который строится на гибкой методологии. Продукт нацелен на аудиторию, склонную к выгоранию от классических жестких таск-менеджеров.\n\n### Продуктовая проблема\n\nИз-за технических ограничений мы не смогли избежать обязательной регистрации аккаунта для использования приложения. В условиях перенасыщенного рынка трекеров привычек это создает две критические проблемы:\n\n- Высокий Friction: пользователь еще не доверяет продукту, но уже должен отдать свои данные.\n- Delayed TTV: момент осознания ценности продукта откладывается до завершения онбординга внутри приложения.\n\n### Бизнес-риск\n\nБез "прогрева" на лендинге большинство пользователей отвалятся на этапе авторизации, так и не узнав, чем keepl отличается от десятков аналогов.',
+            images: []
+          },
+          {
+            id: 'task-hypothesis',
+            title: 'Задача и гипотеза',
+            content: 'Как заставить пользователя пройти через "стену" регистрации, когда он еще ничего не знает о продукте?\n\n### Гипотеза\n\nЕсли мы вынесем демонстрацию ценности (aha-moment) на лендинг, то:\n\n- Конверсия в регистрацию вырастет, так как юзер будет мотивирован конкретным профитом, а не просто любопытством.\n- Activation Rate внутри приложения увеличится, так как пользователь придет уже "подготовленным" и будет знать, как работают ключевые фичи.',
+            images: []
+          },
+          {
+            id: 'solution',
+            title: 'Решение',
+            content: 'Спроектировать лендинг, который работает как инструмент пре-активации: снимает страх перед обязательной регистрацией, обучая пользователя методологии Keepl и демонстрируя ценность продукта еще до создания аккаунта.',
+            images: []
+          },
+          {
+            id: 'implementation',
+            title: 'Реализация',
+            content: '## Hero-section & Philosophy\n\nПоскольку продукт требует регистрации, нужно было зацепить внимание пользователя не функционалом, а общностью ценностей.\n\nТекст о неидеальных днях бьет в боль целевой аудитории и объясняет зачем им нужен еще один трекер.',
+            images: [],
+            additionalContent: '## What can you do with Keepl?\n\nБлок служит мостом между философией и интерфейсом. Я выделил конкретные действия, чтобы пользователь сразу "примерил" продукт на свой образ жизни.\n\nЭто снижает когнитивную нагрузку и готовит юзера к онбордингу внутри приложения.',
+            moreContent: '## Features\n\nВместо простого перечисления функций, каждый блок закрывает конкретный страх пользователя: сложность старта, риск выгорания, непонимание прогресса и отсутствие эмоциональной связи с результатом.',
+            lastContent: 'Для того, чтобы пользователь смог "пощупать" продукт до регистрации, я добавил интерактивности элементам интерфейса.\n\nНапример, принцип работы легкой альтернативы юзер сможет понять, нажав на кнопку в карточке:',
+            finalSection: '## Финальный CTA и футер'
+          },
+          {
+            id: 'results',
+            title: 'Результат',
+            content: 'На текущем этапе спроектирована целостная точка входа, которая транслирует методологию Keepl и подготавливает пользователя к регистрации.',
+            images: []
+          }
+        ]
       }
     },
     // Projects
@@ -585,6 +627,48 @@ const translations = {
             id: 'results',
             title: 'Project Status',
             content: 'Designed and implemented complete user experience for a goal tracking app. Created 15+ screens with responsive design and developed a design system with 50+ components. Implemented complex navigation with user context preservation. Backend development is in progress.',
+            images: []
+          }
+        ]
+      },
+      keeplLanding: {
+        title: 'Keepl Landing Page',
+        subtitle: 'Landing Page',
+        description: 'Keepl Landing Page - landing page for goal tracking ecosystem. I designed the page structure, building a narrative from user pain to solution to retain attention and maximally reveal product value. I transferred the visual concept of the application to adaptive web design and implemented the frontend using AI, ensuring accuracy and interface compliance with the original.',
+        tags: ['Product Design', 'Web', 'Mobile', 'Frontend (React)'],
+        sections: [
+          {
+            id: 'problem',
+            title: 'Problem',
+            content: '### Context\n\nKeepl is an MVP adaptive goal tracker built on flexible methodology. The product targets an audience prone to burnout from classic rigid task managers.\n\n### Product Problem\n\nDue to technical limitations, we couldn\'t avoid mandatory account registration for app use. In an oversaturated habit tracker market, this creates two critical problems:\n\n- High Friction: the user doesn\'t trust the product yet but must already give their data.\n- Delayed TTV: the moment of realizing the product\'s value is delayed until onboarding completion inside the app.\n\n### Business Risk\n\nWithout "warming up" on the landing page, most users will drop off at the authorization stage without ever knowing what makes Keepl different from dozens of alternatives.',
+            images: []
+          },
+          {
+            id: 'task-hypothesis',
+            title: 'Task & Hypothesis',
+            content: 'How to make users go through the registration "wall" when they don\'t know anything about the product yet?\n\n### Hypothesis\n\nIf we move the value demonstration (aha-moment) to the landing page, then:\n\n- Conversion to registration will grow because the user will be motivated by specific benefits, not just curiosity.\n- Activation Rate inside the app will increase because users will arrive "prepared" and already know how key features work.',
+            images: []
+          },
+          {
+            id: 'solution',
+            title: 'Solution',
+            content: 'Design a landing page that works as a pre-activation tool: removes fear of mandatory registration by teaching users Keepl methodology and demonstrating product value before account creation.',
+            images: []
+          },
+          {
+            id: 'implementation',
+            title: 'Implementation',
+            content: '## Hero-section & Philosophy\n\nSince the product requires registration, I needed to grab attention not with features but with shared values.\n\nThe text about imperfect days hits the target audience\'s pain point and explains why they need another tracker.',
+            images: [],
+            additionalContent: '## What can you do with Keepl?\n\nThe block serves as a bridge between philosophy and the interface. I highlighted specific actions so users could immediately "try on" the product for their lifestyle.\n\nThis reduces cognitive load and prepares users for onboarding inside the app.',
+            moreContent: '## Features\n\nInstead of simply listing features, each block addresses a specific user fear: complexity of starting, risk of burnout, lack of understanding of progress, and absence of emotional connection to results.',
+            lastContent: 'To let users "feel" the product before registering, I added interactivity to interface elements.\n\nFor example, users can understand how the lighter alternative works by clicking a button on the card:',
+            finalSection: '## Final CTA & Footer'
+          },
+          {
+            id: 'results',
+            title: 'Result',
+            content: 'At this stage, a cohesive entry point has been designed that conveys Keepl methodology and prepares users for registration.',
             images: []
           }
         ]

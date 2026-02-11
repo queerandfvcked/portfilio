@@ -3198,13 +3198,13 @@ const CaseStudy = () => {
 
     'keepl-landing': {
 
-      title: 'Keepl Landing Page',
+      title: t('caseStudies.keeplLanding.title'),
 
-      subtitle: 'Landing Page',
+      subtitle: t('caseStudies.keeplLanding.subtitle'),
 
-      description: 'Keepl Landing Page — лендинг для экосистемы трекинга целей. Спроектировал структуру страницы, выстраивая повествование от «боли» пользователя к решению, чтобы удержать внимание и максимально раскрыть ценность продукта. Перенес визуальный концепт приложения в адаптивный веб-дизайн и реализовал фронтенд с помощью ИИ, обеспечивая точность и соответствие интерфейса оригиналу.',
+      description: t('caseStudies.keeplLanding.description'),
 
-      tags: ['Product Design', 'Web', 'Mobile', 'Frontend (React)'],
+      tags: t('caseStudies.keeplLanding.tags'),
 
       heroImage: '/assets/landing.png',
 
@@ -3224,9 +3224,9 @@ const CaseStudy = () => {
 
           id: 'problem',
 
-          title: 'Проблема',
+          title: t('caseStudies.keeplLanding.sections.0.title'),
 
-          content: '### Контекст\n\nKeepl - это MVP адаптивного трекера целей, который строится на гибкой методологии. Продукт нацелен на аудиторию, склонную к выгоранию от классических жестких таск-менеджеров.\n\n### Продуктовая проблема\n\nИз-за технических ограничений мы не смогли избежать обязательной регистрации аккаунта для использования приложения. В условиях перенасыщенного рынка трекеров привычек это создает две критические проблемы:\n\n- Высокий Friction: пользователь еще не доверяет продукту, но уже должен отдать свои данные.\n- Delayed TTV: момент осознания ценности продукта откладывается до завершения онбординга внутри приложения.\n\n### Бизнес-риск\n\nБез "прогрева" на лендинге большинство пользователей отвалятся на этапе авторизации, так и не узнав, чем keepl отличается от десятков аналогов.',
+          content: t('caseStudies.keeplLanding.sections.0.content'),
 
           images: []
 
@@ -3236,9 +3236,9 @@ const CaseStudy = () => {
 
           id: 'task-hypothesis',
 
-          title: 'Задача и гипотеза',
+          title: t('caseStudies.keeplLanding.sections.1.title'),
 
-          content: 'Как заставить пользователя пройти через "стену" регистрации, когда он еще ничего не знает о продукте?\n\n### Гипотеза\n\nЕсли мы вынесем демонстрацию ценности (aha-moment) на лендинг, то:\n\n- Конверсия в регистрацию вырастет, так как юзер будет мотивирован конкретным профитом, а не просто любопытством.\n- Activation Rate внутри приложения увеличится, так как пользователь придет уже "подготовленным" и будет знать, как работают ключевые фичи.',
+          content: t('caseStudies.keeplLanding.sections.1.content'),
 
           images: []
 
@@ -3248,9 +3248,9 @@ const CaseStudy = () => {
 
           id: 'solution',
 
-          title: 'Решение',
+          title: t('caseStudies.keeplLanding.sections.2.title'),
 
-          content: 'Спроектировать лендинг, который работает как инструмент пре-активации: снимает страх перед обязательной регистрацией, обучая пользователя методологии Keepl и демонстрируя ценность продукта еще до создания аккаунта.',
+          content: t('caseStudies.keeplLanding.sections.2.content'),
 
           images: []
 
@@ -3260,23 +3260,23 @@ const CaseStudy = () => {
 
           id: 'implementation',
 
-          title: 'Реализация',
+          title: t('caseStudies.keeplLanding.sections.3.title'),
 
-          content: '## Hero-section & Philosophy\n\nПоскольку продукт требует регистрации, нужно было зацепить внимание пользователя не функционалом, а общностью ценностей.\n\nТекст о неидеальных днях бьет в боль целевой аудитории и объясняет зачем им нужен еще один трекер.',
+          content: t('caseStudies.keeplLanding.sections.3.content'),
 
           images: ['/assets/keepl landing page/Hero-section & Philosophy.png'],
 
           imageFullWidth: true,
 
-          additionalContent: '## What can you do with Keepl?\n\nБлок служит мостом между философией и интерфейсом. Я выделил конкретные действия, чтобы пользователь сразу "примерил" продукт на свой образ жизни.\n\nЭто снижает когнитивную нагрузку и готовит юзера к онбордингу внутри приложения.',
+          additionalContent: t('caseStudies.keeplLanding.sections.3.additionalContent'),
 
           additionalImages: ['/assets/keepl landing page/What can you do with Keepl.png'],
 
-          moreContent: '## Features\n\nВместо простого перечисления функций, каждый блок закрывает конкретный страх пользователя: сложность старта, риск выгорания, непонимание прогресса и отсутствие эмоциональной связи с результатом.',
+          moreContent: t('caseStudies.keeplLanding.sections.3.moreContent'),
 
           finalImages: ['/assets/keepl landing page/Features.png'],
 
-          lastContent: 'Для того, чтобы пользователь смог "пощупать" продукт до регистрации, я добавил интерактивности элементам интерфейса.\n\nНапример, принцип работы легкой альтернативы юзер сможет понять, нажав на кнопку в карточке:',
+          lastContent: t('caseStudies.keeplLanding.sections.3.lastContent'),
 
           imagePairs: [
 
@@ -3298,7 +3298,7 @@ const CaseStudy = () => {
 
           ],
 
-          finalSection: '## Финальный CTA и футер',
+          finalSection: t('caseStudies.keeplLanding.sections.3.finalSection'),
 
           ctaImage: '/assets/keepl landing page/CTA and footer.png'
 
@@ -3308,9 +3308,9 @@ const CaseStudy = () => {
 
           id: 'results',
 
-          title: 'Результат',
+          title: t('caseStudies.keeplLanding.sections.4.title'),
 
-          content: 'На текущем этапе спроектирована целостная точка входа, которая транслирует методологию Keepl и подготавливает пользователя к регистрации.',
+          content: t('caseStudies.keeplLanding.sections.4.content'),
 
           images: []
 
