@@ -824,7 +824,10 @@ const CaseStudy = () => {
 
         )
 
-      } else if (line.startsWith('Таким образом, рынок закрывает разные аспекты')) {
+      } else if (
+        line.startsWith('Таким образом, рынок закрывает разные аспекты') ||
+        line.startsWith('Thus, the market covers different aspects')
+      ) {
 
         afterBullet = false
 
@@ -838,7 +841,10 @@ const CaseStudy = () => {
 
         )
 
-      } else if (line.startsWith('Чтобы глубже понять рынок, я проанализировал конкретные продукты из этих категорий:')) {
+      } else if (
+        line.startsWith('Чтобы глубже понять рынок, я проанализировал конкретные продукты из этих категорий:') ||
+        line.startsWith('To understand the market deeper, I analyzed specific products from these categories:')
+      ) {
 
         afterBullet = false
 
