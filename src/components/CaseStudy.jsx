@@ -244,6 +244,72 @@ const CaseStudy = () => {
 
         )
 
+      } else if (line.includes('COINKEEPER_IMAGES_START')) {
+
+        // Handle Coinkeeper special marker
+
+        return (
+
+          <div key={index} className="flex justify-center items-center w-full my-8">
+
+            <img 
+
+              src="/assets/New folder/Competitive analysis/coinkeeper.png" 
+
+              alt="Coinkeeper"
+
+              className="w-full max-w-md h-auto object-contain rounded-lg"
+
+            />
+
+          </div>
+
+        )
+
+      } else if (line.includes('MONEYMANAGER_IMAGES_START')) {
+
+        // Handle Money Manager special marker
+
+        return (
+
+          <div key={index} className="flex justify-center items-center w-full my-8">
+
+            <img 
+
+              src="/assets/New folder/Competitive analysis/money manager.png" 
+
+              alt="Money Manager"
+
+              className="w-full max-w-md h-auto object-contain rounded-lg"
+
+            />
+
+          </div>
+
+        )
+
+      } else if (line.includes('INCOMES_IMAGES_START')) {
+
+        // Handle Incomes special marker
+
+        return (
+
+          <div key={index} className="flex justify-center items-center w-full my-8">
+
+            <img 
+
+              src="/assets/New folder/Competitive analysis/incomes.png" 
+
+              alt="Incomes"
+
+              className="w-full max-w-md h-auto object-contain rounded-lg"
+
+            />
+
+          </div>
+
+        )
+
       } else if (line.includes('ZENMONEY_IMAGES_START')) {
 
         // Handle ZenMoney special marker
@@ -412,9 +478,9 @@ const CaseStudy = () => {
 
         )
 
-      } else if (line.includes('LAYOUT_START')) {
+      } else if (line.includes('LAYOUT_START_RU')) {
 
-        // Handle layout section with image and text side by side
+        // Handle layout section with image and text side by side - Russian version
 
         return (
 
@@ -476,9 +542,73 @@ const CaseStudy = () => {
 
         )
 
-      } else if (line.includes('LAYOUT_SECOND')) {
+      } else if (line.includes('LAYOUT_START')) {
 
-        // Handle second layout section with image and text side by side
+        // Handle layout section with image and text side by side - English version
+
+        return (
+
+          <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
+
+            <div className="lg:w-1/2">
+
+              <img 
+
+                src="/assets/New folder/iPhone_13_mini.png" 
+
+                alt="iPhone 13 mini mockup"
+
+                className="w-full h-auto rounded-lg object-contain"
+
+              />
+
+            </div>
+
+            <div className="lg:w-1/2">
+
+              <div className="space-y-4">
+
+                <div className="flex items-start space-x-2">
+
+                  <span className="text-cyan-400">•</span>
+
+                  <span className="text-gray-200">By default, 4 categories are visible. It is assumed that the most frequently used ones come first to avoid forcing the user to expand the list unnecessarily</span>
+
+                </div>
+
+                <div className="flex items-start space-x-2">
+
+                  <span className="text-cyan-400">•</span>
+
+                  <span className="text-gray-200">The button is inactive until an amount is entered and a category is selected</span>
+
+                </div>
+
+                <div className="flex items-start space-x-2">
+
+                  <span className="text-cyan-400">•</span>
+
+                  <span className="text-gray-200">When entering the screen, the amount input is immediately in focus and the keyboard is open. This reduces tap time and immediately allows the user to enter the amount (which is why they came to the screen)</span>
+
+                </div>
+
+              </div>
+
+              <div className="mt-6 text-gray-400 text-sm italic">
+
+                For convenience and speed, you could also use a custom keyboard on the screen like competitors, but I believe that automatic input focus will work just as well, and the system keyboard will be more familiar to the user.
+
+              </div>
+
+            </div>
+
+          </div>
+
+        )
+
+      } else if (line.includes('LAYOUT_SECOND_RU')) {
+
+        // Handle second layout section with image and text side by side - Russian version
 
         return (
 
@@ -534,9 +664,71 @@ const CaseStudy = () => {
 
         )
 
+      } else if (line.includes('LAYOUT_SECOND')) {
+
+        // Handle second layout section with image and text side by side - English version
+
+        return (
+
+          <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
+
+            <div className="lg:w-1/2">
+
+              <img 
+
+                src="/assets/New folder/iPhone_13_mini 1.png" 
+
+                alt="iPhone 13 mini mockup 1"
+
+                className="w-full h-auto rounded-lg object-contain"
+
+              />
+
+            </div>
+
+            <div className="lg:w-1/2">
+
+              <div className="space-y-4">
+
+                <div className="flex items-start space-x-2">
+
+                  <span className="text-cyan-400">•</span>
+
+                  <span className="text-gray-200">I highlighted categories with different colors, but made them pastel, not bright, so they don't strain the eyes during daily use. If you set a fixed color for each category, the user can also navigate by color when selecting a category</span>
+
+                </div>
+
+                <div className="flex items-start space-x-2">
+
+                  <span className="text-cyan-400">•</span>
+
+                  <span className="text-gray-200">The date defaults to "today". If needed, the user taps the icon and selects the desired date in the bottom sheet calendar</span>
+
+                </div>
+
+                <div className="flex items-start space-x-2">
+
+                  <span className="text-cyan-400">•</span>
+
+                  <span className="text-gray-200">The comment input doesn't take up much space, with the label in the placeholder. I immediately indicated the optional nature of the function so the user wouldn't get confused</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        )
+
       } else if (line.includes('LAYOUT_IMAGES')) {
 
         // Handle three layout images in row
+
+        const layoutImagesText = language === 'ru' 
+          ? 'Если категорий много, то можно использовать боттом шит с поиском, чтобы не нагружать основной экран и сделать поиск более удобным.'
+          : 'If there are many categories, you can use a bottom sheet with search to avoid cluttering the main screen and make searching more convenient.'
 
         return (
 
@@ -578,7 +770,7 @@ const CaseStudy = () => {
 
             <div className="mt-6 text-gray-400 text-sm italic">
 
-              Если категорий много, то можно использовать боттом шит с поиском, чтобы не нагружать основной экран и сделать поиск более удобным.
+              {layoutImagesText}
 
             </div>
 
@@ -3322,13 +3514,13 @@ const CaseStudy = () => {
 
     'add-transition': {
 
-      title: 'Проектирование интерфейса добавления операций',
+      title: t('caseStudies.addTransition.title'),
 
-      subtitle: 'Interface Design',
+      subtitle: t('caseStudies.addTransition.subtitle'),
 
-      description: 'Проектирование интерфейса добавления операций для финансового приложения. Разработка интуитивного и удобного пользовательского опыта для ввода финансовых транзакций.',
+      description: t('caseStudies.addTransition.description'),
 
-      tags: ['UI/UX Design', 'Interface Design', 'Financial App'],
+      tags: t('caseStudies.addTransition.tags'),
 
       heroImage: '/assets/New folder/hero.png',
 
@@ -3344,9 +3536,9 @@ const CaseStudy = () => {
 
           id: 'goal-context',
 
-          title: 'Цель и контекст',
+          title: t('caseStudies.addTransition.sections.0.title'),
 
-          content: '### Задача\n\nРазработка интерфейса экрана добавления новой операции для мобильного приложения по учету личных финансов.\n\n### Целевая аудитория\n\nМолодые люди (25-35 лет), которые хотят контролировать расходы и доходы.\n\n### Главная цель UX\n\nСоздание максимально быстрого и удобного флоу ввода для ежедневного использования, минимизация когнитивной нагрузки и количества тапов.',
+          content: t('caseStudies.addTransition.sections.0.content'),
 
           images: []
 
@@ -3356,9 +3548,9 @@ const CaseStudy = () => {
 
           id: 'user-problem',
 
-          title: 'Основная проблема пользователей',
+          title: t('caseStudies.addTransition.sections.1.title'),
 
-          content: 'Анализ решений конкурентов показал, что основные проблемы похожих приложений это разрывы в флоу и низкий приоритет скорости:\n\n- Пользователь вынужден проходить 3-4 шага (ввод суммы, выбор типа, переход к категориям, выбор категории, сохранение) для фиксации простой траты\n- Опциональные поля создают визуальный шум и перегружают интерфейс\n- Инпуты одинакового визуального веса, из-за чего теряется фокус на ключевом - ввод суммы\n- Клавиатура часто перекрывает важные элементы, а кнопка "сохранить" прячется за скроллом',
+          content: t('caseStudies.addTransition.sections.1.content'),
 
           images: []
 
@@ -3368,9 +3560,9 @@ const CaseStudy = () => {
 
           id: 'competitor-solutions',
 
-          title: 'Решения конкурентов',
+          title: t('caseStudies.addTransition.sections.2.title'),
 
-          content: '### Coinkeeper\n\nОчень перегружено, глаза разбегаются, что совсем не экономит время при выполнении задачи. Приходится вчитываться в текст, чтобы понять, что я вообще вижу.\n\n<img src="/assets/New folder/Competitive analysis/coinkeeper.png">\n\n### Money Manager\n\nЭкран выглядит перегруженным, теги, комментарий, фото занимают много место, являясь второстепенными опциями.\n\n<img src="/assets/New folder/Competitive analysis/money manager.png">\n\n### Incomes\n\nХод с кастомной клавиатурой действительно экономит время пользователя - не приходится жать на инпут и ждать выдвижения системной клавиатуры. Но в остальном...\n\n<img src="/assets/New folder/Competitive analysis/incomes.png">\n\n### ZenMoney\n\nЛишний шаг при переходе на экран создания транзакции: мне сразу предлагают выбрать тип операции, но чаще всего пользователь записывает расходы. На мой взгляд, по умолчанию должен открываться "расход", при необходимости уже на самом экране юзер переключится на другой тип.\n\nПоле для суммы не является центральным элементом и теряется среди других инпутов. приходится "сканировать" форму, а не сразу вводить сумму.\n\nZENMONEY_IMAGES_START\n\n### Monefy\n\nНе нравится флоу с кнопкой "выбрать категорию". Пользователь не видит категории сразу, не может быстро нажать на нужную, сначала он обязан ввести сумму и только потом ему покажут категории.\n\nMONEFY_IMAGES_START\n\n### Spendee\n\nРазработчики постарались ускорить флоу тем, что при заходе на экран сразу предлагают выбрать категорию, после этого появляется клавиатура для ввода суммы, а потом уже юзер может заполнить опциональные поля или завершить задачу.\n\nЯ бы сначала сделал акцент на сумме, а потом уже на категории, потому что сумма это основа. Еще для каждой категории у них свой цвет, меняющий весь цвет интерфейса на экране. для шоппинга розовый, для культуры - оранжевый. Бьет по глазам и сбивает с толку (я не сразу понял, что эти скрины относятся к одному приложению, когда сортировал всех конкурентов)\n\nSPENDEE_IMAGES_START\n\n### Money Mgr\n\nНет визуальной иерархии, категории требуют bottom sheet для показа. Приложение заставляет меня выбрать account, без этого сохранить не дает...\n\nMONEYMGR_IMAGES_START',
+          content: t('caseStudies.addTransition.sections.2.content'),
 
           images: []
 
@@ -3380,9 +3572,9 @@ const CaseStudy = () => {
 
           id: 'ux-solutions',
 
-          title: 'UX-решения',
+          title: t('caseStudies.addTransition.sections.3.title'),
 
-          content: '- Главный фокус на сумме: крупный доминирующий инпут, сразу получает фокус и вызывает клавиатуру\n\n- Тип операции по умолчанию - расход: 80–90% операций у пользователей составляют траты, поэтому дефолт снижает один шаг\n\n- Быстрый выбор категории: отображается 4–5 самых частых категорий (на основе истории или времени дня). Полный список можно открыть тапом\n\n- Кнопка "сохранить" всегда в зоне видимости: становится активной после ввода суммы и выбора категории',
+          content: t('caseStudies.addTransition.sections.3.content'),
 
           images: []
 
@@ -3392,9 +3584,9 @@ const CaseStudy = () => {
 
           id: 'flow',
 
-          title: 'Флоу',
+          title: t('caseStudies.addTransition.sections.4.title'),
 
-          content: 'Сценарий для быстрой фиксации расхода: \n\n1. Юзер нажимает "добавить операцию" (на главном экране, например)\n2. Переходит на экран. Фокус сразу на поле для суммы, открывается клавиатура\n3. Пользователь вводит сумму, тип операции по умолчанию "расход"\n4. Выбирает категорию одним тапом из 4-5 предложенных иконок\n5. Нажимает "сохранить"\n\nОбщее количество действий  2-3 тапа, все происходит на одном экране без переходов.',
+          content: t('caseStudies.addTransition.sections.4.content'),
 
           images: []
 
@@ -3404,9 +3596,9 @@ const CaseStudy = () => {
 
           id: 'layout',
 
-          title: 'Макет',
+          title: t('caseStudies.addTransition.sections.5.title'),
 
-          content: 'LAYOUT_START\n\nLAYOUT_SECOND\n\nLAYOUT_IMAGES',
+          content: t('caseStudies.addTransition.sections.5.content'),
 
           images: []
 
@@ -3416,9 +3608,9 @@ const CaseStudy = () => {
 
           id: 'result',
 
-          title: 'Итог',
+          title: t('caseStudies.addTransition.sections.6.title'),
 
-          content: '- Чистая визуальная иерархия: я выделил два главных действия - ввод суммы и выбор категории. Это позволяет пользователю совершить операцию за минимальное количество времени.\n\n- Снижение когнитивной нагрузки: все второстепенные опции (дата, комментарий) вынесены в лаконичный список.\n\n- Скорость: горизонтальная сетка категорий и оптимизированный список позволяют добавить операцию "на ходу" одной рукой, что является критическим сценарием для финансового трекера.',
+          content: t('caseStudies.addTransition.sections.6.content'),
 
           images: []
 

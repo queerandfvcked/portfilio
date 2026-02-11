@@ -251,6 +251,56 @@ const translations = {
           }
         ]
       },
+      addTransition: {
+        title: 'Проектирование интерфейса добавления операций',
+        subtitle: 'Interface Design',
+        description: 'Проектирование интерфейса добавления операций для финансового приложения. Разработка интуитивного и удобного пользовательского опыта для ввода финансовых транзакций.',
+        tags: ['UI/UX Design', 'Interface Design', 'Financial App'],
+        sections: [
+          {
+            id: 'goal-context',
+            title: 'Цель и контекст',
+            content: '### Задача\n\nРазработка интерфейса экрана добавления новой операции для мобильного приложения по учету личных финансов.\n\n### Целевая аудитория\n\nМолодые люди (25-35 лет), которые хотят контролировать расходы и доходы.\n\n### Главная цель UX\n\nСоздание максимально быстрого и удобного флоу ввода для ежедневного использования, минимизация когнитивной нагрузки и количества тапов.',
+            images: []
+          },
+          {
+            id: 'user-problem',
+            title: 'Основная проблема пользователей',
+            content: 'Анализ решений конкурентов показал, что основные проблемы похожих приложений это разрывы в флоу и низкий приоритет скорости:\n\n• Пользователь вынужден проходить 3-4 шага (ввод суммы, выбор типа, переход к категориям, выбор категории, сохранение) для фиксации простой траты\n• Опциональные поля создают визуальный шум и перегружают интерфейс\n• Инпуты одинакового визуального веса, из-за чего теряется фокус на ключевом - ввод суммы\n• Клавиатура часто перекрывает важные элементы, а кнопка "сохранить" прячется за скроллом',
+            images: []
+          },
+          {
+            id: 'competitor-solutions',
+            title: 'Решения конкурентов',
+            content: '### Coinkeeper\n\nОчень перегружено, глаза разбегаются, что совсем не экономит время при выполнении задачи. Приходится вчитываться в текст, чтобы понять, что я вообще вижу.\n\nCOINKEEPER_IMAGES_START\n\n### Money Manager\n\nЭкран выглядит перегруженным, теги, комментарий, фото занимают много место, являясь второстепенными опциями.\n\nMONEYMANAGER_IMAGES_START\n\n### Incomes\n\nХод с кастомной клавиатурой действительно экономит время пользователя - не приходится жать на инпут и ждать выдвижения системной клавиатуры. Но в остальном...\n\nINCOMES_IMAGES_START\n\n### ZenMoney\n\nЛишний шаг при переходе на экран создания транзакции: мне сразу предлагают выбрать тип операции, но чаще всего пользователь записывает расходы. На мой взгляд, по умолчанию должен открываться "расход", при необходимости уже на самом экране юзер переключится на другой тип.\n\nПоле для суммы не является центральным элементом и теряется среди других инпутов. Приходится "сканировать" форму, а не сразу вводить сумму.\n\nZENMONEY_IMAGES_START\n\n### Monefy\n\nНе нравится флоу с кнопкой "выбрать категорию". Пользователь не видит категории сразу, не может быстро нажать на нужную, сначала он обязан ввести сумму и только потом ему покажут категории.\n\nMONEFY_IMAGES_START\n\n### Spendee\n\nРазработчики постарались ускорить флоу тем, что при заходе на экран сразу предлагают выбрать категорию, после этого появляется клавиатура для ввода суммы, а потом уже юзер может заполнить опциональные поля или завершить задачу.\n\nЯ бы сначала сделал акцент на сумме, а потом уже на категории, потому что сумма это основа. Еще для каждой категории у них свой цвет, меняющий весь цвет интерфейса на экране. Для шоппинга розовый, для культуры - оранжевый. Бьет по глазам и сбивает с толку.\n\nSPENDEE_IMAGES_START\n\n### Money Mgr\n\nНет визуальной иерархии, категории требуют bottom sheet для показа. Приложение заставляет меня выбрать account, без этого сохранить не дает.\n\nMONEYMGR_IMAGES_START',
+            images: []
+          },
+          {
+            id: 'ux-solutions',
+            title: 'UX-решения',
+            content: '• Главный фокус на сумме: крупный доминирующий инпут, сразу получает фокус и вызывает клавиатуру\n\n• Тип операции по умолчанию - расход: 80–90% операций у пользователей составляют траты, поэтому дефолт снижает один шаг\n\n• Быстрый выбор категории: отображается 4–5 самых частых категорий (на основе истории или времени дня). Полный список можно открыть тапом\n\n• Кнопка "сохранить" всегда в зоне видимости: становится активной после ввода суммы и выбора категории',
+            images: []
+          },
+          {
+            id: 'flow',
+            title: 'Флоу',
+            content: 'Сценарий для быстрой фиксации расхода:\n\n1. Юзер нажимает "добавить операцию" (на главном экране, например)\n2. Переходит на экран. Фокус сразу на поле для суммы, открывается клавиатура\n3. Пользователь вводит сумму, тип операции по умолчанию "расход"\n4. Выбирает категорию одним тапом из 4-5 предложенных иконок\n5. Нажимает "сохранить"\n\nОбщее количество действий - 2-3 тапа, все происходит на одном экране без переходов.',
+            images: []
+          },
+          {
+            id: 'layout',
+            title: 'Макет',
+            content: 'LAYOUT_START_RU\n\nLAYOUT_SECOND_RU\n\nLAYOUT_IMAGES',
+            images: []
+          },
+          {
+            id: 'result',
+            title: 'Итог',
+            content: '• Чистая визуальная иерархия: я выделил два главных действия - ввод суммы и выбор категории. Это позволяет пользователю совершить операцию за минимальное количество времени.\n\n• Снижение когнитивной нагрузки: все второстепенные опции (дата, комментарий) вынесены в лаконичный список.\n\n• Скорость: горизонтальная сетка категорий и оптимизированный список позволяют добавить операцию "на ходу" одной рукой, что является критическим сценарием для финансового трекера.',
+            images: []
+          }
+        ]
+      },
       keeplLanding: {
         title: 'Keepl Landing Page',
         subtitle: 'Landing Page',
@@ -627,6 +677,56 @@ const translations = {
             id: 'results',
             title: 'Project Status',
             content: 'Designed and implemented complete user experience for a goal tracking app. Created 15+ screens with responsive design and developed a design system with 50+ components. Implemented complex navigation with user context preservation. Backend development is in progress.',
+            images: []
+          }
+        ]
+      },
+      addTransition: {
+        title: 'Transaction Interface Design',
+        subtitle: 'Interface Design',
+        description: 'Transaction interface design for a financial application. Development of an intuitive and convenient user experience for entering financial transactions.',
+        tags: ['UI/UX Design', 'Interface Design', 'Financial App'],
+        sections: [
+          {
+            id: 'goal-context',
+            title: 'Goal & Context',
+            content: '### Task\n\nDesigning the interface of a screen for adding a new transaction to a mobile personal finance application.\n\n### Target Audience\n\nYoung people (25-35 years old) who want to control their expenses and income.\n\n### Main UX Goal\n\nCreating the fastest and most convenient input flow for daily use, minimizing cognitive load and number of taps.',
+            images: []
+          },
+          {
+            id: 'user-problem',
+            title: 'Main User Problem',
+            content: 'Analysis of competitor solutions showed that the main problems of similar apps are flow disruptions and low speed priority:\n\n• Users must go through 3-4 steps (entering amount, selecting type, navigating to categories, selecting category, saving) to record a simple expense\n• Optional fields create visual noise and clutter the interface\n• Inputs have equal visual weight, causing focus to be lost on the key action - entering the amount\n• Keyboard often covers important elements, and the "save" button is hidden behind scrolling',
+            images: []
+          },
+          {
+            id: 'competitor-solutions',
+            title: 'Competitor Solutions',
+            content: '### Coinkeeper\n\nVery cluttered, eyes scatter, which doesn\'t save time at all during the task. You have to read carefully to understand what you\'re seeing.\n\nCOINKEEPER_IMAGES_START\n\n### Money Manager\n\nThe screen looks cluttered, tags, comments, photos take up space as secondary options.\n\nMONEYMANAGER_IMAGES_START\n\n### Incomes\n\nThe custom keyboard approach does save user time - no need to tap an input and wait for the system keyboard to appear. But otherwise...\n\nINCOMES_IMAGES_START\n\n### ZenMoney\n\nExtra step when transitioning to the transaction creation screen: they immediately offer to select the operation type, but usually users record expenses. In my opinion, "expense" should open by default; if needed, the user can switch to another type on the screen itself.\n\nThe amount field is not a central element and gets lost among other inputs. You have to "scan" the form instead of immediately entering the amount.\n\nZENMONEY_IMAGES_START\n\n### Monefy\n\nI don\'t like the flow with a "select category" button. Users don\'t see categories immediately and can\'t quickly tap the right one; they must enter the amount first and only then are shown categories.\n\nMONEFY_IMAGES_START\n\n### Spendee\n\nDevelopers tried to speed up the flow by immediately offering to select a category on screen entry, then the keyboard appears to enter the amount, and then the user can fill optional fields or complete the task.\n\nI would emphasize the amount first, then the category, because the amount is fundamental. Also, each category has its own color that changes the entire screen interface. Pink for shopping, orange for culture. It\'s harsh on the eyes and confusing.\n\nSPENDEE_IMAGES_START\n\n### Money Mgr\n\nNo visual hierarchy, categories require a bottom sheet to display. The app forces me to select an account; without it, I can\'t save.\n\nMONEYMGR_IMAGES_START',
+            images: []
+          },
+          {
+            id: 'ux-solutions',
+            title: 'UX Solutions',
+            content: '• Main focus on amount: large dominant input, receives focus immediately and triggers keyboard\n\n• Operation type default - expense: 80-90% of user operations are expenses, so the default reduces one step\n\n• Quick category selection: displays 4-5 most frequent categories (based on history or time of day). Full list can be opened with a tap\n\n• "Save" button always in view: becomes active after amount entry and category selection',
+            images: []
+          },
+          {
+            id: 'flow',
+            title: 'User Flow',
+            content: 'Scenario for quick expense recording:\n\n1. User taps "add transaction" (on the main screen, for example)\n2. Navigates to screen. Focus immediately on amount field, keyboard opens\n3. User enters amount, operation type is default "expense"\n4. Selects category with one tap from 4-5 offered icons\n5. Taps "save"\n\nTotal actions - 2-3 taps, everything happens on one screen without navigation.',
+            images: []
+          },
+          {
+            id: 'layout',
+            title: 'Layout',
+            content: 'LAYOUT_START\n\nLAYOUT_SECOND\n\nLAYOUT_IMAGES',
+            images: []
+          },
+          {
+            id: 'result',
+            title: 'Result',
+            content: '• Clear visual hierarchy: I highlighted two main actions - entering amount and selecting category. This allows users to complete the operation in minimum time.\n\n• Reduced cognitive load: all secondary options (date, comment) are placed in a concise list.\n\n• Speed: the horizontal category grid and optimized list allow adding a transaction "on the go" with one hand, which is a critical scenario for a financial tracker.',
             images: []
           }
         ]
