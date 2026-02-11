@@ -1662,7 +1662,7 @@ const CaseStudy = () => {
 
                     />
 
-                    <p className="text-center text-gray-400 text-sm mt-2">{index === 0 ? 'Веб-сайты' : 'Мобильные приложения'}</p>
+                    <p className="text-center text-gray-400 text-sm mt-2">{index === 0 ? t('caseStudies.hiredApp.sections.4.imageCaption1') : t('caseStudies.hiredApp.sections.4.imageCaption2')}</p>
 
                   </div>
 
@@ -1916,7 +1916,12 @@ const CaseStudy = () => {
 
                     />
 
-                    <p className="text-left text-gray-400 text-sm mt-2">Мы отказались от лишних фичей:<br/>Виртуальные собеседования сложно реализовать технически, а кроме того пользователи уже привыкли использовать другие сервисы для этого.<br/>Если бы обратная связь стала обязательной, это, конечно, обрадовало бы соискателей, но эйчары получили бы дополнительную головную боль.<br/>Подготовка к собеседованиям обернулась бы разочарованием для соискателей, потому что на реальном собеседовании могут быть совершенно другие вопросы, и недовольством для работодателя - он мог бы посчитать это нечестным.</p>
+                    <p className="text-left text-gray-400 text-sm mt-2">{t('caseStudies.hiredApp.sections.4.abandonedFeatures').split('\n').map((line, i) => (
+                      <React.Fragment key={i}>
+                        {line}
+                        {i < t('caseStudies.hiredApp.sections.4.abandonedFeatures').split('\n').length - 1 && <br />}
+                      </React.Fragment>
+                    ))}</p>
 
                   </div>
 
@@ -3236,13 +3241,13 @@ const CaseStudy = () => {
 
     'hired-app': {
 
-      title: 'Hired App',
+      title: t('caseStudies.hiredApp.title'),
 
-      subtitle: 'Mobile App',
+      subtitle: t('caseStudies.hiredApp.subtitle'),
 
-      description: 'Проектирование платформы по поиску работы с нуля. Создал полный пользовательский опыт: от этапа исследования и JTBD-фреймворков до финальных интерфейсов. Разработал сложную архитектуру продукта, многошаговые сценарии и масштабируемую дизайн-систему.',
+      description: t('caseStudies.hiredApp.description'),
 
-      tags: ['Product Design', 'Mobile'],
+      tags: t('caseStudies.hiredApp.tags'),
 
       heroImage: '/assets/hired app.png',
 
@@ -3260,9 +3265,9 @@ const CaseStudy = () => {
 
           id: 'idea',
 
-          title: 'Идея',
+          title: t('caseStudies.hiredApp.sections.0.title'),
 
-          content: 'После участия в хакатоне ко мне обратился разработчик нашей команды с предложением поработать над созданием MVP с последующим развитием в полноценный продукт. На мое быстрое согласие повлияли два фактора: во-первых, я уже успел погрузиться в предметную область, работая над КвикВак, а во-вторых, при поиске работы я неоднократно сталкивался с недостатками уже существующих сервисов - наших будущих конкурентов - поэтому идея сделать удобное и простое для пользователя приложение зажглась во мне моментально.',
+          content: t('caseStudies.hiredApp.sections.0.content'),
 
           images: []
 
@@ -3272,9 +3277,9 @@ const CaseStudy = () => {
 
           id: 'process',
 
-          title: 'Процесс',
+          title: t('caseStudies.hiredApp.sections.1.title'),
 
-          content: `- Формулировка идеи\nРазработчик описал проблематику рынка трудоустройства и предложил сделать MVP, ориентируясь на реальные боли пользователей.\n- Обмен опытом и гипотезами\nМы обсудили типичные сценарии поиска работы и взаимодействия с рекрутёрами, зафиксировали основные раздражающие факторы.\n- Первичный список функций\nБез привязки к конкретной структуре сформировал пул функций, которые должны были упростить поиск и сделать процесс прозрачнее для обеих сторон.\n- Исследование целевой аудитории\nСформулировал прототипы персон, составил JTBD и CJM.\n- Конкурентный анализ\nПроанализировал решения hh.ru, Indeed, LinkedIn и других - определил их UX-слабости и хорошие практики, которые можно адаптировать.\n- User Flow\nСоставил структуру пользовательских переходов для ключевых сценариев: поиск работы, отклик, статус отклика.\n- Информационная архитектура\nПостроил базовую архитектуру интерфейса, продумал навигацию, экраны и взаимосвязи между ними.\n- Wireframes\nСоздал черновые вайрфреймы.\n- Разработка дизайн-системы\nОпределил стилистику, типографику, цветовую палитру, состояний компонентов и паттернов взаимодействия.\n- Макеты и интерактивный прототип\nОтрисовал экраны в финальной визуализации, собрал кликабельный прототип.\n- Подготовка к передаче в разработку\nЗафиксировал базовые UI-гайды и логику компонентов. В рамках MVP команда ориентировалась на быструю сборку, поэтому документация была минимальной, но структурированной.`,
+          content: t('caseStudies.hiredApp.sections.1.content'),
 
           images: []
 
@@ -3284,9 +3289,9 @@ const CaseStudy = () => {
 
           id: 'user-problem',
 
-          title: 'Проблема пользователей',
+          title: t('caseStudies.hiredApp.sections.2.title'),
 
-          content: 'Соискатели сталкиваются с двумя трудностями, которые вызывают выгорание и потерю времени:\n- Низкая релевантность поиска: существующие фильтры слишком жесткие и не позволяют комбинировать форматы работы. Пользователь вынужден выбирать между удаленкой и офисом, что приводит к пропуску подходящих вакансий.\n- Отсутствие прозрачности: после отправки отклика соискатель с несколькими резюме не может понять, какое резюме было использовано, что вызывает путаницу и раздражение.',
+          content: t('caseStudies.hiredApp.sections.2.content'),
 
           images: []
 
@@ -3296,9 +3301,9 @@ const CaseStudy = () => {
 
           id: 'hypothesis',
 
-          title: 'Гипотеза',
+          title: t('caseStudies.hiredApp.sections.3.title'),
 
-          content: 'Если мы предложим гибкий фильтр, позволяющий комбинировать локальные и удаленные форматы работы, и добавим единый, прозрачный центр отслеживания статуса откликов с привязкой к конкретному резюме, то мы повысим конверсию в просмотр вакансий и снизим уровень тревожности пользователя.',
+          content: t('caseStudies.hiredApp.sections.3.content'),
 
           images: []
 
@@ -3308,19 +3313,19 @@ const CaseStudy = () => {
 
           id: 'research-analysis',
 
-          title: 'Исследование и анализ',
+          title: t('caseStudies.hiredApp.sections.4.title'),
 
-          content: 'Перед тем как начать работать над макетом, я разобрался, кто будет пользоваться сервисом и с какими задачами.\n\nДля этого я:\n- Сформировал образы соискателей и рекрутёров - что их раздражают, чего они боятся, что хотят упростить.\n- Выписал основные задачи, которые люди хотят решить с помощью сервиса.\n- Разложил путь пользователя по шагам - где он может застрять, где теряет мотивацию, где нужно подсветить следующую точку действия.\n\nТакже сделал разбор конкурентов - hh, LinkedIn, Glassdoor, Indeed, Ziprecruiter.',
+          content: t('caseStudies.hiredApp.sections.4.content'),
 
-          additionalContent: 'Отметил, что:\n- У hh нельзя понять, с какого резюме ты откликнулся.\n- У LinkedIn слишком сложная система: соц.сеть и поиск работы в одном флаконе, разобраться непросто.\n- Нигде не нашел гибкого фильтра в выборе формата работы: например, я хочу работать удаленно, но если компания находится в моем городе, то рассматриваю офис или гибрид. Таким образом, мне выдавались бы удаленные вакансии отовсюду и вакансии с любым форматом из моего города.',
+          additionalContent: t('caseStudies.hiredApp.sections.4.additionalContent'),
 
-          moreContent: 'Я посмотрел, что уже существует на рынке, и вспомнил то, чего мне не хватало как соискателю. Отслеживал фидбэк в тг-чатах и через личные разговоры. На этом этапе стало понятно, какие функции не вызывают интереса (например, фильтр вакансий по языкам программирования), а какие находят отклик.\n\nНа основе этого выделил набор функций, которые точно должны быть, и те, что казались хорошими на старте, но потом были отброшены.',
+          moreContent: t('caseStudies.hiredApp.sections.4.moreContent'),
 
-          images: ['/assets/hired app/Competitive analysis/веб-сайты.jpg', '/assets/hired app/Competitive analysis/приложения.jpg'],
+          images: t('caseStudies.hiredApp.sections.4.images'),
 
-          finalImages: ['/assets/hired app/image features.png'],
+          finalImages: t('caseStudies.hiredApp.sections.4.finalImages'),
 
-          additionalImages: ['/assets/hired app/hh vs hired 1.png', '/assets/hired app/hh vs hired 2.png']
+          additionalImages: t('caseStudies.hiredApp.sections.4.additionalImages')
 
         },
 
@@ -3328,27 +3333,27 @@ const CaseStudy = () => {
 
           id: 'structure-design',
 
-          title: 'Структура и проектирование',
+          title: t('caseStudies.hiredApp.sections.5.title'),
 
-          content: 'После исследований я собрал все в единую картину и начал проектирование продукта.',
+          content: t('caseStudies.hiredApp.sections.5.content'),
 
-          additionalContent: '## User Flow',
+          additionalContent: t('caseStudies.hiredApp.sections.5.additionalContent'),
 
-          moreContent: 'Построил флоу с учетом реальных сценариев. Учитывал технические ограничения и типовые паттерны поведения.',
+          moreContent: t('caseStudies.hiredApp.sections.5.moreContent'),
 
-          images: [],
+          images: t('caseStudies.hiredApp.sections.5.images'),
 
-          additionalImages: ['/assets/hired app/Frame_1984077494.png'],
+          additionalImages: t('caseStudies.hiredApp.sections.5.additionalImages'),
 
-          additionalContent2: '## Информационная архитектура\n\nОпределил, какие разделы будут, как они связаны и как логически выстроена навигация.',
+          additionalContent2: t('caseStudies.hiredApp.sections.5.additionalContent2'),
 
-          additionalContent3: '/assets/hired app/Frame_1984077494 1.png',
+          additionalContent3: t('caseStudies.hiredApp.sections.5.additionalContent3'),
 
-          additionalContent4: '## Вайрфреймы\n\nСделал черновую отрисовку ключевых экранов, чтобы оценить, как будет выглядеть интерфейс и где у пользователя могут возникнуть проблемы.',
+          additionalContent4: t('caseStudies.hiredApp.sections.5.additionalContent4'),
 
-          additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
+          additionalContent5: t('caseStudies.hiredApp.sections.5.additionalContent5'),
 
-          finalImages: []
+          finalImages: t('caseStudies.hiredApp.sections.5.finalImages')
 
         },
 
@@ -3356,31 +3361,31 @@ const CaseStudy = () => {
 
           id: 'final-mockups',
 
-          title: 'Финальные макеты и прототип',
+          title: t('caseStudies.hiredApp.sections.6.title'),
 
-          content: 'Полный визуал кейса я оформил на behance, сюда вставлю только пару ключевых флоу.',
+          content: t('caseStudies.hiredApp.sections.6.content'),
 
-          additionalContent: '## Поиск вакансии и отклик\n\nПользователь быстро находит релевантные вакансии благодаря гибкому фильтру, который позволяет комбинировать локальные и удаленные форматы работы. Это устраняет необходимость просматривать сотни неподходящих предложений.',
+          additionalContent: t('caseStudies.hiredApp.sections.6.additionalContent'),
 
-          images: ['/assets/hired app/pics.png'],
+          images: t('caseStudies.hiredApp.sections.6.images'),
 
-          additionalContent2: 'После того, как пользователь нашел подходящую вакансию, он откликается на нее, предварительно выбрав резюме для отклика и по желанию прикрепив сопроводительное письмо. На странице вакансии отмечается, с каким резюме был отправлен отклик.',
+          additionalContent2: t('caseStudies.hiredApp.sections.6.additionalContent2'),
 
-          additionalImages: ['/assets/hired app/stack.png'],
+          additionalImages: t('caseStudies.hiredApp.sections.6.additionalImages'),
 
-          additionalContent3: '## Создание резюме',
+          additionalContent3: t('caseStudies.hiredApp.sections.6.additionalContent3'),
 
-          additionalContent4: 'Опция создания резюме появляется сразу после регистрации. Также пользователь может в любой момент добавить новое резюме через вкладку "профиль".',
+          additionalContent4: t('caseStudies.hiredApp.sections.6.additionalContent4'),
 
-          additionalImages2: ['/assets/hired app/profile.png', '/assets/hired app/profile2.png'],
+          additionalImages2: t('caseStudies.hiredApp.sections.6.additionalImages2'),
 
-          additionalContent5: 'Чтобы снизить барьер входа и мотивировать пользователя к отклику, процесс создания резюме был максимально упрощен. Мы разбили заполнение на 5 логических, пошаговых этапов, исключив избыточную информацию и фокусируясь только на том, что первостепенно важно.',
+          additionalContent5: t('caseStudies.hiredApp.sections.6.additionalContent5'),
 
-          additionalImages3: ['/assets/hired app/resume creating.png'],
+          additionalImages3: t('caseStudies.hiredApp.sections.6.additionalImages3'),
 
-          additionalContent6: '## Прототип',
+          additionalContent6: t('caseStudies.hiredApp.sections.6.additionalContent6'),
 
-          additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
+          additionalContent7: t('caseStudies.hiredApp.sections.6.additionalContent7')
 
         }
 

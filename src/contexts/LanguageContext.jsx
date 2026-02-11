@@ -301,6 +301,81 @@ const translations = {
           }
         ]
       },
+      hiredApp: {
+        title: 'Hired App',
+        subtitle: 'Mobile App',
+        description: 'Проектирование платформы по поиску работы с нуля. Создал полный пользовательский опыт: от этапа исследования и JTBD-фреймворков до финальных интерфейсов. Разработал сложную архитектуру продукта, многошаговые сценарии и масштабируемую дизайн-систему.',
+        tags: ['Product Design', 'Mobile'],
+        sections: [
+          {
+            id: 'idea',
+            title: 'Идея',
+            content: 'После участия в хакатоне ко мне обратился разработчик нашей команды с предложением поработать над созданием MVP с последующим развитием в полноценный продукт. На мое быстрое согласие повлияли два фактора: во-первых, я уже успел погрузиться в предметную область, работая над КвикВак, а во-вторых, при поиске работы я неоднократно сталкивался с недостатками уже существующих сервисов - наших будущих конкурентов - поэтому идея сделать удобное и простое для пользователя приложение зажглась во мне моментально.',
+            images: []
+          },
+          {
+            id: 'process',
+            title: 'Процесс',
+            content: '- Формулировка идеи\nРазработчик описал проблематику рынка трудоустройства и предложил сделать MVP, ориентируясь на реальные боли пользователей.\n- Обмен опытом и гипотезами\nМы обсудили типичные сценарии поиска работы и взаимодействия с рекрутёрами, зафиксировали основные раздражающие факторы.\n- Первичный список функций\nБез привязки к конкретной структуре сформировал пул функций, которые должны были упростить поиск и сделать процесс прозрачнее для обеих сторон.\n- Исследование целевой аудитории\nСформулировал прототипы персон, составил JTBD и CJM.\n- Конкурентный анализ\nПроанализировал решения hh.ru, Indeed, LinkedIn и других - определил их UX-слабости и хорошие практики, которые можно адаптировать.\n- User Flow\nСоставил структуру пользовательских переходов для ключевых сценариев: поиск работы, отклик, статус отклика.\n- Информационная архитектура\nПостроил базовую архитектуру интерфейса, продумал навигацию, экраны и взаимосвязи между ними.\n- Wireframes\nСоздал черновые вайрфреймы.\n- Разработка дизайн-системы\nОпределил стилистику, типографику, цветовую палитру, состояний компонентов и паттернов взаимодействия.\n- Макеты и интерактивный прототип\nОтрисовал экраны в финальной визуализации, собрал кликабельный прототип.\n- Подготовка к передаче в разработку\nЗафиксировал базовые UI-гайды и логику компонентов. В рамках MVP команда ориентировалась на быструю сборку, поэтому документация была минимальной, но структурированной.',
+            images: []
+          },
+          {
+            id: 'user-problem',
+            title: 'Проблема пользователей',
+            content: 'Соискатели сталкиваются с двумя трудностями, которые вызывают выгорание и потерю времени:\n- Низкая релевантность поиска: существующие фильтры слишком жесткие и не позволяют комбинировать форматы работы. Пользователь вынужден выбирать между удаленкой и офисом, что приводит к пропуску подходящих вакансий.\n- Отсутствие прозрачности: после отправки отклика соискатель с несколькими резюме не может понять, какое резюме было использовано, что вызывает путаницу и раздражение.',
+            images: []
+          },
+          {
+            id: 'hypothesis',
+            title: 'Гипотеза',
+            content: 'Если мы предложим гибкий фильтр, позволяющий комбинировать локальные и удаленные форматы работы, и добавим единый, прозрачный центр отслеживания статуса откликов с привязкой к конкретному резюме, то мы повысим конверсию в просмотр вакансий и снизим уровень тревожности пользователя.',
+            images: []
+          },
+          {
+            id: 'research-analysis',
+            title: 'Исследование и анализ',
+            content: 'Перед тем как начать работать над макетом, я разобрался, кто будет пользоваться сервисом и с какими задачами.\n\nДля этого я:\n- Сформировал образы соискателей и рекрутёров - что их раздражают, чего они боятся, что хотят упростить.\n- Выписал основные задачи, которые люди хотят решить с помощью сервиса.\n- Разложил путь пользователя по шагам - где он может застрять, где теряет мотивацию, где нужно подсветить следующую точку действия.\n\nТакже сделал разбор конкурентов - hh, LinkedIn, Glassdoor, Indeed, Ziprecruiter.',
+            additionalContent: 'Отметил, что:\n- У hh нельзя понять, с какого резюме ты откликнулся.\n- У LinkedIn слишком сложная система: соц.сеть и поиск работы в одном флаконе, разобраться непросто.\n- Нигде не нашел гибкого фильтра в выборе формата работы: например, я хочу работать удаленно, но если компания находится в моем городе, то рассматриваю офис или гибрид. Таким образом, мне выдавались бы удаленные вакансии отовсюду и вакансии с любым форматом из моего города.',
+            moreContent: 'Я посмотрел, что уже существует на рынке, и вспомнил то, чего мне не хватало как соискателю. Отслеживал фидбэк в тг-чатах и через личные разговоры. На этом этапе стало понятно, какие функции не вызывают интереса (например, фильтр вакансий по языкам программирования), а какие находят отклик.\n\nНа основе этого выделил набор функций, которые точно должны быть, и те, что казались хорошими на старте, но потом были отброшены.',
+            images: ['/assets/hired app/Competitive analysis/веб-сайты.jpg', '/assets/hired app/Competitive analysis/приложения.jpg'],
+            imageCaption1: 'Веб-сайты',
+            imageCaption2: 'Мобильные приложения',
+            finalImages: ['/assets/hired app/image features.png'],
+            additionalImages: ['/assets/hired app/hh vs hired 1.png', '/assets/hired app/hh vs hired 2.png'],
+            abandonedFeatures: 'Мы отказались от лишних фичей:\nВиртуальные собеседования сложно реализовать технически, а кроме того пользователи уже привыкли использовать другие сервисы для этого.\nЕсли бы обратная связь стала обязательной, это, конечно, обрадовало бы соискателей, но эйчары получили бы дополнительную головную боль.\nПодготовка к собеседованиям обернулась бы разочарованием для соискателей, потому что на реальном собеседовании могут быть совершенно другие вопросы, и недовольством для работодателя - он мог бы посчитать это нечестным.'
+          },
+          {
+            id: 'structure-design',
+            title: 'Структура и проектирование',
+            content: 'После исследований я собрал все в единую картину и начал проектирование продукта.',
+            additionalContent: '## User Flow',
+            moreContent: 'Построил флоу с учетом реальных сценариев. Учитывал технические ограничения и типовые паттерны поведения.',
+            images: [],
+            additionalImages: ['/assets/hired app/Frame_1984077494.png'],
+            additionalContent2: '## Информационная архитектура\n\nОпределил, какие разделы будут, как они связаны и как логически выстроена навигация.',
+            additionalContent3: '/assets/hired app/Frame_1984077494 1.png',
+            additionalContent4: '## Вайрфреймы\n\nСделал черновую отрисовку ключевых экранов, чтобы оценить, как будет выглядеть интерфейс и где у пользователя могут возникнуть проблемы.',
+            additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
+            finalImages: []
+          },
+          {
+            id: 'final-mockups',
+            title: 'Финальные макеты и прототип',
+            content: 'Полный визуал кейса я оформил на behance, сюда вставлю только пару ключевых флоу.',
+            additionalContent: '## Поиск вакансии и отклик\n\nПользователь быстро находит релевантные вакансии благодаря гибкому фильтру, который позволяет комбинировать локальные и удаленные форматы работы. Это устраняет необходимость просматривать сотни неподходящих предложений.',
+            images: ['/assets/hired app/pics.png'],
+            additionalContent2: 'После того, как пользователь нашел подходящую вакансию, он откликается на нее, предварительно выбрав резюме для отклика и по желанию прикрепив сопроводительное письмо. На странице вакансии отмечается, с каким резюме был отправлен отклик.',
+            additionalImages: ['/assets/hired app/stack.png'],
+            additionalContent3: '## Создание резюме',
+            additionalContent4: 'Опция создания резюме появляется сразу после регистрации. Также пользователь может в любой момент добавить новое резюме через вкладку "профиль".',
+            additionalImages2: ['/assets/hired app/profile.png', '/assets/hired app/profile2.png'],
+            additionalContent5: 'Чтобы снизить барьер входа и мотивировать пользователя к отклику, процесс создания резюме был максимально упрощен. Мы разбили заполнение на 5 логических, пошаговых этапов, исключив избыточную информацию и фокусируясь только на том, что первостепенно важно.',
+            additionalImages3: ['/assets/hired app/resume creating.png'],
+            additionalContent6: '## Прототип',
+            additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
+          }
+        ]
+      },
       keeplLanding: {
         title: 'Keepl Landing Page',
         subtitle: 'Landing Page',
@@ -728,6 +803,81 @@ const translations = {
             title: 'Result',
             content: '• Clear visual hierarchy: I highlighted two main actions - entering amount and selecting category. This allows users to complete the operation in minimum time.\n\n• Reduced cognitive load: all secondary options (date, comment) are placed in a concise list.\n\n• Speed: the horizontal category grid and optimized list allow adding a transaction "on the go" with one hand, which is a critical scenario for a financial tracker.',
             images: []
+          }
+        ]
+      },
+      hiredApp: {
+        title: 'Hired App',
+        subtitle: 'Mobile App',
+        description: 'Job search platform design from scratch. I created a complete user experience: from research stage and JTBD frameworks to final interfaces. I developed complex product architecture, multi-step scenarios and a scalable design system.',
+        tags: ['Product Design', 'Mobile'],
+        sections: [
+          {
+            id: 'idea',
+            title: 'Idea',
+            content: 'After participating in a hackathon, my developer teammate approached me with a proposal to work on creating an MVP with subsequent development into a full-fledged product. Two factors influenced my quick agreement: first, I had already managed to immerse myself in the subject area while working on QuickVac, and second, when searching for a job, I repeatedly encountered shortcomings in existing services - our future competitors - so the idea of creating a convenient and user-friendly app ignited in me instantly.',
+            images: []
+          },
+          {
+            id: 'process',
+            title: 'Process',
+            content: '- Idea formulation\nThe developer described the problems of the employment market and proposed creating an MVP, focusing on real user pain points.\n- Experience sharing and hypothesis discussion\nWe discussed typical job search scenarios and interactions with recruiters, identified key frustrating factors.\n- Initial feature list\nWithout binding to a specific structure, I formed a pool of features that should simplify the search and make the process more transparent for both sides.\n- Target audience research\nFormulated prototype personas, compiled JTBD and CJM.\n- Competitive analysis\nAnalyzed solutions from hh.ru, Indeed, LinkedIn and others - identified their UX weaknesses and best practices that could be adapted.\n- User Flow\nCreated a structure of user transitions for key scenarios: job search, response, response status.\n- Information architecture\nBuilt basic interface architecture, designed navigation, screens and their relationships.\n- Wireframes\nCreated draft wireframes.\n- Design system development\nDetermined styling, typography, color palette, component states and interaction patterns.\n- Mockups and interactive prototype\nDrawn screens in final visualization, assembled a clickable prototype.\n- Preparation for handoff to development\nFixed basic UI guidelines and component logic. Within the MVP, the team focused on quick assembly, so documentation was minimal but structured.',
+            images: []
+          },
+          {
+            id: 'user-problem',
+            title: 'User Problem',
+            content: 'Job seekers face two difficulties that cause burnout and wasted time:\n- Low search relevance: existing filters are too rigid and do not allow combining work formats. The user is forced to choose between remote and office, leading to missing suitable vacancies.\n- Lack of transparency: after sending a response, a job seeker with multiple resumes cannot understand which resume was used, causing confusion and frustration.',
+            images: []
+          },
+          {
+            id: 'hypothesis',
+            title: 'Hypothesis',
+            content: 'If we offer a flexible filter that allows combining local and remote work formats, and add a single, transparent response status tracking center tied to a specific resume, then we will increase vacancy view conversion and reduce user anxiety levels.',
+            images: []
+          },
+          {
+            id: 'research-analysis',
+            title: 'Research & Analysis',
+            content: 'Before starting to work on the mockup, I figured out who would use the service and what tasks they needed to solve.\n\nTo do this, I:\n- Formed images of job seekers and recruiters - what annoys them, what they fear, what they want to simplify.\n- Listed the main tasks that people want to solve using the service.\n- Laid out the user journey step by step - where they might get stuck, where they lose motivation, where to highlight the next action point.\n\nAlso analyzed competitors - hh, LinkedIn, Glassdoor, Indeed, Ziprecruiter.',
+            additionalContent: 'I noted that:\n- On hh, you cannot understand which resume you responded with.\n- LinkedIn has a too complex system: social network and job search in one bottle, hard to figure out.\n- Nowhere did I find a flexible filter for choosing work format: for example, I want to work remotely, but if the company is in my city, I consider office or hybrid. So I would get remote vacancies from everywhere and vacancies with any format from my city.',
+            moreContent: 'I looked at what already exists on the market and remembered what I lacked as a job seeker. Tracked feedback in Telegram chats and through personal conversations. At this stage, it became clear which features do not generate interest (for example, filter vacancies by programming language) and which resonated.\n\nBased on this, I identified a set of features that should definitely be there and those that seemed good at first but were later abandoned.',
+            images: ['/assets/hired app/Competitive analysis/веб-сайты.jpg', '/assets/hired app/Competitive analysis/приложения.jpg'],
+            imageCaption1: 'Websites',
+            imageCaption2: 'Mobile Applications',
+            finalImages: ['/assets/hired app/image features.png'],
+            additionalImages: ['/assets/hired app/hh vs hired 1.png', '/assets/hired app/hh vs hired 2.png'],
+            abandonedFeatures: 'We abandoned unnecessary features:\nVirtual interviews are difficult to implement technically, and besides, users are already used to using other services for this.\nIf feedback became mandatory, it would certainly please job seekers, but HR managers would get additional headaches.\nInterview preparation would be a disappointment for job seekers because the actual interview might have completely different questions, and dissatisfaction for the employer - they might consider it unfair.'
+          },
+          {
+            id: 'structure-design',
+            title: 'Structure & Design',
+            content: 'After research, I compiled everything into a single picture and began product design.',
+            additionalContent: '## User Flow',
+            moreContent: 'Built flow taking into account real scenarios. Considered technical constraints and typical behavior patterns.',
+            images: [],
+            additionalImages: ['/assets/hired app/Frame_1984077494.png'],
+            additionalContent2: '## Information Architecture\n\nDetermined which sections would be, how they connect and how navigation is logically structured.',
+            additionalContent3: '/assets/hired app/Frame_1984077494 1.png',
+            additionalContent4: '## Wireframes\n\nMade draft sketches of key screens to evaluate how the interface would look and where users might encounter problems.',
+            additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
+            finalImages: []
+          },
+          {
+            id: 'final-mockups',
+            title: 'Final Mockups & Prototype',
+            content: 'I formatted the complete visual of the case on Behance, here I will insert just a couple of key flows.',
+            additionalContent: '## Job Search & Response\n\nUsers quickly find relevant vacancies thanks to a flexible filter that allows combining local and remote work formats. This eliminates the need to browse hundreds of unsuitable offers.',
+            images: ['/assets/hired app/pics.png'],
+            additionalContent2: 'After the user finds a suitable vacancy, they respond to it, first selecting a resume for the response and optionally attaching a cover letter. The vacancy page notes which resume was sent with the response.',
+            additionalImages: ['/assets/hired app/stack.png'],
+            additionalContent3: '## Resume Creation',
+            additionalContent4: 'The resume creation option appears immediately after registration. The user can also add a new resume at any time through the profile tab.',
+            additionalImages2: ['/assets/hired app/profile.png', '/assets/hired app/profile2.png'],
+            additionalContent5: 'To reduce entry barriers and motivate users to respond, the resume creation process was maximally simplified. We divided the completion into 5 logical, sequential stages, excluding redundant information and focusing only on what is most important.',
+            additionalImages3: ['/assets/hired app/resume creating.png'],
+            additionalContent6: '## Prototype',
+            additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
           }
         ]
       },
