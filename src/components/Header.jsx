@@ -20,7 +20,7 @@ const Header = () => {
     { name: t('nav.home'), href: '/' },
     { name: t('nav.projects'), href: '/#projects' },
     { name: t('nav.about'), href: '/#about' },
-    { name: t('nav.resume'), href: '/assets/Resume Andrian Shtark.pdf', download: true },
+    { name: t('nav.resume'), href: language === 'ru' ? '/assets/resume_ru.pdf' : '/assets/resume_en.pdf', download: true },
     { name: t('nav.contact'), action: 'contact' }
   ]
 
