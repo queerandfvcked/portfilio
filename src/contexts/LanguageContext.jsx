@@ -794,7 +794,7 @@ const translations = {
           },
           {
             id: 'layout',
-            title: 'Layout',
+            title: 'Final Designs',
             content: 'LAYOUT_START\n\nLAYOUT_SECOND\n\nLAYOUT_IMAGES',
             images: []
           },
@@ -942,7 +942,11 @@ export const useTranslation = () => {
 }
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('ru')
+  // Инициализируем язык из localStorage или по умолчанию 'ru'
+  const [language, setLanguage] = useState(() => {
+    const savedLanguage = localStorage.getItem('language')
+    return savedLanguage || 'ru'
+  })
 
   const t = (key) => {
     const keys = key.split('.')
@@ -956,7 +960,10 @@ export const LanguageProvider = ({ children }) => {
   }
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'ru' ? 'en' : 'ru')
+    const newLanguage = language === 'ru' ? 'en' : 'ru'
+    setLanguage(newLanguage)
+    // Сохраняем выбор в localStorage
+    localStorage.setItem('language', newLanguage)
   }
 
   return (
