@@ -994,27 +994,19 @@ const CaseStudy = () => {
 
           <h2 className="text-3xl font-bold text-gray-200 mb-4 group-hover:text-cyan-400 transition-colors">
 
-            {section.id === 'overview' ? t('caseStudies.keeplApp.sections.0.title') : 
-
-             section.id === 'problem' ? t('caseStudies.keeplApp.sections.1.title') : 
-
-             section.id === 'product-discovery' ? t('caseStudies.keeplApp.sections.2.title') :
-
-             section.id === 'ux-research' ? t('caseStudies.keeplApp.sections.3.title') :
-
-             section.id === 'jtbd' ? t('caseStudies.keeplApp.sections.4.title') :
-
-             section.id === 'hypothesis' ? t('caseStudies.keeplApp.sections.5.title') :
-
-             section.id === 'user-flow' ? t('caseStudies.keeplApp.sections.6.title') :
-
-             section.id === 'metrics' ? t('caseStudies.keeplApp.sections.7.title') :
-
-             section.id === 'ui' ? t('caseStudies.keeplApp.sections.8.title') :
-
-             section.id === 'results' ? t('caseStudies.keeplApp.sections.9.title') :
-
-             section.title}
+            {slug === 'keepl-app' ? (
+              section.id === 'overview' ? t('caseStudies.keeplApp.sections.0.title') : 
+              section.id === 'problem' ? t('caseStudies.keeplApp.sections.1.title') : 
+              section.id === 'product-discovery' ? t('caseStudies.keeplApp.sections.2.title') :
+              section.id === 'ux-research' ? t('caseStudies.keeplApp.sections.3.title') :
+              section.id === 'jtbd' ? t('caseStudies.keeplApp.sections.4.title') :
+              section.id === 'hypothesis' ? t('caseStudies.keeplApp.sections.5.title') :
+              section.id === 'user-flow' ? t('caseStudies.keeplApp.sections.6.title') :
+              section.id === 'metrics' ? t('caseStudies.keeplApp.sections.7.title') :
+              section.id === 'ui' ? t('caseStudies.keeplApp.sections.8.title') :
+              section.id === 'results' ? t('caseStudies.keeplApp.sections.9.title') :
+              section.title
+            ) : section.title}
 
           </h2>
 
@@ -1040,27 +1032,19 @@ const CaseStudy = () => {
 
             <div className="text-gray-200 text-lg leading-relaxed">
 
-              {section.id === 'overview' ? formatContent(t('caseStudies.keeplApp.sections.0.content')) : 
-
-               section.id === 'problem' ? formatContent(t('caseStudies.keeplApp.sections.1.content')) : 
-
-               section.id === 'product-discovery' ? formatContent(t('caseStudies.keeplApp.sections.2.content')) :
-
-               section.id === 'ux-research' ? formatContent(t('caseStudies.keeplApp.sections.3.content')) :
-
-               section.id === 'jtbd' ? formatContent(t('caseStudies.keeplApp.sections.4.content')) :
-
-               section.id === 'hypothesis' ? formatContent(t('caseStudies.keeplApp.sections.5.content')) :
-
-               section.id === 'user-flow' ? formatContent(t('caseStudies.keeplApp.sections.6.content')) :
-
-               section.id === 'metrics' ? formatContent(t('caseStudies.keeplApp.sections.7.content')) :
-
-               section.id === 'ui' ? formatContent(t('caseStudies.keeplApp.sections.8.content')) :
-
-               section.id === 'results' ? formatContent(t('caseStudies.keeplApp.sections.9.content')) :
-
-               formatContent(section.content)}
+              {slug === 'keepl-app' ? (
+                section.id === 'overview' ? formatContent(t('caseStudies.keeplApp.sections.0.content')) : 
+                 section.id === 'problem' ? formatContent(t('caseStudies.keeplApp.sections.1.content')) : 
+                 section.id === 'product-discovery' ? formatContent(t('caseStudies.keeplApp.sections.2.content')) :
+                 section.id === 'ux-research' ? formatContent(t('caseStudies.keeplApp.sections.3.content')) :
+                 section.id === 'jtbd' ? formatContent(t('caseStudies.keeplApp.sections.4.content')) :
+                 section.id === 'hypothesis' ? formatContent(t('caseStudies.keeplApp.sections.5.content')) :
+                 section.id === 'user-flow' ? formatContent(t('caseStudies.keeplApp.sections.6.content')) :
+                 section.id === 'metrics' ? formatContent(t('caseStudies.keeplApp.sections.7.content')) :
+                 section.id === 'ui' ? formatContent(t('caseStudies.keeplApp.sections.8.content')) :
+                 section.id === 'results' ? formatContent(t('caseStudies.keeplApp.sections.9.content')) :
+                 formatContent(section.content)
+              ) : formatContent(section.content)}
 
             </div>
 
@@ -1192,27 +1176,19 @@ const CaseStudy = () => {
 
         <h2 className="text-3xl md:text-4xl font-bold text-gray-200 mb-8">
 
-          {section.id === 'overview' ? t('caseStudies.keeplApp.sections.0.title') : 
-
-           section.id === 'problem' ? t('caseStudies.keeplApp.sections.1.title') : 
-
-           section.id === 'product-discovery' ? t('caseStudies.keeplApp.sections.2.title') :
-
-           section.id === 'ux-research' ? t('caseStudies.keeplApp.sections.3.title') :
-
-           section.id === 'jtbd' ? t('caseStudies.keeplApp.sections.4.title') :
-
-           section.id === 'hypothesis' ? t('caseStudies.keeplApp.sections.5.title') :
-
-           section.id === 'user-flow' ? t('caseStudies.keeplApp.sections.6.title') :
-
-           section.id === 'metrics' ? t('caseStudies.keeplApp.sections.7.title') :
-
-           section.id === 'ui' ? t('caseStudies.keeplApp.sections.8.title') :
-
-           section.id === 'results' ? t('caseStudies.keeplApp.sections.9.title') :
-
-           section.title}
+          {slug === 'keepl-app' ? (
+              section.id === 'overview' ? t('caseStudies.keeplApp.sections.0.title') : 
+               section.id === 'problem' ? t('caseStudies.keeplApp.sections.1.title') : 
+               section.id === 'product-discovery' ? t('caseStudies.keeplApp.sections.2.title') :
+               section.id === 'ux-research' ? t('caseStudies.keeplApp.sections.3.title') :
+               section.id === 'jtbd' ? t('caseStudies.keeplApp.sections.4.title') :
+               section.id === 'hypothesis' ? t('caseStudies.keeplApp.sections.5.title') :
+               section.id === 'user-flow' ? t('caseStudies.keeplApp.sections.6.title') :
+               section.id === 'metrics' ? t('caseStudies.keeplApp.sections.7.title') :
+               section.id === 'ui' ? t('caseStudies.keeplApp.sections.8.title') :
+               section.id === 'results' ? t('caseStudies.keeplApp.sections.9.title') :
+               section.title
+            ) : section.title}
 
         </h2>
 
@@ -1222,27 +1198,19 @@ const CaseStudy = () => {
 
           <div className="text-lg leading-relaxed">
 
-            {section.id === 'overview' ? formatContent(t('caseStudies.keeplApp.sections.0.content')) : 
-
+            {slug === 'keepl-app' ? (
+              section.id === 'overview' ? formatContent(t('caseStudies.keeplApp.sections.0.content')) : 
              section.id === 'problem' ? formatContent(t('caseStudies.keeplApp.sections.1.content')) : 
-
              section.id === 'product-discovery' ? formatContent(t('caseStudies.keeplApp.sections.2.content')) :
-
              section.id === 'ux-research' ? formatContent(t('caseStudies.keeplApp.sections.3.content')) :
-
              section.id === 'jtbd' ? formatContent(t('caseStudies.keeplApp.sections.4.content')) :
-
              section.id === 'hypothesis' ? formatContent(t('caseStudies.keeplApp.sections.5.content')) :
-
              section.id === 'user-flow' ? formatContent(t('caseStudies.keeplApp.sections.6.content')) :
-
              section.id === 'metrics' ? formatContent(t('caseStudies.keeplApp.sections.7.content')) :
-
              section.id === 'ui' ? formatContent(t('caseStudies.keeplApp.sections.8.content')) :
-
              section.id === 'results' ? formatContent(t('caseStudies.keeplApp.sections.9.content')) :
-
-             formatContent(section.content)}
+             formatContent(section.content)
+            ) : formatContent(section.content)}
 
           </div>
 
@@ -2906,13 +2874,13 @@ const CaseStudy = () => {
 
     'keepl-app': {
 
-      title: 'Keepl App',
+      title: t('caseStudies.keeplApp.title'),
 
-      subtitle: 'Mobile App',
+      subtitle: t('caseStudies.keeplApp.subtitle'),
 
-      description: 'Веб-приложение для достижения целей. Помогает пользователям отслеживать прогресс, учитывать эмоциональное состояние и бороться с выгоранием. Проектирование продукта с нуля: от анализа рынка и гипотез до разработки адаптивной дизайн-системы.',
+      description: t('caseStudies.keeplApp.description'),
 
-      tags: ['Product Design', 'Web App', 'Frontend (React)'],
+      tags: t('caseStudies.keeplApp.tags'),
 
       heroImage: '/assets/keepl app.png',
 
@@ -2932,7 +2900,7 @@ const CaseStudy = () => {
 
           id: 'overview',
 
-          title: 'Предыстория',
+          title: t('caseStudies.keeplApp.sections.0.title'),
 
           content: 'Проект начался как эксперимент: я провел небольшие интервью с друзьями, чтобы понять, с какими трудностями они сталкиваются при достижении своих задач и целей. На основе этих наблюдений я попробовал спроектировать несколько экранов мобильного приложения, которое помогает пользователю отслеживать прогресс и поддерживает мотивацию. Опыт оказался интересным, и я решил развить его в полноценный продукт.',
 
@@ -2944,7 +2912,7 @@ const CaseStudy = () => {
 
           id: 'problem',
 
-          title: 'Проблема пользователей',
+          title: t('caseStudies.keeplApp.sections.1.title'),
 
           content: 'Пользователи сталкиваются с несколькими ключевыми трудностями при попытке достигать своих целей:\n\n• Сложно видеть свой прогресс и понимать, что уже сделано, а что еще нет.\n• Мотивация падает, когда сервис не показывает достижения и не помогает удерживать фокус.\n• Давление со стороны привычных механик (стрики, невыполненные задачи) вызывает чувство вины и стресс вместо поддержки и мотивации.\n• Существующие инструменты либо перегружены функциями, либо слишком абстрактны и не учитывают эмоциональный опыт пользователя.\n• Часто приходится комбинировать разные приложения и методы, что создает хаос и лишнюю нагрузку.\n\nВ результате достижение целей превращается в рутину, а не в осознанный и мотивирующий процесс, и пользователи часто ощущают усталость и разочарование.',
 
@@ -2956,7 +2924,7 @@ const CaseStudy = () => {
 
           id: 'product-discovery',
 
-          title: 'Product discovery',
+          title: t('caseStudies.keeplApp.sections.2.title'),
 
           content: '### Что именно мы хотим сделать?\n\nВеб-приложение, которое помогает пользователю достигать своих целей (какими бы они ни были) и делает процесс более осознанным и мотивирующим. В центре внимания - опыт и эмоции пользователя: он отслеживает прогресс в наглядной форме и может фиксировать свое настроение, чтобы понимать, как оно соотносится с результатом.\n\nЯ сфокусировался на персонализации и эмпатии: приложение подстраивается под стиль работы пользователя и поддерживает его мотивацию через простые и понятные механики.\n\n### Для кого это предназначено?\n\nЦелевая аудитория - люди, которые ставят себе личные или рабочие цели, но сталкиваются с проблемой поддержания мотивации и отслеживания прогресса.\n\n### Зачем мы это делаем?\n\nОбычно сервисы для целей фокусируются только на продуктивности: выполнить как можно больше и быстрее. В итоге пользователь со временем приходит к тому, что прожимает чекбоксы на автомате.\nМы же хотим сместить акцент на сам процесс - дать пользователю пространство для осознанности, поддержки и понимания своего состояния. Это не только про "сделать задачу", а про то, чтобы видеть ценность в собственных шагах и понимать, что даже небольшое действие приближает к прогрессу.\n\n### Какие есть альтернативы?\n\nБольшинство конкурентов можно разделить на четыре типа:\n\n- Таск-менеджеры: сильны в управлении задачами, метриках и отчетности, но почти не затрагивают эмоциональную мотивацию.\n- Коучинг-лайфстайл приложения: дают поддержку и вдохновение, но часто перегружены функциями и не имеют удобной визуализации прогресса.\n- Трекеры привычек и настроений: помогают отмечать шаги и привычки, показывают прогресс в графиках, иногда связывают действия с настроением, но ограничены в глубине постановки целей и редко выходят за рамки чек-листов.\n- Планировщики дня: структурируют расписание и помогают следовать режиму, но почти не работают с долгосрочными целями и эмоциями пользователя.\n\nТаким образом, рынок закрывает разные аспекты: где-то есть жесткая структура и визуализация, где-то эмоциональная поддержка и коучинг, а где-то гибкий трекинг привычек. Но практически никто не соединяет все это вместе: постановку целей с подцелями, эмоциональные теги и настроение на уровне конкретных шагов, фото-прогресс и мягкие альтернативы действий под состояние пользователя.\n\nЧтобы глубже понять рынок, я проанализировал конкретные продукты из этих категорий:\n\n| **Название** | **Цели и мини-цели** | **Визуализация прогресса** | **Настроение/теги** | **Фото прогресс** | **Альтернативы действий** | **Мотивация** |\n| --- | --- | --- | --- | --- | --- | --- |\n| Strides | ✅ гибкие цели, привычки, KPI | ✅ прогресс бар, графики | ❌ | ❌ | ❌ | ❌ |\n| Fabulous | ❌ фокус на привычки | ❌ стрики | частично, общий трекер | ❌ | ✅ | ✅ коуч-сценарии |\n| Daylio | ❌ только привычки | ✅ графики настроения/привычек | ✅ | ❌ | ❌ | ❌ статистика |\n| Habitica | ✅ квесты | ✅ xp, уровни | ❌ | ❌ | ✅ | ✅ геймификация, коммьюнити |\n| Coach.me | ✅ | ❌ счетчики | ❌ | ❌ | ❌ | ✅ коучи |\n| Remente | ✅ life goals, подцели, планы | ✅ | ✅ муд трекер | ❌ | ❌ | ✅ статьи, напоминания |\n| Way of Life | ❌ фокус на привычки | ✅ | ✅ муд теги к привычкам | ❌ | ❌ | ❌ статистика |\n| Goal: Habits & Tasks | ✅ цели, привычки, задачи | ✅ прогресс бары, календари | ❌ | ❌ | ❌ | ❌ |\n| Success Wizard | ✅ пошаговые планы, цели | ❌ отчеты | ❌ | ❌ | ❌ | ❌ |\n| ATracker PRO | ❌ тайм трекер | ✅ графики | ❌ | ❌ | ❌ | ❌ |\n| ClickUp | ✅ | ✅ дашборды и метрики | ❌ | ❌ | ❌ | ❌ |\n\n### Как пользователи решают эту проблему сейчас?\n\nЛюди используют заметки, таск-менеджеры, планировщики и трекеры привычек, но ни один инструмент не объединяет мотивацию, визуальный прогресс и эмоциональную поддержку. Часто они полагаются на самодисциплину и теряют мотивацию, когда не видят результатов.',
 
@@ -2968,7 +2936,7 @@ const CaseStudy = () => {
 
           id: 'ux-research',
 
-          title: 'UX-исследование и инсайты',
+          title: t('caseStudies.keeplApp.sections.3.title'),
 
           content: 'Чтобы глубже понять контекст и реальные боли, я провел небольшие интервью со знакомыми и дополнительно проанализировал отзывы пользователей схожих приложений (Strides, Habitica, Daylio, Fabulous, Finch).\n\nЭто помогло сформулировать три ключевых паттерна поведения:\n\n- Сложно начать\n\nЛюди теряются при первом запуске и не понимают, как правильно поставить цель. Значит, нужен онбординг и шаблоны, которые помогают начать без стресса.\n\n- Нет гибкости\n\nПриложения заставляют подстраиваться под жесткие шаблоны, а пользователи хотят задавать свои параметры. Значит, важно дать возможность настраивать единицы измерения и структуру цели под себя.\n\n- Эмоциональное давление\n\nИз-за стриков и отчетности у людей появляется чувство вины, если они не выполняют все запланированные действия. Интерфейс должен поддерживать, а не осуждать. Нужен мягкий UX-тон, текстовые мотивации, легкие альтернативы шагов.',
 
@@ -2980,7 +2948,7 @@ const CaseStudy = () => {
 
           id: 'jtbd',
 
-          title: 'JTBD',
+          title: t('caseStudies.keeplApp.sections.4.title'),
 
           content: '\n\n- Когда я ставлю большую цель, я хочу разбить ее на маленькие шаги, чтобы видеть понятный план и не терять мотивацию.\n- Когда я выполняю ежедневные действия, я хочу отмечать прогресс и видеть динамику визуально, чтобы чувствовать движение вперед и гордиться результатом.\n- Когда я устал или у меня плохое настроение, я хочу иметь более легкую альтернативу шага, чтобы не выпадать из процесса, сохранить ритм и не винить себя за пропуски.\n- Когда я закрываю мини-цель, я хочу прикрепить фото или заметку, чтобы наглядно видеть изменения и иметь возможность вернуться к ним позже.\n- Когда я фиксирую настроение после выполнения мини-цели, я хочу отслеживать его вместе с прогрессом, чтобы видеть связь между действиями и состоянием.\n- Когда я теряю интерес или силы, я хочу получать мягкие подбадривающие напоминания, чтобы поддерживать мотивацию и продолжать движение к цели.',
 
@@ -2992,7 +2960,7 @@ const CaseStudy = () => {
 
           id: 'hypothesis',
 
-          title: 'Гипотеза',
+          title: t('caseStudies.keeplApp.sections.5.title'),
 
           content: 'Если дать пользователю возможность кастомизировать цели под свой стиль и состояние, добавить эмоциональный фидбек (трекер настроения, фото, поддерживающие тексты) и легкую альтернативу, то это поможет ему дольше сохранять мотивацию и ощущение прогресса. Что, в свою очередь, приведет к росту retention, stickness (DAU) и снизит drop-off rate.',
 
@@ -3004,7 +2972,7 @@ const CaseStudy = () => {
 
           id: 'user-flow',
 
-          title: 'User flow',
+          title: t('caseStudies.keeplApp.sections.6.title'),
 
           content: 'Три сценария пользователя: создание цели, отметка выполнения ежедневной мини-цели и замена мини-цели на более легкую альтернативу. Флоу простой и наглядный, чтобы показать, как пользователь взаимодействует с сервисом.\n\n### Сценарий 1: пользователь создает новую цель.\n\nФлоу создания цели сфокусирован на минимизации когнитивной нагрузки и борьбе с эффектом, когда "слишком много нужно сделать". Гибкая настройка единиц измерения и превентивное добавление легкой альтернативы в момент создания цели - ключевое продуктовое решение.\n\nМы даем пользователю полный контроль над своим планом Б, позволяя ему заранее установить реалистичный, упрощенный шаг на случай низкой мотивации. Пользователю не нужно импровизировать или пропускать шаг, что напрямую решает проблему "сложно начать и отсутствие гибкости".\n\n### Сценарий 2: пользователь отмечает ежедневный прогресс.\n\nЭтот флоу сознательно отказывается от агрессивного акцента на стриках, смещая фокус на сам прогресс. Ручной ввод результата заставляет пользователя осознанно оценить свое усилие. Визуализация прогресса, даже минимального, сразу после ввода дает позитивное подкрепление и борется с ощущением, что усилия тщетны.\n\nОпциональный трекинг настроения на оверлее интегрирован для сбора данных о корреляции между действием и эмоциональным состоянием: пользователь видит, что в прошлый раз, когда он выполнил задачу, он почувствовал себя лучше, а значит, имеет смысл сделать усилие и в этот раз.\n\n### Сценарий 3: Пользователь устал и не может выполнить цель полностью.\n\nЭтот сценарий - решение для инсайта "пользователь чувствует вину и бросает цель, когда не может ее выполнить полностью". Вместо пропуска задачи флоу предлагает активировать заранее определенный пользователем упрощенный путь. Это сохраняет привычку и снимает эмоциональное давление, используя решение, принятое самим пользователем в более мотивированном состоянии, что является критически важным для долгосрочного удержания.',
 
@@ -3016,7 +2984,7 @@ const CaseStudy = () => {
 
           id: 'metrics',
 
-          title: 'Метрики и план проверки гипотезы',
+          title: t('caseStudies.keeplApp.sections.7.title'),
 
           content: '### Основная гипотеза\n\nЖесткие системы "выполнено/пропущено" создают давление на пользователя и чувство вины при пропуске. Внедрение кастомизации под текущее состояние пользователя (ручной ввод прогресса, легкая альтернатива и эмоциональный фидбек) позволит сохранить ощущение контроля и мотивацию на длинной дистанции.\n\n### Ключевые метрики\n\nДля оценки успеха мы будем отслеживать следующие показатели:\n\n- Retention через 30 дней - ключевой индикатор долгосрочной ценности. Мы ожидаем, что гибкость системы удержит пользователя в продукте дольше, чем классические аналоги\n- Stickiness (DAU/MAU) - частота возвратов. Покажет, стало ли приложение ежедневным помощником благодаря "легким альтернативам".\n- Feature Adoption Rate - процент использования функций "lighter alternative" и ручного инпута. Это подтвердит, что пользователи находят эти инструменты полезными в моменты усталости.\n- Completion Rate - процент целей, доведенных до конца. Позволит увидеть, помогает ли "легкая альтернатива" не бросать сложные задачи, а дожимать их до финала.',
 
@@ -3028,7 +2996,7 @@ const CaseStudy = () => {
 
           id: 'ui',
 
-          title: 'UI',
+          title: t('caseStudies.keeplApp.sections.8.title'),
 
           content: 'Дизайн Keepl отошел от агрессивных интерфейсов продуктивности и сфокусировался на создании поддерживающей, гибкой и осознанной среды для достижения целей. Я использовал мягкие скругления для снижения визуальной резкости, такую же мягкую тень для создания легкой, но быстрой узнаваемости интерактивных элементов, и спокойную цветовую палитру, не режущую глаз при ежедневном использовании приложения.\n\nМобильная адаптация реализована в виде PWA - пользователь сможет "сохранить" веб страницу на свой хоум скрин и использовать как обычное мобильное приложение. Для этого я переработал некоторые элементы интерфейса, чтобы приложение вело себя нативно: сайд бар сменился привычным таб баром, модалки стали bottom sheet.\n\n## Первый вход в приложение и создание цели',
 
@@ -3062,7 +3030,7 @@ const CaseStudy = () => {
 
           id: 'results',
 
-          title: 'Статус проекта',
+          title: t('caseStudies.keeplApp.sections.9.title'),
 
           content: 'Спроектирован и реализован полный пользовательский опыт для трекера целей. Создано 15+ экранов с адаптивным дизайном, разработана дизайн-система из 50+ компонентов. Реализована сложная навигация с сохранением контекста пользователя. Идет работа над бэком.',
 
