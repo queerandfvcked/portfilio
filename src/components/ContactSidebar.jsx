@@ -60,7 +60,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
       
       {/* Sidebar with slide-out animation */}
       <div 
-        className={`fixed right-0 top-0 h-screen w-full md:h-full md:w-96 shadow-2xl z-50 transition-all duration-700 ease-in-out transform ${
+        className={`fixed right-0 top-0 h-screen w-full md:w-96 shadow-2xl z-50 transition-all duration-700 ease-in-out transform ${
           isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
         }`}
         style={{

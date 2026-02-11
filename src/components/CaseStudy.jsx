@@ -252,15 +252,19 @@ const CaseStudy = () => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <img 
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/coinkeeper.png")}>
 
-              src="/assets/New folder/Competitive analysis/coinkeeper.png" 
+              <img 
 
-              alt="Coinkeeper"
+                src="/assets/New folder/Competitive analysis/coinkeeper.png" 
 
-              className="w-full max-w-md h-auto object-contain rounded-lg"
+                alt="Coinkeeper"
 
-            />
+                className="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+
+              />
+
+            </div>
 
           </div>
 
@@ -274,15 +278,19 @@ const CaseStudy = () => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <img 
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/money manager.png")}>
 
-              src="/assets/New folder/Competitive analysis/money manager.png" 
+              <img 
 
-              alt="Money Manager"
+                src="/assets/New folder/Competitive analysis/money manager.png" 
 
-              className="w-full max-w-md h-auto object-contain rounded-lg"
+                alt="Money Manager"
 
-            />
+                className="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+
+              />
+
+            </div>
 
           </div>
 
@@ -296,15 +304,19 @@ const CaseStudy = () => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <img 
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/incomes.png")}>
 
-              src="/assets/New folder/Competitive analysis/incomes.png" 
+              <img 
 
-              alt="Incomes"
+                src="/assets/New folder/Competitive analysis/incomes.png" 
 
-              className="w-full max-w-md h-auto object-contain rounded-lg"
+                alt="Incomes"
 
-            />
+                className="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+
+              />
+
+            </div>
 
           </div>
 
@@ -316,37 +328,21 @@ const CaseStudy = () => {
 
         return (
 
-          <div key={index} className="flex flex-row gap-4 justify-center items-center w-full my-8">
+          <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <img 
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/ZenMoney.png")}>
 
-              src="/assets/New folder/Competitive analysis/zenmoney 1.png" 
+              <img 
 
-              alt="ZenMoney 1"
+                src="/assets/New folder/Competitive analysis/ZenMoney.png" 
 
-              className="w-2/5 h-80 object-contain"
+                alt="ZenMoney"
 
-            />
+                className="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
 
-            <img 
+              />
 
-              src="/assets/New folder/Competitive analysis/zenmoney 2.png" 
-
-              alt="ZenMoney 2"
-
-              className="w-2/5 h-80 object-contain"
-
-            />
-
-            <img 
-
-              src="/assets/New folder/Competitive analysis/zenmoney 3.png" 
-
-              alt="ZenMoney 3"
-
-              className="w-2/5 h-80 object-contain"
-
-            />
+            </div>
 
           </div>
 
@@ -358,37 +354,21 @@ const CaseStudy = () => {
 
         return (
 
-          <div key={index} className="flex flex-row gap-4 justify-center items-center w-full my-8">
+          <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <img 
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/Monefy.png")}>
 
-              src="/assets/New folder/Competitive analysis/monefy 1.png" 
+              <img 
 
-              alt="Monefy 1"
+                src="/assets/New folder/Competitive analysis/Monefy.png" 
 
-              className="w-2/5 h-80 object-contain"
+                alt="Monefy"
 
-            />
+                className="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
 
-            <img 
+              />
 
-              src="/assets/New folder/Competitive analysis/monefy 2.png" 
-
-              alt="Monefy 2"
-
-              className="w-2/5 h-80 object-contain"
-
-            />
-
-            <img 
-
-              src="/assets/New folder/Competitive analysis/monefy 3.png" 
-
-              alt="Monefy 3"
-
-              className="w-2/5 h-80 object-contain"
-
-            />
+            </div>
 
           </div>
 
@@ -400,37 +380,21 @@ const CaseStudy = () => {
 
         return (
 
-          <div key={index} className="flex flex-row gap-4 justify-center items-center w-full my-8">
+          <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <img 
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/Spendee.png")}>
 
-              src="/assets/New folder/Competitive analysis/spendee 1.png" 
+              <img 
 
-              alt="Spendee 1"
+                src="/assets/New folder/Competitive analysis/Spendee.png" 
 
-              className="w-2/5 h-80 object-contain"
+                alt="Spendee"
 
-            />
+                className="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
 
-            <img 
+              />
 
-              src="/assets/New folder/Competitive analysis/spendee 2.png" 
-
-              alt="Spendee 2"
-
-              className="w-2/5 h-80 object-contain"
-
-            />
-
-            <img 
-
-              src="/assets/New folder/Competitive analysis/spendee 3.png" 
-
-              alt="Spendee 3"
-
-              className="w-2/5 h-80 object-contain"
-
-            />
+            </div>
 
           </div>
 
@@ -442,37 +406,21 @@ const CaseStudy = () => {
 
         return (
 
-          <div key={index} className="flex flex-row gap-4 justify-center items-center w-full my-8">
+          <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <img 
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/Money Mgr.png")}>
 
-              src="/assets/New folder/Competitive analysis/money mgr 1.png" 
+              <img 
 
-              alt="Money Mgr 1"
+                src="/assets/New folder/Competitive analysis/Money Mgr.png" 
 
-              className="w-2/5 h-80 object-contain"
+                alt="Money Mgr"
 
-            />
+                className="w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
 
-            <img 
+              />
 
-              src="/assets/New folder/Competitive analysis/money mgr 2.png" 
-
-              alt="Money Mgr 2"
-
-              className="w-2/5 h-80 object-contain"
-
-            />
-
-            <img 
-
-              src="/assets/New folder/Competitive analysis/money mgr 3.png" 
-
-              alt="Money Mgr 3"
-
-              className="w-2/5 h-80 object-contain"
-
-            />
+            </div>
 
           </div>
 
@@ -486,7 +434,7 @@ const CaseStudy = () => {
 
           <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
 
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini.png")}>
 
               <img 
 
@@ -494,7 +442,7 @@ const CaseStudy = () => {
 
                 alt="iPhone 13 mini mockup"
 
-                className="w-full h-auto rounded-lg object-contain"
+                className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
 
               />
 
@@ -550,7 +498,7 @@ const CaseStudy = () => {
 
           <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
 
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini.png")}>
 
               <img 
 
@@ -558,7 +506,7 @@ const CaseStudy = () => {
 
                 alt="iPhone 13 mini mockup"
 
-                className="w-full h-auto rounded-lg object-contain"
+                className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
 
               />
 
@@ -614,7 +562,7 @@ const CaseStudy = () => {
 
           <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
 
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 1.png")}>
 
               <img 
 
@@ -622,7 +570,7 @@ const CaseStudy = () => {
 
                 alt="iPhone 13 mini mockup 1"
 
-                className="w-full h-auto rounded-lg object-contain"
+                className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
 
               />
 
@@ -672,7 +620,7 @@ const CaseStudy = () => {
 
           <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
 
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 1.png")}>
 
               <img 
 
@@ -680,7 +628,7 @@ const CaseStudy = () => {
 
                 alt="iPhone 13 mini mockup 1"
 
-                className="w-full h-auto rounded-lg object-contain"
+                className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
 
               />
 
@@ -736,35 +684,47 @@ const CaseStudy = () => {
 
             <div className="flex flex-col lg:flex-row gap-6 justify-start items-center w-full my-12">
 
-              <img 
+              <div className="w-full lg:w-[30%] cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 2.png")}>
 
-                src="/assets/New folder/iPhone_13_mini 2.png" 
+                <img 
 
-                alt="iPhone 13 mini mockup 2"
+                  src="/assets/New folder/iPhone_13_mini 2.png" 
 
-                className="w-full lg:w-[30%] h-auto object-contain"
+                  alt="iPhone 13 mini mockup 2"
 
-              />
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
 
-              <img 
+                />
 
-                src="/assets/New folder/iPhone_13_mini 3.png" 
+              </div>
 
-                alt="iPhone 13 mini mockup 3"
+              <div className="w-full lg:w-[30%] cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 3.png")}>
 
-                className="w-full lg:w-[30%] h-auto object-contain"
+                <img 
 
-              />
+                  src="/assets/New folder/iPhone_13_mini 3.png" 
 
-              <img 
+                  alt="iPhone 13 mini mockup 3"
 
-                src="/assets/New folder/iPhone_13_mini 4.png" 
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
 
-                alt="iPhone 13 mini mockup 4"
+                />
 
-                className="w-full lg:w-[30%] h-auto object-contain"
+              </div>
 
-              />
+              <div className="w-full lg:w-[30%] cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 4.png")}>
+
+                <img 
+
+                  src="/assets/New folder/iPhone_13_mini 4.png" 
+
+                  alt="iPhone 13 mini mockup 4"
+
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+
+                />
+
+              </div>
 
             </div>
 
@@ -4051,7 +4011,7 @@ const CaseStudy = () => {
 
               >
 
-                Больше визуала на Behance
+                {t('common.behanceButton')}
 
               </a>
 

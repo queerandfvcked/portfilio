@@ -8,6 +8,30 @@ const Header = () => {
   const [isContactOpen, setIsContactOpen] = useState(false)
   const { language, toggleLanguage, t } = useTranslation()
 
+  // Handle navigation with anchors when coming from case studies
+  const handleNavigation = (href) => {
+    if (href.includes('#')) {
+      const [basePath, anchor] = href.split('#')
+      
+      // Check if we're currently on a case study page
+      if (window.location.pathname !== '/') {
+        // Navigate to home first, then scroll to anchor
+        window.location.href = href
+      } else {
+        // Already on home page, just scroll to anchor
+        setTimeout(() => {
+          const element = document.getElementById(anchor)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100)
+      }
+    } else {
+      // Regular navigation
+      window.location.href = href
+    }
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
@@ -35,7 +59,9 @@ const Header = () => {
       <div className="container">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-xl font-bold text-white">Andrian Shtark</h1>
+            <a href="/" className="text-xl font-bold text-white hover:text-gray-300 transition-colors">
+              Andrian Shtark
+            </a>
           </div>
           
           <nav className="hidden md:block flex-1">
@@ -50,41 +76,43 @@ const Header = () => {
                       {item.name}
                     </button>
                   ) : (
-                    <a
-                      href={item.href}
+                    <button
+                      onClick={() => handleNavigation(item.href)}
                       className="text-gray-300 hover:text-white transition-colors font-medium"
-                      {...(item.download && { download: true, target: '_blank' })}
+                      {...(item.download && { onClick: (e) => { e.preventDefault(); window.open(item.href, '_blank'); } })}
                     >
                       {item.name}
-                    </a>
+                    </button>
                   )}
                 </li>
               ))}
             </ul>
           </nav>
           
-          {/* Language toggle button - right edge */}
-          <button
-            onClick={toggleLanguage}
-            className="hidden md:block px-3 py-1 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
-            style={{ 
-              backgroundColor: '#181A1F', 
-              border: '1px solid #2A2D3A',
-              color: '#9CA3AF'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#06b6d4'
-              e.target.style.color = '#ffffff'
-              e.target.style.borderColor = '#06b6d4'
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#181A1F'
-              e.target.style.color = '#9CA3AF'
-              e.target.style.borderColor = '#2A2D3A'
-            }}
-          >
-            {language === 'ru' ? 'EN' : 'RU'}
-          </button>
+          {/* Right side controls */}
+          <div className="flex items-center gap-2">
+            {/* Language toggle button - right edge */}
+            <button
+              onClick={toggleLanguage}
+              className="px-3 py-1 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
+              style={{ 
+                backgroundColor: '#181A1F', 
+                border: '1px solid #2A2D3A',
+                color: '#9CA3AF'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#06b6d4'
+                e.target.style.color = '#ffffff'
+                e.target.style.borderColor = '#06b6d4'
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = '#181A1F'
+                e.target.style.color = '#9CA3AF'
+                e.target.style.borderColor = '#2A2D3A'
+              }}
+            >
+              {language === 'ru' ? 'EN' : 'RU'}
+            </button>
             
             <button
               className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800"
@@ -98,6 +126,7 @@ const Header = () => {
                 )}
               </svg>
             </button>
+          </div>
         </div>
       </div>
 
@@ -109,21 +138,6 @@ const Header = () => {
               borderColor: '#2A2D3A'
             }}>
           <div className="container">
-            {/* Mobile language toggle */}
-            <div className="py-3 border-b border-gray-700">
-              <button
-                onClick={toggleLanguage}
-                className="w-full px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 text-left"
-                style={{ 
-                  backgroundColor: '#181A1F', 
-                  border: '1px solid #2A2D3A',
-                  color: '#9CA3AF'
-                }}
-              >
-                🌐 {language === 'ru' ? 'Switch to English' : 'Переключить на русский'}
-              </button>
-            </div>
-            
             <ul className="py-4 space-y-3">
               {navItems.map((item) => (
                 <li key={item.name}>
@@ -138,14 +152,20 @@ const Header = () => {
                       {item.name}
                     </button>
                   ) : (
-                    <a
-                      href={item.href}
+                    <button
+                      onClick={() => {
+                        handleNavigation(item.href)
+                        setIsMobileMenuOpen(false)
+                      }}
                       className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      {...(item.download && { download: true, target: '_blank' })}
+                      {...(item.download && { onClick: (e) => { 
+                        e.preventDefault(); 
+                        setIsMobileMenuOpen(false);
+                        window.open(item.href, '_blank'); 
+                      } })}
                     >
                       {item.name}
-                    </a>
+                    </button>
                   )}
                 </li>
               ))}

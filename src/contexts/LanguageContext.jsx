@@ -10,6 +10,10 @@ const translations = {
       resume: 'Резюме',
       contact: 'Контакты'
     },
+    // Common
+    common: {
+      behanceButton: 'Больше визуала на Behance'
+    },
     // Hero
     hero: {
       title: 'Продуктовый дизайнер',
@@ -471,6 +475,10 @@ const translations = {
       about: 'Product Approach',
       resume: 'Resume',
       contact: 'Contact'
+    },
+    // Common
+    common: {
+      behanceButton: 'More visuals on Behance'
     },
     // Hero
     hero: {
