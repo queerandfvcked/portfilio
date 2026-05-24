@@ -4045,6 +4045,32 @@ const CaseStudy = () => {
 
           )}
 
+          {/* Pitch Deck button for keepl-app case */}
+
+          {slug === 'keepl-app' && (
+
+            <div className="flex justify-center mt-8">
+
+              <a
+
+                href={language === 'ru' ? '/assets/pitch_deck_ru.pdf' : '/assets/pitch_deck_en.pdf'}
+
+                target="_blank"
+
+                rel="noopener noreferrer"
+
+                className="inline-flex items-center px-6 py-3 bg-cyan-500 text-gray-900 font-semibold rounded-full hover:bg-cyan-400 transition-colors duration-300"
+
+              >
+
+                {t('common.pitchDeck')}
+
+              </a>
+
+            </div>
+
+          )}
+
         </div>
 
       </div>

@@ -12,7 +12,8 @@ const translations = {
     },
     // Common
     common: {
-      behanceButton: 'Больше визуала на Behance'
+      behanceButton: 'Больше визуала на Behance',
+      pitchDeck: 'Презентация'
     },
     // Hero
     hero: {
@@ -478,7 +479,8 @@ const translations = {
     },
     // Common
     common: {
-      behanceButton: 'More visuals on Behance'
+      behanceButton: 'More visuals on Behance',
+      pitchDeck: 'Pitch Deck'
     },
     // Hero
     hero: {
