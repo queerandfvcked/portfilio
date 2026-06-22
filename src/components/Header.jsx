@@ -75,11 +75,20 @@ const Header = () => {
                     >
                       {item.name}
                     </button>
+                  ) : item.download ? (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.open(item.href, '_blank');
+                      }}
+                      className="text-gray-300 hover:text-white transition-colors font-medium"
+                    >
+                      {item.name}
+                    </button>
                   ) : (
                     <button
                       onClick={() => handleNavigation(item.href)}
                       className="text-gray-300 hover:text-white transition-colors font-medium"
-                      {...(item.download && { onClick: (e) => { e.preventDefault(); window.open(item.href, '_blank'); } })}
                     >
                       {item.name}
                     </button>
@@ -151,6 +160,17 @@ const Header = () => {
                     >
                       {item.name}
                     </button>
+                  ) : item.download ? (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsMobileMenuOpen(false);
+                        window.open(item.href, '_blank');
+                      }}
+                      className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
+                    >
+                      {item.name}
+                    </button>
                   ) : (
                     <button
                       onClick={() => {
@@ -158,11 +178,6 @@ const Header = () => {
                         setIsMobileMenuOpen(false)
                       }}
                       className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
-                      {...(item.download && { onClick: (e) => { 
-                        e.preventDefault(); 
-                        setIsMobileMenuOpen(false);
-                        window.open(item.href, '_blank'); 
-                      } })}
                     >
                       {item.name}
                     </button>
