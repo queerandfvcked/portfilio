@@ -76,15 +76,14 @@ const Header = () => {
                       {item.name}
                     </button>
                   ) : item.download ? (
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.open(item.href, '_blank');
-                      }}
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
                       className="text-gray-300 hover:text-white transition-colors font-medium"
                     >
                       {item.name}
-                    </button>
+                    </a>
                   ) : (
                     <button
                       onClick={() => handleNavigation(item.href)}
@@ -161,16 +160,15 @@ const Header = () => {
                       {item.name}
                     </button>
                   ) : item.download ? (
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setIsMobileMenuOpen(false);
-                        window.open(item.href, '_blank');
-                      }}
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
                       className="block text-gray-300 hover:text-white transition-colors font-medium py-2"
                     >
                       {item.name}
-                    </button>
+                    </a>
                   ) : (
                     <button
                       onClick={() => {
