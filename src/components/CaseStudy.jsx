@@ -381,133 +381,61 @@ const CaseStudy = () => {
 
   useEffect(() => {
 
-    const handleScroll = () => {
-
-      if (contentRef.current) {
-
-        const sections = contentRef.current.querySelectorAll('[data-section]')
-
-        const scrollPosition = window.scrollY + 100
+    if (!contentRef.current) return
 
 
 
-        console.log('📜 Scroll position:', scrollPosition)
-
-        console.log('📜 Found sections:', sections.length)
+    const sections = contentRef.current.querySelectorAll('[data-section]')
 
 
 
-        let currentActiveSection = null
+    const observer = new IntersectionObserver(
 
-        
+      (entries) => {
 
-        // Проверяем секции в обратном порядке (снизу вверх)
+        const visible = entries
 
-        for (let i = sections.length - 1; i >= 0; i--) {
+          .filter((entry) => entry.isIntersecting)
 
-          const section = sections[i]
+          .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top)
 
-          const sectionId = section.dataset.section
 
-          const isToggleable = toggleableSections.includes(sectionId)
 
-          const isExpanded = expandedSections[sectionId] || !isToggleable
+        if (visible.length > 0) {
 
-          
-
-          let sectionTop = section.offsetTop
-
-          
-
-          // For collapsed sections, find first visible element inside
-
-          if (!isExpanded) {
-
-            const header = section.querySelector('h2, h3')
-
-            if (header) {
-
-              sectionTop = header.offsetTop + section.offsetTop
-
-            }
-
-          }
-
-          
-
-          console.log(`📜 Section "${sectionId}": top=${sectionTop}, expanded=${isExpanded}`)
-
-          
-
-          if (scrollPosition >= sectionTop) {
-
-            currentActiveSection = sectionId
-
-            console.log(`✅ Setting active section to: ${sectionId}`)
-
-            break // Нашли подходящую секцию, выходим из цикла
-
-          }
+          setActiveSection(visible[0].target.dataset.section)
 
         }
 
-        
+      },
 
-        if (currentActiveSection) {
+      { rootMargin: '-100px 0px -70% 0px', threshold: 0 }
 
-          setActiveSection(currentActiveSection)
-
-        }
-
-      }
-
-    }
+    )
 
 
 
-    window.addEventListener('scroll', handleScroll)
+    sections.forEach((section) => observer.observe(section))
 
-    return () => window.removeEventListener('scroll', handleScroll)
 
-  }, [expandedSections, toggleableSections])
+
+    return () => observer.disconnect()
+
+
+
+  }, [])
 
 
 
   const scrollToSection = (sectionId) => {
 
-    console.log('🎯 scrollToSection called with:', sectionId)
-
     const element = document.getElementById(sectionId)
 
-    console.log('📍 Element found:', element)
 
-    
 
     if (element) {
 
-      console.log('📏 Element position:', element.offsetTop)
-
-      console.log('📏 Element height:', element.offsetHeight)
-
-      console.log('📏 Current scroll position:', window.scrollY)
-
-      
-
-      try {
-
-        element.scrollIntoView({ behavior: 'smooth' })
-
-        console.log('✅ scrollIntoView executed successfully')
-
-      } catch (error) {
-
-        console.error('❌ scrollIntoView failed:', error)
-
-      }
-
-    } else {
-
-      console.error('❌ Element not found with ID:', sectionId)
+      element.scrollIntoView({ behavior: 'smooth' })
 
     }
 
@@ -851,15 +779,15 @@ const CaseStudy = () => {
 
           <div 
 
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-fade-in overflow-auto"
+            className="fixed inset-0 z-50 flex bg-black/90 p-4 animate-fade-in overflow-auto"
 
             onClick={closeImageModal}
 
           >
 
-            <div className="relative max-w-6xl max-h-full animate-scale-in">
+            <div className="relative max-w-6xl m-auto animate-scale-in">
 
-              <div className="overflow-hidden max-h-[90vh] relative">
+              <div className={`relative ${imageScale > 1 ? '' : 'overflow-hidden max-h-[90vh]'}`}>
 
                 <img
 
@@ -896,14 +824,13 @@ const CaseStudy = () => {
                 />
 
               </div>
-
-              {window.innerWidth > 768 && (
-
-                <p className="text-center text-gray-400 text-sm mt-2">Используйте колесико мыши для масштабирования</p>
-
-              )}
-
             </div>
+
+            {window.innerWidth > 768 && (
+
+              <p className="fixed bottom-4 right-8 text-gray-400 text-sm pointer-events-none">{t('common.zoomHint')}</p>
+
+            )}
 
           </div>
 

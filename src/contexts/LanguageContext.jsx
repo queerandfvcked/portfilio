@@ -13,7 +13,8 @@ const translations = {
     // Common
     common: {
       behanceButton: 'Больше визуала на Behance',
-      pitchDeck: 'Презентация'
+      pitchDeck: 'Презентация',
+      zoomHint: 'Используйте колесико мыши для масштабирования'
     },
     // Hero
     hero: {
@@ -480,7 +481,8 @@ const translations = {
     // Common
     common: {
       behanceButton: 'More visuals on Behance',
-      pitchDeck: 'Pitch Deck'
+      pitchDeck: 'Pitch Deck',
+      zoomHint: 'Use the mouse wheel to zoom'
     },
     // Hero
     hero: {
