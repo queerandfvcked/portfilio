@@ -253,7 +253,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">По умолчанию видны 4 категории. Предполагается, что первыми стоят используемые чаще всего, чтобы не вынуждать пользователя лишний раз разворачивать список</span>
+                  <span className="text-primary">По умолчанию видны 4 категории. Предполагается, что первыми стоят используемые чаще всего, чтобы не вынуждать пользователя лишний раз разворачивать список</span>
 
                 </div>
 
@@ -261,7 +261,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">Кнопка неактивна, пока не будет введена сумма и выбрана категория</span>
+                  <span className="text-primary">Кнопка неактивна, пока не будет введена сумма и выбрана категория</span>
 
                 </div>
 
@@ -269,13 +269,13 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">При заходе на экран инпут суммы сразу в фокусе, клавиатура открыта. Так мы сократим время на тапе и сразу позволим ввести сумму (за этим пользователь и пришел на экран)</span>
+                  <span className="text-primary">При заходе на экран инпут суммы сразу в фокусе, клавиатура открыта. Так мы сократим время на тапе и сразу позволим ввести сумму (за этим пользователь и пришел на экран)</span>
 
                 </div>
 
               </div>
 
-              <div className="mt-6 text-gray-400 text-sm italic">
+              <div className="mt-6 text-secondary text-sm italic">
 
                 Для удобства и скорости можно также использовать кастомную клавиатуру на экране, как у конкурентов, но я посчитал, что автоматический фокус на инпуте сработает не хуже, а системная клавиатура будет привычнее для пользователя.
 
@@ -317,7 +317,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">By default, 4 categories are visible. It is assumed that the most frequently used ones come first to avoid forcing the user to expand the list unnecessarily</span>
+                  <span className="text-primary">By default, 4 categories are visible. It is assumed that the most frequently used ones come first to avoid forcing the user to expand the list unnecessarily</span>
 
                 </div>
 
@@ -325,7 +325,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">The button is inactive until an amount is entered and a category is selected</span>
+                  <span className="text-primary">The button is inactive until an amount is entered and a category is selected</span>
 
                 </div>
 
@@ -333,13 +333,13 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">When entering the screen, the amount input is immediately in focus and the keyboard is open. This reduces tap time and immediately allows the user to enter the amount (which is why they came to the screen)</span>
+                  <span className="text-primary">When entering the screen, the amount input is immediately in focus and the keyboard is open. This reduces tap time and immediately allows the user to enter the amount (which is why they came to the screen)</span>
 
                 </div>
 
               </div>
 
-              <div className="mt-6 text-gray-400 text-sm italic">
+              <div className="mt-6 text-secondary text-sm italic">
 
                 For convenience and speed, you could also use a custom keyboard on the screen like competitors, but I believe that automatic input focus will work just as well, and the system keyboard will be more familiar to the user.
 
@@ -381,7 +381,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">Выделил категории разными цветами, но сделал их пастельными, не яркими, чтоб не резали глаз при ежедневном использовании. Если для каждой категории установить фиксированный цвет, то юзер может ориентироваться еще и по цвету в выборе категории</span>
+                  <span className="text-primary">Выделил категории разными цветами, но сделал их пастельными, не яркими, чтоб не резали глаз при ежедневном использовании. Если для каждой категории установить фиксированный цвет, то юзер может ориентироваться еще и по цвету в выборе категории</span>
 
                 </div>
 
@@ -389,7 +389,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">Дата по умолчанию стоит "сегодня". При необходимости юзер нажмет на иконку и в боттом шит календаре выберет нужную дату</span>
+                  <span className="text-primary">Дата по умолчанию стоит "сегодня". При необходимости юзер нажмет на иконку и в боттом шит календаре выберет нужную дату</span>
 
                 </div>
 
@@ -397,7 +397,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">Инпут комментария не занимает много места, лейбл в плейсхолдере. Сразу указал в нем на опциональность функции, чтобы пользователь точно не запутался</span>
+                  <span className="text-primary">Инпут комментария не занимает много места, лейбл в плейсхолдере. Сразу указал в нем на опциональность функции, чтобы пользователь точно не запутался</span>
 
                 </div>
 
@@ -439,7 +439,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">I highlighted categories with different colors, but made them pastel, not bright, so they don't strain the eyes during daily use. If you set a fixed color for each category, the user can also navigate by color when selecting a category</span>
+                  <span className="text-primary">I highlighted categories with different colors, but made them pastel, not bright, so they don't strain the eyes during daily use. If you set a fixed color for each category, the user can also navigate by color when selecting a category</span>
 
                 </div>
 
@@ -447,7 +447,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">The date defaults to "today". If needed, the user taps the icon and selects the desired date in the bottom sheet calendar</span>
+                  <span className="text-primary">The date defaults to "today". If needed, the user taps the icon and selects the desired date in the bottom sheet calendar</span>
 
                 </div>
 
@@ -455,7 +455,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                   <span className="text-accent-400">•</span>
 
-                  <span className="text-gray-200">The comment input doesn't take up much space, with the label in the placeholder. I immediately indicated the optional nature of the function so the user wouldn't get confused</span>
+                  <span className="text-primary">The comment input doesn't take up much space, with the label in the placeholder. I immediately indicated the optional nature of the function so the user wouldn't get confused</span>
 
                 </div>
 
@@ -525,7 +525,7 @@ export const formatContent = (content, openImageModal, language) => {
 
             </div>
 
-            <div className="mt-6 text-gray-400 text-sm italic">
+            <div className="mt-6 text-secondary text-sm italic">
 
               {layoutImagesText}
 
@@ -717,7 +717,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                     {row.map((cell, cellIndex) => (
 
-                      <td key={cellIndex} className="border border-accent-800/30 px-2 py-1 text-gray-200 break-words max-w-[120px]">
+                      <td key={cellIndex} className="border border-accent-800/30 px-2 py-1 text-secondary break-words max-w-[120px]">
 
                         {cell.replace(/\*\*/g, '')}
 
@@ -751,7 +751,7 @@ export const formatContent = (content, openImageModal, language) => {
 
             <span className="text-accent-400">•</span>
 
-            <span className="text-gray-200">{line.replace('• ', '')}</span>
+            <span className="text-primary">{line.replace('• ', '')}</span>
 
           </div>
 
@@ -767,7 +767,7 @@ export const formatContent = (content, openImageModal, language) => {
 
             <span className="text-accent-400">•</span>
 
-            <span className="text-gray-200">{line.replace('- ', '')}</span>
+            <span className="text-primary">{line.replace('- ', '')}</span>
 
           </div>
 
@@ -782,7 +782,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <p key={index} className="text-gray-200 mb-3 mt-8 font-medium">
+          <p key={index} className="text-primary mb-3 mt-8 font-medium">
 
             {line}
 
@@ -799,7 +799,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <p key={index} className="text-gray-200 mb-6 font-medium">
+          <p key={index} className="text-secondary mb-6">
 
             {line}
 
@@ -817,7 +817,7 @@ export const formatContent = (content, openImageModal, language) => {
 
             <span className="text-accent-400">•</span>
 
-            <span className="text-gray-200">{line.replace('• ', '')}</span>
+            <span className="text-primary">{line.replace('• ', '')}</span>
 
           </div>
 
@@ -833,7 +833,7 @@ export const formatContent = (content, openImageModal, language) => {
 
             <span className="text-accent-400">•</span>
 
-            <span className="text-gray-200">{line.replace('- ', '')}</span>
+            <span className="text-primary">{line.replace('- ', '')}</span>
 
           </div>
 
@@ -843,7 +843,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <p key={index} className="text-gray-400 mb-3 ml-4">
+          <p key={index} className="text-secondary mb-3 ml-4">
 
             {line}
 
@@ -857,7 +857,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <p key={index} className="text-gray-200 mb-3 mt-6">
+          <p key={index} className="text-secondary mb-3 mt-6">
 
             {line}
 
@@ -875,7 +875,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <p key={index} className="text-gray-200 mb-3">
+          <p key={index} className="text-secondary mb-3">
 
             {line}
 

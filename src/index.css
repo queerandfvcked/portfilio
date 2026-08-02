@@ -107,7 +107,11 @@
     @apply bg-gray-800/50 backdrop-blur-sm border border-gray-700/50;
   }
 
-  /* Secondary text colors */
+  /* Case study text hierarchy */
+  .text-primary {
+    @apply text-gray-200;
+  }
+
   .text-secondary {
     @apply text-gray-400;
   }

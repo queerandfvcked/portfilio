@@ -828,7 +828,7 @@ const CaseStudy = () => {
 
             {window.innerWidth > 768 && (
 
-              <p className="fixed bottom-4 right-8 text-gray-400 text-sm pointer-events-none">{t('common.zoomHint')}</p>
+              <p className="fixed bottom-4 right-8 text-secondary text-sm pointer-events-none">{t('common.zoomHint')}</p>
 
             )}
 

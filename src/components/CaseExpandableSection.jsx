@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 
 export function ExpandableSection({ section, isActive, slug, t, formatContent, openImageModal, expandedSections, toggleSection }) {
 
@@ -66,7 +66,7 @@ export function ExpandableSection({ section, isActive, slug, t, formatContent, o
 
           <div className="space-y-6">
 
-            <div className="text-gray-200 text-lg leading-relaxed">
+            <div className="text-secondary text-lg leading-relaxed">
 
               {slug === 'keepl-app' ? (
                 section.id === 'overview' ? formatContent(t('caseStudies.keeplApp.sections.0.content')) : 
@@ -152,7 +152,7 @@ export function ExpandableSection({ section, isActive, slug, t, formatContent, o
 
                       />
 
-                      <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                      <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
                     </div>
 
@@ -168,7 +168,7 @@ export function ExpandableSection({ section, isActive, slug, t, formatContent, o
 
                       />
 
-                      <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                      <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
                     </div>
 

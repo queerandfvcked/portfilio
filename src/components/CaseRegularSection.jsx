@@ -36,7 +36,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         
 
-        <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+        <div className="prose prose-lg text-secondary max-w-none mb-8">
 
           <div className="text-lg leading-relaxed">
 
@@ -66,7 +66,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
           <div>
 
-            <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mb-8 mt-8">
 
               <div className="text-lg leading-relaxed">
 
@@ -102,7 +102,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             
 
-            <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+            <div className="prose prose-lg text-secondary max-w-none mb-8 mt-12">
 
               <div className="text-lg leading-relaxed">
 
@@ -148,7 +148,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {section.additionalContent3 && (
 
-              <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+              <div className="prose prose-lg text-secondary max-w-none mb-8 mt-12">
 
                 <div className="text-lg leading-relaxed">
 
@@ -166,7 +166,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {section.additionalContent4 && (
 
-              <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-4">
+              <div className="prose prose-lg text-secondary max-w-none mb-8 mt-4">
 
                 <div className="text-lg leading-relaxed">
 
@@ -214,7 +214,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {section.additionalContent5 && (
 
-              <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+              <div className="prose prose-lg text-secondary max-w-none mb-8 mt-12">
 
                 <div className="text-lg leading-relaxed">
 
@@ -262,7 +262,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {section.additionalContent6 && (
 
-              <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+              <div className="prose prose-lg text-secondary max-w-none mb-8 mt-12">
 
                 <div className="text-lg leading-relaxed">
 
@@ -312,7 +312,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-center text-gray-400 text-sm mt-2">{index === 0 ? t('caseStudies.hiredApp.sections.4.imageCaption1') : t('caseStudies.hiredApp.sections.4.imageCaption2')}</p>
+                    <p className="text-center text-secondary text-sm mt-2">{index === 0 ? t('caseStudies.hiredApp.sections.4.imageCaption1') : t('caseStudies.hiredApp.sections.4.imageCaption2')}</p>
 
                   </div>
 
@@ -344,7 +344,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.additionalContent && section.id !== 'final-mockups' && (
 
-          <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+          <div className="prose prose-lg text-secondary max-w-none mb-8 mt-12">
 
             <div className="text-lg leading-relaxed">
 
@@ -362,7 +362,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.moreContent && section.id === 'structure-design' && (
 
-          <div className={`prose prose-lg text-gray-200 max-w-none mb-8 mt-4`}>
+          <div className={`prose prose-lg text-secondary max-w-none mb-8 mt-4`}>
 
             <div className="text-lg leading-relaxed">
 
@@ -400,7 +400,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-center text-gray-400 text-sm mt-2">{index === 0 ? 'HH' : 'Hired'}</p>
+                    <p className="text-center text-secondary text-sm mt-2">{index === 0 ? 'HH' : 'Hired'}</p>
 
                   </div>
 
@@ -452,7 +452,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.moreContent && section.id !== 'structure-design' && section.id !== 'final-mockups' && (
 
-          <div className={`prose prose-lg text-gray-200 max-w-none mb-8 ${section.id === 'structure-design' ? 'mt-4' : 'mt-12'}`}>
+          <div className={`prose prose-lg text-secondary max-w-none mb-8 ${section.id === 'structure-design' ? 'mt-4' : 'mt-12'}`}>
 
             <div className="text-lg leading-relaxed">
 
@@ -470,7 +470,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.additionalContent2 && section.id !== 'final-mockups' && (
 
-          <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+          <div className="prose prose-lg text-secondary max-w-none mb-8 mt-12">
 
             <div className="text-lg leading-relaxed">
 
@@ -514,7 +514,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.additionalContent4 && section.id !== 'final-mockups' && (
 
-          <div className="prose prose-lg text-gray-200 max-w-none mb-8 mt-12">
+          <div className="prose prose-lg text-secondary max-w-none mb-8 mt-12">
 
             <div className="text-lg leading-relaxed">
 
@@ -566,7 +566,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-left text-gray-400 text-sm mt-2">{t('caseStudies.hiredApp.sections.4.abandonedFeatures').split('\n').map((line, i) => (
+                    <p className="text-left text-secondary text-sm mt-2">{t('caseStudies.hiredApp.sections.4.abandonedFeatures').split('\n').map((line, i) => (
                       <React.Fragment key={i}>
                         {line}
                         {i < t('caseStudies.hiredApp.sections.4.abandonedFeatures').split('\n').length - 1 && <br />}
@@ -623,7 +623,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.lastContent && (
 
-          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+          <div className="prose prose-lg text-secondary max-w-none mb-8">
 
             <div className="text-lg leading-relaxed">
 
@@ -671,7 +671,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.finalSection && (
 
-          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+          <div className="prose prose-lg text-secondary max-w-none mb-8">
 
             <div className="text-lg leading-relaxed">
 
@@ -719,7 +719,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.moreSection && (
 
-          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+          <div className="prose prose-lg text-secondary max-w-none mb-8">
 
             <div className="text-lg leading-relaxed">
 
@@ -771,7 +771,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.ultimateContent && (
 
-          <div className="prose prose-lg text-gray-200 max-w-none mb-8">
+          <div className="prose prose-lg text-secondary max-w-none mb-8">
 
             <div className="text-lg leading-relaxed">
 
@@ -847,7 +847,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                       />
 
-                      <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                      <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
                     </div>
 
@@ -863,7 +863,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                       />
 
-                      <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                      <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
                     </div>
 
@@ -879,11 +879,11 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text after onboarding slider for UI section */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? 'After registration, the user goes through a short onboarding that highlights key features. My goal is to reduce Time to Value so the user quickly understands the value of the app.' : 'После регистрации пользователь проходит через короткий онбординг, который подсвечивает ключевые возможности. Моя цель - сократить Time to Value, чтобы юзер максимально быстро осознал пользу приложения.'}
 
@@ -997,11 +997,11 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text after onboarding slider for UI section */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? 'The Home screen immediately offers to create a new goal; clicking the button takes the user to the goal creation screen.' : 'Экран Home сразу предлагает создать новую цель, по кнопке пользователь попадает на экран создания цели.'}
 
@@ -1029,7 +1029,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Home</p>
+                <p className="text-center text-secondary text-sm mt-2">Home</p>
 
               </div>
 
@@ -1045,7 +1045,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Create Goal</p>
+                <p className="text-center text-secondary text-sm mt-2">Create Goal</p>
 
               </div>
 
@@ -1055,35 +1055,35 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text after Home images for UI section */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "Unlike most similar services, Keepl allows users to customize goals: choose custom units of measurement, group sub-goals, and add easier alternatives." : 'В отличие от большинства аналогичных сервисов, Keepl позволяет пользователю кастомизировать цель: самостоятельно выбирать единицы измерения задачи, группировать подцели и добавлять легкую альтернативу.'}
 
                 </p>
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "To prevent high flexibility from impacting Activation Rate, I used a progressive disclosure pattern: complex settings remain optional, keeping cognitive load low for new users." : 'Чтобы высокая гибкость не ударила по Activation Rate, я использовал паттерн постепенного раскрытия: сложные настройки остаются опциональными, сохраняя когнитивную нагрузку на низком уровне для новых юзеров.'}
 
                 </p>
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? 'Depending on the nature of the goal, the user can make it one-time or long-term, add image uploads, mood tracking. Breaking the goal into sub-goals and manual input of results allows more accurate tracking of metrics and progress visibility.' : 'В зависимости от характера цели пользователь может сделать ее одноразовой или долгосрочной, включить добавление изображений, трекер настроения. Разбивание цели на сабголы и ручной ввод результата позволяет точнее отслеживать метрику и видеть прогресс.'}
 
                 </p>
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? 'This is key to user motivation. Even partial task completion is reflected in the graphs, preventing churn due to guilt. The service doesn\'t "force", but motivates through visualization of any effort invested.' : 'Это ключевое решение для мотивации пользователя. Даже частичное выполнение задачи отражается на графиках, что предотвращает отток из-за чувства вины. Сервис не "принуждает", а мотивирует через визуализацию любого вложенного усилия.'}
 
                 </p>
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? 'Settings are optional; if desired, Keepl can be used like a regular habit tracker. For example, a goal can be made one-time, in which case sub-goals don\'t update daily, and after completion the goal is marked finished.' : 'Настройки опциональны, при желании keepl может использоваться так же, как и обыкновенный трекер привычек. Например, цель можно сделать одноразовой - в этом случае сабголы не обновляются ежедневно, а после их выполнения цель отмечается завершенной.'}
 
@@ -1111,7 +1111,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                    <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
                   </div>
 
@@ -1127,7 +1127,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                    <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
                   </div>
 
@@ -1137,11 +1137,11 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text after goal creation images for UI section */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "After saving a goal, the user lands on the newly created goal screen. A circular progress bar for the current day provides instant feedback, while a motivational card drives emotional engagement. This helps users immediately feel the product's value and increases the likelihood they'll return tomorrow to see how these numbers change." : 'После сохранения цели пользователь попадает на экран только что созданной цели. Круглый прогресс-бар за текущий день создает мгновенную обратную связь, а карточка-мотиватор работает на эмоциональную вовлеченность. Это помогает пользователю сразу почувствовать ценность продукта и повышает вероятность того, что он вернется завтра, чтобы увидеть, как изменятся эти цифры.'}
 
@@ -1169,7 +1169,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1185,7 +1185,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1201,17 +1201,17 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text about daily progress tracking */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "To maintain motivation and create a sense of progress, even when a goal isn't fully completed, I added the ability to manually input results. This allows users to capture even partial success, directly impacting consistency and supporting the North Star Metric—weekly active goal days. Instant visualization on the progress bar provides a dopamine response and reinforces daily usage patterns." : 'Чтобы сохранить мотивацию и создать ощущение движения, даже если цель выполнена не полностью, я добавил возможность ввода результата вручную. Это позволяет фиксировать даже частичный успех, напрямую влияя на регулярность и поддерживая North Star Metric - weekly active goal days. Мгновенная визуализация на прогресс-баре дает дофаминовый отклик и закрепляет паттерн ежедневного использования.'}
 
                 </p>
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "Integrating an optional mood tracker allows collecting qualitative data for deep reflection. In the future, this helps users see the correlation between their habits and emotional state." : 'Интеграция опционального трекера настроения позволяет собирать качественные данные для глубокой рефлексии. В будущем это помогает пользователю увидеть корреляцию между своими привычками и эмоциональным состоянием.'}
 
@@ -1261,11 +1261,11 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text about Home screen task management */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "Users can also mark tasks as completed from the Home screen. Here they see a quick summary of today's progress, how many tasks they've completed for each goal, their average mood, and helpful tips. Below are the sub-goal cards themselves, which can be marked complete at once or progress can be updated gradually using manual input." : 'Пользователь также может отмечать таски выполненными на главном экране Home. Там же заодно он увидит быструю сводку по сегодняшнему прогрессу, сколько задач он выполнил по каждой из целей, свой средний муд и совет-подсказку. Ниже располагаются сами карточки сабголов, которые можно отметить выполненными сразу или же дополнять прогресс постепенно, используя мануальный ввод.'}
 
@@ -1293,7 +1293,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1309,7 +1309,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1325,11 +1325,11 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text about analytics and progress visualization */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "To combat burnout and increase self-awareness, Keepl provides deep analytics. Users can track goal progress in 'Week' and 'Month' tabs to see trends and maintain focus." : 'Для борьбы с выгоранием и повышения осознанности Keepl предоставляет глубокую аналитику. Пользователь может отслеживать прогресс по конкретной цели во вкладках "Неделя" и "Месяц", чтобы видеть динамику и не терять фокус.'}
 
@@ -1357,7 +1357,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1373,7 +1373,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1383,11 +1383,11 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text about calendar navigation */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? 'The calendar allows convenient navigation between time periods.' : 'Календарь позволяет удобно перемещаться между временными периодами.'}
 
@@ -1419,11 +1419,11 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text about overall progress page */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "The overall Progress page provides a summary assessment of activity across all goals. Moving from detailed views to summaries helps users see the scale of their work, directly impacting User Self-Efficacy." : 'Общая страница Progress дает суммарную оценку активности по всем целям. Переход от детализации к обобщению помогает пользователю увидеть масштаб проделанной работы, что напрямую влияет на User Self-Efficacy.'}
 
@@ -1451,7 +1451,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1467,7 +1467,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1477,11 +1477,11 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text about gallery integration */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "For visually-oriented goals (like fitness), I integrated a Gallery. When creating a goal, users indicate whether they want to add photo upload capability. If yes, the goal page displays the option to add images. Photos can be viewed there or in the 'Gallery' tab\u2014not just storage, but an Emotional Retention tool: seeing one's journey through photos creates powerful visual reinforcement." : '\u0414\u043b\u044f \u0432\u0438\u0437\u0443\u0430\u043b\u044c\u043d\u043e-\u043e\u0440\u0438\u0435\u043d\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0445 \u0446\u0435\u043b\u0435\u0439 (\u043d\u0430\u043f\u0440\u0438\u043c\u0435\u0440, \u0444\u0438\u0442\u043d\u0435\u0441\u0430) \u044f \u0438\u043d\u0442\u0435\u0433\u0440\u0438\u0440\u043e\u0432\u0430\u043b \u0413\u0430\u043b\u0435\u0440\u0435\u044e. \u041f\u0440\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0438 \u0446\u0435\u043b\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043e\u0442\u043c\u0435\u0447\u0430\u0435\u0442, \u0445\u043e\u0447\u0435\u0442 \u043b\u0438 \u043e\u043d \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043e\u043f\u0446\u0438\u044e \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438 \u0444\u043e\u0442\u043e. \u0415\u0441\u043b\u0438 \u0434\u0430, \u0442\u043e \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435 \u0446\u0435\u043b\u0438 \u043f\u043e\u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u043e\u043f\u0446\u0438\u044f \u0434\u043e\u0431\u0430\u0432\u043b\u044f\u0442\u044c \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u044f. \u041f\u0440\u043e\u0441\u043c\u0430\u0442\u0440\u0438\u0432\u0430\u0442\u044c \u0438\u0445 \u043c\u043e\u0436\u043d\u043e \u0442\u0430\u043c \u0436\u0435, \u043b\u0438\u0431\u043e \u043f\u0435\u0440\u0435\u0439\u0442\u0438 \u0432\u043e \u0432\u043a\u043b\u0430\u0434\u043a\u0443 \"\u0433\u0430\u043b\u0435\u0440\u0435\u044f\" - \u043d\u0435 \u043f\u0440\u043e\u0441\u0442\u043e \u0445\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435, \u0430 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 Emotional Retention: \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u0443\u0432\u0438\u0434\u0435\u0442\u044c \u0441\u0432\u043e\u0439 \u043f\u0443\u0442\u044c \u0447\u0435\u0440\u0435\u0437 \u0444\u043e\u0442\u043e \u0441\u043e\u0437\u0434\u0430\u0435\u0442 \u043c\u043e\u0449\u043d\u043e\u0435 \u0432\u0438\u0437\u0443\u0430\u043b\u044c\u043d\u043e\u0435 \u043f\u043e\u0434\u043a\u0440\u0435\u043f\u043b\u0435\u043d\u0438\u0435.'}
 
@@ -1509,7 +1509,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1525,7 +1525,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1541,7 +1541,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1557,7 +1557,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1573,17 +1573,17 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text about goal completion */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "In Keepl, the goal completion process is fully controlled by the user. I intentionally avoided hard deadlines to reduce anxiety and prevent negative pressure from time constraints." : 'В Keepl процесс завершения цели полностью подконтролен пользователю. Я намеренно отказался от жестких дедлайнов, чтобы снизить уровень тревожности и избежать негативного давления временных рамок.'}
 
                 </p>
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? "When users feel a goal is achieved, they can complete it through an intuitive flow. The goal then moves to 'Completed' where all graphs, photos, and success history remain available for reflection. One-click goal reactivation provides system flexibility—if a user decides to return to a habit, there's no need to set everything up again." : 'Когда пользователь чувствует, что результат достигнут, он может завершить цель через интуитивно понятный флоу. Тогда цель попадет в "завершенные", там все графики, фото и история успехов остаются доступными для рефлексии. Возможность реактивации цели в один клик обеспечивает гибкость системы - если юзер решит вернуться к привычке, ему не нужно настраивать все заново.'}
 
@@ -1611,7 +1611,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1627,7 +1627,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1643,17 +1643,17 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Additional text about profile */}
 
-            <div className="prose prose-lg text-gray-200 max-w-none mt-8">
+            <div className="prose prose-lg text-secondary max-w-none mt-8">
 
               <div className="text-lg leading-relaxed">
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? 'Since the service is in MVP stage, we have relatively few settings. Currently users can change their avatar, username, password, and delete their account, but account management capabilities will expand in the future.' : 'Поскольку сервис находится на стадии MVP, у нас достаточно мало настроек. Пока что пользователь может сменить аватарку, юзернейм, поменять пароль и удалить аккаунт, но в будущем возможностей управления аккаунтом станет больше.'}
 
                 </p>
 
-                <p className="text-gray-200 mb-3">
+                <p className="text-secondary mb-3">
 
                   {language === 'en' ? 'I also implemented a Quick Stats section that summarizes key metrics: number of active days and total sub-goals completed. This gives the user a sense of the scale of work accomplished at the highest level.' : 'Также я реализовал раздел Quick Stats, который суммирует общие показатели: количество активных дней и общее число выполненных подцелей. Это дает пользователю ощущение масштаба проделанной работы на самом верхнем уровне.'}
 
@@ -1681,7 +1681,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Desktop</p>
+                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1697,7 +1697,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-gray-400 text-sm mt-2">Mobile</p>
+                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
