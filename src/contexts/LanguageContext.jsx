@@ -246,7 +246,7 @@ const translations = {
           {
             id: 'ui',
             title: 'UI',
-            content: 'Дизайн Keepl отошел от агрессивных интерфейсов продуктивности и сфокусировался на создании поддерживающей, гибкой и осознанной среды для достижения целей. Я использовал мягкие скругления для снижения визуальной резкости, такую же мягкую тень для создания легкой, но быстрой узнаваемости интерактивных элементов, и спокойную цветовую палитру, не режущую глаз при ежедневном использовании приложения.\n\nМобильная адаптация реализована в виде PWA - пользователь сможет "сохранить" веб страницу на свой хоум скрин и использовать как обычное мобильное приложение. Для этого я переработал некоторые элементы интерфейса, чтобы приложение вело себя нативно: сайд бар сменился привычным таб баром, модалки стали bottom sheet.\n\n### Первый вход в приложение и создание цели',
+            content: 'Дизайн Keepl отошел от агрессивных интерфейсов продуктивности и сфокусировался на создании поддерживающей, гибкой и осознанной среды для достижения целей. Я использовал мягкие скругления для снижения визуальной резкости, такую же мягкую тень для создания легкой, но быстрой узнаваемости интерактивных элементов, и спокойную цветовую палитру, не режущую глаз при ежедневном использовании приложения.\n\nМобильная адаптация реализована в виде PWA - пользователь сможет "сохранить" веб страницу на свой хоум скрин и использовать как обычное мобильное приложение. Для этого я переработал некоторые элементы интерфейса, чтобы приложение вело себя нативно: сайд бар сменился привычным таб баром, модалки стали bottom sheet.\n\n## Первый вход в приложение и создание цели',
             images: []
           },
           {
@@ -757,7 +757,7 @@ const translations = {
           {
             id: 'ui',
             title: 'UI',
-            content: 'Keepl\'s design moved away from aggressive productivity interfaces and focused on creating a supportive, flexible, and conscious environment for achieving goals. I used soft corners to reduce visual harshness, soft shadows to create light but quick recognition of interactive elements, and a calm color palette that doesn\'t strain the eye with daily app use.\n\nMobile adaptation is implemented as a PWA - users can "save" the web page to their home screen and use it like a regular mobile app. For this, I reworked some interface elements so the app behaves natively: the sidebar was replaced with a familiar tab bar, modals became bottom sheets.\n\n### First Login & Goal Creation',
+            content: 'Keepl\'s design moved away from aggressive productivity interfaces and focused on creating a supportive, flexible, and conscious environment for achieving goals. I used soft corners to reduce visual harshness, soft shadows to create light but quick recognition of interactive elements, and a calm color palette that doesn\'t strain the eye with daily app use.\n\nMobile adaptation is implemented as a PWA - users can "save" the web page to their home screen and use it like a regular mobile app. For this, I reworked some interface elements so the app behaves natively: the sidebar was replaced with a familiar tab bar, modals became bottom sheets.\n\n## First Login & Goal Creation',
             images: []
           },
           {

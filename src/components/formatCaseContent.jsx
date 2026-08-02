@@ -33,7 +33,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <h2 key={index} className="font-display text-2xl font-bold text-accent-200 mt-8 mb-4">
+          <h2 key={index} className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">
 
             {line.replace('## ', '')}
 
