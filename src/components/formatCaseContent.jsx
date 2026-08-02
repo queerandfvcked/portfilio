@@ -741,6 +741,35 @@ export const formatContent = (content, openImageModal, language) => {
 
         return table
 
+      } else if (
+        line.startsWith('• Таск-менеджеры:') ||
+        line.startsWith('• Коучинг-лайфстайл приложения:') ||
+        line.startsWith('• Трекеры привычек и настроений:') ||
+        line.startsWith('• Планировщики дня:') ||
+        line.startsWith('- Таск-менеджеры:') ||
+        line.startsWith('- Коучинг-лайфстайл приложения:') ||
+        line.startsWith('- Трекеры привычек и настроений:') ||
+        line.startsWith('- Планировщики дня:') ||
+        line.startsWith('- Task managers:') ||
+        line.startsWith('- Coaching-lifestyle applications:') ||
+        line.startsWith('- Habit and mood trackers:') ||
+        line.startsWith('- Daily planners:')
+      ) {
+
+        afterBullet = true
+
+        return (
+
+          <div key={index} className="flex items-start space-x-2 mb-2">
+
+            <span className="text-accent-400/70">•</span>
+
+            <span className="text-secondary">{line.replace(/^[•-] /, '')}</span>
+
+          </div>
+
+        )
+
       } else if (line.startsWith('• ')) {
 
         afterBullet = true
