@@ -807,6 +807,23 @@ export const formatContent = (content, openImageModal, language) => {
 
         )
 
+      } else if (
+        line.startsWith('В результате достижение целей превращается в рутину') ||
+        line.startsWith('As a result, achieving goals turns into a routine')
+      ) {
+
+        afterBullet = false
+
+        return (
+
+          <p key={index} className="text-primary mb-3 mt-6">
+
+            {line}
+
+          </p>
+
+        )
+
       } else if (line.startsWith('• ')) {
 
         afterBullet = true
