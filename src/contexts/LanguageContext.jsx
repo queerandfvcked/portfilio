@@ -37,6 +37,15 @@ const translations = {
     },
     projectsList: [
       {
+        id: 'zhabka',
+        image: '/assets/zhabka casecard.png',
+        title: 'Zhabka',
+        subtitle: 'Web & Mobile',
+        description: 'Персональный AI-ассистент для поиска работы, который анализирует вакансии из Telegram, отбирает релевантные предложения и объясняет, почему они подходят именно пользователю. От идеи и UX-концепции до рабочего MVP с AI-интеграцией.',
+        tags: ['Product Design', 'AI', 'PWA', 'Frontend (React)'],
+        link: '/zhabka'
+      },
+      {
         id: 'keepl-app',
         image: '/assets/keepl app.png',
         title: 'Keepl App',
@@ -183,6 +192,17 @@ const translations = {
     ],
     // Case Studies
     caseStudies: {
+      zhabka: {
+        title: 'Zhabka',
+        subtitle: 'Web & Mobile',
+        description: 'Персональный AI-ассистент для поиска работы, который анализирует вакансии из Telegram, отбирает релевантные предложения и объясняет, почему они подходят именно пользователю. От идеи и UX-концепции до рабочего MVP с AI-интеграцией.',
+        tags: ['Product Design', 'AI', 'PWA', 'Frontend (React)'],
+        heroImage: '/assets/zhabka casecard.png',
+        heroImages: [
+          '/assets/zhabka casecard.png'
+        ],
+        sections: []
+      },
       keeplApp: {
         title: 'Keepl App',
         subtitle: 'Mobile App',
@@ -505,6 +525,15 @@ const translations = {
     },
     projectsList: [
       {
+        id: 'zhabka',
+        image: '/assets/zhabka casecard.png',
+        title: 'Zhabka',
+        subtitle: 'Web & Mobile',
+        description: "A personal AI-powered job search assistant that analyzes Telegram job posts, filters relevant opportunities, and explains why each vacancy matches the user's preferences. From the initial product idea and UX concept to a fully functional MVP with AI integration.",
+        tags: ['Product Design', 'AI', 'PWA', 'Frontend (React)'],
+        link: '/zhabka'
+      },
+      {
         id: 'keepl-app',
         image: '/assets/keepl app.png',
         title: 'Keepl App',
@@ -694,6 +723,17 @@ const translations = {
     ],
     // Case Studies
     caseStudies: {
+      zhabka: {
+        title: 'Zhabka',
+        subtitle: 'Web & Mobile',
+        description: "A personal AI-powered job search assistant that analyzes Telegram job posts, filters relevant opportunities, and explains why each vacancy matches the user's preferences. From the initial product idea and UX concept to a fully functional MVP with AI integration.",
+        tags: ['Product Design', 'AI', 'PWA', 'Frontend (React)'],
+        heroImage: '/assets/zhabka casecard.png',
+        heroImages: [
+          '/assets/zhabka casecard.png'
+        ],
+        sections: []
+      },
       keeplApp: {
         title: 'Keepl App',
         subtitle: 'Mobile App',

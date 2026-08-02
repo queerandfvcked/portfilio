@@ -1,6 +1,28 @@
 export function getCaseStudies(t) {
   return {
 
+    'zhabka': {
+
+      title: t('caseStudies.zhabka.title'),
+
+      subtitle: t('caseStudies.zhabka.subtitle'),
+
+      description: t('caseStudies.zhabka.description'),
+
+      tags: t('caseStudies.zhabka.tags'),
+
+      heroImage: '/assets/zhabka casecard.png',
+
+      heroImages: [
+
+        '/assets/zhabka casecard.png'
+
+      ],
+
+      sections: []
+
+    },
+
     'keepl-app': {
 
       title: t('caseStudies.keeplApp.title'),
