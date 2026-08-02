@@ -843,7 +843,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <p key={index} className="text-gray-200 mb-3 ml-4">
+          <p key={index} className="text-gray-400 mb-3 ml-4">
 
             {line}
 
