@@ -33,7 +33,7 @@ const CaseCard = ({
           <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <a 
               href={link}
-              className="w-full btn-gradient-glow bg-accent-500 text-gray-900 px-4 py-2 rounded-full font-medium text-center hover:bg-accent-400 transition-all"
+              className="w-full btn-primary btn-primary-sm btn-gradient-glow text-center"
             >
               View Case Study
             </a>
@@ -115,7 +115,7 @@ const CaseCard = ({
           <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <a 
               href={link}
-              className="w-full btn-gradient-glow bg-accent-500 text-gray-900 px-4 py-2 rounded-full font-medium text-center hover:bg-accent-400 transition-all"
+              className="w-full btn-primary btn-primary-sm btn-gradient-glow text-center"
             >
               View Case Study
             </a>

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { CaseSubAccordion } from './CaseSubAccordion'
+
 export function RegularSection({ section, isActive, slug, t, language, formatContent, openImageModal, currentSlide, setCurrentSlide }) {
 
     return (
@@ -40,7 +42,11 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
           <div className="text-lg leading-relaxed">
 
-            {slug === 'keepl-app' ? (
+            {section.items && section.items.length > 0 ? (
+
+              <CaseSubAccordion items={section.items} />
+
+            ) : slug === 'keepl-app' ? (
               section.id === 'overview' ? formatContent(t('caseStudies.keeplApp.sections.0.content')) : 
              section.id === 'problem' ? formatContent(t('caseStudies.keeplApp.sections.1.content')) : 
              section.id === 'product-discovery' ? formatContent(t('caseStudies.keeplApp.sections.2.content')) :

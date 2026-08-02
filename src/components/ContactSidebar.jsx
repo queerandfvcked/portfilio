@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useTranslation } from '../contexts/LanguageContext'
 
 const ContactSidebar = ({ isOpen, onClose }) => {
+  const { language } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,9 +44,9 @@ const ContactSidebar = ({ isOpen, onClose }) => {
       color: 'hover:bg-red-500'
     },
     {
-      name: 'HH.ru',
-      url: 'https://spb.hh.ru/resume/a951adeaff0f2857bf0039ed1f645643673433',
-      color: 'hover:bg-red-600'
+      name: language === 'ru' ? 'HH.ru' : 'LinkedIn',
+      url: language === 'ru' ? 'https://spb.hh.ru/resume/a951adeaff0f2857bf0039ed1f645643673433' : 'https://www.linkedin.com/in/andrian-shtark-19b0b23b1',
+      color: language === 'ru' ? 'hover:bg-red-600' : 'hover:bg-blue-600'
     }
   ]
 
@@ -136,7 +138,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
 
             <button
               type="submit"
-              className="w-full btn-gradient-glow bg-accent-500 text-gray-900 py-2 px-6 rounded-full font-semibold hover:bg-accent-400 transition-all duration-[400ms]"
+              className="btn-primary btn-gradient-glow w-full"
             >
               Send Message
             </button>
@@ -152,7 +154,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center p-2 md:p-3 border border-gray-600 rounded-lg hover:border-accent-400/50 transition-all duration-300 group ${link.color}`}
+                  className={`flex items-center justify-center p-2 md:p-3 border border-gray-600 rounded-full hover:border-accent-400/50 transition-all duration-300 group ${link.color}`}
                   style={{ backgroundColor: '#171B24' }}
                 >
                   <span className="text-gray-300 group-hover:text-white transition-colors duration-300 font-medium text-sm md:text-base text-center">
