@@ -37,7 +37,7 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
-        <div className="min-h-screen" style={{ backgroundColor: '#111318' }}>
+        <div className="min-h-screen" style={{ backgroundColor: '#10131A' }}>
           <Header />
           <main>
             <ScrollToTop>

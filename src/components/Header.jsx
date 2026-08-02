@@ -53,7 +53,7 @@ const Header = () => {
       isScrolled ? 'backdrop-blur-md border-b' : 'bg-transparent'
     }`}
       style={{ 
-        backgroundColor: isScrolled ? '#181A1F99' : 'transparent',
+        backgroundColor: isScrolled ? '#171B2499' : 'transparent',
         borderColor: isScrolled ? '#2A2D3A' : 'transparent'
       }}>
       <div className="container">
@@ -102,19 +102,19 @@ const Header = () => {
             {/* Language toggle button - right edge */}
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
+              className="px-3 py-1 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-accent-500/20"
               style={{ 
-                backgroundColor: '#181A1F', 
+                backgroundColor: '#171B24', 
                 border: '1px solid #2A2D3A',
                 color: '#9CA3AF'
               }}
               onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#06b6d4'
+                e.target.style.backgroundColor = '#6C8CFF'
                 e.target.style.color = '#ffffff'
-                e.target.style.borderColor = '#06b6d4'
+                e.target.style.borderColor = '#6C8CFF'
               }}
               onMouseLeave={(e) => {
-                e.target.style.backgroundColor = '#181A1F'
+                e.target.style.backgroundColor = '#171B24'
                 e.target.style.color = '#9CA3AF'
                 e.target.style.borderColor = '#2A2D3A'
               }}
@@ -142,7 +142,7 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden backdrop-blur-md border-t"
             style={{ 
-              backgroundColor: '#181A1F99',
+              backgroundColor: '#171B2499',
               borderColor: '#2A2D3A'
             }}>
           <div className="container">

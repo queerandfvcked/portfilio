@@ -8,9 +8,9 @@ const CaseNavigation = ({ sections, activeSection, onSectionClick }) => {
           <li key={section.id}>
             <button
               onClick={() => onSectionClick(section.id)}
-              className={`text-left transition-all duration-300 ${
+              className={`nav-item text-left transition-all duration-300 ${
                 activeSection === section.id
-                  ? 'text-cyan-400 font-medium'
+                  ? 'nav-item-active text-accent-400 font-medium'
                   : 'text-gray-400 hover:text-gray-200'
               }`}
             >

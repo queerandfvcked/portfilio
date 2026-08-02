@@ -6,21 +6,22 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #10131A;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-cyan-500 text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-cyan-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25;
+    @apply bg-accent-500 text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-accent-400 transition-all duration-[400ms] hover:shadow-2xl hover:shadow-accent-500/25;
   }
-  
+
   .btn-secondary {
-    @apply bg-gray-800/50 backdrop-blur-sm text-gray-400 px-8 py-4 rounded-full font-semibold border border-gray-700 hover:bg-gray-700/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl;
+    @apply bg-gray-800/50 backdrop-blur-sm text-gray-400 px-8 py-4 rounded-full font-semibold border border-gray-700 hover:bg-gray-700/50 transition-all duration-[400ms] hover:shadow-2xl hover:shadow-gray-500/20;
   }
-  
+
   .container {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
@@ -86,19 +87,19 @@
 
   /* Hover effects for project cards */
   .project-card {
-    background-color: #181A1F;
+    background-color: #171B24;
     border: 1px solid #2A2D3A;
-    @apply rounded-3xl shadow-lg overflow-hidden transition-all duration-300;
+    @apply rounded-3xl shadow-lg overflow-hidden transition-all duration-[400ms];
   }
-  
+
   .project-card:hover {
-    @apply scale-105 shadow-2xl;
-    box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.1);
+    @apply shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(108, 140, 255, 0.12);
   }
 
   /* Gradient text effect */
   .gradient-text {
-    @apply bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-accent-400 to-accent-600 bg-clip-text text-transparent;
   }
 
   /* Glass morphism effect */
@@ -115,29 +116,29 @@
     @apply hover:text-gray-300;
   }
 
-  /* DM Sans specific styles */
+  /* Inter / Fraunces specific styles */
   .font-display {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    font-weight: 700;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
   }
 
   .font-body {
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     font-weight: 400;
   }
 
   .font-medium-dm {
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     font-weight: 500;
   }
 
   .font-semibold-dm {
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     font-weight: 600;
   }
 
   .font-bold-dm {
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     font-weight: 700;
   }
 
@@ -165,6 +166,59 @@
 
   /* Round input styles */
   .input-round {
-    @apply rounded-full border-gray-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20;
+    @apply rounded-full border-gray-600 focus:border-accent-400 focus:ring-2 focus:ring-accent-400/20;
+  }
+
+  /* Gradient signature (rare accent) */
+
+  /* CaseNavigation active indicator */
+  .nav-item {
+    position: relative;
+    padding-left: 1.1rem;
+  }
+
+  .nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    border-radius: 9999px;
+    background-image: linear-gradient(135deg, #22D3EE, #4ADE80);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-item.nav-item-active::before {
+    opacity: 1;
+  }
+
+  /* Section heading hover underline */
+  .heading-accent {
+    position: relative;
+  }
+
+  .heading-accent::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    border-radius: 9999px;
+    background-image: linear-gradient(135deg, #22D3EE, #4ADE80);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .heading-accent:hover::after {
+    opacity: 1;
+  }
+
+  /* Primary CTA hover glow */
+  .btn-gradient-glow:hover {
+    box-shadow: 0 12px 30px -10px rgba(34, 211, 238, 0.35), 0 12px 30px -10px rgba(74, 222, 128, 0.30);
   }
 }

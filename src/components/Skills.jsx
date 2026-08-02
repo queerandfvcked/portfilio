@@ -30,7 +30,7 @@ const Skills = () => {
       icon: '🚀',
       skills: [
         { name: 'Design Thinking', level: 90, color: 'bg-teal-500' },
-        { name: 'Agile/Scrum', level: 85, color: 'bg-cyan-500' },
+        { name: 'Agile/Scrum', level: 85, color: 'bg-accent-500' },
         { name: 'User Testing', level: 88, color: 'bg-rose-500' },
         { name: 'A/B Testing', level: 75, color: 'bg-amber-500' }
       ]
@@ -41,7 +41,7 @@ const Skills = () => {
     <section id="skills" className="py-20">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
             {t('skills.title')}
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -49,11 +49,11 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-10">
           {skillCategories.map((category, index) => (
             <div 
               key={index} 
-              className="glass p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
+              className="glass p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-accent-500/10 transition-all duration-[400ms] group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Category header with icon */}
@@ -61,7 +61,7 @@ const Skills = () => {
                 <div className="text-4xl mr-3 group-hover:scale-110 transition-transform duration-300">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-amber-400 transition-colors duration-300">
+                <h3 className="font-display text-xl font-semibold text-white group-hover:text-amber-400 transition-colors duration-300">
                   {category.title}
                 </h3>
               </div>
@@ -76,7 +76,7 @@ const Skills = () => {
                           {skill.name}
                         </span>
                       </div>
-                      <span className="text-cyan-400 font-bold text-sm group-hover:text-cyan-300 transition-colors duration-300">
+                      <span className="text-accent-400 font-bold text-sm group-hover:text-accent-300 transition-colors duration-300">
                         {skill.level}%
                       </span>
                     </div>
@@ -103,7 +103,7 @@ const Skills = () => {
 
         {/* Skills tags cloud */}
         <div className="mt-20 text-center">
-          <h3 className="text-2xl font-semibold text-white mb-8">
+          <h3 className="font-display text-2xl font-semibold text-white mb-8">
             Additional Expertise
           </h3>
           <div className="inline-flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
@@ -115,7 +115,7 @@ const Skills = () => {
             ].map((tag, index) => (
               <span 
                 key={tag}
-                className="px-4 py-2 glass border border-gray-600/50 rounded-full text-gray-300 hover:border-cyan-400/50 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 cursor-pointer hover:scale-105"
+                className="px-4 py-2 glass border border-gray-600/50 rounded-full text-gray-300 hover:border-accent-400/50 hover:text-accent-400 hover:bg-accent-400/10 transition-all duration-[400ms] cursor-pointer"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 {tag}

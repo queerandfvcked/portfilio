@@ -19,7 +19,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <h3 key={index} className="text-xl font-bold text-cyan-300 mt-6 mb-3">
+          <h3 key={index} className="font-display text-xl font-bold text-accent-300 mt-6 mb-3">
 
             {line.replace('### ', '')}
 
@@ -33,7 +33,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <h2 key={index} className="text-2xl font-bold text-cyan-200 mt-8 mb-4">
+          <h2 key={index} className="font-display text-2xl font-bold text-accent-200 mt-8 mb-4">
 
             {line.replace('## ', '')}
 
@@ -229,7 +229,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
+          <div key={index} className="flex flex-col lg:flex-row gap-10 my-12">
 
             <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini.png")}>
 
@@ -251,7 +251,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">По умолчанию видны 4 категории. Предполагается, что первыми стоят используемые чаще всего, чтобы не вынуждать пользователя лишний раз разворачивать список</span>
 
@@ -259,7 +259,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">Кнопка неактивна, пока не будет введена сумма и выбрана категория</span>
 
@@ -267,7 +267,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">При заходе на экран инпут суммы сразу в фокусе, клавиатура открыта. Так мы сократим время на тапе и сразу позволим ввести сумму (за этим пользователь и пришел на экран)</span>
 
@@ -293,7 +293,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
+          <div key={index} className="flex flex-col lg:flex-row gap-10 my-12">
 
             <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini.png")}>
 
@@ -315,7 +315,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">By default, 4 categories are visible. It is assumed that the most frequently used ones come first to avoid forcing the user to expand the list unnecessarily</span>
 
@@ -323,7 +323,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">The button is inactive until an amount is entered and a category is selected</span>
 
@@ -331,7 +331,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">When entering the screen, the amount input is immediately in focus and the keyboard is open. This reduces tap time and immediately allows the user to enter the amount (which is why they came to the screen)</span>
 
@@ -357,7 +357,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
+          <div key={index} className="flex flex-col lg:flex-row gap-10 my-12">
 
             <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 1.png")}>
 
@@ -379,7 +379,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">Выделил категории разными цветами, но сделал их пастельными, не яркими, чтоб не резали глаз при ежедневном использовании. Если для каждой категории установить фиксированный цвет, то юзер может ориентироваться еще и по цвету в выборе категории</span>
 
@@ -387,7 +387,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">Дата по умолчанию стоит "сегодня". При необходимости юзер нажмет на иконку и в боттом шит календаре выберет нужную дату</span>
 
@@ -395,7 +395,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">Инпут комментария не занимает много места, лейбл в плейсхолдере. Сразу указал в нем на опциональность функции, чтобы пользователь точно не запутался</span>
 
@@ -415,7 +415,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <div key={index} className="flex flex-col lg:flex-row gap-8 my-12">
+          <div key={index} className="flex flex-col lg:flex-row gap-10 my-12">
 
             <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 1.png")}>
 
@@ -437,7 +437,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">I highlighted categories with different colors, but made them pastel, not bright, so they don't strain the eyes during daily use. If you set a fixed color for each category, the user can also navigate by color when selecting a category</span>
 
@@ -445,7 +445,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">The date defaults to "today". If needed, the user taps the icon and selects the desired date in the bottom sheet calendar</span>
 
@@ -453,7 +453,7 @@ export const formatContent = (content, openImageModal, language) => {
 
                 <div className="flex items-start space-x-2">
 
-                  <span className="text-cyan-400">•</span>
+                  <span className="text-accent-400">•</span>
 
                   <span className="text-gray-200">The comment input doesn't take up much space, with the label in the placeholder. I immediately indicated the optional nature of the function so the user wouldn't get confused</span>
 
@@ -479,7 +479,7 @@ export const formatContent = (content, openImageModal, language) => {
 
           <div key={index}>
 
-            <div className="flex flex-col lg:flex-row gap-6 justify-start items-center w-full my-12">
+            <div className="flex flex-col lg:flex-row gap-8 justify-start items-center w-full my-12">
 
               <div className="w-full lg:w-[30%] cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 2.png")}>
 
@@ -689,15 +689,15 @@ export const formatContent = (content, openImageModal, language) => {
 
           <div key={index} className="overflow-x-auto mb-8">
 
-            <table className="w-full border-collapse border border-cyan-800/30 rounded-lg text-xs">
+            <table className="w-full border-collapse border border-accent-800/30 rounded-lg text-xs">
 
               <thead>
 
-                <tr className="bg-cyan-900/20">
+                <tr className="bg-accent-900/20">
 
                   {tableContent[0].map((cell, cellIndex) => (
 
-                    <th key={cellIndex} className="border border-cyan-800/30 px-2 py-2 text-left text-cyan-100 font-semibold break-words max-w-[120px]">
+                    <th key={cellIndex} className="border border-accent-800/30 px-2 py-2 text-left text-accent-100 font-semibold break-words max-w-[120px]">
 
                       {cell.replace(/\*\*/g, '')}
 
@@ -713,11 +713,11 @@ export const formatContent = (content, openImageModal, language) => {
 
                 {tableContent.slice(1).map((row, rowIndex) => (
 
-                  <tr key={rowIndex} className="hover:bg-cyan-900/10">
+                  <tr key={rowIndex} className="hover:bg-accent-900/10">
 
                     {row.map((cell, cellIndex) => (
 
-                      <td key={cellIndex} className="border border-cyan-800/30 px-2 py-1 text-gray-200 break-words max-w-[120px]">
+                      <td key={cellIndex} className="border border-accent-800/30 px-2 py-1 text-gray-200 break-words max-w-[120px]">
 
                         {cell.replace(/\*\*/g, '')}
 
@@ -749,7 +749,7 @@ export const formatContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex items-start space-x-2 mb-2">
 
-            <span className="text-cyan-400">•</span>
+            <span className="text-accent-400">•</span>
 
             <span className="text-gray-200">{line.replace('• ', '')}</span>
 
@@ -765,7 +765,7 @@ export const formatContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex items-start space-x-2 mb-2">
 
-            <span className="text-cyan-400">•</span>
+            <span className="text-accent-400">•</span>
 
             <span className="text-gray-200">{line.replace('- ', '')}</span>
 
@@ -815,7 +815,7 @@ export const formatContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex items-start space-x-2 mb-2">
 
-            <span className="text-cyan-400">•</span>
+            <span className="text-accent-400">•</span>
 
             <span className="text-gray-200">{line.replace('• ', '')}</span>
 
@@ -831,7 +831,7 @@ export const formatContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex items-start space-x-2 mb-2">
 
-            <span className="text-cyan-400">•</span>
+            <span className="text-accent-400">•</span>
 
             <span className="text-gray-200">{line.replace('- ', '')}</span>
 

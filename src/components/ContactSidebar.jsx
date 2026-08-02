@@ -64,12 +64,12 @@ const ContactSidebar = ({ isOpen, onClose }) => {
           isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
         }`}
         style={{
-          backgroundColor: '#111318'
+          backgroundColor: '#10131A'
         }}
       >  
         {/* Header */}
-        <div className="flex items-center justify-between p-3 md:p-4 border-b border-gray-700" style={{ backgroundColor: '#111318' }}>
-          <h2 className="text-lg md:text-xl font-semibold text-white">
+        <div className="flex items-center justify-between p-3 md:p-4 border-b border-gray-700" style={{ backgroundColor: '#10131A' }}>
+          <h2 className="font-display text-lg md:text-xl font-semibold text-white">
             Contact
           </h2>
           <button
@@ -83,7 +83,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-3 md:p-4" style={{ backgroundColor: '#111318' }}>
+        <div className="flex-1 overflow-y-auto p-3 md:p-4" style={{ backgroundColor: '#10131A' }}>
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
             <div>
@@ -96,8 +96,8 @@ const ContactSidebar = ({ isOpen, onClose }) => {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
-                style={{ backgroundColor: '#181A1F' }}
+                className="w-full px-3 py-2 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-400 focus:ring-2 focus:ring-accent-400/20 transition-all duration-300"
+                style={{ backgroundColor: '#171B24' }}
                 placeholder="Your name"
               />
             </div>
@@ -112,8 +112,8 @@ const ContactSidebar = ({ isOpen, onClose }) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
-                style={{ backgroundColor: '#181A1F' }}
+                className="w-full px-3 py-2 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-400 focus:ring-2 focus:ring-accent-400/20 transition-all duration-300"
+                style={{ backgroundColor: '#171B24' }}
                 placeholder="your.email@example.com"
               />
             </div>
@@ -128,15 +128,15 @@ const ContactSidebar = ({ isOpen, onClose }) => {
                 onChange={handleInputChange}
                 required
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 resize-none"
-                style={{ backgroundColor: '#181A1F' }}
+                className="w-full px-3 py-2 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-400 focus:ring-2 focus:ring-accent-400/20 transition-all duration-300 resize-none"
+                style={{ backgroundColor: '#171B24' }}
                 placeholder="Your message..."
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-cyan-500 text-gray-900 py-2 px-6 rounded-full font-semibold hover:bg-cyan-400 transition-colors duration-300 transform hover:scale-105"
+              className="w-full btn-gradient-glow bg-accent-500 text-gray-900 py-2 px-6 rounded-full font-semibold hover:bg-accent-400 transition-all duration-[400ms]"
             >
               Send Message
             </button>
@@ -144,7 +144,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
 
           {/* Social Links */}
           <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-700">
-            <h3 className="text-lg font-semibold text-white mb-3 md:mb-4">Connect with me</h3>
+            <h3 className="font-display text-lg font-semibold text-white mb-3 md:mb-4">Connect with me</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
               {socialLinks.map((link, index) => (
                 <a
@@ -152,8 +152,8 @@ const ContactSidebar = ({ isOpen, onClose }) => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center p-2 md:p-3 border border-gray-600 rounded-lg hover:border-cyan-400/50 transition-all duration-300 group ${link.color}`}
-                  style={{ backgroundColor: '#181A1F' }}
+                  className={`flex items-center justify-center p-2 md:p-3 border border-gray-600 rounded-lg hover:border-accent-400/50 transition-all duration-300 group ${link.color}`}
+                  style={{ backgroundColor: '#171B24' }}
                 >
                   <span className="text-gray-300 group-hover:text-white transition-colors duration-300 font-medium text-sm md:text-base text-center">
                     {link.name}

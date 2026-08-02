@@ -463,17 +463,17 @@ const CaseStudy = () => {
 
     return (
 
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#111318' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#10131A' }}>
 
         <div className="text-center">
 
-          <h1 className="text-3xl font-bold text-white mb-8">Case Study Not Found</h1>
+          <h1 className="font-display text-3xl font-bold text-white mb-8">Case Study Not Found</h1>
 
           <button
 
             onClick={() => navigate('/')}
 
-            className="px-6 py-3 bg-cyan-500 text-gray-900 rounded-lg hover:bg-cyan-400 transition-colors"
+            className="px-6 py-3 btn-gradient-glow bg-accent-500 text-gray-900 rounded-full hover:bg-accent-400 transition-colors"
 
           >
 
@@ -493,19 +493,19 @@ const CaseStudy = () => {
 
   return (
 
-    <div style={{ backgroundColor: '#111318' }}>
+    <div style={{ backgroundColor: '#10131A' }}>
 
       {/* Hero Section */}
 
-      <div className="relative min-h-screen flex items-center overflow-hidden">
+      <div className="relative min-h-screen flex items-center">
 
         {/* Animated background elements */}
 
         <div className="absolute inset-0 overflow-hidden">
 
-          <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-accent-500/10 rounded-full blur-3xl animate-pulse"></div>
 
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
         </div>
 
@@ -517,7 +517,7 @@ const CaseStudy = () => {
 
           <div className="space-y-6 text-left">
 
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-6">
 
               {currentCase.title}
 
@@ -533,7 +533,7 @@ const CaseStudy = () => {
 
               {currentCase.tags.map((tag, index) => (
 
-                <span key={index} className="px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm border border-cyan-500/30">
+                <span key={index} className="px-4 py-2 bg-accent-500/20 text-accent-400 rounded-full text-sm border border-accent-500/30">
 
                   {tag}
 
@@ -579,7 +579,7 @@ const CaseStudy = () => {
 
                 rel="noopener noreferrer"
 
-                className="inline-flex items-center px-6 py-3 bg-cyan-500 text-gray-900 font-semibold rounded-full hover:bg-cyan-400 transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 btn-gradient-glow bg-accent-500 text-gray-900 font-semibold rounded-full hover:bg-accent-400 transition-all duration-[400ms]"
 
               >
 
@@ -605,7 +605,7 @@ const CaseStudy = () => {
 
                 rel="noopener noreferrer"
 
-                className="inline-flex items-center px-6 py-3 bg-cyan-500 text-gray-900 font-semibold rounded-full hover:bg-cyan-400 transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 btn-gradient-glow bg-accent-500 text-gray-900 font-semibold rounded-full hover:bg-accent-400 transition-all duration-[400ms]"
 
               >
 
@@ -631,7 +631,7 @@ const CaseStudy = () => {
 
                 rel="noopener noreferrer"
 
-                className="inline-flex items-center px-6 py-3 bg-cyan-500 text-gray-900 font-semibold rounded-full hover:bg-cyan-400 transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 btn-gradient-glow bg-accent-500 text-gray-900 font-semibold rounded-full hover:bg-accent-400 transition-all duration-[400ms]"
 
               >
 
@@ -653,7 +653,7 @@ const CaseStudy = () => {
 
       <div className="container relative z-10">
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 py-20">
 
           {/* Sticky Navigation */}
 
@@ -763,7 +763,7 @@ const CaseStudy = () => {
 
           <button
 
-            className="fixed top-4 right-4 z-[60] text-white hover:text-cyan-400 transition-colors animate-slide-down"
+            className="fixed top-4 right-4 z-[60] text-white hover:text-accent-400 transition-colors animate-slide-down"
 
             onClick={closeImageModal}
 
@@ -938,7 +938,7 @@ const CaseStudy = () => {
 
         onClick={scrollToTop}
 
-        className="fixed bottom-8 right-8 z-40 p-3 bg-cyan-500/20 backdrop-blur-xl rounded-full border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/30 hover:text-cyan-300 hover:border-cyan-500/50 transition-all duration-300 group"
+        className="fixed bottom-8 right-8 z-40 p-3 bg-accent-500/20 backdrop-blur-xl rounded-full border border-accent-500/30 text-accent-400 hover:bg-accent-500/30 hover:text-accent-300 hover:border-accent-500/50 transition-all duration-300 group"
 
         aria-label="Наверх"
 

@@ -12,7 +12,7 @@ const Projects = () => {
     <section id="projects" className="py-20">
       <div className="container">
         <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
             {t('nav.projects')}
           </h2>
         </div>

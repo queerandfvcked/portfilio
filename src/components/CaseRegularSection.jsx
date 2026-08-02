@@ -16,7 +16,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
       >
 
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-200 mb-8">
+        <h2 className="font-display heading-accent text-3xl md:text-4xl font-bold text-gray-200 mb-8">
 
           {slug === 'keepl-app' ? (
               section.id === 'overview' ? t('caseStudies.keeplApp.sections.0.title') : 
@@ -184,7 +184,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {section.additionalImages2 && section.additionalImages2.length > 0 && (
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
 
                 {section.additionalImages2.map((image, index) => (
 
@@ -641,7 +641,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.imagePairs && section.imagePairs.length > 0 && section.id !== 'ui' && (
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
 
             {section.imagePairs.map((pair, pairIndex) => (
 
@@ -947,7 +947,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                       className={`w-3 h-3 rounded-full transition-colors ${
 
-                        index === currentSlide ? 'bg-cyan-400' : 'bg-gray-600'
+                        index === currentSlide ? 'bg-accent-400' : 'bg-gray-600'
 
                       }`}
 
@@ -1097,7 +1097,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Goal creation images for UI section */}
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
 
                   <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/create_new_goal 1.png')}>
 
@@ -1155,7 +1155,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Goal detail screen images for UI section */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
 
               <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/goal screen desktop.png')}>
 
@@ -1195,7 +1195,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* H2 heading for daily progress section */}
 
-            <h2 className="text-2xl font-bold text-cyan-200 mt-12 mb-6">{language === 'en' ? 'Daily Progress Tracking and Emotional Feedback' : 'Отметка ежедневного прогресса и эмоциональный фидбек'}</h2>
+            <h2 className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Daily Progress Tracking and Emotional Feedback' : 'Отметка ежедневного прогресса и эмоциональный фидбек'}</h2>
 
 
 
@@ -1225,7 +1225,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Modal and overlay images for UI section */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
 
               <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/modal.png')}>
 
@@ -1279,7 +1279,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Home screen task management images for UI section */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
 
               <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/home.png')}>
 
@@ -1319,7 +1319,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* H2 heading for analytics section */}
 
-            <h2 className="text-2xl font-bold text-cyan-200 mt-12 mb-6">{language === 'en' ? 'Analysis and Progress Visualization' : 'Анализ и визуализация прогресса'}</h2>
+            <h2 className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Analysis and Progress Visualization' : 'Анализ и визуализация прогресса'}</h2>
 
 
 
@@ -1343,7 +1343,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Goal 2 images for UI section */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
 
               <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/goal 2 desktop.png')}>
 
@@ -1437,7 +1437,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Progress images for UI section */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
 
               <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/progress desktop.png')}>
 
@@ -1567,7 +1567,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* H2 heading for goal completion section */}
 
-            <h2 className="text-2xl font-bold text-cyan-200 mt-12 mb-6">{language === 'en' ? 'Goal Completion' : 'Завершение цели'}</h2>
+            <h2 className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Goal Completion' : 'Завершение цели'}</h2>
 
 
 
@@ -1597,7 +1597,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Goals images for UI section */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
 
               <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/goals desktop.png')}>
 
@@ -1637,7 +1637,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* H2 heading for profile section */}
 
-            <h2 className="text-2xl font-bold text-cyan-200 mt-12 mb-6">{language === 'en' ? 'Profile' : 'Профиль'}</h2>
+            <h2 className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Profile' : 'Профиль'}</h2>
 
 
 
@@ -1667,7 +1667,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Profile images for UI section */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
 
               <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/profile desktop.png')}>
 

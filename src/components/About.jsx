@@ -9,7 +9,7 @@ const About = () => {
       <div className="container">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
               {t('about.title')}
             </h2>
           </div>
@@ -26,7 +26,7 @@ const About = () => {
             </div>
             
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">
+              <h3 className="font-display text-2xl font-semibold text-white mb-4">
                 {t('about.subtitle')}
               </h3>
               <p className="text-gray-300 mb-6 leading-relaxed">
@@ -40,19 +40,19 @@ const About = () => {
               </p>
               
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-800 p-4 rounded-lg">
+                <div className="bg-gray-800 p-4 rounded-2xl">
                   <div className="font-semibold text-white mb-1">{t('about.info.location')}</div>
                   <div className="text-gray-300">{t('about.info.locationValue')}</div>
                 </div>
-                <div className="bg-gray-800 p-4 rounded-lg">
+                <div className="bg-gray-800 p-4 rounded-2xl">
                   <div className="font-semibold text-white mb-1">{t('about.info.experience')}</div>
                   <div className="text-gray-300">{t('about.info.experienceValue')}</div>
                 </div>
-                <div className="bg-gray-800 p-4 rounded-lg">
+                <div className="bg-gray-800 p-4 rounded-2xl">
                   <div className="font-semibold text-white mb-1">{t('about.info.languages')}</div>
                   <div className="text-gray-300">{t('about.info.languagesValue')}</div>
                 </div>
-                <div className="bg-gray-800 p-4 rounded-lg">
+                <div className="bg-gray-800 p-4 rounded-2xl">
                   <div className="font-semibold text-white mb-1">{t('about.info.status')}</div>
                   <div className="text-gray-300">{t('about.info.statusValue')}</div>
                 </div>
