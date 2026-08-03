@@ -57,7 +57,33 @@ export function getCaseStudies(t) {
 
           accordionTitle: t('caseStudies.zhabka.sections.2.accordionTitle'),
 
+          flowSteps: t('caseStudies.zhabka.sections.2.flowSteps'),
+
           items: t('caseStudies.zhabka.sections.2.items')
+
+        },
+
+        {
+
+          id: 'product-decisions',
+
+          title: t('caseStudies.zhabka.sections.3.title'),
+
+          content: t('caseStudies.zhabka.sections.3.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'results',
+
+          title: t('caseStudies.zhabka.sections.4.title'),
+
+          content: t('caseStudies.zhabka.sections.4.content'),
+
+          images: []
 
         }
 

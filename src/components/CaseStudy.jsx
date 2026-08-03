@@ -677,7 +677,7 @@ const CaseStudy = () => {
 
               const isActive = activeSection === section.id
 
-              const isToggleable = toggleableSections.includes(section.id)
+              const isToggleable = toggleableSections.includes(section.id) && !(slug === 'zhabka' && section.id === 'results')
 
               
 

@@ -217,9 +217,16 @@ const translations = {
           {
             id: 'solution',
             title: 'Решение',
-            content: 'Я превратил ручной мониторинг десятков Telegram-каналов в персональный поток вакансий, где AI выполняет первичный отбор вместо пользователя.\n\nZhabka собирает вакансии из выбранных источников, анализирует их на основе профиля пользователя и показывает только релевантные предложения с объяснением, почему они подходят.\n\n#### Персональный профиль поиска\n\nПользователь задаёт свои критерии: роль, опыт, формат работы, локацию, зарплату и другие предпочтения. Дополнительные требования можно добавить через AI-чат.\n\n#### AI-анализ вакансий\n\nСистема обрабатывает новые публикации и оценивает их соответствие профилю пользователя, объясняя причины своего решения вместо простой оценки в процентах.\n\n#### Структурированная лента\n\nВместо бесконечного потока сообщений пользователь получает организованную ленту подходящих вакансий с подробной информацией и доступом к оригинальному источнику.',
+            content: 'Я превратил ручной мониторинг десятков Telegram-каналов в персональный поток вакансий, где AI выполняет первичный отбор вместо пользователя.\n\nZhabka собирает вакансии из выбранных источников, анализирует их на основе профиля пользователя и показывает только релевантные предложения с объяснением, почему они подходят.\n\n#### Персональный профиль поиска\n\nПользователь задает свои критерии: роль, опыт, формат работы, локацию, зарплату и другие предпочтения. Дополнительные требования можно добавить через AI-чат.\n\n#### AI-анализ вакансий\n\nСистема обрабатывает новые публикации и оценивает их соответствие профилю пользователя, объясняя причины своего решения вместо простой оценки в процентах.\n\n#### Структурированная лента\n\nВместо бесконечного потока сообщений пользователь получает организованную ленту подходящих вакансий с подробной информацией и доступом к оригинальному источнику.',
             images: [],
             accordionTitle: 'Как работает продукт',
+            flowSteps: [
+              'Telegram-каналы',
+              'AI анализирует вакансии',
+              'Сопоставляет с профилем',
+              'Попадает в персональную ленту',
+              'Уточняешь критерии через чат'
+            ],
             items: [
               {
                 id: 'ai-screening',
@@ -242,6 +249,18 @@ const translations = {
                 content: 'Вместо сложных настроек пользователь может общаться с AI напрямую: уточнять предпочтения, добавлять ограничения и изменять профиль поиска обычным текстом.'
               }
             ]
+          },
+          {
+            id: 'product-decisions',
+            title: 'Продуктовые решения',
+            content: '### 1. Вместо процента совпадения — объяснение решения\n\nВместо абстрактной оценки совпадения AI объясняет, почему считает вакансию подходящей или нет. Такой подход помогает быстрее принять решение и не создает ложного ощущения точности, которое может давать условный «87% match».\n\n### 2. Управление поиском через AI-чат\n\nПользователь может менять критерии поиска обычным сообщением, не переключаясь между настройками. AI обновляет профиль и начинает учитывать новые предпочтения при следующих синхронизациях.\n\n### 3. Обогащение вакансий\n\nЕсли ваканция содержит ссылку на стороннюю площадку, приложение получает дополнительную информацию и объединяет ее с данными из Telegram. В результате пользователь видит структурированную карточку вместо необработанного текста поста.\n\n### 4. Структурирование информации\n\nВместо длинного текста из Telegram AI выделяет ключевую информацию: требования, формат работы, зарплату, стек и другие важные детали. Это позволяет оценить вакансию за несколько секунд.\n\n### 5. Прозрачная синхронизация\n\nВо время тестирования стало понятно, что длительная синхронизация вызывает неопределенность: непонятно, работает ли система или произошла ошибка. Поэтому интерфейс показывает текущий этап обработки данных и не позволяет запустить процесс повторно.',
+            images: []
+          },
+          {
+            id: 'results',
+            title: 'Результат',
+            content: 'Zhabka превратился из идеи персонального AI-помощника в работающий инструмент, который сопровождает мой поиск работы. Я перестал следить за большинством Telegram-каналов вручную и использую приложение как основной способ проверки новых вакансий.\n\nAI не просто собирает вакансии, а помогает быстро оценить их содержание: выделяет ключевую информацию, структурирует требования и объясняет, почему вакансия соответствует заданным критериям.\n\nВ дальнейшем проект планируется развивать как полноценный продукт для других пользователей: расширить список источников поиска за пределы Telegram, автоматизировать процессы и адаптировать архитектуру под персональные профили.',
+            images: []
           }
         ]
       },
@@ -384,7 +403,7 @@ const translations = {
           {
             id: 'process',
             title: 'Процесс',
-            content: '- Формулировка идеи\nРазработчик описал проблематику рынка трудоустройства и предложил сделать MVP, ориентируясь на реальные боли пользователей.\n- Обмен опытом и гипотезами\nМы обсудили типичные сценарии поиска работы и взаимодействия с рекрутёрами, зафиксировали основные раздражающие факторы.\n- Первичный список функций\nБез привязки к конкретной структуре сформировал пул функций, которые должны были упростить поиск и сделать процесс прозрачнее для обеих сторон.\n- Исследование целевой аудитории\nСформулировал прототипы персон, составил JTBD и CJM.\n- Конкурентный анализ\nПроанализировал решения hh.ru, Indeed, LinkedIn и других - определил их UX-слабости и хорошие практики, которые можно адаптировать.\n- User Flow\nСоставил структуру пользовательских переходов для ключевых сценариев: поиск работы, отклик, статус отклика.\n- Информационная архитектура\nПостроил базовую архитектуру интерфейса, продумал навигацию, экраны и взаимосвязи между ними.\n- Wireframes\nСоздал черновые вайрфреймы.\n- Разработка дизайн-системы\nОпределил стилистику, типографику, цветовую палитру, состояний компонентов и паттернов взаимодействия.\n- Макеты и интерактивный прототип\nОтрисовал экраны в финальной визуализации, собрал кликабельный прототип.\n- Подготовка к передаче в разработку\nЗафиксировал базовые UI-гайды и логику компонентов. В рамках MVP команда ориентировалась на быструю сборку, поэтому документация была минимальной, но структурированной.',
+            content: '- Формулировка идеи\nРазработчик описал проблематику рынка трудоустройства и предложил сделать MVP, ориентируясь на реальные боли пользователей.\n- Обмен опытом и гипотезами\nМы обсудили типичные сценарии поиска работы и взаимодействия с рекрутерами, зафиксировали основные раздражающие факторы.\n- Первичный список функций\nБез привязки к конкретной структуре сформировал пул функций, которые должны были упростить поиск и сделать процесс прозрачнее для обеих сторон.\n- Исследование целевой аудитории\nСформулировал прототипы персон, составил JTBD и CJM.\n- Конкурентный анализ\nПроанализировал решения hh.ru, Indeed, LinkedIn и других - определил их UX-слабости и хорошие практики, которые можно адаптировать.\n- User Flow\nСоставил структуру пользовательских переходов для ключевых сценариев: поиск работы, отклик, статус отклика.\n- Информационная архитектура\nПостроил базовую архитектуру интерфейса, продумал навигацию, экраны и взаимосвязи между ними.\n- Wireframes\nСоздал черновые вайрфреймы.\n- Разработка дизайн-системы\nОпределил стилистику, типографику, цветовую палитру, состояний компонентов и паттернов взаимодействия.\n- Макеты и интерактивный прототип\nОтрисовал экраны в финальной визуализации, собрал кликабельный прототип.\n- Подготовка к передаче в разработку\nЗафиксировал базовые UI-гайды и логику компонентов. В рамках MVP команда ориентировалась на быструю сборку, поэтому документация была минимальной, но структурированной.',
             images: []
           },
           {
@@ -402,7 +421,7 @@ const translations = {
           {
             id: 'research-analysis',
             title: 'Исследование и анализ',
-            content: 'Перед тем как начать работать над макетом, я разобрался, кто будет пользоваться сервисом и с какими задачами.\n\nДля этого я:\n- Сформировал образы соискателей и рекрутёров - что их раздражают, чего они боятся, что хотят упростить.\n- Выписал основные задачи, которые люди хотят решить с помощью сервиса.\n- Разложил путь пользователя по шагам - где он может застрять, где теряет мотивацию, где нужно подсветить следующую точку действия.\n\nТакже сделал разбор конкурентов - hh, LinkedIn, Glassdoor, Indeed, Ziprecruiter.',
+            content: 'Перед тем как начать работать над макетом, я разобрался, кто будет пользоваться сервисом и с какими задачами.\n\nДля этого я:\n- Сформировал образы соискателей и рекрутеров - что их раздражают, чего они боятся, что хотят упростить.\n- Выписал основные задачи, которые люди хотят решить с помощью сервиса.\n- Разложил путь пользователя по шагам - где он может застрять, где теряет мотивацию, где нужно подсветить следующую точку действия.\n\nТакже сделал разбор конкурентов - hh, LinkedIn, Glassdoor, Indeed, Ziprecruiter.',
             additionalContent: 'Отметил, что:\n- У hh нельзя понять, с какого резюме ты откликнулся.\n- У LinkedIn слишком сложная система: соц.сеть и поиск работы в одном флаконе, разобраться непросто.\n- Нигде не нашел гибкого фильтра в выборе формата работы: например, я хочу работать удаленно, но если компания находится в моем городе, то рассматриваю офис или гибрид. Таким образом, мне выдавались бы удаленные вакансии отовсюду и вакансии с любым форматом из моего города.',
             moreContent: 'Я посмотрел, что уже существует на рынке, и вспомнил то, чего мне не хватало как соискателю. Отслеживал фидбэк в тг-чатах и через личные разговоры. На этом этапе стало понятно, какие функции не вызывают интереса (например, фильтр вакансий по языкам программирования), а какие находят отклик.\n\nНа основе этого выделил набор функций, которые точно должны быть, и те, что казались хорошими на старте, но потом были отброшены.',
             images: ['/assets/hired app/Competitive analysis/веб-сайты.jpg', '/assets/hired app/Competitive analysis/приложения.jpg'],
@@ -793,6 +812,13 @@ const translations = {
             content: 'I transformed the manual monitoring of dozens of Telegram channels into a personalized job feed where AI performs the initial screening instead of the user.\n\nZhabka collects vacancies from selected sources, analyzes them based on the user\'s profile, and shows only relevant opportunities with explanations of why they match.\n\n#### Personal search profile\n\nUsers define their criteria: role, experience level, work format, location, salary, and other preferences. Additional requirements can be added through the AI chat.\n\n#### AI vacancy analysis\n\nThe system processes new posts and evaluates how well they match the user\'s profile, explaining its reasoning instead of providing a simple percentage score.\n\n#### Structured vacancy feed\n\nInstead of an endless stream of messages, users get an organized feed of relevant opportunities with detailed information and access to the original source.',
             images: [],
             accordionTitle: 'How the product works',
+            flowSteps: [
+              'Telegram channels',
+              'AI analyzes vacancies',
+              'Matches your profile',
+              'Lands in your personal feed',
+              'Refine criteria through chat'
+            ],
             items: [
               {
                 id: 'ai-screening',
@@ -815,6 +841,18 @@ const translations = {
                 content: 'Instead of configuring every preference manually, users can interact with AI directly: refine requirements, add restrictions, and update their search profile using natural language.'
               }
             ]
+          },
+          {
+            id: 'product-decisions',
+            title: 'Product decisions',
+            content: '### 1. Explanations Instead of Match Scores\n\nInstead of assigning a match percentage, AI explains why a vacancy is relevant or not. This makes the decision easier to understand and avoids the false sense of precision often created by arbitrary matching scores.\n\n### 2. Search Management Through AI Chat\n\nUsers can update their search preferences using natural language instead of navigating through settings. AI updates the profile and applies the new criteria during future synchronizations.\n\n### 3. Job Data Enrichment\n\nWhen a vacancy contains a link to an external job platform, the application enriches it with additional information and combines it with the original Telegram post. Users receive a structured job card instead of raw text.\n\n### 4. Structured Job Summaries\n\nInstead of presenting long Telegram posts, AI extracts the most important information — requirements, work format, salary, tech stack, and other key details — allowing users to evaluate vacancies within seconds.\n\n### 5. Transparent Synchronization\n\nDuring testing, long synchronization times created uncertainty: it was impossible to tell whether the system was still working or had failed. To solve this, the interface displays the current processing stage and prevents duplicate synchronization requests.',
+            images: []
+          },
+          {
+            id: 'results',
+            title: 'Result',
+            content: 'Zhabka evolved from an idea of a personal AI assistant into a working tool that supports my job search process. After launching I stopped manually monitoring most Telegram channels and started using the app as my primary way to review new vacancies.\n\nAI does more than collect vacancies — it extracts key information, structures requirements, and explains why a vacancy matches the defined criteria.\n\nThe next stage of the project is evolving it into a product for other users: expanding job sources beyond Telegram, improving automation, and adapting the architecture for personalized user profiles.',
+            images: []
           }
         ]
       },

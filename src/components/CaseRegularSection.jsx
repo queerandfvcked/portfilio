@@ -2,6 +2,8 @@ import React from 'react'
 
 import { CaseSubAccordion } from './CaseSubAccordion'
 
+import { FlowDiagram } from './FlowDiagram'
+
 export function RegularSection({ section, isActive, slug, t, language, formatContent, openImageModal, currentSlide, setCurrentSlide }) {
 
     return (
@@ -75,6 +77,12 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
                 {section.accordionTitle}
 
               </h3>
+
+            )}
+
+            {section.flowSteps && section.flowSteps.length > 0 && (
+
+              <FlowDiagram steps={section.flowSteps} />
 
             )}
 
