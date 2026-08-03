@@ -217,7 +217,7 @@ const translations = {
           {
             id: 'solution',
             title: 'Решение',
-            content: 'Я превратил ручной мониторинг десятков Telegram-каналов в персональный поток вакансий, где AI выполняет первичный отбор вместо пользователя.\n\nZhabka собирает вакансии из выбранных источников, анализирует их на основе профиля пользователя и показывает только релевантные предложения с объяснением, почему они подходят.\n\n#### Персональный профиль поиска\n\nПользователь задает свои критерии: роль, опыт, формат работы, локацию, зарплату и другие предпочтения. Дополнительные требования можно добавить через AI-чат.\n\n#### AI-анализ вакансий\n\nСистема обрабатывает новые публикации и оценивает их соответствие профилю пользователя, объясняя причины своего решения вместо простой оценки в процентах.\n\n#### Структурированная лента\n\nВместо бесконечного потока сообщений пользователь получает организованную ленту подходящих вакансий с подробной информацией и доступом к оригинальному источнику.',
+            content: 'Я превратил ручной мониторинг десятков Telegram-каналов в персональный поток вакансий, где AI выполняет первичный отбор вместо пользователя.\n\nZhabka собирает вакансии из выбранных источников, анализирует их на основе профиля пользователя и показывает только релевантные предложения с объяснением, почему они подходят.',
             images: [],
             accordionTitle: 'Как работает продукт',
             flowSteps: [
@@ -809,7 +809,7 @@ const translations = {
           {
             id: 'solution',
             title: 'Solution',
-            content: 'I transformed the manual monitoring of dozens of Telegram channels into a personalized job feed where AI performs the initial screening instead of the user.\n\nZhabka collects vacancies from selected sources, analyzes them based on the user\'s profile, and shows only relevant opportunities with explanations of why they match.\n\n#### Personal search profile\n\nUsers define their criteria: role, experience level, work format, location, salary, and other preferences. Additional requirements can be added through the AI chat.\n\n#### AI vacancy analysis\n\nThe system processes new posts and evaluates how well they match the user\'s profile, explaining its reasoning instead of providing a simple percentage score.\n\n#### Structured vacancy feed\n\nInstead of an endless stream of messages, users get an organized feed of relevant opportunities with detailed information and access to the original source.',
+            content: 'I transformed the manual monitoring of dozens of Telegram channels into a personalized job feed where AI performs the initial screening instead of the user.\n\nZhabka collects vacancies from selected sources, analyzes them based on the user\'s profile, and shows only relevant opportunities with explanations of why they match.',
             images: [],
             accordionTitle: 'How the product works',
             flowSteps: [
