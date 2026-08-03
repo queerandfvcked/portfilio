@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export function CaseSubAccordion({ items }) {
+export function CaseSubAccordion({ items, formatContent }) {
 
   const [openItems, setOpenItems] = useState({})
 
@@ -52,7 +52,7 @@ export function CaseSubAccordion({ items }) {
 
               <div className="px-5 pb-5 text-secondary leading-relaxed">
 
-                {item.content}
+                {formatContent ? formatContent(item.content) : item.content}
 
               </div>
 

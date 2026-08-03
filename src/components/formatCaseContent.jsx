@@ -13,7 +13,21 @@ export const formatContent = (content, openImageModal, language) => {
 
     return lines.map((line, index) => {
 
-      if (line.startsWith('### ')) {
+      if (line.startsWith('#### ')) {
+
+        afterBullet = false
+
+        return (
+
+          <h4 key={index} className="font-display text-lg font-semibold text-primary mt-6 mb-2">
+
+            {line.replace('#### ', '')}
+
+          </h4>
+
+        )
+
+      } else if (line.startsWith('### ')) {
 
         afterBullet = false
 

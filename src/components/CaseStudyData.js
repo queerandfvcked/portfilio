@@ -19,7 +19,49 @@ export function getCaseStudies(t) {
 
       ],
 
-      sections: []
+      sections: [
+
+        {
+
+          id: 'problem',
+
+          title: t('caseStudies.zhabka.sections.0.title'),
+
+          content: t('caseStudies.zhabka.sections.0.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'task',
+
+          title: t('caseStudies.zhabka.sections.1.title'),
+
+          content: t('caseStudies.zhabka.sections.1.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'solution',
+
+          title: t('caseStudies.zhabka.sections.2.title'),
+
+          content: t('caseStudies.zhabka.sections.2.content'),
+
+          images: [],
+
+          accordionTitle: t('caseStudies.zhabka.sections.2.accordionTitle'),
+
+          items: t('caseStudies.zhabka.sections.2.items')
+
+        }
+
+      ]
 
     },
 

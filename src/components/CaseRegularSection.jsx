@@ -42,11 +42,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
           <div className="text-lg leading-relaxed">
 
-            {section.items && section.items.length > 0 ? (
-
-              <CaseSubAccordion items={section.items} />
-
-            ) : slug === 'keepl-app' ? (
+            {slug === 'keepl-app' ? (
               section.id === 'overview' ? formatContent(t('caseStudies.keeplApp.sections.0.content')) : 
              section.id === 'problem' ? formatContent(t('caseStudies.keeplApp.sections.1.content')) : 
              section.id === 'product-discovery' ? formatContent(t('caseStudies.keeplApp.sections.2.content')) :
@@ -63,6 +59,30 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
           </div>
 
         </div>
+
+
+
+        {/* Sub-accordion after main content */}
+
+        {section.items && section.items.length > 0 && (
+
+          <div className="mt-10">
+
+            {section.accordionTitle && (
+
+              <h3 className="font-display text-xl font-bold text-accent-300 mt-6 mb-3">
+
+                {section.accordionTitle}
+
+              </h3>
+
+            )}
+
+            <CaseSubAccordion items={section.items} formatContent={formatContent} />
+
+          </div>
+
+        )}
 
 
 

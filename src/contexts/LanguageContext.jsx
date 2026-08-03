@@ -201,7 +201,49 @@ const translations = {
         heroImages: [
           '/assets/zhabka casecard.png'
         ],
-        sections: []
+        sections: [
+          {
+            id: 'problem',
+            title: 'Проблема',
+            content: 'Во время поиска работы я подписался на десятки Telegram-каналов, потому что некоторые вакансии публикуются только там. Но вместо полезных предложений приходилось ежедневно просматривать большой поток рекламы, повторяющихся публикаций и нерелевантных вакансий — другой специализации, грейда или локации.\n\nДаже потенциально подходящие вакансии нужно было полностью прочитать и самостоятельно сопоставить со своими критериями. Вместо поиска работы я каждый день фильтровал информационный шум, а большинство постов заканчивались одной мыслью — «снова не для меня».',
+            images: []
+          },
+          {
+            id: 'task',
+            title: 'Задача',
+            content: 'Моей задачей было создать персонального помощника для поиска работы — своего рода AI-секретаря, который самостоятельно просматривает источники вакансий, отбирает подходящие предложения и приносит только то, что соответствует моим критериям.\n\nВместо еще одного агрегатора вакансий я хотел создать инструмент, который берет на себя самую рутинную часть поиска: фильтрацию информационного шума и первичный анализ релевантности.',
+            images: []
+          },
+          {
+            id: 'solution',
+            title: 'Решение',
+            content: 'Я превратил ручной мониторинг десятков Telegram-каналов в персональный поток вакансий, где AI выполняет первичный отбор вместо пользователя.\n\nZhabka собирает вакансии из выбранных источников, анализирует их на основе профиля пользователя и показывает только релевантные предложения с объяснением, почему они подходят.\n\n#### Персональный профиль поиска\n\nПользователь задаёт свои критерии: роль, опыт, формат работы, локацию, зарплату и другие предпочтения. Дополнительные требования можно добавить через AI-чат.\n\n#### AI-анализ вакансий\n\nСистема обрабатывает новые публикации и оценивает их соответствие профилю пользователя, объясняя причины своего решения вместо простой оценки в процентах.\n\n#### Структурированная лента\n\nВместо бесконечного потока сообщений пользователь получает организованную ленту подходящих вакансий с подробной информацией и доступом к оригинальному источнику.',
+            images: [],
+            accordionTitle: 'Как работает продукт',
+            items: [
+              {
+                id: 'ai-screening',
+                title: 'AI-анализ вакансий',
+                content: 'Вместо ручного просмотра десятков сообщений AI анализирует новые публикации и сравнивает их с профилем пользователя. Для каждой вакансии он показывает причину, почему предложение подходит или не соответствует заданным критериям.'
+              },
+              {
+                id: 'search-profile',
+                title: 'Профиль поиска',
+                content: 'Пользователь может настроить параметры поиска: желаемые роли, опыт, формат работы, локацию, зарплату и другие предпочтения. Дополнительные ограничения можно добавлять через AI-чат в свободной форме.'
+              },
+              {
+                id: 'vacancy-feed',
+                title: 'Персональная лента вакансий',
+                content: 'Вместо множества Telegram-каналов пользователь получает единую ленту с подходящими вакансиями. Каждая карточка содержит основную информацию, объяснение AI и ссылку на оригинальную публикацию.'
+              },
+              {
+                id: 'ai-chat',
+                title: 'Управление через AI-чат',
+                content: 'Вместо сложных настроек пользователь может общаться с AI напрямую: уточнять предпочтения, добавлять ограничения и изменять профиль поиска обычным текстом.'
+              }
+            ]
+          }
+        ]
       },
       keeplApp: {
         title: 'Keepl App',
@@ -732,7 +774,49 @@ const translations = {
         heroImages: [
           '/assets/zhabka casecard.png'
         ],
-        sections: []
+        sections: [
+          {
+            id: 'problem',
+            title: 'Problem',
+            content: 'While searching for a job, I subscribed to dozens of Telegram channels because some vacancies are published only there. However, finding relevant opportunities meant going through a constant stream of ads, duplicate posts, and irrelevant positions with the wrong specialization, seniority level, or location.\n\nEven potentially suitable vacancies had to be read in full and manually compared against my own criteria. Instead of focusing on finding a job, I spent time filtering through information noise, with most posts ending with the same thought: "Another one that doesn\'t fit."',
+            images: []
+          },
+          {
+            id: 'task',
+            title: 'Task',
+            content: 'My goal was to create a personal job search assistant — an AI secretary of sorts that monitors vacancy sources, filters relevant opportunities, and brings only positions that match my criteria.\n\nInstead of building another job aggregator, I wanted to create a tool that handles the most repetitive part of job searching: filtering information noise and evaluating initial relevance.',
+            images: []
+          },
+          {
+            id: 'solution',
+            title: 'Solution',
+            content: 'I transformed the manual monitoring of dozens of Telegram channels into a personalized job feed where AI performs the initial screening instead of the user.\n\nZhabka collects vacancies from selected sources, analyzes them based on the user\'s profile, and shows only relevant opportunities with explanations of why they match.\n\n#### Personal search profile\n\nUsers define their criteria: role, experience level, work format, location, salary, and other preferences. Additional requirements can be added through the AI chat.\n\n#### AI vacancy analysis\n\nThe system processes new posts and evaluates how well they match the user\'s profile, explaining its reasoning instead of providing a simple percentage score.\n\n#### Structured vacancy feed\n\nInstead of an endless stream of messages, users get an organized feed of relevant opportunities with detailed information and access to the original source.',
+            images: [],
+            accordionTitle: 'How the product works',
+            items: [
+              {
+                id: 'ai-screening',
+                title: 'AI-powered vacancy screening',
+                content: 'Instead of manually reviewing dozens of posts, AI analyzes new vacancies and compares them against the user\'s profile. Each vacancy includes an explanation of why it matches or does not match the defined criteria.'
+              },
+              {
+                id: 'search-profile',
+                title: 'Personal search profile',
+                content: 'Users can configure their search preferences: desired roles, experience level, work format, location, salary, and other criteria. Additional requirements can be added through the AI chat using natural language.'
+              },
+              {
+                id: 'vacancy-feed',
+                title: 'Unified vacancy feed',
+                content: 'Instead of monitoring multiple Telegram channels, users get a unified feed of relevant vacancies. Each card contains key information, AI reasoning, and a link to the original post.'
+              },
+              {
+                id: 'ai-chat',
+                title: 'AI chat as a control layer',
+                content: 'Instead of configuring every preference manually, users can interact with AI directly: refine requirements, add restrictions, and update their search profile using natural language.'
+              }
+            ]
+          }
+        ]
       },
       keeplApp: {
         title: 'Keepl App',
