@@ -4,6 +4,8 @@ import { CaseSubAccordion } from './CaseSubAccordion'
 
 import { FlowDiagram } from './FlowDiagram'
 
+import { ImagePairDisplay } from './ImagePairDisplay'
+
 export function RegularSection({ section, isActive, slug, t, language, formatContent, openImageModal, currentSlide, setCurrentSlide }) {
 
     return (
@@ -86,7 +88,57 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             )}
 
-            <CaseSubAccordion items={section.items} formatContent={formatContent} />
+            {section.items && section.items.length > 0 && slug === 'zhabka' && section.items.map((item) => (
+
+              <div key={item.id}>
+
+                <h3 className="font-display text-xl font-bold text-accent-300 mt-6 mb-3">
+
+                  {item.title}
+
+                </h3>
+
+                <div className="prose prose-lg text-secondary max-w-none mb-8">
+
+                  <div className="text-lg leading-relaxed">
+
+                    {formatContent(item.content)}
+
+                  </div>
+
+                </div>
+
+                {item.image && (
+                  <div 
+                    className="rounded-lg cursor-pointer group relative mt-4"
+                    onClick={() => openImageModal(item.image)}
+                  >
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+
+                {item.imagePair && (
+                  <ImagePairDisplay
+                    desktopSrc={item.imagePair.desktop}
+                    mobileSrc={item.imagePair.mobile}
+                    altPrefix={item.title}
+                    openImageModal={openImageModal}
+                  />
+                )}
+
+              </div>
+
+            ))}
+
+            {section.items && section.items.length > 0 && slug !== 'zhabka' && (
+
+              <CaseSubAccordion items={section.items} formatContent={formatContent} />
+
+            )}
 
           </div>
 

@@ -1,5 +1,7 @@
 ﻿import React from 'react'
 
+import { ImagePairDisplay } from './ImagePairDisplay'
+
 export function ExpandableSection({ section, isActive, slug, t, formatContent, openImageModal, expandedSections, toggleSection }) {
 
     const isExpanded = expandedSections[section.id] || false
@@ -138,41 +140,13 @@ export function ExpandableSection({ section, isActive, slug, t, formatContent, o
 
                 {section.imagePairs.map((pair, pairIndex) => (
 
-                  <div key={pairIndex} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    <div className="cursor-pointer group" onClick={() => openImageModal(pair.desktop)}>
-
-                      <img
-
-                        src={pair.desktop}
-
-                        alt={`${section.title} - Desktop ${pairIndex + 1}`}
-
-                        className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
-
-                      />
-
-                      <p className="text-center text-secondary text-sm mt-2">Desktop</p>
-
-                    </div>
-
-                    <div className="cursor-pointer group" onClick={() => openImageModal(pair.mobile)}>
-
-                      <img
-
-                        src={pair.mobile}
-
-                        alt={`${section.title} - Mobile ${pairIndex + 1}`}
-
-                        className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
-
-                      />
-
-                      <p className="text-center text-secondary text-sm mt-2">Mobile</p>
-
-                    </div>
-
-                  </div>
+                  <ImagePairDisplay
+                    key={pairIndex}
+                    desktopSrc={pair.desktop}
+                    mobileSrc={pair.mobile}
+                    altPrefix={section.title}
+                    openImageModal={openImageModal}
+                  />
 
                 ))}
 
