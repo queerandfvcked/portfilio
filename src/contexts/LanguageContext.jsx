@@ -391,7 +391,7 @@ const translations = {
           {
             id: 'results',
             title: 'Статус проекта',
-            content: 'Спроектирован и реализован полный пользовательский опыт для трекера целей. Создано 15+ экранов с адаптивным дизайном, разработана дизайн-система из 50+ компонентов. Реализована сложная навигация с сохранением контекста пользователя. Идет работа над бэком.',
+            content: 'Спроектирован и реализован полный пользовательский опыт для трекера целей. Создано 15+ экранов с адаптивным дизайном, разработана дизайн-система из 50+ компонентов. Реализована сложная навигация с сохранением контекста пользователя. Заканчиваем связку бэкенда с фронтом и запускаем этап тестирования.',
             images: []
           }
         ]
@@ -1041,7 +1041,7 @@ const translations = {
           {
             id: 'results',
             title: 'Project Status',
-            content: 'Designed and implemented complete user experience for a goal tracking app. Created 15+ screens with responsive design and developed a design system with 50+ components. Implemented complex navigation with user context preservation. Backend development is in progress.',
+            content: 'Designed and implemented complete user experience for a goal tracking app. Created 15+ screens with responsive design and developed a design system with 50+ components. Implemented complex navigation with user context preservation. Now we are finishing the backend-frontend integration and moving into the testing phase.',
             images: []
           }
         ]
