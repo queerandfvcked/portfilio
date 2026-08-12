@@ -6,6 +6,8 @@ import { FlowDiagram } from './FlowDiagram'
 
 import { ImagePairDisplay } from './ImagePairDisplay'
 
+import { ZhabkaMascotShowcase } from './ZhabkaMascotFrame'
+
 export function RegularSection({ section, isActive, slug, t, language, formatContent, openImageModal, currentSlide, setCurrentSlide }) {
 
     return (
@@ -63,6 +65,10 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
           </div>
 
         </div>
+
+
+
+        {section.id === 'motion-states' && <ZhabkaMascotShowcase />}
 
 
 

@@ -77,11 +77,23 @@ export function getCaseStudies(t) {
 
         {
 
-          id: 'results',
+          id: 'motion-states',
 
           title: t('caseStudies.zhabka.sections.4.title'),
 
           content: t('caseStudies.zhabka.sections.4.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'results',
+
+          title: t('caseStudies.zhabka.sections.5.title'),
+
+          content: t('caseStudies.zhabka.sections.5.content'),
 
           images: []
 

@@ -293,6 +293,11 @@ const translations = {
             ]
           },
           {
+            id: 'motion-states',
+            title: 'Motion & empty states',
+            content: 'Я добавил анимированную Жабку в ключевые состояния интерфейса, чтобы пустые и переходные состояния ощущались частью продукта, а не техническими заглушками.'
+          },
+          {
             id: 'results',
             title: 'Результат',
             content: 'Zhabka превратился из идеи персонального AI-помощника в работающий инструмент, который сопровождает мой поиск работы. Я перестал следить за большинством Telegram-каналов вручную и использую приложение как основной способ проверки новых вакансий.\n\nAI не просто собирает вакансии, а помогает быстро оценить их содержание: выделяет ключевую информацию, структурирует требования и объясняет, почему вакансия соответствует заданным критериям.\n\nВ дальнейшем проект планируется развивать как полноценный продукт для других пользователей: расширить список источников поиска за пределы Telegram, автоматизировать процессы и адаптировать архитектуру под персональные профили.',
@@ -941,6 +946,11 @@ const translations = {
                 imagePair: { desktop: '/assets/zhabka/settings.png', mobile: '/assets/zhabka/settings mob.png' }
               }
             ]
+          },
+          {
+            id: 'motion-states',
+            title: 'Motion & empty states',
+            content: 'I added an animated Zhabka mascot to key interface states, so empty and transitional moments feel like part of the product rather than technical placeholders.'
           },
           {
             id: 'results',
