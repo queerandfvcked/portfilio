@@ -300,7 +300,7 @@ const translations = {
           {
             id: 'results',
             title: 'Результат',
-            content: 'Zhabka превратился из идеи персонального AI-помощника в работающий инструмент, который сопровождает мой поиск работы. Я перестал следить за большинством Telegram-каналов вручную и использую приложение как основной способ проверки новых вакансий.\n\nAI не просто собирает вакансии, а помогает быстро оценить их содержание: выделяет ключевую информацию, структурирует требования и объясняет, почему вакансия соответствует заданным критериям.\n\nВ дальнейшем проект планируется развивать как полноценный продукт для других пользователей: расширить список источников поиска за пределы Telegram, автоматизировать процессы и адаптировать архитектуру под персональные профили.',
+            content: 'Zhabka превратился из идеи персонального AI-помощника в работающий инструмент, который сопровождает мой поиск работы. Я перестал следить за большинством Telegram-каналов вручную и использую приложение как основной способ проверки новых вакансий.\n\nAI не просто собирает вакансии, а помогает быстро оценить их содержание: выделяет ключевую информацию и структурирует требования. По данным первых синков, Zhabka обрабатывает около 170 постов в день из десятков каналов и оставляет в ленте 5–10 вакансий (≈4%), у каждой из которых есть понятное объяснение, почему она соответствует моим критериям.\n\nВ дальнейшем проект планируется развивать как полноценный продукт для других пользователей: расширить список источников поиска за пределы Telegram, автоматизировать процессы и адаптировать архитектуру под персональные профили.',
             images: []
           }
         ]
@@ -955,7 +955,7 @@ const translations = {
           {
             id: 'results',
             title: 'Result',
-            content: 'Zhabka evolved from an idea of a personal AI assistant into a working tool that supports my job search process. After launching I stopped manually monitoring most Telegram channels and started using the app as my primary way to review new vacancies.\n\nAI does more than collect vacancies — it extracts key information, structures requirements, and explains why a vacancy matches the defined criteria.\n\nThe next stage of the project is evolving it into a product for other users: expanding job sources beyond Telegram, improving automation, and adapting the architecture for personalized user profiles.',
+            content: 'Zhabka evolved from an idea of a personal AI assistant into a working tool that supports my job search process. After launching I stopped manually monitoring most Telegram channels and started using the app as my primary way to review new vacancies.\n\nAI does more than collect vacancies — it extracts key information and structures requirements. Based on initial sync data, Zhabka processes about 170 posts a day from dozens of channels and leaves 5–10 vacancies in the feed (≈4%), each featuring a clear explanation of why it matches my criteria.\n\nThe next stage of the project is evolving it into a product for other users: expanding job sources beyond Telegram, improving automation, and adapting the architecture for personalized user profiles.',
             images: []
           }
         ]
