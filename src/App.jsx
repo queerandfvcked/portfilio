@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { LanguageProvider } from './contexts/LanguageContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import ProductApproach from './components/ProductApproach'
+import ProcessFlow from './components/ProcessFlow'
 import Projects from './components/Projects'
 import CaseStudy from './components/CaseStudy'
 import Footer from './components/Footer'
@@ -41,7 +41,7 @@ function HomePage() {
     <>
       <Hero />
       <Projects />
-      <ProductApproach />
+      <ProcessFlow />
     </>
   )
 }

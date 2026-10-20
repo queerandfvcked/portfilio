@@ -6,7 +6,7 @@ const translations = {
     nav: {
       home: 'Главная',
       projects: 'Кейсы',
-      about: 'Подход к продукту',
+      about: 'Процесс',
       resume: 'Резюме',
       contact: 'Контакты'
     },
@@ -91,20 +91,67 @@ const translations = {
         badge: 'Хакатон → MVP'
       }
     ],
-    about: {
-      title: 'Подход к продукту',
-      subtitle: 'Как я работаю',
-      description1: 'Я продуктовый дизайнер с фокусом на создание интерфейсов, которые решают реальные бизнес-задачи.',
-      description2: 'Мой подход основан на данных, пользовательских исследованиях и глубоком понимании бизнес-целей.',
-      description3: 'Я верю, что хороший дизайн — это не только красивая картинка, но и работающее решение, которое приносит результат.',
-      info: {
-        location: 'Местоположение',
-        locationValue: 'Москва, Россия',
-        experience: 'Опыт',
-        experienceValue: '2+ года',
-        focus: 'Специализация',
-        focusValue: 'Продуктовый дизайн'
-      }
+    process: {
+      heading: 'Как я работаю',
+      yes: 'да',
+      no: 'нет',
+      step: 'Шаг',
+      of: 'из',
+      exampleLabel: 'Пример:',
+      backLabel: 'к шагу',
+      steps: [
+        {
+          title: 'Проблема',
+          kind: 'circle',
+          text: 'Разбираюсь, зачем человек открывает продукт и что у него не получается.',
+          example: 'Keepl, бинарный прогресс вызывает чувство вины',
+          caseId: 'keepl-app'
+        },
+        {
+          title: 'Гипотезы',
+          kind: 'square',
+          text: 'Собираю информацию: интервью, конкуренты, JTBD. Формулирую гипотезы.',
+          example: 'Hired App, JTBD для соискателя и работодателя',
+          caseId: 'hired-app'
+        },
+        {
+          title: 'Сценарии',
+          kind: 'square',
+          text: 'Продумываю юзер-флоу, логику и граничные случаи, делаю черновик.',
+          example: 'Hired App, многошаговые сценарии',
+          caseId: 'hired-app'
+        },
+        {
+          title: 'Логика',
+          kind: 'diamond',
+          text: 'Прототип проверяет логику и детали. Не сходится, возвращаюсь к сценариям.',
+          example: 'Keepl, форма цели переделывалась несколько раз',
+          caseId: 'keepl-app',
+          backTo: 3
+        },
+        {
+          title: 'Макет',
+          kind: 'square',
+          text: 'Проектирую итоговый интерфейс и дизайн-систему.',
+          example: 'Zhabka, объяснение совпадения вместо процента',
+          caseId: 'zhabka'
+        },
+        {
+          title: 'Реализация',
+          kind: 'square',
+          text: 'Передаю в разработку или собираю рабочий прототип на React с помощью AI.',
+          example: 'Keepl и Zhabka, фронтенд собран с AI-инструментами',
+          caseId: 'keepl-app'
+        },
+        {
+          title: 'Валидация',
+          kind: 'diamond',
+          text: 'Смотрю, подтвердились ли гипотезы: метрики, интервью, реальное использование. Нет, возвращаюсь к гипотезам.',
+          example: 'Keepl, план валидации до запуска · Zhabka, использую сам',
+          caseId: 'keepl-app',
+          backTo: 2
+        }
+      ]
     },
     // Skills
     skills: {
@@ -141,63 +188,6 @@ const translations = {
       'Адаптивный дизайн',
       'Продуктовые метрики',
       'Доступность'
-    ],
-    // Product Approaches
-    approaches: [
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z"/>
-          </svg>
-        ),
-        title: 'Продуктовое мышление',
-        description: 'Фокусируюсь на поиске решений для бизнеса через MVP и проверку гипотез. Проектирую интерфейсы, которые помогают продукту расти и удерживать пользователей.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
-          </svg>
-        ),
-        title: 'UI & Дизайн-системы',
-        description: 'Создаю масштабируемые библиотеки компонентов с учетом гайдлайнов Apple и Google. Поддерживаю порядок в макетах и чистоту в визуальной иерархии.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-          </svg>
-        ),
-        title: 'UX-исследования',
-        description: 'Глубоко погружаюсь в боли пользователей. Анализирую конкурентов и паттерны рынка, чтобы создавать интуитивно понятные сценарии.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-          </svg>
-        ),
-        title: 'Доступность и гайдлайны',
-        description: 'Проектирую с учетом инклюзивности и платформенных паттернов. Знаю, как сделать интерфейс удобным для всех и понятным для команды разработки.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-        ),
-        title: 'Проектирование логики',
-        description: 'Разрабатываю сложную информационную архитектуру и User Flows. Устраняю "тупики" в сценариях, делая путь пользователя бесшовным и логичным.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.99zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/>
-          </svg>
-        ),
-        title: 'Вайбкодинг и AI-инструменты',
-        description: 'Использую ИИ для сборки функциональных фронтенд-прототипов. Это позволяет мне тестировать дизайн в реальной среде и быстрее проверять идеи.'
-      }
     ],
     // Case Studies
     caseStudies: {
@@ -588,7 +578,7 @@ const translations = {
     nav: {
       home: 'Home',
       projects: 'Cases',
-      about: 'Product Approach',
+      about: 'Process',
       resume: 'Resume',
       contact: 'Contact'
     },
@@ -673,20 +663,67 @@ const translations = {
         badge: 'Hackathon → MVP'
       }
     ],
-    about: {
-      title: 'Product Approach',
-      subtitle: 'How I work',
-      description1: 'I am a product designer focused on creating interfaces that solve real business problems.',
-      description2: 'My approach is based on data, user research, and deep understanding of business goals.',
-      description3: 'I believe that good design is not just a beautiful picture, but a working solution that brings results.',
-      info: {
-        location: 'Location',
-        locationValue: 'Moscow, Russia',
-        experience: 'Experience',
-        experienceValue: '2+ years',
-        focus: 'Specialization',
-        focusValue: 'Product Design'
-      }
+    process: {
+      heading: 'How I work',
+      yes: 'yes',
+      no: 'no',
+      step: 'Step',
+      of: 'of',
+      exampleLabel: 'Example:',
+      backLabel: 'back to step',
+      steps: [
+        {
+          title: 'Problem',
+          kind: 'circle',
+          text: "I figure out why someone opens the product and what isn't working for them.",
+          example: 'Keepl: binary progress breeds guilt',
+          caseId: 'keepl-app'
+        },
+        {
+          title: 'Hypotheses',
+          kind: 'square',
+          text: 'I gather input: interviews, competitors, JTBD. Then I form hypotheses.',
+          example: 'Hired App: JTBD for candidates and employers',
+          caseId: 'hired-app'
+        },
+        {
+          title: 'Scenarios',
+          kind: 'square',
+          text: 'I map the user flow, logic and edge cases, then draft the screens.',
+          example: 'Hired App: multi-step scenarios',
+          caseId: 'hired-app'
+        },
+        {
+          title: 'Logic',
+          kind: 'diamond',
+          text: "A prototype tests the logic and details. If it doesn't add up, I go back to scenarios.",
+          example: 'Keepl: the goal form went through several rounds',
+          caseId: 'keepl-app',
+          backTo: 3
+        },
+        {
+          title: 'Design',
+          kind: 'square',
+          text: 'I design the final interface and the design system.',
+          example: 'Zhabka: explaining the match instead of a percentage',
+          caseId: 'zhabka'
+        },
+        {
+          title: 'Implementation',
+          kind: 'square',
+          text: 'I hand it off to development or build a working React prototype with AI.',
+          example: 'Keepl and Zhabka: frontend built with AI tools',
+          caseId: 'keepl-app'
+        },
+        {
+          title: 'Validation',
+          kind: 'diamond',
+          text: 'I check whether the hypotheses held: metrics, interviews, real usage. If not, I go back to hypotheses.',
+          example: 'Keepl: validation plan before launch · Zhabka: I use it myself',
+          caseId: 'keepl-app',
+          backTo: 2
+        }
+      ]
     },
     // Skills
     skills: {
@@ -727,63 +764,6 @@ const translations = {
       'Responsive Design',
       'Product Metrics',
       'Accessibility'
-    ],
-    // Product Approaches
-    approaches: [
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z"/>
-          </svg>
-        ),
-        title: 'Product Thinking',
-        description: 'I focus on finding business solutions through MVP and hypothesis testing. I design interfaces that help products grow and retain users.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
-          </svg>
-        ),
-        title: 'UI & Design Systems',
-        description: 'I create scalable component libraries following Apple and Google guidelines. I maintain order in layouts and clarity in visual hierarchy.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-          </svg>
-        ),
-        title: 'UX Research',
-        description: 'I dive deep into user pain points. I analyze competitors and market patterns to create intuitive scenarios.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-          </svg>
-        ),
-        title: 'Accessibility & Guidelines',
-        description: 'I design with inclusivity and platform patterns in mind. I know how to make interfaces convenient for everyone and understandable for the development team.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-        ),
-        title: 'Logic Design',
-        description: 'I develop complex information architecture and User Flows. I eliminate "dead ends" in scenarios, making the user path seamless and logical.'
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.99zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/>
-          </svg>
-        ),
-        title: 'Vibe Coding & AI Tools',
-        description: 'I use AI to build functional frontend prototypes. This allows me to test design in a real environment and validate ideas faster.'
-      }
     ],
     // Case Studies
     caseStudies: {
