@@ -148,6 +148,7 @@
   .case-card__bg {
     position: absolute;
     inset: 0;
+    z-index: -1;
     border-radius: var(--card);
     overflow: hidden;
     background: var(--bg-2);
@@ -176,19 +177,29 @@
     background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.14), transparent);
   }
 
-  /* Wide cards: 40/60 columns, scene bleeds below the frame. */
+  /* Wide cards: card-sized scene layer, text column on top. */
   .case-card__cols {
     position: relative;
-    display: grid;
-    grid-template-columns: 40% 60%;
+    z-index: 2;
     min-height: clamp(560px, 44vw, 620px);
   }
 
   .case-card__text {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: clamp(24px, 3.4vw, 52px);
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    max-width: 360px;
+    transform: translateY(-50%);
+  }
+
+  .case-card--zhabka .case-card__text {
+    left: 5%;
+    max-width: min(360px, 31%);
+  }
+
+  .case-card--keepl .case-card__text {
+    left: 62%;
+    max-width: min(360px, 33%);
   }
 
   .case-card__text-inner {
@@ -196,34 +207,14 @@
   }
 
   .case-card__text .case-card__text-inner {
-    max-width: 420px;
-  }
-
-  .case-card--keepl .case-card__text {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .case-card--keepl .case-card__stage {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .case-card__stage {
-    position: relative;
-    min-height: 100%;
+    max-width: 360px;
   }
 
   .case-scene {
     position: absolute;
-    inset-inline: 0;
-    bottom: 0;
-    aspect-ratio: 1.45;
+    inset: 0;
+    z-index: 1;
     overflow: visible;
-  }
-
-  .case-card--keepl .case-scene {
-    aspect-ratio: 1.15;
   }
 
   .case-scene__laptop,
@@ -240,25 +231,27 @@
   }
 
   .case-card--zhabka .case-scene__laptop {
-    left: 24%;
-    top: 10%;
+    left: 43%;
+    top: 12%;
+    width: 54%;
   }
 
   .case-card--zhabka .case-scene__phone {
-    left: 6%;
-    bottom: -7%;
+    left: 36.5%;
+    top: 40%;
+    width: 22%;
   }
 
   .case-card--keepl .case-scene__laptop {
-    left: -2%;
-    bottom: -7%;
-    width: 60%;
+    left: 4%;
+    top: 11%;
+    width: 47%;
   }
 
   .case-card--keepl .case-scene__phone {
-    right: 28%;
-    bottom: 6%;
-    width: 22%;
+    left: 41%;
+    top: 28%;
+    width: 15.5%;
     rotate: -8deg;
   }
 
@@ -386,6 +379,10 @@
     object-position: center;
   }
 
+  .case-card__cover-img--hired {
+    object-position: 50% 0%;
+  }
+
   .case-card__badge {
     position: absolute;
     left: 16px;
@@ -427,40 +424,69 @@
 
   /* One column below 1024px: scene first, then text. */
   @media (max-width: 1023px) {
+    .case-list {
+      gap: 32px;
+    }
+
+    .case-row {
+      gap: 32px;
+    }
+
+    .case-card--wide {
+      display: flex;
+      flex-direction: column;
+    }
+
     .case-card__cols {
-      grid-template-columns: 1fr;
+      position: static;
       min-height: 0;
     }
 
     .case-card__text,
+    .case-card--zhabka .case-card__text,
     .case-card--keepl .case-card__text {
-      grid-column: 1;
-      grid-row: auto;
-    }
-
-    .case-card__stage,
-    .case-card--keepl .case-card__stage {
-      grid-column: 1;
-      grid-row: auto;
-      order: -1;
-      min-height: 0;
+      position: static;
+      left: auto;
+      top: auto;
+      width: 100%;
+      max-width: none;
+      transform: none;
+      padding: 28px 24px 32px;
     }
 
     .case-scene {
       position: relative;
-      inset-inline: auto;
-      bottom: auto;
+      inset: auto;
+      order: -1;
+      width: 100%;
+      aspect-ratio: 4 / 3;
       overflow: hidden;
       border-radius: var(--card) var(--card) 0 0;
     }
 
-    .case-card--zhabka .case-scene__phone,
-    .case-card--keepl .case-scene__laptop {
-      bottom: 0;
+    .case-card--zhabka .case-scene__laptop {
+      left: 33%;
+      top: 10%;
+      width: 62%;
     }
 
-    .case-card__text {
-      padding: 28px 24px 32px;
+    .case-card--zhabka .case-scene__phone {
+      left: 9%;
+      top: 24%;
+      width: 30%;
+    }
+
+    .case-card--keepl .case-scene__laptop {
+      left: 13%;
+      top: 6%;
+      width: 58%;
+    }
+
+    .case-card--keepl .case-scene__phone {
+      left: 61%;
+      top: 20%;
+      width: 26%;
+      rotate: -8deg;
     }
 
     .case-card__text-inner,

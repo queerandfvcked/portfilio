@@ -21,7 +21,6 @@ const CaseImage = ({
 
   return (
     <picture>
-      <source type="image/avif" srcSet={buildSrcSet(name, widths, 'avif')} sizes={sizes} />
       <source type="image/webp" srcSet={buildSrcSet(name, widths, 'webp')} sizes={sizes} />
       <img
         src={fallback}

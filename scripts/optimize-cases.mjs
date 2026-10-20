@@ -6,7 +6,7 @@ const ROOT = process.cwd()
 const SRC = path.join(ROOT, 'assets-src', 'case-main')
 const OUT = path.join(ROOT, 'public', 'assets', 'case-main')
 
-// Transparent mockups keep alpha and ship WebP + AVIF.
+// Transparent mockups keep alpha and ship WebP.
 // Opaque card covers also get a JPEG fallback.
 const JOBS = [
   { src: 'zhabka desktop.png', out: 'zhabka-desktop', alpha: true, widths: [800, 1200, 1600, 2000] },
@@ -34,11 +34,10 @@ for (const job of JOBS) {
     const pipeline = sharp(input).resize({ width, withoutEnlargement: true })
     const base = path.join(OUT, `${job.out}-${width}`)
 
-    const avif = await pipeline.clone().avif({ quality: 52, effort: 5 }).toFile(`${base}.avif`)
     const webp = await pipeline.clone().webp({ quality: 74, effort: 5, alphaQuality: 90 }).toFile(`${base}.webp`)
 
-    total += avif.size + webp.size
-    let line = `  ${job.out}-${width}.avif ${kb(avif.size)}  .webp ${kb(webp.size)}`
+    total += webp.size
+    let line = `  ${job.out}-${width}.webp ${kb(webp.size)}`
 
     if (!job.alpha) {
       const jpeg = await pipeline.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(`${base}.jpg`)

@@ -31,11 +31,11 @@ const CaseCard = ({ project, priority = false }) => {
       <span className="mono-meta case-card__domain">{domain}</span>
 
       <h3 className={`case-card__title ${isWide ? 'case-card__title--wide' : ''}`}>
-        {project.title}
+        {project.cardTitle || project.title}
       </h3>
 
-      <p className={`case-card__desc line-clamp-3 ${isWide ? '' : 'case-card__desc--compact'}`}>
-        {project.description}
+      <p className={`case-card__desc ${isWide ? '' : 'case-card__desc--compact'}`}>
+        {project.summary}
       </p>
 
       {project.highlight && (
@@ -83,36 +83,36 @@ const CaseCard = ({ project, priority = false }) => {
       </div>
 
       {isWide ? (
-        <div className="case-card__cols">
-          <div className="case-card__text">{textBlock}</div>
+        <>
+          <div className="case-card__cols">
+            <div className="case-card__text">{textBlock}</div>
+          </div>
 
-          <div className="case-card__stage">
-            <div className="case-scene">
-              <div className="case-scene__laptop">
-                <Reveal delay={0} y={22}>
-                  <CaseImage
-                    name={media.laptop}
-                    alt={`${project.title} — desktop`}
-                    sizes="(min-width: 1024px) 420px, 58vw"
-                    priority={priority}
-                    className="case-mock-par case-mock-par--laptop"
-                  />
-                </Reveal>
-              </div>
+          <div className="case-scene">
+            <div className="case-scene__laptop">
+              <Reveal delay={0} y={22}>
+                <CaseImage
+                  name={media.laptop}
+                  alt={`${project.title} — desktop`}
+                  sizes="(min-width: 1024px) 640px, 92vw"
+                  priority={priority}
+                  className="case-mock-par case-mock-par--laptop"
+                />
+              </Reveal>
+            </div>
 
-              <div className="case-scene__phone">
-                <Reveal delay={150} y={26}>
-                  <CaseImage
-                    name={media.phone}
-                    alt={`${project.title} — mobile`}
-                    sizes="(min-width: 1024px) 180px, 24vw"
-                    className="case-mock-par case-mock-par--phone"
-                  />
-                </Reveal>
-              </div>
+            <div className="case-scene__phone">
+              <Reveal delay={150} y={26}>
+                <CaseImage
+                  name={media.phone}
+                  alt={`${project.title} — mobile`}
+                  sizes="(min-width: 1024px) 260px, 36vw"
+                  className="case-mock-par case-mock-par--phone"
+                />
+              </Reveal>
             </div>
           </div>
-        </div>
+        </>
       ) : (
         <>
           <div className="case-card__cover">
@@ -121,7 +121,7 @@ const CaseCard = ({ project, priority = false }) => {
               alt={project.title}
               sizes="(min-width: 768px) 560px, 92vw"
               priority={priority}
-              className="case-card__cover-img"
+              className={`case-card__cover-img ${project.id === 'hired-app' ? 'case-card__cover-img--hired' : ''}`}
             />
             {project.badge && <span className="case-card__badge">{project.badge}</span>}
           </div>

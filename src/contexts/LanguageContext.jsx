@@ -40,6 +40,8 @@ const translations = {
       {
         id: 'zhabka',
         title: 'Zhabka',
+        cardTitle: 'Zhabka',
+        summary: 'Персональный AI-ассистент для поиска работы: собирает вакансии из Telegram и оставляет только подходящие.',
         description: 'Персональный AI-ассистент для поиска работы, который анализирует вакансии из Telegram, отбирает релевантные предложения и объясняет, почему они подходят именно пользователю. От идеи и UX-концепции до рабочего MVP с AI-интеграцией.',
         link: '/zhabka',
         variant: 'wide',
@@ -54,6 +56,8 @@ const translations = {
       {
         id: 'keepl-app',
         title: 'Keepl App',
+        cardTitle: 'Keepl App',
+        summary: 'Веб-приложение для достижения целей без чувства вины: гибкий прогресс и лёгкая альтернатива вместо «сделано / не сделано».',
         description: 'Веб-приложение для достижения целей. Проектирование продукта с нуля: от анализа рынка и гипотез до разработки адаптивной дизайн-системы. В рамках кейса я проработал сложные сценарии визуализации данных и самостоятельно реализовал фронтенд-часть на React, чтобы валидировать UX-паттерны в живом интерфейсе.',
         link: '/keepl-app',
         variant: 'wide',
@@ -64,6 +68,8 @@ const translations = {
       {
         id: 'add-transition',
         title: 'Проектирование интерфейса добавления операций',
+        cardTitle: 'Добавление операции',
+        summary: 'Интерфейс добавления операции для финансового приложения: быстрый и понятный ввод трат и доходов.',
         description: 'Оптимизация процесса учета расходов. Провел UX-анализ причин оттока пользователей и полностью переработал флоу фиксации операций, сократив время ввода до 2-3 секунд. Спроектировал одноэкранный интерфейс с выбором категорий, минимизировал когнитивную нагрузку и подготовил финальный UI, сфокусированный на скорости использования «на ходу».',
         link: '/add-transition',
         variant: 'compact',
@@ -74,6 +80,8 @@ const translations = {
       {
         id: 'hired-app',
         title: 'Hired App',
+        cardTitle: 'Hired App',
+        summary: 'Платформа для поиска работы с нуля: от исследования и JTBD до финальных интерфейсов и дизайн-системы.',
         description: 'Проектирование платформы по поиску работы с нуля. Создал полный пользовательский опыт: от этапа исследования и JTBD-фреймворков до финальных интерфейсов. Разработал сложную архитектуру продукта, многошаговые сценарии и масштабируемую дизайн-систему.',
         link: '/hired-app',
         variant: 'compact',
@@ -614,6 +622,8 @@ const translations = {
       {
         id: 'zhabka',
         title: 'Zhabka',
+        cardTitle: 'Zhabka',
+        summary: 'A personal AI assistant for job hunting: it collects vacancies from Telegram and keeps only the relevant ones.',
         description: "A personal AI-powered job search assistant that analyzes Telegram job posts, filters relevant opportunities, and explains why each vacancy matches the user's preferences. From the initial product idea and UX concept to a fully functional MVP with AI integration.",
         link: '/zhabka',
         variant: 'wide',
@@ -628,6 +638,8 @@ const translations = {
       {
         id: 'keepl-app',
         title: 'Keepl App',
+        cardTitle: 'Keepl App',
+        summary: 'A web app for reaching goals without guilt: flexible progress and a lighter alternative instead of "done / not done".',
         description: 'Web application for achieving goals. Product design from scratch: from market analysis and hypotheses to adaptive design system development. As part of the case, I worked out complex data visualization scenarios and independently implemented the frontend part on React to validate UX patterns in a live interface.',
         link: '/keepl-app',
         variant: 'wide',
@@ -638,6 +650,8 @@ const translations = {
       {
         id: 'add-transition',
         title: 'Transaction Interface Design',
+        cardTitle: 'Add transaction',
+        summary: 'An add-transaction interface for a finance app: quick, clear entry of expenses and income.',
         description: 'Optimization of expense tracking process. I conducted UX analysis of user churn reasons and completely redesigned the transaction flow, reducing input time to 2-3 seconds. I designed a single-screen interface with category selection, minimized cognitive load and prepared a final UI focused on "on-the-go" usage speed.',
         link: '/add-transition',
         variant: 'compact',
@@ -648,6 +662,8 @@ const translations = {
       {
         id: 'hired-app',
         title: 'Hired App',
+        cardTitle: 'Hired App',
+        summary: 'A job-search platform designed from scratch: from research and JTBD to final interfaces and a design system.',
         description: 'Job search platform design from scratch. I created a complete user experience: from research stage and JTBD frameworks to final interfaces. I developed complex product architecture, multi-step scenarios and a scalable design system.',
         link: '/hired-app',
         variant: 'compact',
