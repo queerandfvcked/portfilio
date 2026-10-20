@@ -165,16 +165,16 @@ const translations = {
     },
     // Contact
     contact: {
-      title: 'Контакты',
-      description: 'Давайте обсудим ваш проект! Я всегда открыт к новым интересным задачам.',
-      contactMe: 'Связаться со мной',
-      writeMe: 'Напишите мне',
-      sendMessage: 'Отправить сообщение',
-      form: {
-        name: 'Ваше имя',
-        email: 'Ваш email',
-        message: 'Ваше сообщение'
-      }
+      label: 'Контакты',
+      title: 'Давайте поговорим',
+      text: 'Расскажите о роли или задаче.',
+      rows: [
+        { id: 'telegram', label: 'Telegram', value: '@icedcreamsoda' },
+        { id: 'email', label: 'Почта', value: 'andrianshtark@gmail.com' },
+        { id: 'other', label: 'HH.ru', value: 'Резюме на hh.ru' }
+      ],
+      copy: 'Скопировать',
+      copied: 'Скопировано'
     },
     // Skills Ticker
     skills: [
@@ -737,20 +737,16 @@ const translations = {
     },
     // Contact
     contact: {
-      title: 'Contact',
-      description: 'Let\'s discuss your project! I\'m always open to new interesting challenges.',
-      contactMe: 'Contact Me',
-      writeMe: 'Write Me',
-      sendMessage: 'Send Message',
-      formetrics: {
-        userRetention: '+25%',
-        taskCompletion: '+40%'
-      },
-      form: {
-        name: 'Your Name',
-        email: 'Your Email',
-        message: 'Your Message'
-      }
+      label: 'Contact',
+      title: "Let's talk",
+      text: 'Tell me about the role or the task.',
+      rows: [
+        { id: 'telegram', label: 'Telegram', value: '@icedcreamsoda' },
+        { id: 'email', label: 'Email', value: 'andrianshtark@gmail.com' },
+        { id: 'other', label: 'LinkedIn', value: 'Profile on LinkedIn' }
+      ],
+      copy: 'Copy',
+      copied: 'Copied'
     },
     // Skills Ticker
     skills: [

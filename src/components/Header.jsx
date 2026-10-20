@@ -1,7 +1,6 @@
 ﻿import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from '../contexts/LanguageContext'
-import ContactSidebar from './ContactSidebar'
 
 // Sections to track. Their order is read from the DOM at runtime, so the
 // list does not have to match the order they happen to be rendered in.
@@ -10,7 +9,6 @@ const SECTIONS = ['home', 'projects', 'about']
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isContactOpen, setIsContactOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const { language, toggleLanguage, t } = useTranslation()
   const location = useLocation()
@@ -81,13 +79,6 @@ const Header = () => {
       rafRef.current = 0
     }
   }, [location.pathname])
-
-  // Allows any section (e.g. hero) to open the contact panel
-  useEffect(() => {
-    const open = () => setIsContactOpen(true)
-    window.addEventListener('open-contact', open)
-    return () => window.removeEventListener('open-contact', open)
-  }, [])
 
   /* ── Scrollspy ──────────────────────────────────────── */
 
@@ -255,7 +246,7 @@ const Header = () => {
             </button>
 
             <button
-              onClick={() => setIsContactOpen(true)}
+              onClick={() => scrollToAnchor('contact')}
               className="hidden sm:inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all duration-300 hover:-translate-y-0.5"
               style={{ background: 'var(--accent)', color: 'var(--accent-ink)' }}
             >
@@ -342,7 +333,7 @@ const Header = () => {
               <li className="border-t" style={{ borderColor: 'var(--line)' }}>
                 <button
                   onClick={() => {
-                    setIsContactOpen(true)
+                    scrollToAnchor('contact')
                     setIsMobileMenuOpen(false)
                   }}
                   className="block w-full text-left py-4 text-lg font-medium"
@@ -356,7 +347,6 @@ const Header = () => {
         </div>
       )}
 
-      <ContactSidebar isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </header>
   )
 }
