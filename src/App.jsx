@@ -11,24 +11,37 @@ import ScrollToTop from './components/ScrollToTop'
 
 function HomePage() {
   useEffect(() => {
-    // Handle anchor navigation when coming from case studies
-    const hash = window.location.hash
-    if (hash) {
-      const anchor = hash.substring(1) // Remove #
-      setTimeout(() => {
-        const element = document.getElementById(anchor)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
-        }
-      }, 100) // Small delay to ensure DOM is ready
+    // Landing on /#projects or /#about — including client-side navigation
+    // from a case study, where the anchor has to survive a full route swap.
+    const raw = window.location.hash
+    if (!raw) return
+
+    const id = decodeURIComponent(raw.slice(1))
+    if (!id) return
+
+    let raf = 0
+    let tries = 0
+
+    const tryScroll = () => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+      // The section may not be mounted yet on the first frames after a
+      // route change — keep looking for a short while, then give up.
+      if (++tries < 30) raf = requestAnimationFrame(tryScroll)
     }
+
+    raf = requestAnimationFrame(tryScroll)
+    return () => cancelAnimationFrame(raf)
   }, [])
 
   return (
     <>
       <Hero />
-      <ProductApproach />
       <Projects />
+      <ProductApproach />
     </>
   )
 }
@@ -37,7 +50,7 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
-        <div className="min-h-screen" style={{ backgroundColor: '#10131A' }}>
+        <div className="min-h-screen">
           <Header />
           <main>
             <ScrollToTop>

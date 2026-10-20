@@ -1,183 +1,132 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════
+   Design tokens
+   ═══════════════════════════════════════════════════════════ */
 @layer base {
+  :root {
+    /* Colour — surfaces */
+    --bg: #08080a;
+    --bg-rgb: 8 8 10;
+    --bg-2: #0e0e12;
+    --surface: rgba(255, 255, 255, 0.035);
+    --surface-2: rgba(255, 255, 255, 0.06);
+    --line: rgba(255, 255, 255, 0.09);
+    --line-2: rgba(255, 255, 255, 0.16);
+
+    /* Colour — type */
+    --text: #f3f1ee;
+    --muted: #96938f;
+    --dim: #85827e;
+
+    /* Colour — accent (mint).
+       The *-rgb triplets are the single source of truth: they let Tailwind
+       inject alpha (accent-800/30), while the plain names are just readable
+       wrappers for direct use in this stylesheet. */
+    --accent-rgb: 95 227 176;
+    --accent: rgb(var(--accent-rgb));
+    --accent-ink: rgb(4 33 26);
+    --accent-soft-rgb: 169 240 213;
+    --accent-soft: rgb(var(--accent-soft-rgb));
+    --accent-deep-rgb: 47 168 125;
+    --accent-deep: rgb(var(--accent-deep-rgb));
+
+    /* Type. --font-display (Unbounded) is reserved for the hero name and short
+       homepage section headings; every other heading uses --font-heading. */
+    --font-display: 'Unbounded', 'Onest', system-ui, sans-serif;
+    --font-heading: 'Onest', system-ui, sans-serif;
+    --font-text: 'Onest', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+    /* Elevation */
+    --shadow-accent: 0 14px 34px -12px rgb(var(--accent-rgb) / 0.45);
+    --shadow-card: 0 25px 50px -12px rgb(var(--accent-rgb) / 0.18);
+
+    /* Geometry & motion */
+    --card: 22px;
+    --nav-h: 64px;
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    background-color: var(--bg);
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background-color: #10131A;
+    font-family: var(--font-text);
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }
 
 @layer components {
+  /* ── Layout ─────────────────────────────────────────── */
+  .container {
+    @apply mx-auto;
+    max-width: 1240px;
+    padding-inline: clamp(16px, 4vw, 40px);
+  }
+
+  /* ── Legacy: case study pages ───────────────────────── */
+
+  /* Case study text hierarchy */
+  .text-primary {
+    color: var(--text);
+  }
+
+  .text-secondary {
+    color: var(--muted);
+  }
+
   .btn-primary {
-    @apply bg-accent-500 text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-accent-400 transition-all duration-[400ms] hover:shadow-2xl hover:shadow-accent-500/25;
+    @apply bg-accent-500 px-8 py-4 rounded-full font-semibold transition-all duration-[400ms];
+    color: var(--accent-ink);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-deep);
+    box-shadow: var(--shadow-accent);
   }
 
   .btn-primary-sm {
     @apply px-4 py-2;
   }
 
-  .btn-secondary {
-    @apply bg-gray-800/50 backdrop-blur-sm text-gray-400 px-8 py-4 rounded-full font-semibold border border-gray-700 hover:bg-gray-700/50 transition-all duration-[400ms] hover:shadow-2xl hover:shadow-gray-500/20;
-  }
-
-  .container {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  /* Custom animations */
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out forwards;
-    opacity: 0;
-  }
-
-  .delay-100 {
-    animation-delay: 0.1s;
-  }
-
-  .delay-200 {
-    animation-delay: 0.2s;
-  }
-
-  .delay-300 {
-    animation-delay: 0.3s;
-  }
-
-  .delay-400 {
-    animation-delay: 0.4s;
-  }
-
-  .delay-500 {
-    animation-delay: 0.5s;
-  }
-
-  .delay-1000 {
-    animation-delay: 1s;
-  }
-
-  /* Ticker animation */
-  @keyframes ticker {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-ticker {
-    animation: ticker 40s linear infinite;
-  }
-
-  .animate-ticker-pause {
-    animation-play-state: paused;
+  .btn-gradient-glow:hover {
+    box-shadow:
+      0 12px 30px -10px rgb(var(--accent-rgb) / 0.32),
+      0 12px 30px -10px rgb(var(--accent-rgb) / 0.22);
   }
 
   /* Hover effects for project cards */
   .project-card {
-    background-color: #171B24;
-    border: 1px solid #2A2D3A;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
     @apply rounded-3xl shadow-lg overflow-hidden transition-all duration-[400ms];
   }
 
   .project-card:hover {
     @apply shadow-2xl;
-    box-shadow: 0 25px 50px -12px rgba(108, 140, 255, 0.12);
+    box-shadow: var(--shadow-card);
   }
-
-  /* Gradient text effect */
-  .gradient-text {
-    @apply bg-gradient-to-r from-accent-400 to-accent-600 bg-clip-text text-transparent;
-  }
-
-  /* Glass morphism effect */
-  .glass {
-    @apply bg-gray-800/50 backdrop-blur-sm border border-gray-700/50;
-  }
-
-  /* Case study text hierarchy */
-  .text-primary {
-    @apply text-gray-200;
-  }
-
-  .text-secondary {
-    @apply text-gray-400;
-  }
-
-  .text-secondary-hover {
-    @apply hover:text-gray-300;
-  }
-
-  /* Inter / Fraunces specific styles */
-  .font-display {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-  }
-
-  .font-body {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 400;
-  }
-
-  .font-medium-dm {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 500;
-  }
-
-  .font-semibold-dm {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 600;
-  }
-
-  .font-bold-dm {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 700;
-  }
-
-  /* Round button styles */
-  .btn-round {
-    @apply rounded-full;
-  }
-
-  .btn-round-lg {
-    @apply rounded-full px-8 py-4;
-  }
-
-  .btn-round-sm {
-    @apply rounded-full px-6 py-3;
-  }
-
-  /* Round card styles */
-  .card-round {
-    @apply rounded-3xl;
-  }
-
-  .card-round-lg {
-    @apply rounded-3xl p-8;
-  }
-
-  /* Round input styles */
-  .input-round {
-    @apply rounded-full border-gray-600 focus:border-accent-400 focus:ring-2 focus:ring-accent-400/20;
-  }
-
-  /* Gradient signature (rare accent) */
 
   /* CaseNavigation active indicator */
   .nav-item {
@@ -194,7 +143,7 @@
     width: 3px;
     height: 60%;
     border-radius: 9999px;
-    background-image: linear-gradient(135deg, #22D3EE, #4ADE80);
+    background-image: linear-gradient(135deg, var(--accent-soft), var(--accent-deep));
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -216,7 +165,7 @@
     bottom: -4px;
     height: 2px;
     border-radius: 9999px;
-    background-image: linear-gradient(135deg, #22D3EE, #4ADE80);
+    background-image: linear-gradient(135deg, var(--accent-soft), var(--accent-deep));
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -225,8 +174,198 @@
     opacity: 1;
   }
 
-  /* Primary CTA hover glow */
-  .btn-gradient-glow:hover {
-    box-shadow: 0 12px 30px -10px rgba(34, 211, 238, 0.35), 0 12px 30px -10px rgba(74, 222, 128, 0.30);
+  /* ───────────────────────────────────────────────────────
+     Hero + Header
+     ─────────────────────────────────────────────────────── */
+
+  .font-mega {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+  }
+
+  /* Small uppercase mono label — structural meta text */
+  .mono-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .mono-meta-sm {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* Gradient fill for the hero name */
+  .sheen-text {
+    background-image: linear-gradient(95deg, var(--text) 8%, var(--accent) 58%, var(--accent-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .prose-lead {
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.5;
+    color: var(--text);
+    max-width: 46ch;
+    text-wrap: pretty;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center gap-3 rounded-full font-semibold;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 14px 24px;
+    font-size: 15px;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.2s;
+  }
+
+  .btn-accent:hover {
+    transform: translateY(-2px);
+    background: var(--accent-deep);
+    box-shadow: var(--shadow-accent);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-3 rounded-full font-medium;
+    padding: 14px 24px;
+    font-size: 15px;
+    border: 1px solid var(--line-2);
+    color: var(--text);
+    transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+
+  .btn-ghost:hover {
+    background: var(--surface-2);
+    border-color: var(--line-2);
+    transform: translateY(-2px);
+  }
+
+  /* Fade a block in when it scrolls into view */
+  .reveal {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 28px));
+    transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+    transition-delay: var(--d, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .reveal.reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Line-by-line text reveal that slides up out of a mask */
+  .mask-line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.08em;
+  }
+
+  .mask-line > span {
+    display: block;
+    animation: line-up 1s var(--ease) backwards;
+    animation-delay: var(--d, 0ms);
+  }
+
+  /* Ambient background */
+  .grid-mask {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 10%, transparent 78%);
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 10%, transparent 78%);
+    opacity: 0.7;
+  }
+
+  /* Accent-tinted copy of the same grid, revealed only around the cursor.
+     --mx / --my are written to the hero section by pointermove. */
+  .grid-spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(rgb(var(--accent-rgb) / 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--accent-rgb) / 0.35) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%), #000, transparent);
+    mask-image: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%), #000, transparent);
+    opacity: 0;
+    transition: opacity 0.45s var(--ease);
+  }
+
+  .is-spotlit .grid-spotlight {
+    opacity: 1;
+  }
+
+  /* Seamless ticker: content is duplicated, track moves exactly -50% */
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 34s linear infinite;
+  }
+
+  .marquee-wrap:hover .marquee {
+    animation-play-state: paused;
+  }
+}
+
+@layer utilities {
+  @keyframes line-up {
+    from {
+      opacity: 0;
+      transform: translateY(110%);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* ── Reduced motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .mask-line > span {
+    opacity: 1;
+    transform: none;
+  }
+  .marquee {
+    animation: none;
+  }
+  .grid-spotlight {
+    display: none;
   }
 }

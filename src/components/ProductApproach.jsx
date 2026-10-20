@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { useTranslation } from '../contexts/LanguageContext'
 
 const ProductApproach = () => {
@@ -21,8 +21,8 @@ const ProductApproach = () => {
               key={index}
               className="rounded-3xl p-8 hover:shadow-2xl hover:shadow-accent-500/10 transition-all duration-[400ms] group backdrop-blur-sm"
               style={{ 
-                backgroundColor: '#171B24', 
-                border: '1px solid #2A2D3A',
+                backgroundColor: 'var(--surface)', 
+                border: '1px solid var(--line)',
                 animationDelay: `${index * 0.1}s` 
               }}
             >
@@ -33,7 +33,7 @@ const ProductApproach = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-display text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors duration-300">
+                  <h3 className="font-heading text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors duration-300">
                     {approach.title}
                   </h3>
                   <p className="text-slate-400 leading-relaxed">

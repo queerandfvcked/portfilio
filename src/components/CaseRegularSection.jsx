@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 
 import { CaseSubAccordion } from './CaseSubAccordion'
 
@@ -24,7 +24,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
       >
 
-        <h2 className="font-display heading-accent text-3xl md:text-4xl font-bold text-gray-200 mb-8">
+        <h2 className="font-heading heading-accent text-3xl md:text-4xl font-bold text-gray-200 mb-8">
 
           {slug === 'keepl-app' ? (
               section.id === 'overview' ? t('caseStudies.keeplApp.sections.0.title') : 
@@ -80,7 +80,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {section.accordionTitle && (
 
-              <h3 className="font-display text-xl font-bold text-accent-300 mt-6 mb-3">
+              <h3 className="font-heading text-xl font-bold text-accent-300 mt-6 mb-3">
 
                 {section.accordionTitle}
 
@@ -98,7 +98,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
               <div key={item.id}>
 
-                <h3 className="font-display text-xl font-bold text-accent-300 mt-6 mb-3">
+                <h3 className="font-heading text-xl font-bold text-accent-300 mt-6 mb-3">
 
                   {item.title}
 
@@ -1287,7 +1287,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* H2 heading for daily progress section */}
 
-            <h2 className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Daily Progress Tracking and Emotional Feedback' : 'Отметка ежедневного прогресса и эмоциональный фидбек'}</h2>
+            <h2 className="font-heading heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Daily Progress Tracking and Emotional Feedback' : 'Отметка ежедневного прогресса и эмоциональный фидбек'}</h2>
 
 
 
@@ -1411,7 +1411,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* H2 heading for analytics section */}
 
-            <h2 className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Analysis and Progress Visualization' : 'Анализ и визуализация прогресса'}</h2>
+            <h2 className="font-heading heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Analysis and Progress Visualization' : 'Анализ и визуализация прогресса'}</h2>
 
 
 
@@ -1659,7 +1659,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* H2 heading for goal completion section */}
 
-            <h2 className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Goal Completion' : 'Завершение цели'}</h2>
+            <h2 className="font-heading heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Goal Completion' : 'Завершение цели'}</h2>
 
 
 
@@ -1729,7 +1729,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* H2 heading for profile section */}
 
-            <h2 className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Profile' : 'Профиль'}</h2>
+            <h2 className="font-heading heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">{language === 'en' ? 'Profile' : 'Профиль'}</h2>
 
 
 

@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 
 const CaseCard = ({ 
   title, 
@@ -48,7 +48,7 @@ const CaseCard = ({
           </div>
           
           {/* Project title */}
-          <h3 className="font-display text-2xl font-semibold text-white mb-4 group-hover:text-accent-400 transition-colors duration-300">
+          <h3 className="font-heading text-2xl font-semibold text-white mb-4 group-hover:text-accent-400 transition-colors duration-300">
             {title}
           </h3>
           
@@ -130,7 +130,7 @@ const CaseCard = ({
           </div>
           
           {/* Project title */}
-          <h3 className="font-display text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors duration-300">
+          <h3 className="font-heading text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors duration-300">
             {title}
           </h3>
           

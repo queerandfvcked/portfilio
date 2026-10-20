@@ -19,10 +19,8 @@ const translations = {
     // Hero
     hero: {
       title: 'Продуктовый дизайнер',
-      subtitle: 'Проектирую B2C-интерфейсы, опираясь на данные и продуктовую логику. Готовлю к запуску собственный продукт: от валидации идеи и до самостоятельной сборки фронтенда с помощью вайб-кодинга.',
+      subtitle: 'Проектирую B2C-интерфейсы и довожу продукты от идеи до работающего прототипа.',
       description: 'Создаю пользовательские интерфейсы, которые решают реальные бизнес-задачи и приносят пользу людям.',
-      viewProjects: 'Смотреть проекты',
-      contactMe: 'Связаться со мной',
       stats: {
         experience: 'Года опыта',
         projects: 'Кейсов',
@@ -631,10 +629,8 @@ const translations = {
     // Hero
     hero: {
       title: 'Product Designer',
-      subtitle: 'I design B2C interfaces based on data and product logic. Currently preparing to launch my own product: from idea validation to independent frontend development using vibe-coding.',
+      subtitle: 'I design B2C interfaces and take products from idea to a working prototype.',
       description: 'I create user interfaces that solve real business problems and bring value to people.',
-      viewProjects: 'View Projects',
-      contactMe: 'Contact Me',
       stats: {
         experience: 'Years Experience',
         projects: 'Cases',

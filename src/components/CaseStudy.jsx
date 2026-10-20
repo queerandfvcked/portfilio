@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 
 import { useParams, useNavigate } from 'react-router-dom'
 
@@ -465,11 +465,11 @@ const CaseStudy = () => {
 
     return (
 
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#10131A' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--bg)' }}>
 
         <div className="text-center">
 
-          <h1 className="font-display text-3xl font-bold text-white mb-8">Case Study Not Found</h1>
+          <h1 className="font-heading text-3xl font-bold text-white mb-8">Case Study Not Found</h1>
 
           <button
 
@@ -495,7 +495,7 @@ const CaseStudy = () => {
 
   return (
 
-    <div style={{ backgroundColor: '#10131A' }}>
+    <div style={{ backgroundColor: 'var(--bg)' }}>
 
       {/* Hero Section */}
 
@@ -513,7 +513,7 @@ const CaseStudy = () => {
 
           <div className="space-y-6 text-left">
 
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6">
 
               {currentCase.title}
 

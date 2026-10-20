@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+﻿import React, { useState } from 'react'
 import { useTranslation } from '../contexts/LanguageContext'
 
 const ContactSidebar = ({ isOpen, onClose }) => {
@@ -35,18 +35,15 @@ const ContactSidebar = ({ isOpen, onClose }) => {
   const socialLinks = [
     {
       name: 'Telegram',
-      url: 'https://t.me/icedcreamsoda',
-      color: 'hover:bg-blue-500'
+      url: 'https://t.me/icedcreamsoda'
     },
     {
       name: 'Gmail',
-      url: 'mailto:andrianshtark@gmail.com',
-      color: 'hover:bg-red-500'
+      url: 'mailto:andrianshtark@gmail.com'
     },
     {
       name: language === 'ru' ? 'HH.ru' : 'LinkedIn',
-      url: language === 'ru' ? 'https://spb.hh.ru/resume/a951adeaff0f2857bf0039ed1f645643673433' : 'https://www.linkedin.com/in/andrian-shtark-19b0b23b1',
-      color: language === 'ru' ? 'hover:bg-red-600' : 'hover:bg-blue-600'
+      url: language === 'ru' ? 'https://spb.hh.ru/resume/a951adeaff0f2857bf0039ed1f645643673433' : 'https://www.linkedin.com/in/andrian-shtark-19b0b23b1'
     }
   ]
 
@@ -66,12 +63,12 @@ const ContactSidebar = ({ isOpen, onClose }) => {
           isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
         }`}
         style={{
-          backgroundColor: '#10131A'
+          backgroundColor: 'var(--bg-2)'
         }}
       >  
         {/* Header */}
-        <div className="flex items-center justify-between p-3 md:p-4 border-b border-gray-700" style={{ backgroundColor: '#10131A' }}>
-          <h2 className="font-display text-lg md:text-xl font-semibold text-white">
+        <div className="flex items-center justify-between p-3 md:p-4 border-b border-gray-700" style={{ backgroundColor: 'var(--bg-2)' }}>
+          <h2 className="font-heading text-lg md:text-xl font-semibold text-white">
             Contact
           </h2>
           <button
@@ -85,7 +82,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-3 md:p-4" style={{ backgroundColor: '#10131A' }}>
+        <div className="flex-1 overflow-y-auto p-3 md:p-4" style={{ backgroundColor: 'var(--bg-2)' }}>
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
             <div>
@@ -99,7 +96,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
                 onChange={handleInputChange}
                 required
                 className="w-full px-3 py-2 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-400 focus:ring-2 focus:ring-accent-400/20 transition-all duration-300"
-                style={{ backgroundColor: '#171B24' }}
+                style={{ backgroundColor: 'var(--surface-2)' }}
                 placeholder="Your name"
               />
             </div>
@@ -115,7 +112,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
                 onChange={handleInputChange}
                 required
                 className="w-full px-3 py-2 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-400 focus:ring-2 focus:ring-accent-400/20 transition-all duration-300"
-                style={{ backgroundColor: '#171B24' }}
+                style={{ backgroundColor: 'var(--surface-2)' }}
                 placeholder="your.email@example.com"
               />
             </div>
@@ -131,7 +128,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
                 required
                 rows={3}
                 className="w-full px-3 py-2 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-400 focus:ring-2 focus:ring-accent-400/20 transition-all duration-300 resize-none"
-                style={{ backgroundColor: '#171B24' }}
+                style={{ backgroundColor: 'var(--surface-2)' }}
                 placeholder="Your message..."
               />
             </div>
@@ -146,7 +143,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
 
           {/* Social Links */}
           <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t border-gray-700">
-            <h3 className="font-display text-lg font-semibold text-white mb-3 md:mb-4">Connect with me</h3>
+            <h3 className="font-heading text-lg font-semibold text-white mb-3 md:mb-4">Connect with me</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
               {socialLinks.map((link, index) => (
                 <a
@@ -154,10 +151,10 @@ const ContactSidebar = ({ isOpen, onClose }) => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center p-2 md:p-3 border border-gray-600 rounded-full hover:border-accent-400/50 transition-all duration-300 group ${link.color}`}
-                  style={{ backgroundColor: '#171B24' }}
+                  className="flex items-center justify-center p-2 md:p-3 border border-gray-600 rounded-full hover:border-accent hover:bg-accent transition-all duration-300 group"
+                  style={{ backgroundColor: 'var(--surface-2)' }}
                 >
-                  <span className="text-gray-300 group-hover:text-white transition-colors duration-300 font-medium text-sm md:text-base text-center">
+                  <span className="text-gray-300 group-hover:text-accent-ink transition-colors duration-300 font-medium text-sm md:text-base text-center">
                     {link.name}
                   </span>
                 </a>

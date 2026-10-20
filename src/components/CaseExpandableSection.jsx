@@ -30,7 +30,7 @@ export function ExpandableSection({ section, isActive, slug, t, formatContent, o
 
         >
 
-          <h2 className="font-display heading-accent text-3xl font-bold text-gray-200 mb-4 group-hover:text-accent-400 transition-colors">
+          <h2 className="font-heading heading-accent text-3xl font-bold text-gray-200 mb-4 group-hover:text-accent-400 transition-colors">
 
             {slug === 'keepl-app' ? (
               section.id === 'overview' ? t('caseStudies.keeplApp.sections.0.title') : 

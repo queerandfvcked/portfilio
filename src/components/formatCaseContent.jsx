@@ -1,4 +1,4 @@
-export const formatContent = (content, openImageModal, language) => {
+﻿export const formatContent = (content, openImageModal, language) => {
     if (!content) return null
 
     const lines = content.split('\n')
@@ -19,7 +19,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <h4 key={index} className="font-display text-lg font-semibold text-primary mt-6 mb-2">
+          <h4 key={index} className="font-heading text-lg font-semibold text-primary mt-6 mb-2">
 
             {line.replace('#### ', '')}
 
@@ -33,7 +33,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <h3 key={index} className="font-display text-xl font-bold text-accent-300 mt-6 mb-3">
+          <h3 key={index} className="font-heading text-xl font-bold text-accent-300 mt-6 mb-3">
 
             {line.replace('### ', '')}
 
@@ -47,7 +47,7 @@ export const formatContent = (content, openImageModal, language) => {
 
         return (
 
-          <h2 key={index} className="font-display heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">
+          <h2 key={index} className="font-heading heading-accent text-2xl font-bold text-accent-200 mt-12 mb-6">
 
             {line.replace('## ', '')}
 

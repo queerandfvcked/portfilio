@@ -1,58 +1,63 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
     extend: {
+      /* All values resolve to CSS custom properties declared in src/index.css.
+         Keep hex codes out of this file — change them in :root instead. */
       colors: {
-        primary: {
-          50: '#0f172a',
-          100: '#1e293b',
-          200: '#334155',
-          300: '#475569',
-          400: '#64748b',
-          500: '#94a3b8',
-          600: '#cbd5e1',
-          700: '#e2e8f0',
-          800: '#f1f5f9',
-          900: '#f8fafc',
-        },
+        // Accent (mint). The 100–900 scale collapses onto three mint steps,
+        // because only one accent hue exists — see --accent* tokens.
+        // Every entry uses the <alpha-value> form so opacity modifiers work.
         accent: {
-          DEFAULT: '#6C8CFF',
-          50: '#eef1ff',
-          100: '#dde4ff',
-          200: '#c5d2ff',
-          300: '#a3b6ff',
-          400: '#849dff',
-          500: '#6C8CFF',
-          600: '#5470e8',
-          700: '#3f55c6',
-          800: '#3041a0',
-          900: '#262f7e',
+          DEFAULT: 'rgb(var(--accent-rgb) / <alpha-value>)',
+          100: 'rgb(var(--accent-soft-rgb) / <alpha-value>)',
+          200: 'rgb(var(--accent-soft-rgb) / <alpha-value>)',
+          300: 'rgb(var(--accent-soft-rgb) / <alpha-value>)',
+          400: 'rgb(var(--accent-rgb) / <alpha-value>)',
+          500: 'rgb(var(--accent-rgb) / <alpha-value>)',
+          600: 'rgb(var(--accent-deep-rgb) / <alpha-value>)',
+          700: 'rgb(var(--accent-deep-rgb) / <alpha-value>)',
+          800: 'rgb(var(--accent-deep-rgb) / <alpha-value>)',
+          900: 'rgb(var(--accent-deep-rgb) / <alpha-value>)',
         },
-        dark: {
-          50: '#18181b',
-          100: '#27272a',
-          200: '#3f3f46',
-          300: '#52525b',
-          400: '#71717a',
-          500: '#a1a1aa',
-          600: '#d4d4d8',
-          700: '#e4e4e7',
-          800: '#f4f4f5',
-          900: '#fafafa',
-        }
+
+        // Neutrals
+        bg: 'var(--bg)',
+        bg2: 'var(--bg-2)',
+        surface: 'var(--surface)',
+        line: 'var(--line)',
+        line2: 'var(--line-2)',
+        text: 'var(--text)',
+        muted: 'var(--muted)',
+        dim: 'var(--dim)',
+        'accent-ink': 'var(--accent-ink)',
       },
+
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'display': ['Fraunces', 'serif'],
+        sans: ['var(--font-text)'],
+        // Unbounded — hero name + short homepage section headings only
+        display: ['var(--font-display)'],
+        // Onest 700 — every other heading (weight comes from font-bold at call site)
+        heading: ['var(--font-heading)'],
+        mono: ['var(--font-mono)'],
       },
+
+      boxShadow: {
+        accent: 'var(--shadow-accent)',
+        card: 'var(--shadow-card)',
+      },
+
+      borderRadius: {
+        card: 'var(--card)',
+      },
+
       backgroundImage: {
-        'gradient-dark': 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #6C8CFF 0%, #5470e8 100%)',
+        'accent-sheen': 'linear-gradient(95deg, var(--text) 8%, var(--accent) 58%, var(--accent-deep) 100%)',
       },
     },
   },

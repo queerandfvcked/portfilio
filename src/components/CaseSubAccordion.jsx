@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+﻿import React, { useState } from 'react'
 
 export function CaseSubAccordion({ items, formatContent }) {
 
@@ -30,7 +30,7 @@ export function CaseSubAccordion({ items, formatContent }) {
 
             >
 
-              <h4 className="font-display text-lg font-semibold text-primary group-hover:text-accent-400 transition-colors">
+              <h4 className="font-heading text-lg font-semibold text-primary group-hover:text-accent-400 transition-colors">
 
                 {item.title}
 
