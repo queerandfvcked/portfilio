@@ -1,187 +1,135 @@
-﻿import React from 'react'
+﻿import React, { useRef } from 'react'
+import { Link } from 'react-router-dom'
+import { useTranslation } from '../contexts/LanguageContext'
+import useSpotlight from '../hooks/useSpotlight'
+import CaseImage from './CaseImage'
+import Reveal from './Reveal'
+import { CASE_MEDIA } from './caseMedia'
 
-const CaseCard = ({ 
-  title, 
-  subtitle, 
-  description, 
-  image, 
-  tags, 
-  metrics, 
-  link, 
-  index = 0,
-  className = '' 
-}) => {
-  return (
-    <div 
-      className={`project-card group cursor-pointer ${className}`}
-      style={{ 
-        animationDelay: `${index * 0.1}s`
-      }}
-    >
-      {/* Desktop/Tablet: Horizontal layout */}
-      <div className="hidden md:flex">
-        {/* Left side - Image (50%) */}
-        <div className="w-1/2 relative overflow-hidden">
-          <img 
-            src={image} 
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          
-          {/* View case study button on hover */}
-          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <a 
-              href={link}
-              className="w-full btn-primary btn-primary-sm btn-gradient-glow text-center"
-            >
-              View Case Study
-            </a>
-          </div>
-        </div>
-        
-        {/* Right side - Content (50%) */}
-        <div className="w-1/2 p-8 flex flex-col justify-center min-h-96">
-          {/* Project subtitle */}
-          <div className="text-accent-400 text-sm font-medium mb-2">
-            {subtitle}
-          </div>
-          
-          {/* Project title */}
-          <h3 className="font-heading text-2xl font-semibold text-white mb-4 group-hover:text-accent-400 transition-colors duration-300">
-            {title}
-          </h3>
-          
-          {/* Project description */}
-          <p className="text-slate-400 mb-6 leading-relaxed">
-            {description}
-          </p>
-          
-          {/* Metrics */}
-          {metrics && metrics.length > 0 && (
-            <div className="flex flex-wrap gap-8 mb-6">
-              {metrics.map((metric, metricIndex) => (
-                <div key={metricIndex} className="text-center">
-                  <div className="text-xl font-bold text-accent-400">
-                    {metric.value}
-                  </div>
-                  <div className="text-xs text-slate-400">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-          
-          {/* Tags */}
-          {tags && tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-6">
-              {tags.map((tag) => (
-                <span 
-                  key={tag}
-                  className="px-3 py-1 bg-accent-500/20 text-accent-400 rounded-full text-xs font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-          
-          {/* More details link */}
-          <a 
-            href={link}
-            className="inline-flex items-center text-accent-400 hover:text-accent-300 font-medium text-sm transition-colors duration-300"
-          >
-            More Details
-            <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </div>
+// Glow per case: Zhabka is cold blue-teal, Keepl is the mint accent.
+const GLOW = {
+  zhabka: { rgb: '70 120 200', alpha: 0.28, position: '72% 8%' },
+  'keepl-app': { rgb: '95 227 176', alpha: 0.24, position: '28% 42%' },
+  'add-transition': { rgb: '95 227 176', alpha: 0.18, position: '50% 0%' },
+  'hired-app': { rgb: '95 227 176', alpha: 0.16, position: '50% 0%' }
+}
 
-      {/* Mobile: Vertical layout */}
-      <div className="md:hidden">
-        {/* Mobile image */}
-        <div className="aspect-video relative overflow-hidden">
-          <img 
-            src={image} 
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          
-          {/* View case study button on hover */}
-          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <a 
-              href={link}
-              className="w-full btn-primary btn-primary-sm btn-gradient-glow text-center"
-            >
-              View Case Study
-            </a>
-          </div>
+const CaseCard = ({ project, priority = false }) => {
+  const { t } = useTranslation()
+  const cardRef = useRef(null)
+
+  const isWide = project.variant === 'wide'
+  const media = CASE_MEDIA[project.id]
+  const glow = GLOW[project.id] || GLOW['hired-app']
+
+  useSpotlight(cardRef, { parallax: isWide })
+
+  const domain = project.domain.join(' · ')
+
+  const textBlock = (
+    <div className="case-card__text-inner">
+      <span className="mono-meta case-card__domain">{domain}</span>
+
+      <h3 className={`case-card__title ${isWide ? 'case-card__title--wide' : ''}`}>
+        {project.title}
+      </h3>
+
+      <p className={`case-card__desc line-clamp-3 ${isWide ? '' : 'case-card__desc--compact'}`}>
+        {project.description}
+      </p>
+
+      {project.highlight && (
+        <div className="case-card__highlight">
+          <span className="case-card__highlight-value">{project.highlight.value}</span>
+          <span className="case-card__highlight-label">{project.highlight.label}</span>
         </div>
-        
-        {/* Mobile content */}
-        <div className="p-8">
-          {/* Project subtitle */}
-          <div className="text-accent-400 text-sm font-medium mb-2">
-            {subtitle}
-          </div>
-          
-          {/* Project title */}
-          <h3 className="font-heading text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors duration-300">
-            {title}
-          </h3>
-          
-          {/* Project description */}
-          <p className="text-slate-400 mb-4 line-clamp-3">
-            {description}
-          </p>
-          
-          {/* Metrics */}
-          {metrics && metrics.length > 0 && (
-            <div className="flex flex-wrap gap-4 mb-4">
-              {metrics.map((metric, metricIndex) => (
-                <div key={metricIndex} className="text-center">
-                  <div className="text-lg font-bold text-accent-400">
-                    {metric.value}
-                  </div>
-                  <div className="text-xs text-slate-400">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-          
-          {/* Tags */}
-          {tags && tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
-              {tags.map((tag) => (
-                <span 
-                  key={tag}
-                  className="px-3 py-1 bg-accent-500/20 text-accent-400 rounded-full text-xs font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-          
-          {/* More details link */}
-          <a 
-            href={link}
-            className="inline-flex items-center text-accent-400 hover:text-accent-300 font-medium text-sm transition-colors duration-300"
-          >
-            More Details
-            <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
+      )}
+
+      <dl className="case-card__specs">
+        <div className="case-card__spec">
+          <dt className="mono-meta-sm">{t('projects.platformLabel')}</dt>
+          <dd>{project.platform}</dd>
         </div>
-      </div>
+        <div className="case-card__spec">
+          <dt className="mono-meta-sm">{t('projects.scopeLabel')}</dt>
+          <dd>{project.scope}</dd>
+        </div>
+      </dl>
+
+      <span className="case-card__link">
+        {t('projects.viewCase')}
+        <span className="case-card__arrow" aria-hidden="true">
+          →
+        </span>
+      </span>
     </div>
+  )
+
+  return (
+    <Link
+      ref={cardRef}
+      to={project.link}
+      className={`case-card ${isWide ? `case-card--wide case-card--${project.id === 'zhabka' ? 'zhabka' : 'keepl'}` : 'case-card--compact'}`}
+      style={{
+        '--glow-rgb': glow.rgb,
+        '--glow-a': glow.alpha,
+        '--glow-pos': glow.position
+      }}
+      aria-label={project.title}
+    >
+      <div className="case-card__bg" aria-hidden="true">
+        <div className="grid-mask" />
+        <div className="grid-spotlight" />
+      </div>
+
+      {isWide ? (
+        <div className="case-card__cols">
+          <div className="case-card__text">{textBlock}</div>
+
+          <div className="case-card__stage">
+            <div className="case-scene">
+              <div className="case-scene__laptop">
+                <Reveal delay={0} y={22}>
+                  <CaseImage
+                    name={media.laptop}
+                    alt={`${project.title} — desktop`}
+                    sizes="(min-width: 1024px) 420px, 58vw"
+                    priority={priority}
+                    className="case-mock-par case-mock-par--laptop"
+                  />
+                </Reveal>
+              </div>
+
+              <div className="case-scene__phone">
+                <Reveal delay={150} y={26}>
+                  <CaseImage
+                    name={media.phone}
+                    alt={`${project.title} — mobile`}
+                    sizes="(min-width: 1024px) 180px, 24vw"
+                    className="case-mock-par case-mock-par--phone"
+                  />
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="case-card__cover">
+            <CaseImage
+              name={media.cover}
+              alt={project.title}
+              sizes="(min-width: 768px) 560px, 92vw"
+              priority={priority}
+              className="case-card__cover-img"
+            />
+            {project.badge && <span className="case-card__badge">{project.badge}</span>}
+          </div>
+
+          <div className="case-card__body">{textBlock}</div>
+        </>
+      )}
+    </Link>
   )
 }
 

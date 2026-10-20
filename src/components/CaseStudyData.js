@@ -1,4 +1,4 @@
-export function getCaseStudies(t) {
+﻿export function getCaseStudies(t) {
   return {
 
     'zhabka': {
@@ -11,7 +11,7 @@ export function getCaseStudies(t) {
 
       tags: t('caseStudies.zhabka.tags'),
 
-      heroImage: '/assets/zhabka casecard.png',
+      heroImage: '/assets/case-main/zhabka-desktop-1600.webp',
 
       heroImages: [
 
@@ -113,7 +113,7 @@ export function getCaseStudies(t) {
 
       tags: t('caseStudies.keeplApp.tags'),
 
-      heroImage: '/assets/keepl app.png',
+      heroImage: '/assets/case-main/keepl-desktop-1600.webp',
 
       heroImages: [
 
@@ -285,7 +285,7 @@ export function getCaseStudies(t) {
 
       tags: t('caseStudies.hiredApp.tags'),
 
-      heroImage: '/assets/hired app.png',
+      heroImage: '/assets/case-main/hired-1400.webp',
 
       heroImages: [
 
@@ -563,7 +563,7 @@ export function getCaseStudies(t) {
 
       tags: t('caseStudies.addTransition.tags'),
 
-      heroImage: '/assets/New folder/hero.png',
+      heroImage: '/assets/case-main/fintech-1400.webp',
 
       heroImages: [
 

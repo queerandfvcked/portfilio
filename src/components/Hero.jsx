@@ -1,5 +1,6 @@
-﻿import React, { useEffect, useRef, useState } from 'react'
+﻿import React, { useRef } from 'react'
 import { useTranslation } from '../contexts/LanguageContext'
+import useSpotlight from '../hooks/useSpotlight'
 import AmbientBackground from './AmbientBackground'
 import Reveal from './Reveal'
 
@@ -9,84 +10,7 @@ const Hero = () => {
   const skills = t('skills')
 
   const sectionRef = useRef(null)
-  const [spotlight, setSpotlight] = useState(false)
-
-  /* Cursor-tracked spotlight on the background grid.
-     Positions go straight to CSS variables on the section — one rAF per
-     frame, no React state, no re-renders. Skipped entirely on coarse
-     pointers and when the user asked for reduced motion. */
-  useEffect(() => {
-    const el = sectionRef.current
-    if (!el) return
-
-    const fine = window.matchMedia('(hover: hover) and (pointer: fine)')
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)')
-    if (!fine.matches || reduce.matches) return
-
-    setSpotlight(true)
-
-    let latestX = 0
-    let latestY = 0
-    let raf = 0
-    let listening = false
-
-    const flush = () => {
-      raf = 0
-      el.style.setProperty('--mx', `${latestX}px`)
-      el.style.setProperty('--my', `${latestY}px`)
-    }
-
-    const onMove = (e) => {
-      const rect = el.getBoundingClientRect()
-      latestX = e.clientX - rect.left
-      latestY = e.clientY - rect.top
-      if (!raf) raf = requestAnimationFrame(flush)
-    }
-
-    const onEnter = () => el.classList.add('is-spotlit')
-    const onLeave = () => el.classList.remove('is-spotlit')
-
-    const listen = () => {
-      if (listening) return
-      el.addEventListener('pointermove', onMove, { passive: true })
-      listening = true
-    }
-
-    const unlisten = () => {
-      if (!listening) return
-      el.removeEventListener('pointermove', onMove)
-      listening = false
-      if (raf) {
-        cancelAnimationFrame(raf)
-        raf = 0
-      }
-    }
-
-    listen()
-    el.addEventListener('pointerenter', onEnter)
-    el.addEventListener('pointerleave', onLeave)
-
-    // Stop tracking entirely while the hero is off screen.
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          listen()
-        } else {
-          unlisten()
-          el.classList.remove('is-spotlit')
-        }
-      },
-      { threshold: 0 }
-    )
-    io.observe(el)
-
-    return () => {
-      unlisten()
-      el.removeEventListener('pointerenter', onEnter)
-      el.removeEventListener('pointerleave', onLeave)
-      io.disconnect()
-    }
-  }, [])
+  const spotlight = useSpotlight(sectionRef)
 
   // duplicated once so the marquee loops seamlessly at -50%
   const marqueeItems = [...skills, ...skills]

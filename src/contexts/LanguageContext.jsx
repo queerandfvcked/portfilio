@@ -31,53 +31,56 @@ const translations = {
     // Projects
     projects: {
       title: 'Кейсы',
-      moreDetails: 'Подробнее'
+      moreDetails: 'Подробнее',
+      viewCase: 'Смотреть кейс',
+      platformLabel: 'Платформа',
+      scopeLabel: 'Что делал'
     },
     projectsList: [
       {
         id: 'zhabka',
-        image: '/assets/zhabka casecard.png',
         title: 'Zhabka',
-        subtitle: 'Web & Mobile',
         description: 'Персональный AI-ассистент для поиска работы, который анализирует вакансии из Telegram, отбирает релевантные предложения и объясняет, почему они подходят именно пользователю. От идеи и UX-концепции до рабочего MVP с AI-интеграцией.',
-        tags: ['Product Design', 'AI', 'PWA', 'Frontend (React)'],
-        link: '/zhabka'
+        link: '/zhabka',
+        variant: 'wide',
+        domain: ['AI', 'Поиск работы'],
+        platform: 'Web + Mobile (PWA)',
+        scope: 'Концепция, UX/UI, React-MVP',
+        highlight: {
+          value: '≈170 → 5–10',
+          label: 'постов в день → остаётся релевантных'
+        }
       },
       {
         id: 'keepl-app',
-        image: '/assets/keepl app.png',
         title: 'Keepl App',
-        subtitle: 'Web & Mobile',
         description: 'Веб-приложение для достижения целей. Проектирование продукта с нуля: от анализа рынка и гипотез до разработки адаптивной дизайн-системы. В рамках кейса я проработал сложные сценарии визуализации данных и самостоятельно реализовал фронтенд-часть на React, чтобы валидировать UX-паттерны в живом интерфейсе.',
-        tags: ['Product Design', 'PWA', 'Frontend (React)'],
-        link: '/keepl-app'
-      },
-      {
-        id: 'keepl-landing',
-        title: 'Keepl Landing page',
-        subtitle: 'Web',
-        description: 'Keepl Landing Page — лендинг для экосистемы трекинга целей. Спроектировал структуру страницы, выстраивая повествование от «боли» пользователя к решению, чтобы удержать внимание и максимально раскрыть ценность продукта. Перенес визуальный концепт приложения в адаптивный веб-дизайн и реализовал фронтенд с помощью ИИ, обеспечивая точность и соответствие интерфейса оригиналу.',
-        image: '/assets/landing.png',
-        tags: ['Product Design', 'Landing page', 'Frontend (React)'],
-        link: '/keepl-landing'
+        link: '/keepl-app',
+        variant: 'wide',
+        domain: ['Цели и привычки', 'Wellbeing'],
+        platform: 'Web + Mobile (PWA)',
+        scope: 'Исследование, UX/UI, React-фронтенд'
       },
       {
         id: 'add-transition',
         title: 'Проектирование интерфейса добавления операций',
-        subtitle: 'Mobile App',
         description: 'Оптимизация процесса учета расходов. Провел UX-анализ причин оттока пользователей и полностью переработал флоу фиксации операций, сократив время ввода до 2-3 секунд. Спроектировал одноэкранный интерфейс с выбором категорий, минимизировал когнитивную нагрузку и подготовил финальный UI, сфокусированный на скорости использования «на ходу».',
-        image: '/assets/fintech.png',
-        tags: ['FinTech', 'Product Design'],
-        link: '/add-transition'
+        link: '/add-transition',
+        variant: 'compact',
+        domain: ['FinTech', 'Учёт расходов'],
+        platform: 'Mobile',
+        scope: 'UX-аудит, редизайн флоу'
       },
       {
         id: 'hired-app',
         title: 'Hired App',
-        subtitle: 'Mobile App',
         description: 'Проектирование платформы по поиску работы с нуля. Создал полный пользовательский опыт: от этапа исследования и JTBD-фреймворков до финальных интерфейсов. Разработал сложную архитектуру продукта, многошаговые сценарии и масштабируемую дизайн-систему.',
-        image: '/assets/hired app.png',
-        tags: ['Product Design'],
-        link: '/hired-app'
+        link: '/hired-app',
+        variant: 'compact',
+        domain: ['HR tech', 'Поиск работы'],
+        platform: 'Mobile',
+        scope: 'Исследование, JTBD, дизайн-система',
+        badge: 'Хакатон → MVP'
       }
     ],
     about: {
@@ -567,45 +570,6 @@ const translations = {
         ]
       }
     },
-    // Projects
-    projects: [
-      {
-        id: 'keepl-app',
-        image: '/assets/keepl app.png',
-        title: 'Keepl App',
-        subtitle: 'Web & Mobile',
-        description: 'Веб-приложение для достижения целей. Проектирование продукта с нуля: от анализа рынка и гипотез до разработки адаптивной дизайн-системы. В рамках кейса я проработал сложные сценарии визуализации данных и самостоятельно реализовал фронтенд-часть на React, чтобы валидировать UX-паттерны в живом интерфейсе.',
-        tags: ['Product Design', 'Web App', 'Frontend (React)'],
-        link: '/keepl-app'
-      },
-      {
-        id: 'keepl-landing',
-        title: 'Keepl Landing page',
-        subtitle: 'Landing page',
-        description: 'Keepl Landing Page — лендинг для экосистемы трекинга целей. Спроектировал структуру страницы, выстраивая повествование от «боли» пользователя к решению, чтобы удержать внимание и максимально раскрыть ценность продукта. Перенес визуальный концепт приложения в адаптивный веб-дизайн и реализовал фронтенд с помощью ИИ, обеспечивая точность и соответствие интерфейса оригиналу.',
-        image: '/assets/landing.png',
-        tags: ['Product Design', 'Web', 'Mobile', 'Frontend (React)'],
-        link: '/keepl-landing'
-      },
-      {
-        id: 'add-transition',
-        title: 'Проектирование интерфейса добавления операций',
-        subtitle: 'Mobile App',
-        description: 'Оптимизация процесса учета расходов. Провел UX-анализ причин оттока пользователей и полностью переработал флоу фиксации операций, сократив время ввода до 2-3 секунд. Спроектировал одноэкранный интерфейс с выбором категорий, минимизировал когнитивную нагрузку и подготовил финальный UI, сфокусированный на скорости использования «на ходу».',
-        image: '/assets/fintech.png',
-        tags: ['FinTech', 'Mobile', 'Product Design'],
-        link: '/add-transition'
-      },
-      {
-        id: 'hired-app',
-        title: 'Hired App',
-        subtitle: 'Mobile App',
-        description: 'Проектирование платформы по поиску работы с нуля. Создал полный пользовательский опыт: от этапа исследования и JTBD-фреймворков до финальных интерфейсов. Разработал сложную архитектуру продукта, многошаговые сценарии и масштабируемую дизайн-систему.',
-        image: '/assets/hired app.png',
-        tags: ['Product Design', 'Mobile'],
-        link: '/hired-app'
-      }
-    ],
     // Footer
     footer: {
       copyright: 'Product Designer Portfolio. Все права защищены.'
@@ -641,53 +605,56 @@ const translations = {
     // Projects
     projects: {
       title: 'Cases',
-      moreDetails: 'More Details'
+      moreDetails: 'More Details',
+      viewCase: 'View case',
+      platformLabel: 'Platform',
+      scopeLabel: 'Scope'
     },
     projectsList: [
       {
         id: 'zhabka',
-        image: '/assets/zhabka casecard.png',
         title: 'Zhabka',
-        subtitle: 'Web & Mobile',
         description: "A personal AI-powered job search assistant that analyzes Telegram job posts, filters relevant opportunities, and explains why each vacancy matches the user's preferences. From the initial product idea and UX concept to a fully functional MVP with AI integration.",
-        tags: ['Product Design', 'AI', 'PWA', 'Frontend (React)'],
-        link: '/zhabka'
+        link: '/zhabka',
+        variant: 'wide',
+        domain: ['AI', 'Job search'],
+        platform: 'Web + Mobile (PWA)',
+        scope: 'Concept, UX/UI, React MVP',
+        highlight: {
+          value: '≈170 → 5–10',
+          label: 'posts a day → stay relevant'
+        }
       },
       {
         id: 'keepl-app',
-        image: '/assets/keepl app.png',
         title: 'Keepl App',
-        subtitle: 'Web & Mobile',
         description: 'Web application for achieving goals. Product design from scratch: from market analysis and hypotheses to adaptive design system development. As part of the case, I worked out complex data visualization scenarios and independently implemented the frontend part on React to validate UX patterns in a live interface.',
-        tags: ['Product Design', 'Web App', 'Frontend (React)'],
-        link: '/keepl-app'
-      },
-      {
-        id: 'keepl-landing',
-        title: 'Keepl Landing page',
-        subtitle: 'Landing page',
-        description: 'Keepl Landing Page - landing page for goal tracking ecosystem. I designed the page structure, building a narrative from user pain to solution to retain attention and maximally reveal product value. I transferred the visual concept of the application to adaptive web design and implemented the frontend using AI, ensuring accuracy and interface compliance with the original.',
-        image: '/assets/landing.png',
-        tags: ['Product Design', 'Web', 'Mobile', 'Frontend (React)'],
-        link: '/keepl-landing'
+        link: '/keepl-app',
+        variant: 'wide',
+        domain: ['Goals & habits', 'Wellbeing'],
+        platform: 'Web + Mobile (PWA)',
+        scope: 'Research, UX/UI, React front end'
       },
       {
         id: 'add-transition',
         title: 'Transaction Interface Design',
-        subtitle: 'Mobile App',
         description: 'Optimization of expense tracking process. I conducted UX analysis of user churn reasons and completely redesigned the transaction flow, reducing input time to 2-3 seconds. I designed a single-screen interface with category selection, minimized cognitive load and prepared a final UI focused on "on-the-go" usage speed.',
-        image: '/assets/fintech.png',
-        tags: ['FinTech', 'Mobile', 'Product Design'],
-        link: '/add-transition'
+        link: '/add-transition',
+        variant: 'compact',
+        domain: ['FinTech', 'Expense tracking'],
+        platform: 'Mobile',
+        scope: 'UX audit, flow redesign'
       },
       {
         id: 'hired-app',
         title: 'Hired App',
-        subtitle: 'Mobile App',
         description: 'Job search platform design from scratch. I created a complete user experience: from research stage and JTBD frameworks to final interfaces. I developed complex product architecture, multi-step scenarios and a scalable design system.',
-        image: '/assets/hired app.png',
-        tags: ['Product Design', 'Mobile'],
-        link: '/hired-app'
+        link: '/hired-app',
+        variant: 'compact',
+        domain: ['HR tech', 'Job search'],
+        platform: 'Mobile',
+        scope: 'Research, JTBD, design system',
+        badge: 'Hackathon → MVP'
       }
     ],
     about: {
@@ -800,45 +767,6 @@ const translations = {
         ),
         title: 'Vibe Coding & AI Tools',
         description: 'I use AI to build functional frontend prototypes. This allows me to test design in a real environment and validate ideas faster.'
-      }
-    ],
-    // Projects
-    projects: [
-      {
-        id: 'keepl-app',
-        image: '/assets/keepl app.png',
-        title: 'Keepl App',
-        subtitle: 'Web & Mobile',
-        description: 'Web application for achieving goals. Product design from scratch: from market analysis and hypotheses to adaptive design system development. As part of the case, I worked out complex data visualization scenarios and independently implemented the frontend part on React to validate UX patterns in a live interface.',
-        tags: ['Product Design', 'Web App', 'Frontend (React)'],
-        link: '/keepl-app'
-      },
-      {
-        id: 'keepl-landing',
-        title: 'Keepl Landing page',
-        subtitle: 'Landing page',
-        description: 'Keepl Landing Page - landing page for goal tracking ecosystem. I designed the page structure, building a narrative from user pain to solution to retain attention and maximally reveal product value. I transferred the visual concept of the application to adaptive web design and implemented the frontend using AI, ensuring accuracy and interface compliance with the original.',
-        image: '/assets/landing.png',
-        tags: ['Product Design', 'Web', 'Mobile', 'Frontend (React)'],
-        link: '/keepl-landing'
-      },
-      {
-        id: 'add-transition',
-        title: 'Transaction Interface Design',
-        subtitle: 'Mobile App',
-        description: 'Optimization of expense tracking process. I conducted UX analysis of user churn reasons and completely redesigned the transaction flow, reducing input time to 2-3 seconds. I designed a single-screen interface with category selection, minimized cognitive load and prepared a final UI focused on "on-the-go" usage speed.',
-        image: '/assets/fintech.png',
-        tags: ['FinTech', 'Mobile', 'Product Design'],
-        link: '/add-transition'
-      },
-      {
-        id: 'hired-app',
-        title: 'Hired App',
-        subtitle: 'Mobile App',
-        description: 'Job search platform design from scratch. I created a complete user experience: from research stage and JTBD frameworks to final interfaces. I developed complex product architecture, multi-step scenarios and a scalable design system.',
-        image: '/assets/hired app.png',
-        tags: ['Product Design', 'Mobile'],
-        link: '/hired-app'
       }
     ],
     // Case Studies
