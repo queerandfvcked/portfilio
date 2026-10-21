@@ -8,7 +8,10 @@ const translations = {
       projects: 'Кейсы',
       about: 'Процесс',
       resume: 'Резюме',
-      contact: 'Контакты'
+      contact: 'Контакты',
+      menu: 'Меню',
+      closeMenu: 'Закрыть меню',
+      switchLanguage: 'Сменить язык'
     },
     // Common
     common: {
@@ -580,7 +583,10 @@ const translations = {
       projects: 'Cases',
       about: 'Process',
       resume: 'Resume',
-      contact: 'Contact'
+      contact: 'Contact',
+      menu: 'Menu',
+      closeMenu: 'Close menu',
+      switchLanguage: 'Switch language'
     },
     // Common
     common: {

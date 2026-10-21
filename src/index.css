@@ -922,6 +922,138 @@
     text-transform: uppercase;
   }
 
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--nav-h);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--bg);
+    animation: mobile-menu-in 0.18s var(--ease) both;
+  }
+
+  .mobile-menu__bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .mobile-menu__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 24px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+
+  .mobile-menu__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mobile-menu__item {
+    border-top: 1px solid var(--line);
+    animation: mobile-item-in 0.18s var(--ease) both;
+    animation-delay: calc(var(--menu-index, 0) * 40ms);
+  }
+
+  .mobile-menu__item:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .mobile-menu__link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 64px;
+    padding: 12px 0;
+  }
+
+  .mobile-menu__index {
+    flex: none;
+    width: 24px;
+    color: var(--muted);
+    transition: color 0.18s var(--ease);
+  }
+
+  .mobile-menu__name {
+    flex: 1;
+    min-width: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 8vw, 36px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--muted);
+    transition: color 0.18s var(--ease);
+  }
+
+  .mobile-menu__meta {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mobile-menu__arrow {
+    font-size: 20px;
+    line-height: 1;
+    color: var(--muted);
+  }
+
+  .mobile-menu__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .mobile-menu__item.is-active .mobile-menu__index {
+    color: var(--accent);
+  }
+
+  .mobile-menu__item.is-active .mobile-menu__name {
+    color: var(--text);
+  }
+
+  .mobile-menu__footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    padding-top: 40px;
+  }
+
+  .mobile-menu__contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    min-height: 56px;
+    padding: 0 24px;
+    border: 0;
+    border-radius: 28px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu,
+    .mobile-menu__item {
+      animation: none;
+    }
+  }
+
   /* Gradient fill for the hero name */
   .sheen-text {
     background-image: linear-gradient(95deg, var(--text) 8%, var(--accent) 58%, var(--accent-deep) 100%);
@@ -1241,6 +1373,26 @@
     }
     to {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes mobile-menu-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes mobile-item-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
     }
   }
 }
