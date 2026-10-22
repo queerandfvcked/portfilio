@@ -19,6 +19,112 @@ const translations = {
       pitchDeck: 'Презентация',
       zoomHint: 'Используйте колесико мыши для масштабирования'
     },
+    // Case study page
+    casePage: {
+      back: '← Кейсы',
+      role: 'Роль',
+      roleValue: 'Продуктовый дизайнер',
+      platform: 'Платформа',
+      scope: 'Что делал',
+      status: 'Статус',
+      inNumbers: 'Проект в цифрах',
+      in20Seconds: 'За 20 секунд',
+      problem: 'Проблема',
+      solution: 'Решение',
+      outcome: 'Итог',
+      expandAll: 'Развернуть всё',
+      collapseAll: 'Свернуть всё',
+      otherCases: 'Другие кейсы',
+      learned: 'Что я понял',
+      includesLanding: 'Включает лендинг →',
+      landingTitle: 'Лендинг',
+      landingTeaser: 'Как пользователь доходит до первого действия',
+      landingBody: 'Из-за ограничений регистрации пользователю было трудно дойти до первого действия. Лендинг объясняет ценность продукта и помогает дойти до первого результата.',
+      landingCta: 'Смотреть лендинг ↗',
+      fullCase: 'Полный кейс →',
+      viewCase: 'Смотреть кейс',
+      pitchDeck: 'Презентация (PDF)',
+      notFound: 'Кейс не найден',
+      backHome: 'На главную',
+      tldr: {
+        zhabka: {
+          problem: 'Искал работу и подписался на десятки Telegram-каналов: нужные вакансии тонули в рекламе и дублях, а каждую приходилось читать целиком и сверять вручную.',
+          solution: 'AI делает первичный отбор: собирает вакансии из выбранных источников, сверяет с моим профилем и показывает только подходящие, с объяснением почему.',
+          result: 'Из ≈170 постов в день остаётся 5–10 релевантных. Рабочий инструмент, которым я пользуюсь сам.'
+        },
+        'keepl-app': {
+          problem: 'Трекеры меряют прогресс как «выполнено / не выполнено», и пропуск вызывает чувство вины, а не желание вернуться.',
+          solution: 'Гибкие цели, ручной ввод частичного прогресса, лёгкая альтернатива и эмоциональный контекст вместо стриков и давления.',
+          result: 'Полнофункциональный MVP: 15+ экранов, 50+ компонентов. Готов к проверке гипотез, план валидации описан.'
+        },
+        'hired-app': {
+          problem: 'Соискатели теряют время и выгорают: фильтры слишком жёсткие (нельзя совместить удалёнку и офис), а после отклика с несколькими резюме не видно, что с ними происходит.',
+          solution: 'Платформа с нуля: гибкий фильтр форматов работы и единый центр статусов откликов с привязкой к резюме.',
+          result: 'MVP с полным пользовательским опытом: исследование и JTBD, многошаговые сценарии, дизайн-система.'
+        },
+        'add-transition': {
+          problem: 'В приложениях для учёта финансов простую трату фиксируют за 3–4 шага, а необязательные поля и одинаковый вес элементов размывают фокус.',
+          solution: 'Один экран: сумма в фокусе, расход по умолчанию, 4–5 частых категорий в один тап, кнопка «Сохранить» всегда на виду.',
+          result: 'Операция за 2–3 тапа одной рукой, чистая иерархия и меньше нагрузки на внимание.'
+        }
+      },
+      cases: {
+        zhabka: {
+          role: 'Продуктовый дизайнер, концепция и React-MVP с AI',
+          status: 'Работает, использую сам',
+          stats: [
+            { value: '≈170 → 5–10', label: 'постов в день → остаётся релевантных' },
+            { value: '6', label: 'продуктовых решений' }
+          ],
+          takeaways: [
+            { title: 'Объяснение важнее процента', text: 'Совпадение работает лучше, когда пользователь видит причину: навыки, условия, формат работы.' },
+            { title: 'Фильтр должен быть честным', text: 'Лучше показать меньше вакансий, но с понятным объяснением, почему они подходят.' }
+          ]
+        },
+        'keepl-app': {
+          role: 'Продуктовый дизайнер, от исследования до React-фронтенда',
+          status: 'MVP, до запуска',
+          stats: [
+            { value: '15+', label: 'экранов' },
+            { value: '50+', label: 'компонентов' },
+            { value: '4', label: 'механики' },
+            { value: '2', label: 'человека в команде' }
+          ],
+          takeaways: [
+            { title: 'Гибкость снижает давление', text: 'Возможность выбрать более лёгкий шаг помогает не выпадать из процесса и не винить себя за пропуски.' },
+            { title: 'Эмоции — часть прогресса', text: 'Настроение, фото и поддерживающий тон делают прогресс осознанным, а не механическим.' },
+            { title: 'Дизайн нужно проверять в коде', text: 'React-прототип помог увидеть реальные ограничения анимаций и состояний до передачи в разработку.' }
+          ]
+        },
+        'hired-app': {
+          role: 'Продуктовый дизайнер, от исследования до интерфейсов',
+          status: 'MVP',
+          stats: [
+            { value: '5', label: 'шагов создания резюме' }
+          ],
+          takeaways: [
+            { title: 'Сначала сценарий, потом экраны', text: 'Многошаговый флоу держится на понятной логике переходов, а не на количестве макетов.' },
+            { title: 'Система важнее отдельных экранов', text: 'Дизайн-система позволила сохранить целостность сложного продукта на этапе MVP.' }
+          ]
+        },
+        'add-transition': {
+          role: 'UX-аудит и редизайн флоу',
+          stats: [
+            { value: '7', label: 'конкурентов проанализировано' },
+            { value: '2–3', label: 'тапа до сохранения' }
+          ],
+          takeaways: [
+            { title: 'Скорость начинается с фокуса', text: 'Автофокус на сумме и минимум полей сокращают путь до сохранения операции.' },
+            { title: 'Один экран — меньше решений', text: 'Категории, дата и комментарий собраны так, чтобы не перегружать пользователя.' }
+          ]
+        },
+        'keepl-landing': {
+          role: 'Продуктовый дизайнер, лендинг и React-фронтенд',
+          status: 'Опубликован',
+          stats: []
+        }
+      }
+    },
     // Hero
     hero: {
       title: 'Продуктовый дизайнер',
@@ -507,7 +613,7 @@ const translations = {
             additionalContent2: '## Информационная архитектура\n\nОпределил, какие разделы будут, как они связаны и как логически выстроена навигация.',
             additionalContent3: '/assets/hired app/Frame_1984077494 1.png',
             additionalContent4: '## Вайрфреймы\n\nСделал черновую отрисовку ключевых экранов, чтобы оценить, как будет выглядеть интерфейс и где у пользователя могут возникнуть проблемы.',
-            additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
+            additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe loading="lazy" frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
             finalImages: []
           },
           {
@@ -524,7 +630,7 @@ const translations = {
             additionalContent5: 'Чтобы снизить барьер входа и мотивировать пользователя к отклику, процесс создания резюме был максимально упрощен. Мы разбили заполнение на 5 логических, пошаговых этапов, исключив избыточную информацию и фокусируясь только на том, что первостепенно важно.',
             additionalImages3: ['/assets/hired app/resume creating.png'],
             additionalContent6: '## Прототип',
-            additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
+            additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe loading="lazy" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
           }
         ]
       },
@@ -593,6 +699,112 @@ const translations = {
       behanceButton: 'More visuals on Behance',
       pitchDeck: 'Pitch Deck',
       zoomHint: 'Use the mouse wheel to zoom'
+    },
+    // Case study page
+    casePage: {
+      back: '← Cases',
+      role: 'Role',
+      roleValue: 'Product designer',
+      platform: 'Platform',
+      scope: 'Scope',
+      status: 'Status',
+      inNumbers: 'Project in numbers',
+      in20Seconds: 'In 20 seconds',
+      problem: 'Problem',
+      solution: 'Solution',
+      outcome: 'Outcome',
+      expandAll: 'Expand all',
+      collapseAll: 'Collapse all',
+      otherCases: 'Other cases',
+      learned: 'What I learned',
+      includesLanding: 'Includes landing →',
+      landingTitle: 'Landing page',
+      landingTeaser: 'How users reach their first action',
+      landingBody: 'Registration limits made it hard for users to reach their first action. The landing page explains the product value and helps them get to their first result.',
+      landingCta: 'View landing ↗',
+      fullCase: 'Full case →',
+      viewCase: 'View case',
+      pitchDeck: 'Presentation (PDF)',
+      notFound: 'Case study not found',
+      backHome: 'Back to home',
+      tldr: {
+        zhabka: {
+          problem: 'I was job hunting and subscribed to dozens of Telegram channels: relevant vacancies drowned in ads and duplicates, and I had to read and cross-check every one manually.',
+          solution: 'AI does the first pass: collects vacancies from selected sources, matches them against my profile and shows only relevant ones with an explanation why.',
+          result: 'Out of ≈170 posts a day, 5–10 relevant ones remain. A working tool I use myself.'
+        },
+        'keepl-app': {
+          problem: 'Trackers measure progress as done / not done, so a missed day causes guilt rather than a desire to return.',
+          solution: 'Flexible goals, manual partial progress, a lighter alternative and emotional context instead of streaks and pressure.',
+          result: 'A full-featured MVP: 15+ screens, 50+ components. Ready to test hypotheses; the validation plan is documented.'
+        },
+        'hired-app': {
+          problem: 'Job seekers waste time and burn out: filters are too rigid (remote and office cannot be combined), and after applying with several resumes it is unclear what is happening to them.',
+          solution: 'A platform from scratch: a flexible work-format filter and a single application status hub linked to resumes.',
+          result: 'An MVP with a complete user experience: research and JTBD, multi-step scenarios, a design system.'
+        },
+        'add-transition': {
+          problem: 'In finance apps, a simple expense takes 3–4 steps, while optional fields and equal visual weight blur focus.',
+          solution: 'One screen: amount in focus, expense selected by default, 4–5 frequent categories one tap away, the Save button always visible.',
+          result: 'A transaction in 2–3 taps with one hand, a clear hierarchy and less attention load.'
+        }
+      },
+      cases: {
+        zhabka: {
+          role: 'Product designer, concept and React MVP with AI',
+          status: 'Live, I use it myself',
+          stats: [
+            { value: '≈170 → 5–10', label: 'posts a day → stay relevant' },
+            { value: '6', label: 'product decisions' }
+          ],
+          takeaways: [
+            { title: 'Explanation beats a percentage', text: 'A match works better when the user sees the reason: skills, conditions, work format.' },
+            { title: 'Filtering must be honest', text: 'Showing fewer vacancies with a clear explanation is better than a long list without context.' }
+          ]
+        },
+        'keepl-app': {
+          role: 'Product designer, from research to React frontend',
+          status: 'MVP, pre-launch',
+          stats: [
+            { value: '15+', label: 'screens' },
+            { value: '50+', label: 'components' },
+            { value: '4', label: 'mechanics' },
+            { value: '2', label: 'people on the team' }
+          ],
+          takeaways: [
+            { title: 'Flexibility reduces pressure', text: 'A lighter alternative step helps users stay in the process without guilt for missed days.' },
+            { title: 'Emotion is part of progress', text: 'Mood, photos and a supportive tone make progress feel conscious rather than mechanical.' },
+            { title: 'Test design in code', text: 'A React prototype exposed real constraints in animations and states before handoff.' }
+          ]
+        },
+        'hired-app': {
+          role: 'Product designer, from research to interfaces',
+          status: 'MVP',
+          stats: [
+            { value: '5', label: 'steps to create a resume' }
+          ],
+          takeaways: [
+            { title: 'Scenario first, screens second', text: 'A multi-step flow holds together through clear transition logic, not the number of mockups.' },
+            { title: 'The system matters more than screens', text: 'A design system kept a complex MVP product coherent.' }
+          ]
+        },
+        'add-transition': {
+          role: 'UX audit and flow redesign',
+          stats: [
+            { value: '7', label: 'competitors analysed' },
+            { value: '2–3', label: 'taps to save' }
+          ],
+          takeaways: [
+            { title: 'Speed starts with focus', text: 'Autofocus on the amount and a minimal set of fields shorten the path to saving.' },
+            { title: 'One screen means fewer decisions', text: 'Category, date and comment are arranged to avoid overloading the user.' }
+          ]
+        },
+        'keepl-landing': {
+          role: 'Product designer, landing page and React frontend',
+          status: 'Live',
+          stats: []
+        }
+      }
     },
     // Hero
     hero: {
@@ -1082,7 +1294,7 @@ const translations = {
             additionalContent2: '## Information Architecture\n\nDetermined which sections would be, how they connect and how navigation is logically structured.',
             additionalContent3: '/assets/hired app/Frame_1984077494 1.png',
             additionalContent4: '## Wireframes\n\nMade draft sketches of key screens to evaluate how the interface would look and where users might encounter problems.',
-            additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
+            additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe loading="lazy" frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
             finalImages: []
           },
           {
@@ -1099,7 +1311,7 @@ const translations = {
             additionalContent5: 'To reduce entry barriers and motivate users to respond, the resume creation process was maximally simplified. We divided the completion into 5 logical, sequential stages, excluding redundant information and focusing only on what is most important.',
             additionalImages3: ['/assets/hired app/resume creating.png'],
             additionalContent6: '## Prototype',
-            additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
+            additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe loading="lazy" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
           }
         ]
       },

@@ -8,23 +8,23 @@ import { ImagePairDisplay } from './ImagePairDisplay'
 
 import { ZhabkaMascotShowcase } from './ZhabkaMascotFrame'
 
-export function RegularSection({ section, isActive, slug, t, language, formatContent, openImageModal, currentSlide, setCurrentSlide }) {
+export function RegularSection({ section, isActive, slug, t, language, formatContent, openImageModal, currentSlide, setCurrentSlide, embedded = false, hideHeading = false }) {
+
+    const Wrapper = embedded ? 'div' : 'section'
 
     return (
 
-      <section 
+      <Wrapper
 
         key={section.id}
 
-        id={section.id}
-
-        data-section={section.id}
+        {...(!embedded ? { id: section.id, 'data-section': section.id } : {})}
 
         className={`scroll-mt-16 mb-16`}
 
       >
 
-        <h2 className="font-heading heading-accent text-3xl md:text-4xl font-bold text-gray-200 mb-8">
+        {!hideHeading && <h2 className="font-heading heading-accent text-3xl md:text-4xl font-bold text-gray-200 mb-8">
 
           {slug === 'keepl-app' ? (
               section.id === 'overview' ? t('caseStudies.keeplApp.sections.0.title') : 
@@ -40,7 +40,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
                section.title
             ) : section.title}
 
-        </h2>
+        </h2>}
 
         
 
@@ -1799,7 +1799,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         )}
 
-      </section>
+      </Wrapper>
 
     )
 

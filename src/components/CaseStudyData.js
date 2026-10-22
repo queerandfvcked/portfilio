@@ -1,4 +1,4 @@
-﻿export function getCaseStudies(t) {
+﻿export function getCaseStudies(t, language = 'ru') {
   return {
 
     'zhabka': {
@@ -19,11 +19,36 @@
 
       ],
 
+      meta: {
+
+        role: t('casePage.roleValue'),
+
+        status: t('casePage.cases.zhabka.status')
+
+      },
+
+      stats: t('casePage.cases.zhabka.stats'),
+
+      links: [],
+
+      takeaways: t('casePage.cases.zhabka.takeaways'),
+
+      tldr: {
+
+        problem: t('casePage.tldr.zhabka.problem'),
+
+        solution: t('casePage.tldr.zhabka.solution'),
+
+        result: t('casePage.tldr.zhabka.result')
+
+      },
+
       sections: [
 
         {
 
           id: 'problem',
+          collapsible: false,
 
           title: t('caseStudies.zhabka.sections.0.title'),
 
@@ -36,6 +61,7 @@
         {
 
           id: 'task',
+          collapsible: false,
 
           title: t('caseStudies.zhabka.sections.1.title'),
 
@@ -48,6 +74,7 @@
         {
 
           id: 'solution',
+          collapsible: false,
 
           title: t('caseStudies.zhabka.sections.2.title'),
 
@@ -66,6 +93,7 @@
         {
 
           id: 'product-decisions',
+          collapsible: false,
 
           title: t('caseStudies.zhabka.sections.3.title'),
 
@@ -78,6 +106,7 @@
         {
 
           id: 'motion-states',
+          collapsible: false,
 
           title: t('caseStudies.zhabka.sections.4.title'),
 
@@ -90,6 +119,7 @@
         {
 
           id: 'results',
+          collapsible: false,
 
           title: t('caseStudies.zhabka.sections.5.title'),
 
@@ -125,11 +155,63 @@
 
       ],
 
+      meta: {
+
+        role: t('casePage.roleValue'),
+
+        status: t('casePage.cases.keepl-app.status')
+
+      },
+
+      stats: t('casePage.cases.keepl-app.stats'),
+
+      links: [
+
+        {
+
+          label: t('casePage.pitchDeck'),
+
+          href: language === 'ru' ? '/assets/pitch_deck_ru.pdf' : '/assets/pitch_deck_en.pdf',
+
+          kind: 'primary',
+
+          external: true
+
+        },
+
+        {
+
+          label: t('casePage.landingCta'),
+
+          href: 'https://keepl.vercel.app/',
+
+          kind: 'ghost',
+
+          external: true
+
+        }
+
+      ],
+
+      takeaways: t('casePage.cases.keepl-app.takeaways'),
+
+      tldr: {
+
+        problem: t('casePage.tldr.keepl-app.problem'),
+
+        solution: t('casePage.tldr.keepl-app.solution'),
+
+        result: t('casePage.tldr.keepl-app.result')
+
+      },
+
       sections: [
 
         {
 
           id: 'overview',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.keeplApp.sections.0.title'),
 
@@ -142,6 +224,7 @@
         {
 
           id: 'problem',
+          collapsible: false,
 
           title: t('caseStudies.keeplApp.sections.1.title'),
 
@@ -154,6 +237,8 @@
         {
 
           id: 'product-discovery',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.keeplApp.sections.2.title'),
 
@@ -166,6 +251,7 @@
         {
 
           id: 'ux-research',
+          collapsible: false,
 
           title: t('caseStudies.keeplApp.sections.3.title'),
 
@@ -178,6 +264,8 @@
         {
 
           id: 'jtbd',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.keeplApp.sections.4.title'),
 
@@ -190,6 +278,7 @@
         {
 
           id: 'hypothesis',
+          collapsible: false,
 
           title: t('caseStudies.keeplApp.sections.5.title'),
 
@@ -202,6 +291,8 @@
         {
 
           id: 'user-flow',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.keeplApp.sections.6.title'),
 
@@ -214,6 +305,7 @@
         {
 
           id: 'metrics',
+          collapsible: false,
 
           title: t('caseStudies.keeplApp.sections.7.title'),
 
@@ -228,6 +320,7 @@
         {
 
           id: 'ui',
+          collapsible: false,
 
           title: t('caseStudies.keeplApp.sections.8.title'),
 
@@ -262,12 +355,39 @@
         },{
 
           id: 'results',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.keeplApp.sections.9.title'),
 
           content: 'Спроектирован и реализован полный пользовательский опыт для трекера целей. Создано 15+ экранов с адаптивным дизайном, разработана дизайн-система из 50+ компонентов. Реализована сложная навигация с сохранением контекста пользователя. Заканчиваем связку бэкенда с фронтом и запускаем этап тестирования.',
 
           images: []
+
+        },
+
+        {
+          id: 'landing',
+          collapsible: true,
+          defaultOpen: false,
+
+
+          title: t('casePage.landingTitle'),
+
+          teaser: t('casePage.landingTeaser'),
+
+          content: t('casePage.landingBody'),
+
+          images: ['/assets/keepl landing page/desktop.png'],
+
+
+          landingLinks: [
+
+            { label: t('casePage.landingCta'), href: 'https://keepl.vercel.app/', kind: 'primary', external: true },
+
+            { label: t('casePage.fullCase'), href: '/keepl-landing', kind: 'ghost' }
+
+          ]
 
         }
 
@@ -295,11 +415,51 @@
 
       ],
 
+      meta: {
+
+        role: t('casePage.roleValue'),
+
+        status: t('casePage.cases.hired-app.status')
+
+      },
+
+      stats: t('casePage.cases.hired-app.stats'),
+
+      links: [
+
+        {
+
+          label: t('common.behanceButton'),
+
+          href: 'https://www.behance.net/gallery/228101995/Hired-Job-search-app',
+
+          kind: 'primary',
+
+          external: true
+
+        }
+
+      ],
+
+      takeaways: t('casePage.cases.hired-app.takeaways'),
+
+      tldr: {
+
+        problem: t('casePage.tldr.hired-app.problem'),
+
+        solution: t('casePage.tldr.hired-app.solution'),
+
+        result: t('casePage.tldr.hired-app.result')
+
+      },
+
       sections: [
 
         {
 
           id: 'idea',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.hiredApp.sections.0.title'),
 
@@ -312,6 +472,8 @@
         {
 
           id: 'process',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.hiredApp.sections.1.title'),
 
@@ -324,6 +486,7 @@
         {
 
           id: 'user-problem',
+          collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.2.title'),
 
@@ -336,6 +499,7 @@
         {
 
           id: 'hypothesis',
+          collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.3.title'),
 
@@ -348,6 +512,7 @@
         {
 
           id: 'research-analysis',
+          collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.4.title'),
 
@@ -368,6 +533,7 @@
         {
 
           id: 'structure-design',
+          collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.5.title'),
 
@@ -396,6 +562,7 @@
         {
 
           id: 'final-mockups',
+          collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.6.title'),
 
@@ -451,11 +618,40 @@
 
       ],
 
+      meta: {
+
+        role: t('casePage.roleValue'),
+
+        status: t('casePage.cases.keepl-landing.status')
+
+      },
+
+      stats: [],
+
+      links: [
+
+        {
+
+          label: 'Live Landing',
+
+          href: 'https://keepl.vercel.app/',
+
+          kind: 'primary',
+
+          external: true
+
+        }
+
+      ],
+
+      takeaways: [],
+
       sections: [
 
         {
 
           id: 'problem',
+          collapsible: false,
 
           title: t('caseStudies.keeplLanding.sections.0.title'),
 
@@ -468,6 +664,7 @@
         {
 
           id: 'task-hypothesis',
+          collapsible: false,
 
           title: t('caseStudies.keeplLanding.sections.1.title'),
 
@@ -480,6 +677,7 @@
         {
 
           id: 'solution',
+          collapsible: false,
 
           title: t('caseStudies.keeplLanding.sections.2.title'),
 
@@ -492,6 +690,7 @@
         {
 
           id: 'implementation',
+          collapsible: false,
 
           title: t('caseStudies.keeplLanding.sections.3.title'),
 
@@ -540,6 +739,8 @@
         {
 
           id: 'results',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.keeplLanding.sections.4.title'),
 
@@ -571,11 +772,35 @@
 
       ],
 
+      meta: {
+
+        role: t('casePage.roleValue')
+
+      },
+
+      stats: t('casePage.cases.add-transition.stats'),
+
+      links: [],
+
+      takeaways: t('casePage.cases.add-transition.takeaways'),
+
+      tldr: {
+
+        problem: t('casePage.tldr.add-transition.problem'),
+
+        solution: t('casePage.tldr.add-transition.solution'),
+
+        result: t('casePage.tldr.add-transition.result')
+
+      },
+
       sections: [
 
         {
 
           id: 'goal-context',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.addTransition.sections.0.title'),
 
@@ -588,6 +813,7 @@
         {
 
           id: 'user-problem',
+          collapsible: false,
 
           title: t('caseStudies.addTransition.sections.1.title'),
 
@@ -600,6 +826,8 @@
         {
 
           id: 'competitor-solutions',
+          collapsible: true,
+          defaultOpen: false,
 
           title: t('caseStudies.addTransition.sections.2.title'),
 
@@ -612,6 +840,7 @@
         {
 
           id: 'ux-solutions',
+          collapsible: false,
 
           title: t('caseStudies.addTransition.sections.3.title'),
 
@@ -624,6 +853,7 @@
         {
 
           id: 'flow',
+          collapsible: false,
 
           title: t('caseStudies.addTransition.sections.4.title'),
 
@@ -636,6 +866,7 @@
         {
 
           id: 'layout',
+          collapsible: false,
 
           title: t('caseStudies.addTransition.sections.5.title'),
 
@@ -648,6 +879,7 @@
         {
 
           id: 'result',
+          collapsible: false,
 
           title: t('caseStudies.addTransition.sections.6.title'),
 

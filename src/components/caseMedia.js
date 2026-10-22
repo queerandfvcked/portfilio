@@ -40,8 +40,8 @@ export const CASE_IMAGES = {
 }
 
 export const CASE_MEDIA = {
-  zhabka: { laptop: 'zhabka-desktop', phone: 'zhabka-mobile' },
-  'keepl-app': { laptop: 'keepl-desktop', phone: 'keepl-mobile' },
+  zhabka: { laptop: 'zhabka-desktop', phone: 'zhabka-mobile', cover: 'zhabka-desktop' },
+  'keepl-app': { laptop: 'keepl-desktop', phone: 'keepl-mobile', cover: 'keepl-desktop' },
   'add-transition': { cover: 'fintech' },
   'hired-app': { cover: 'hired' }
 }

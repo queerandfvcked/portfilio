@@ -2,25 +2,14 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from '../contexts/LanguageContext'
 import useSpotlight from '../hooks/useSpotlight'
-import CaseImage from './CaseImage'
-import Reveal from './Reveal'
-import { CASE_MEDIA } from './caseMedia'
-
-// Glow per case: Zhabka is cold blue-teal, Keepl is the mint accent.
-const GLOW = {
-  zhabka: { rgb: '70 120 200', alpha: 0.28, position: '72% 8%' },
-  'keepl-app': { rgb: '95 227 176', alpha: 0.24, position: '28% 42%' },
-  'add-transition': { rgb: '95 227 176', alpha: 0.18, position: '50% 0%' },
-  'hired-app': { rgb: '95 227 176', alpha: 0.16, position: '50% 0%' }
-}
+import CaseScene, { CASE_GLOW } from './CaseScene'
 
 const CaseCard = ({ project, priority = false }) => {
   const { t } = useTranslation()
   const cardRef = useRef(null)
 
   const isWide = project.variant === 'wide'
-  const media = CASE_MEDIA[project.id]
-  const glow = GLOW[project.id] || GLOW['hired-app']
+  const glow = CASE_GLOW[project.id] || CASE_GLOW['hired-app']
 
   useSpotlight(cardRef, { parallax: isWide })
 
@@ -88,43 +77,11 @@ const CaseCard = ({ project, priority = false }) => {
             <div className="case-card__text">{textBlock}</div>
           </div>
 
-          <div className="case-scene">
-            <div className="case-scene__laptop">
-              <Reveal delay={0} y={22}>
-                <CaseImage
-                  name={media.laptop}
-                  alt={`${project.title} — desktop`}
-                  sizes="(min-width: 1024px) 640px, 92vw"
-                  priority={priority}
-                  className="case-mock-par case-mock-par--laptop"
-                />
-              </Reveal>
-            </div>
-
-            <div className="case-scene__phone">
-              <Reveal delay={150} y={26}>
-                <CaseImage
-                  name={media.phone}
-                  alt={`${project.title} — mobile`}
-                  sizes="(min-width: 1024px) 260px, 36vw"
-                  className="case-mock-par case-mock-par--phone"
-                />
-              </Reveal>
-            </div>
-          </div>
+          <CaseScene project={project} priority={priority} />
         </>
       ) : (
         <>
-          <div className="case-card__cover">
-            <CaseImage
-              name={media.cover}
-              alt={project.title}
-              sizes="(min-width: 768px) 560px, 92vw"
-              priority={priority}
-              className={`case-card__cover-img ${project.id === 'hired-app' ? 'case-card__cover-img--hired' : ''}`}
-            />
-            {project.badge && <span className="case-card__badge">{project.badge}</span>}
-          </div>
+          <CaseScene project={project} priority={priority} />
 
           <div className="case-card__body">{textBlock}</div>
         </>

@@ -297,9 +297,12 @@ const Header = () => {
             className="flex items-center gap-2.5 shrink-0 group"
             aria-label="Andrian Shtark"
           >
-            <i
-              className="block rounded-full bg-accent transition-transform duration-300 group-hover:scale-125"
-              style={{ width: 8, height: 8, boxShadow: '0 0 12px var(--accent)' }}
+            <img
+              src="/favicon.svg"
+              alt=""
+              aria-hidden="true"
+              className="block transition-transform duration-300 group-hover:scale-125"
+              style={{ width: 22, height: 22 }}
             />
             <span className="font-heading font-bold text-[15px] tracking-tight" style={{ color: 'var(--text)' }}>
               Andrian Shtark
