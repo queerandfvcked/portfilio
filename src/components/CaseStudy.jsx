@@ -9,6 +9,7 @@ import AmbientBackground from './AmbientBackground'
 import CaseChapter from './CaseChapter'
 import CaseScene from './CaseScene'
 import CaseCard from './CaseCard'
+import CaseRows from './case-blocks/CaseRows'
 
 const hasValue = (value) =>
   typeof value === 'string' && value.trim() !== '' && !value.startsWith('casePage.')
@@ -125,7 +126,7 @@ const CaseStudy = () => {
     }
   }, [isDragging, dragStart])
 
-  const formatContent = (content) => formatContentRaw(content, openImageModal, language)
+  const formatContent = (content) => formatContentRaw(content, openImageModal, language, slug)
 
   useEffect(() => {
     return () => {
@@ -426,7 +427,7 @@ const CaseStudy = () => {
                   onToggle={() => {}}
                 >
                   <div className="case-chapter__content">
-                    <Takeaways takeaways={takeaways} />
+                    <CaseRows items={takeaways} />
                   </div>
                 </CaseChapter>
               )}
@@ -553,17 +554,6 @@ const LandingLinks = ({ links }) => (
         </Link>
       )
     })}
-  </div>
-)
-
-const Takeaways = ({ takeaways }) => (
-  <div className="case-takeaways__list">
-    {takeaways.map((item) => (
-      <div key={item.title} className="case-takeaways__item">
-        <h3 className="case-takeaways__heading">{item.title}</h3>
-        <p className="case-takeaways__text">{item.text}</p>
-      </div>
-    ))}
   </div>
 )
 

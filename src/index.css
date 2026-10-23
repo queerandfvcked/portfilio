@@ -33,6 +33,10 @@
     --accent-deep-rgb: 47 168 125;
     --accent-deep: rgb(var(--accent-deep-rgb));
 
+    /* Feedback colours used only by CaseFindings. */
+    --pos-rgb: var(--accent-rgb);
+    --neg-rgb: 242 120 120;
+
     /* Type. --font-display (Unbounded) is reserved for the hero name and short
        homepage section headings; every other heading uses --font-heading. */
     --font-display: 'Unbounded', 'Onest', system-ui, sans-serif;
@@ -923,45 +927,6 @@
 
   .case-chapter--takeaways .case-chapter__content {
     padding-bottom: 0;
-  }
-
-  .case-takeaways__list {
-    display: grid;
-    gap: 12px;
-  }
-
-  .case-takeaways__item {
-    position: relative;
-    padding: 20px 20px 20px 48px;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    background: var(--surface);
-  }
-
-  .case-takeaways__item::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 25px;
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    transform: rotate(45deg);
-  }
-
-  .case-takeaways__heading {
-    color: var(--text);
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  .case-takeaways__text {
-    max-width: 70ch;
-    margin-top: 6px;
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.6;
   }
 
   .case-other {

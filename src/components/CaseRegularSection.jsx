@@ -939,7 +939,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                       />
 
-                      <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
                     </div>
 
@@ -955,7 +954,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                       />
 
-                      <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
                     </div>
 
@@ -1203,7 +1201,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
                   </div>
 
@@ -1219,7 +1216,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
                   </div>
 
@@ -1261,7 +1257,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1277,7 +1272,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1385,7 +1379,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1401,7 +1394,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1449,7 +1441,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1465,7 +1456,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1543,7 +1533,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1559,7 +1548,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1601,7 +1589,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1617,7 +1604,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1633,7 +1619,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1649,7 +1634,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1703,7 +1687,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1719,7 +1702,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 
@@ -1773,7 +1755,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Desktop</p>
 
               </div>
 
@@ -1789,7 +1770,6 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Mobile</p>
 
               </div>
 

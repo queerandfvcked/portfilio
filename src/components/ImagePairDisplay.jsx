@@ -9,7 +9,6 @@ export function ImagePairDisplay({ desktopSrc, mobileSrc, altPrefix, openImageMo
           alt={`${altPrefix} - Desktop`}
           className="max-h-[480px] w-auto max-w-full rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105 mx-auto"
         />
-        <p className="text-center text-secondary text-sm mt-2">Desktop</p>
       </div>
       <div className="cursor-pointer group" onClick={() => openImageModal(mobileSrc)}>
         <img
@@ -17,7 +16,6 @@ export function ImagePairDisplay({ desktopSrc, mobileSrc, altPrefix, openImageMo
           alt={`${altPrefix} - Mobile`}
           className="max-h-[480px] w-auto max-w-full rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105 mx-auto"
         />
-        <p className="text-center text-secondary text-sm mt-2">Mobile</p>
       </div>
     </div>
   )

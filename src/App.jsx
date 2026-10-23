@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { LanguageProvider } from './contexts/LanguageContext'
 import Header from './components/Header'
@@ -8,6 +8,10 @@ import Projects from './components/Projects'
 import CaseStudy from './components/CaseStudy'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+
+const CaseBlocksDevPage = import.meta.env.DEV
+  ? lazy(() => import('./pages/CaseBlocksDevPage'))
+  : null
 
 function HomePage() {
   useEffect(() => {
@@ -56,6 +60,16 @@ function App() {
             <ScrollToTop>
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                {CaseBlocksDevPage && (
+                  <Route
+                    path="/dev/blocks"
+                    element={(
+                      <Suspense fallback={null}>
+                        <CaseBlocksDevPage />
+                      </Suspense>
+                    )}
+                  />
+                )}
                 <Route path="/:slug" element={<CaseStudy />} />
               </Routes>
             </ScrollToTop>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { AccentText } from './case-blocks/BlockText'
 
 const CaseChapter = ({ section, index, isActive, isExpanded, onToggle, children }) => {
   const bodyRef = useRef(null)
@@ -33,7 +34,9 @@ const CaseChapter = ({ section, index, isActive, isExpanded, onToggle, children 
   const titleContent = (
     <>
       <span className="mono-meta case-chapter__label">{label}</span>
-      <span className="case-chapter__name">{section.title}</span>
+      <span className="case-chapter__name">
+        <AccentText text={section.title} />
+      </span>
     </>
   )
 
@@ -65,7 +68,11 @@ const CaseChapter = ({ section, index, isActive, isExpanded, onToggle, children 
           )}
         </h2>
 
-        {section.lead && <p className="case-chapter__lead">{section.lead}</p>}
+        {section.lead && (
+          <p className="case-chapter__lead">
+            <AccentText text={section.lead} />
+          </p>
+        )}
 
         {isCollapsible && !isOpen && section.teaser && (
           <p className="case-chapter__teaser">{section.teaser}</p>

@@ -1,4 +1,34 @@
-﻿export const formatContent = (content, openImageModal, language) => {
+﻿import React, { Fragment } from 'react'
+import CaseBlock from './case-blocks/CaseBlocks'
+import { buildCaseBlock, parseCaseBlocks } from './case-blocks/parseCaseBlocks'
+
+export const formatContent = (content, openImageModal, language, caseId) => {
+    if (!content) return null
+    if (!content.includes(':::')) return formatLegacyContent(content, openImageModal, language)
+
+    const segments = parseCaseBlocks(content)
+
+    return segments.map((segment, index) => {
+      if (segment.type === 'text') {
+        return (
+          <Fragment key={`case-text-${index}`}>
+            {formatLegacyContent(segment.text, openImageModal, language)}
+          </Fragment>
+        )
+      }
+
+      return (
+        <CaseBlock
+          key={`case-block-${index}`}
+          block={buildCaseBlock(segment.block)}
+          caseId={caseId}
+          openImageModal={openImageModal}
+        />
+      )
+    })
+}
+
+const formatLegacyContent = (content, openImageModal, language) => {
     if (!content) return null
 
     const lines = content.split('\n')
