@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import { AccentText } from './case-blocks/BlockText'
+import { useTranslation } from '../contexts/LanguageContext'
 
 const hasText = (value) => typeof value === 'string' && value.trim() !== ''
 const hasLead = (value) => hasText(value) && !value.startsWith('casePage.')
 
 const CaseChapter = ({ section, index, isActive, isExpanded, onToggle, children }) => {
+  const { t } = useTranslation()
   const bodyRef = useRef(null)
   const number = String(index + 1).padStart(2, '0')
   const label = hasText(section.label) ? `${number} · ${section.label}` : number
@@ -98,7 +100,7 @@ const CaseChapter = ({ section, index, isActive, isExpanded, onToggle, children 
             aria-expanded={isOpen}
             aria-controls={bodyId}
           >
-            Развернуть ↓
+            {t('casePage.expandChapter')}
           </button>
         )}
       </div>
@@ -120,7 +122,7 @@ const CaseChapter = ({ section, index, isActive, isExpanded, onToggle, children 
           aria-expanded={isOpen}
           aria-controls={bodyId}
         >
-          Свернуть ↑
+          {t('casePage.collapseChapter')}
         </button>
       )}
     </section>
