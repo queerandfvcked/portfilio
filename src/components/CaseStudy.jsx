@@ -14,6 +14,26 @@ import CaseRows from './case-blocks/CaseRows'
 const hasValue = (value) =>
   typeof value === 'string' && value.trim() !== '' && !value.startsWith('casePage.')
 
+/* Chapters without body (label + title + lead only) skip the body wrapper so no
+   empty padding is left under the header. */
+const hasSectionBody = (section) => {
+  if (typeof section.content === 'string' && section.content.trim() !== '') return true
+
+  return Boolean(
+    (section.images && section.images.length > 0) ||
+    (section.imagePairs && section.imagePairs.length > 0) ||
+    (section.onboardingImages && section.onboardingImages.length > 0) ||
+    (section.additionalImages && section.additionalImages.length > 0) ||
+    (section.items && section.items.length > 0) ||
+    (section.flowSteps && section.flowSteps.length > 0) ||
+    section.additionalContent ||
+    section.additionalContent2 ||
+    section.additionalContent3 ||
+    section.moreContent ||
+    section.landingLinks
+  )
+}
+
 const makeTeaser = (section) => {
   if (section.lead) return ''
   if (!section.content) return ''
@@ -371,23 +391,25 @@ const CaseStudy = () => {
                   isExpanded={Boolean(expandedSections[section.id])}
                   onToggle={() => toggleSection(section.id)}
                 >
-                  <div className="case-chapter__content">
-                    <RegularSection
-                      section={section}
-                      isActive={activeSection === section.id}
-                      slug={slug}
-                      t={t}
-                      language={language}
-                      formatContent={formatContent}
-                      openImageModal={openImageModal}
-                      currentSlide={currentSlide}
-                      setCurrentSlide={setCurrentSlide}
-                      embedded
-                      hideHeading
-                    />
+                  {hasSectionBody(section) && (
+                    <div className="case-chapter__content">
+                      <RegularSection
+                        section={section}
+                        isActive={activeSection === section.id}
+                        slug={slug}
+                        t={t}
+                        language={language}
+                        formatContent={formatContent}
+                        openImageModal={openImageModal}
+                        currentSlide={currentSlide}
+                        setCurrentSlide={setCurrentSlide}
+                        embedded
+                        hideHeading
+                      />
 
-                    {section.landingLinks && <LandingLinks links={section.landingLinks} />}
-                  </div>
+                      {section.landingLinks && <LandingLinks links={section.landingLinks} />}
+                    </div>
+                  )}
                 </CaseChapter>
               ))}
 

@@ -25,6 +25,12 @@
   margin: 0;
 }
 
+/* Gallery items carry a caption: the media box must own the image height, not
+   stretch to the item, otherwise the caption spills out of the block. */
+.case-gallery .case-stage__media {
+  height: auto;
+}
+
 .case-callout {
   position: relative;
   overflow: hidden;
@@ -1262,14 +1268,6 @@ button.case-stage__media {
     font-size: 16px;
   }
 
-  .case-triad__cell-label {
-    display: block;
-    margin-bottom: 6px;
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.2;
-  }
-
   .case-steps {
     min-width: 0;
   }
@@ -1375,5 +1373,40 @@ button.case-stage__media {
   .case-findings__media img {
     min-height: 180px;
     max-height: 240px;
+  }
+}
+
+/* ≤640px: phone layout for single-row blocks. */
+@media (max-width: 640px) {
+  /* Cap the triad row: the column labels move above their own values while the
+     header row (desktop) stays hidden. */
+  .case-triad__cell-label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--dim);
+    font-size: 11px;
+    line-height: 1.25;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Axis captions above the columns duplicate the per-cell axis labels. */
+  .case-quad__horizontal {
+    display: none;
+  }
+
+  /* Chain connectors sit in the flow between cards, like CaseSteps. */
+  .case-block-connector--chain {
+    height: 26px;
+  }
+
+  /* Callout: quieter on a phone, still large enough to lead the chapter. */
+  .case-callout {
+    padding: 18px 20px 18px 36px;
+  }
+
+  .case-callout__text {
+    font-size: clamp(19px, 5.4vw, 22px);
+    line-height: 1.3;
   }
 }

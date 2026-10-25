@@ -1026,6 +1026,25 @@
     transform: rotate(180deg);
   }
 
+  @media (max-width: 640px) {
+    /* ≤640: the chevron sits in the label line, so the title keeps full width.
+       44px tap target is unchanged; -14px centres the icon on the label. */
+    .case-chapter__head {
+      position: relative;
+    }
+
+    .case-chapter__title-row {
+      gap: 0;
+    }
+
+    .case-chapter__toggle {
+      position: absolute;
+      top: -14px;
+      right: 0;
+      margin-top: 0;
+    }
+  }
+
   .case-chapter__expand-btn,
   .case-chapter__collapse-btn {
     margin-top: 14px;

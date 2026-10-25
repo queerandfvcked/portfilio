@@ -37,6 +37,9 @@ const CaseTriad = ({ labels = [], rows = [] }) => {
           {row.slice(0, 3).map((cell, index) => (
             <Fragment key={`${cell}-${index}`}>
               <div className="case-triad__cell">
+                {labels[index] && (
+                  <span className="mono-meta case-triad__cell-label">{labels[index]}</span>
+                )}
                 <InlineText text={cell} />
               </div>
               {index < 2 && <span className="case-triad__arrow" aria-hidden="true">→</span>}
