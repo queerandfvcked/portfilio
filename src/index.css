@@ -66,7 +66,9 @@
     color: var(--text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    /* clip, not hidden: hidden turns body into a scroll container and kills
+       position: sticky inside it (case TOC). */
+    overflow-x: clip;
   }
 
   ::selection {
@@ -651,6 +653,12 @@
     gap: 12px;
   }
 
+  @media (min-width: 640px) {
+    .case-stats__grid {
+      grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr));
+    }
+  }
+
   .case-stats__item {
     min-width: 0;
     padding: clamp(20px, 2.4vw, 24px);
@@ -681,6 +689,38 @@
   @media (min-width: 1024px) {
     .case-stats__label {
       font-size: 15px;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .case-stats__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .case-stats__grid[data-count='1'] {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .case-stats__item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+
+    .case-stats__item {
+      padding: 14px;
+    }
+
+    .case-stats__value {
+      font-size: clamp(1.5rem, 7vw, 2rem);
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .case-stats__label {
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
     }
   }
 
@@ -761,6 +801,12 @@
   }
 
   .case-toc {
+    position: sticky;
+    top: calc(var(--nav-h) + 24px);
+    align-self: start;
+    max-height: calc(100vh - var(--nav-h) - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     color: var(--dim);
   }
 
@@ -803,75 +849,117 @@
     padding-block: clamp(28px, 3.5vw, 38px);
   }
 
+  .case-chapter__label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+
+  /* The whole header is one clickable region; it only becomes a control for
+     collapsible chapters (role/tabIndex are set in the component). */
+  .case-chapter__head {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+  }
+
+  .case-chapter.is-collapsible .case-chapter__head {
+    cursor: pointer;
+  }
+
+  .case-chapter__title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
   .case-chapter__title {
+    flex: 1 1 auto;
+    min-width: 0;
     font-family: var(--font-heading);
     font-size: clamp(24px, 3vw, 34px);
     font-weight: 700;
     line-height: 1.12;
     letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
-  .case-chapter__toggle,
-  .case-chapter__static-title {
-    display: flex;
-    width: 100%;
-    align-items: baseline;
-    gap: 18px;
-    color: var(--text);
-    text-align: left;
-  }
-
-  .case-chapter__toggle:hover .case-chapter__name {
-    color: var(--accent);
-  }
-
-  .case-chapter__label {
+  /* 44px tap target, vertically centred on the title's first line. */
+  .case-chapter__toggle {
+    display: grid;
     flex: none;
-    min-width: 28px;
-  }
-
-  .case-chapter__name {
-    flex: 1;
-    transition: color 0.25s var(--ease);
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-top: calc(clamp(24px, 3vw, 34px) * 0.56 - 22px);
+    color: var(--accent);
   }
 
   .case-chapter__icon {
-    flex: none;
+    display: block;
     width: 18px;
     height: 18px;
-    color: var(--accent);
-    transform: translateY(3px);
     transition: transform 0.3s var(--ease);
   }
 
+  .case-chapter__icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   .case-chapter.is-open .case-chapter__icon {
-    transform: translateY(3px) rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  .case-chapter__expand-btn,
+  .case-chapter__collapse-btn {
+    margin-top: 14px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: color 0.25s var(--ease);
+  }
+
+  .case-chapter__expand-btn:hover,
+  .case-chapter__collapse-btn:hover {
+    color: var(--text);
   }
 
   .case-chapter__lead {
     max-width: 62ch;
     margin-top: 14px;
-    color: var(--text);
-    font-size: clamp(18px, 1.5vw, 21px);
+    color: var(--muted);
+    font-size: clamp(17px, 1.2vw, 18px);
     line-height: 1.5;
     text-wrap: pretty;
   }
 
+  /* Only used by chapters without a lead: a short plain-text preview. */
   .case-chapter__teaser {
+    display: -webkit-box;
     max-width: 56ch;
     margin-top: 12px;
     overflow: hidden;
     color: var(--dim);
     font-size: 15px;
     line-height: 1.5;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
   .case-chapter__body {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.42s var(--ease);
   }
 
   .case-chapter__body.is-open,
@@ -893,13 +981,65 @@
     overflow: visible;
   }
 
+  /* Motion: opacity/transform only, no layout animation. */
+  .case-chapter__body.is-open:not(.is-static) .case-chapter__body-inner {
+    animation: case-chapter-in 0.28s var(--ease) both;
+  }
+
+  @keyframes case-chapter-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-chapter__body.is-open:not(.is-static) .case-chapter__body-inner {
+      animation: none;
+    }
+  }
+
   .case-chapter__content {
     padding-bottom: clamp(36px, 4vw, 48px);
   }
 
   .case-chapter__content .prose,
-  .case-chapter__content p {
+  .case-chapter__content > p {
     max-width: 70ch;
+  }
+
+  .case-chapter__content .case-accent-word,
+  .case-chapter__content .case-callout,
+  .case-chapter__content .case-cards,
+  .case-chapter__content .case-triad,
+  .case-chapter__content .case-quad,
+  .case-chapter__content .case-steps,
+  .case-chapter__content .case-chain,
+  .case-chapter__content .case-chips,
+  .case-chapter__content .case-rows,
+  .case-chapter__content .case-findings,
+  .case-chapter__content .case-gallery,
+  .case-chapter__content .case-stage,
+  .case-chapter__content .case-slider,
+  .case-chapter__content .case-flow,
+  .case-chapter__content .case-stats {
+    max-width: none;
+  }
+
+  .case-chapter__content img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background: transparent;
+    box-shadow: none;
   }
 
   .case-chapter__content .text-lg {
@@ -1076,7 +1216,7 @@
 
   .process-flow__node-title {
     font-family: var(--font-text);
-    font-size: 15px;
+    font-size: 14px;
     fill: var(--muted);
     transition: fill 0.18s var(--ease);
   }
@@ -1356,6 +1496,16 @@
   .nav-item {
     position: relative;
     padding-left: 1.1rem;
+    color: var(--dim);
+    transition: color 0.3s var(--ease);
+  }
+
+  .nav-item:hover {
+    color: var(--muted);
+  }
+
+  .nav-item.is-active {
+    color: var(--text);
   }
 
   .nav-item::before {
@@ -1372,7 +1522,7 @@
     transition: opacity 0.3s ease;
   }
 
-  .nav-item.nav-item-active::before {
+  .nav-item.is-active::before {
     opacity: 1;
   }
 
@@ -1927,5 +2077,34 @@
   }
   .grid-spotlight {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .process-mobile__row {
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .process-mobile__title {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .process-mobile__panel {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .process-mobile__text,
+  .process-mobile__note,
+  .process-mobile__example,
+  .process-flow__link {
+    overflow-wrap: anywhere;
+  }
+
+  .process-flow__link {
+    flex-wrap: wrap;
+    max-width: 100%;
   }
 }

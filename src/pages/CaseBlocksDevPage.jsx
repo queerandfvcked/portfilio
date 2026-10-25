@@ -74,6 +74,21 @@ mistake | Слишком много выбора | Три равнозначны
 /assets/case-main/zhabka-desktop-1600.webp | Игровой экран
 :::
 
+:::slider
+/assets/case-main/keepl-desktop-1600.webp | Десктоп
+/assets/case-main/keepl-mobile-800.webp | Мобильная версия
+:::
+
+:::slider
+/assets/case-main/hired-1400.webp | Главный экран
+/assets/case-main/fintech-1400.webp | Мобильный сценарий
+/assets/case-main/zhabka-desktop-1600.webp | Игровой экран
+:::
+
+:::slider
+/assets/case-main/fintech-1400.webp | Одна картинка
+:::
+
 :::stage layout=pair
 /assets/case-main/hired-1400.webp | До изменений
 /assets/case-main/fintech-1400.webp | После изменений

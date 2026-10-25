@@ -11,6 +11,7 @@ import CaseRows from './CaseRows'
 import CaseFindings from './CaseFindings'
 import CaseGallery from './CaseGallery'
 import CaseStage from './CaseStage'
+import CaseSlider from './CaseSlider'
 import CaseFlow from './CaseFlow'
 import './case-blocks.css'
 
@@ -27,6 +28,7 @@ const renderers = {
   findings: CaseFindings,
   gallery: CaseGallery,
   stage: CaseStage,
+  slider: CaseSlider,
   flow: CaseFlow
 }
 

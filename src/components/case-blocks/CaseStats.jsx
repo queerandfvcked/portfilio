@@ -7,7 +7,8 @@ const CaseStats = ({ items = [] }) => {
     <div className="case-stats case-block-stats">
       <div
         className="case-stats__grid"
-        style={{ gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))` }}
+        data-count={items.length}
+        style={{ '--cols': items.length }}
       >
         {items.map((item, index) => (
           <div key={`${item.value}-${index}`} className="case-stats__item">

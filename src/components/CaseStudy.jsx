@@ -15,9 +15,10 @@ const hasValue = (value) =>
   typeof value === 'string' && value.trim() !== '' && !value.startsWith('casePage.')
 
 const makeTeaser = (section) => {
-  if (section.teaser) return section.teaser
+  if (section.lead) return ''
   if (!section.content) return ''
   const plain = section.content
+    .replace(/:::[\s\S]*?:::/g, '')
     .replace(/[#*_>`|]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
@@ -146,35 +147,6 @@ const CaseStudy = () => {
     )
     setActiveSection(currentCase.sections[0]?.id || '')
   }, [slug, language])
-
-  useEffect(() => {
-    const style = document.createElement('style')
-    style.textContent = `
-      img[src*="coinkeeper.png"],
-      img[src*="money manager.png"],
-      img[src*="incomes.png"] {
-        max-width: 90% !important;
-        height: 400px !important;
-        width: auto !important;
-        margin: 0 auto !important;
-        display: block !important;
-      }
-      img[src*="zenmoney 1"], img[src*="zenmoney 2"], img[src*="zenmoney 3"],
-      img[src*="monefy 1"], img[src*="monefy 2"], img[src*="monefy 3"],
-      img[src*="spendee 1"], img[src*="spendee 2"], img[src*="spendee 3"],
-      img[src*="money mgr 1"], img[src*="money mgr 2"], img[src*="money mgr 3"] {
-        max-width: 40% !important;
-        height: 320px !important;
-        width: auto !important;
-        object-fit: contain !important;
-      }
-    `
-    document.head.appendChild(style)
-
-    return () => {
-      document.head.removeChild(style)
-    }
-  }, [])
 
   useEffect(() => {
     if (!contentRef.current) return
@@ -332,7 +304,8 @@ const CaseStudy = () => {
             <div className="case-stats">
               <div
                 className="case-stats__grid"
-                style={{ gridTemplateColumns: `repeat(${stats.length}, minmax(0, 1fr))` }}
+                data-count={stats.length}
+                style={{ '--cols': stats.length }}
               >
                 {stats.map((stat) => (
                   <div key={`${stat.value}-${stat.label}`} className="case-stats__item">

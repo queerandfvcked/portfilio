@@ -250,6 +250,13 @@ export const buildCaseBlock = ({ name, attrs, lines, raw }) => {
       }
     }
 
+    case 'slider':
+      /* Единый вид: любые лишние атрибуты (mode=...) принимаем и игнорируем. */
+      return {
+        type: 'slider',
+        props: { items: cleanLines.map(parseImageLine) }
+      }
+
     case 'flow':
       return {
         type: 'flow',

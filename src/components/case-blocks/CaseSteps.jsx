@@ -1,22 +1,29 @@
-import React, { useId, useRef, useState } from 'react'
+import React, { Fragment, useId, useRef, useState } from 'react'
 import { InlineText } from './BlockText'
 
 const StepsList = ({ steps = [], listId }) => (
   <ol id={listId} className="case-steps__list">
     {steps.map((step, index) => (
-      <li key={`${step.title}-${index}`} className="case-steps__item">
-        <span className="mono-meta case-steps__number">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-        <span className="case-steps__title">
-          <InlineText text={step.title} />
-        </span>
-        {step.text && (
-          <span className="case-steps__text">
-            <InlineText text={step.text} />
+      <Fragment key={`${step.title}-${index}`}>
+        <li className="case-steps__item">
+          <span className="mono-meta case-steps__number">
+            {String(index + 1).padStart(2, '0')}
           </span>
+          <span className="case-steps__title">
+            <InlineText text={step.title} />
+          </span>
+          {step.text && (
+            <span className="case-steps__text">
+              <InlineText text={step.text} />
+            </span>
+          )}
+        </li>
+        {index < steps.length - 1 && (
+          <li className="case-block-connector case-block-connector--steps" aria-hidden="true">
+            <span>↓</span>
+          </li>
         )}
-      </li>
+      </Fragment>
     ))}
   </ol>
 )
@@ -27,6 +34,11 @@ const CaseSteps = ({ steps = [], scenarios = [] }) => {
   const baseId = useId().replace(/:/g, '')
   const hasScenarios = scenarios.length > 0
   const safeTab = Math.min(activeTab, Math.max(0, scenarios.length - 1))
+
+  const scrollTabIntoView = (index) => {
+    if (!window.matchMedia('(max-width: 767px)').matches) return
+    tabRefs.current[index]?.scrollIntoView({ block: 'nearest', inline: 'nearest' })
+  }
 
   const focusTab = (index) => {
     const next = Math.max(0, Math.min(scenarios.length - 1, index))
@@ -76,7 +88,11 @@ const CaseSteps = ({ steps = [], scenarios = [] }) => {
               aria-selected={selected}
               aria-controls={`${baseId}-panel-${index}`}
               tabIndex={selected ? 0 : -1}
-              onClick={() => setActiveTab(index)}
+              onClick={() => {
+                setActiveTab(index)
+                scrollTabIntoView(index)
+              }}
+              onFocus={() => scrollTabIntoView(index)}
               onKeyDown={handleKeyDown}
             >
               {scenario.title}

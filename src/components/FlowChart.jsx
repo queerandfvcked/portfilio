@@ -6,6 +6,7 @@ const NODE_Y = 110
 const NODE_START_X = 70
 const NODE_END_X = 1060
 const TERMINAL_X = VIEW_WIDTH - 35
+const RESPONSIVE_WIDTH = 900
 const LOOP_BASE_Y = 185
 const LOOP_GAP = 40
 const LOOP_BOTTOM_PADDING = 35
@@ -23,7 +24,8 @@ const FlowChart = ({
   loops = [],
   terminal = false,
   labels = {},
-  className = ''
+  className = '',
+  defaultFirstStep = false
 }) => {
   const copy = {
     yes: labels.yes ?? '',
@@ -33,11 +35,11 @@ const FlowChart = ({
     example: labels.example ?? '',
     back: labels.back ?? ''
   }
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(defaultFirstStep ? 0 : -1)
   const nodeRefs = useRef([])
   const baseId = useId().replace(/:/g, '')
   const total = steps.length
-  const safeActive = total === 0 ? 0 : Math.min(activeIndex, total - 1)
+  const safeActive = total === 0 ? 0 : Math.max(0, Math.min(activeIndex, total - 1))
   const activeStep = steps[safeActive]
   const activeLink = normalizeLink(activeStep?.link)
 

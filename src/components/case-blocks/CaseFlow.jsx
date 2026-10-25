@@ -1,42 +1,36 @@
 import React from 'react'
-import { InlineText } from './BlockText'
+import FlowChart from '../FlowChart'
+import { useTranslation } from '../../contexts/LanguageContext'
 
-const CaseFlow = ({ nodes = [], loops = [] }) => (
-  <div className="case-flow">
-    <ol className="case-flow__nodes">
-      {nodes.map((node, index) => (
-        <li key={`${node.title}-${index}`} className="case-flow__node">
-          <span
-            className={`case-flow__marker case-flow__marker--${node.shape}`}
-            aria-hidden="true"
-          >
-            <span>{index + 1}</span>
-          </span>
-          <h3 className="case-flow__title">
-            <InlineText text={node.title} />
-          </h3>
-          {node.text && (
-            <p className="case-flow__text">
-              <InlineText text={node.text} />
-            </p>
-          )}
-        </li>
-      ))}
-    </ol>
+const CaseFlow = ({ nodes = [], loops = [] }) => {
+  const { t } = useTranslation()
+  const process = t('process')
 
-    {loops.length > 0 && (
-      <ul className="case-flow__loops">
-        {loops.map((loop, index) => (
-          <li key={`${loop.from}-${loop.to}-${index}`} className="case-flow__loop">
-            <span className="mono-meta">
-              {loop.from} → {loop.to}
-            </span>
-            {loop.label && <span className="case-flow__loop-label">{loop.label}</span>}
-          </li>
-        ))}
-      </ul>
-    )}
-  </div>
-)
+  const steps = nodes.map((node) => ({
+    kind: node.shape || 'square',
+    title: node.title,
+    text: node.text
+  }))
+
+  if (steps.length === 0) return null
+
+  return (
+    <div className="case-flow">
+      <FlowChart
+        steps={steps}
+        loops={loops}
+        defaultFirstStep={true}
+        labels={{
+          yes: process?.yes || '',
+          no: process?.no || '',
+          step: process?.step || 'Step',
+          of: process?.of || 'of',
+          example: process?.exampleLabel || '',
+          back: process?.backLabel || ''
+        }}
+      />
+    </div>
+  )
+}
 
 export default CaseFlow

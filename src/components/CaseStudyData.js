@@ -1,4 +1,19 @@
-﻿export function getCaseStudies(t, language = 'ru') {
+﻿const isMissingTranslation = (value, key) =>
+  value == null ||
+  value === '' ||
+  (typeof value === 'string' &&
+    (value === key || value.startsWith('caseStudies.') || value.startsWith('casePage.')))
+
+export function getCaseStudies(t, language = 'ru') {
+  const tx = (key) => {
+    const value = t(key)
+    if (Array.isArray(value) || (value && typeof value === 'object' && !Array.isArray(value))) {
+      return value
+    }
+    if (isMissingTranslation(value, key)) return undefined
+    return value
+  }
+
   return {
 
     'zhabka': {
@@ -210,14 +225,28 @@
         {
 
           id: 'overview',
-          collapsible: true,
-          defaultOpen: false,
+          collapsible: false,
 
-          title: t('caseStudies.keeplApp.sections.0.title'),
-
-          content: t('caseStudies.keeplApp.sections.0.content'),
+          title: tx('caseStudies.keeplApp.sections.0.title'),
+          label: tx('caseStudies.keeplApp.sections.0.label'),
+          lead: tx('caseStudies.keeplApp.sections.0.lead'),
+          content: tx('caseStudies.keeplApp.sections.0.content') || '',
 
           images: ['/assets/mini-research.png']
+
+        },
+
+        {
+
+          id: 'constraints',
+          collapsible: false,
+
+          title: tx('caseStudies.keeplApp.sections.10.title'),
+          label: tx('caseStudies.keeplApp.sections.10.label'),
+          lead: tx('caseStudies.keeplApp.sections.10.lead'),
+          content: tx('caseStudies.keeplApp.sections.10.content') || '',
+
+          images: []
 
         },
 
@@ -226,9 +255,10 @@
           id: 'problem',
           collapsible: false,
 
-          title: t('caseStudies.keeplApp.sections.1.title'),
-
-          content: t('caseStudies.keeplApp.sections.1.content'),
+          title: tx('caseStudies.keeplApp.sections.1.title'),
+          label: tx('caseStudies.keeplApp.sections.1.label'),
+          lead: tx('caseStudies.keeplApp.sections.1.lead'),
+          content: tx('caseStudies.keeplApp.sections.1.content') || '',
 
           images: []
 
@@ -240,9 +270,10 @@
           collapsible: true,
           defaultOpen: false,
 
-          title: t('caseStudies.keeplApp.sections.2.title'),
-
-          content: t('caseStudies.keeplApp.sections.2.content'),
+          title: tx('caseStudies.keeplApp.sections.2.title'),
+          label: tx('caseStudies.keeplApp.sections.2.label'),
+          lead: tx('caseStudies.keeplApp.sections.2.lead'),
+          content: tx('caseStudies.keeplApp.sections.2.content') || '',
 
           images: []
 
@@ -253,9 +284,10 @@
           id: 'ux-research',
           collapsible: false,
 
-          title: t('caseStudies.keeplApp.sections.3.title'),
-
-          content: t('caseStudies.keeplApp.sections.3.content'),
+          title: tx('caseStudies.keeplApp.sections.3.title'),
+          label: tx('caseStudies.keeplApp.sections.3.label'),
+          lead: tx('caseStudies.keeplApp.sections.3.lead'),
+          content: tx('caseStudies.keeplApp.sections.3.content') || '',
 
           images: []
 
@@ -267,9 +299,10 @@
           collapsible: true,
           defaultOpen: false,
 
-          title: t('caseStudies.keeplApp.sections.4.title'),
-
-          content: t('caseStudies.keeplApp.sections.4.content'),
+          title: tx('caseStudies.keeplApp.sections.4.title'),
+          label: tx('caseStudies.keeplApp.sections.4.label'),
+          lead: tx('caseStudies.keeplApp.sections.4.lead'),
+          content: tx('caseStudies.keeplApp.sections.4.content') || '',
 
           images: []
 
@@ -280,9 +313,24 @@
           id: 'hypothesis',
           collapsible: false,
 
-          title: t('caseStudies.keeplApp.sections.5.title'),
+          title: tx('caseStudies.keeplApp.sections.5.title'),
+          label: tx('caseStudies.keeplApp.sections.5.label'),
+          lead: tx('caseStudies.keeplApp.sections.5.lead'),
+          content: tx('caseStudies.keeplApp.sections.5.content') || '',
 
-          content: t('caseStudies.keeplApp.sections.5.content'),
+          images: []
+
+        },
+
+        {
+
+          id: 'mechanics',
+          collapsible: false,
+
+          title: tx('caseStudies.keeplApp.sections.11.title'),
+          label: tx('caseStudies.keeplApp.sections.11.label'),
+          lead: tx('caseStudies.keeplApp.sections.11.lead'),
+          content: tx('caseStudies.keeplApp.sections.11.content') || '',
 
           images: []
 
@@ -291,14 +339,14 @@
         {
 
           id: 'user-flow',
-          collapsible: true,
-          defaultOpen: false,
+          collapsible: false,
 
-          title: t('caseStudies.keeplApp.sections.6.title'),
+          title: tx('caseStudies.keeplApp.sections.6.title'),
+          label: tx('caseStudies.keeplApp.sections.6.label'),
+          lead: tx('caseStudies.keeplApp.sections.6.lead'),
+          content: tx('caseStudies.keeplApp.sections.6.content') || '',
 
-          content: t('caseStudies.keeplApp.sections.6.content'),
-
-          images: ['/assets/keepl app/flow.png']
+          images: []
 
         },
 
@@ -307,13 +355,12 @@
           id: 'metrics',
           collapsible: false,
 
-          title: t('caseStudies.keeplApp.sections.7.title'),
+          title: tx('caseStudies.keeplApp.sections.7.title'),
+          label: tx('caseStudies.keeplApp.sections.7.label'),
+          lead: tx('caseStudies.keeplApp.sections.7.lead'),
+          content: tx('caseStudies.keeplApp.sections.7.content') || '',
 
-          content: t('caseStudies.keeplApp.sections.7.content'),
-
-          images: [],
-
-          items: t('caseStudies.keeplApp.sections.7.items')
+          images: []
 
         },
 
@@ -322,9 +369,10 @@
           id: 'ui',
           collapsible: false,
 
-          title: t('caseStudies.keeplApp.sections.8.title'),
-
-          content: t('caseStudies.keeplApp.sections.8.content'),
+          title: tx('caseStudies.keeplApp.sections.8.title'),
+          label: tx('caseStudies.keeplApp.sections.8.label'),
+          lead: tx('caseStudies.keeplApp.sections.8.lead'),
+          content: tx('caseStudies.keeplApp.sections.8.content') || '',
 
           images: [],
 
@@ -352,15 +400,31 @@
 
           ]
 
-        },{
+        },
+
+        {
 
           id: 'results',
-          collapsible: true,
-          defaultOpen: false,
+          collapsible: false,
 
-          title: t('caseStudies.keeplApp.sections.9.title'),
+          title: tx('caseStudies.keeplApp.sections.9.title'),
+          label: tx('caseStudies.keeplApp.sections.9.label'),
+          lead: tx('caseStudies.keeplApp.sections.9.lead'),
+          content: tx('caseStudies.keeplApp.sections.9.content') || '',
 
-          content: t('caseStudies.keeplApp.sections.9.content'),
+          images: []
+
+        },
+
+        {
+
+          id: 'next',
+          collapsible: false,
+
+          title: tx('caseStudies.keeplApp.sections.12.title'),
+          label: tx('caseStudies.keeplApp.sections.12.label'),
+          lead: tx('caseStudies.keeplApp.sections.12.lead'),
+          content: tx('caseStudies.keeplApp.sections.12.content') || '',
 
           images: []
 
@@ -371,15 +435,13 @@
           collapsible: true,
           defaultOpen: false,
 
+          title: tx('casePage.landingTitle'),
 
-          title: t('casePage.landingTitle'),
+          teaser: tx('casePage.landingTeaser'),
 
-          teaser: t('casePage.landingTeaser'),
-
-          content: t('casePage.landingBody'),
+          content: tx('casePage.landingBody') || '',
 
           images: ['/assets/landing.png'],
-
 
           landingLinks: [
 
@@ -391,7 +453,7 @@
 
         }
 
-      ]
+      ].filter((section) => Boolean(section.title))
 
     },
 

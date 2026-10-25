@@ -963,11 +963,11 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
         afterBullet = false
 
+        const formattedLine = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/<strong>/g, '<span class="font-semibold text-text">').replace(/<\/strong>/g, '</span>')
+
         return (
 
-          <p key={index} className="text-secondary mb-3">
-
-            {line}
+          <p key={index} className="text-secondary mb-3" dangerouslySetInnerHTML={{ __html: formattedLine }}>
 
           </p>
 

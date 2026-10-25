@@ -1,5 +1,4 @@
-import React from 'react'
-import { CASE_GLOW } from '../CaseScene'
+import React, { useState } from 'react'
 
 const CaseStage = ({
   items = [],
@@ -8,29 +7,38 @@ const CaseStage = ({
   onImageClick,
   compact = false
 }) => {
-  const glow = CASE_GLOW[caseId] || CASE_GLOW['add-transition']
-  const style = {
-    '--stage-glow-rgb': glow.rgb,
-    '--stage-glow-a': glow.alpha,
-    '--stage-glow-pos': glow.position
+  const [ratios, setRatios] = useState({})
+  const isRow = layout === 'pair' || layout === 'trio'
+
+  const handleImageLoad = (index) => (event) => {
+    const { naturalWidth, naturalHeight } = event.currentTarget
+    if (!naturalWidth || !naturalHeight) return
+
+    const ratio = naturalWidth / naturalHeight
+    setRatios((prev) => (prev[index] === ratio ? prev : { ...prev, [index]: ratio }))
   }
 
   return (
     <div
       className={`case-stage case-stage--${layout}${compact ? ' case-stage--compact' : ''}`}
-      style={style}
     >
-      <div className="grid-mask case-stage__grid-mask" aria-hidden="true" />
-      <div className="case-stage__glow" aria-hidden="true" />
-
       <div className="case-stage__grid">
         {items.map((item, index) => {
           const image = (
-            <img src={item.src} alt={item.caption || ''} loading="lazy" />
+            <img
+              src={item.src}
+              alt={item.caption || ''}
+              loading="lazy"
+              onLoad={isRow ? handleImageLoad(index) : undefined}
+            />
           )
 
           return (
-            <div key={`${item.src}-${index}`} className="case-stage__item">
+            <div
+              key={`${item.src}-${index}`}
+              className="case-stage__item"
+              style={isRow ? { flex: `${ratios[index] || 1} 1 0` } : undefined}
+            >
               {onImageClick ? (
                 <button
                   type="button"

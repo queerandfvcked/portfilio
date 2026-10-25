@@ -26,19 +26,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {!hideHeading && <h2 className="font-heading heading-accent text-3xl md:text-4xl font-bold text-gray-200 mb-8">
 
-          {slug === 'keepl-app' ? (
-              section.id === 'overview' ? t('caseStudies.keeplApp.sections.0.title') : 
-               section.id === 'problem' ? t('caseStudies.keeplApp.sections.1.title') : 
-               section.id === 'product-discovery' ? t('caseStudies.keeplApp.sections.2.title') :
-               section.id === 'ux-research' ? t('caseStudies.keeplApp.sections.3.title') :
-               section.id === 'jtbd' ? t('caseStudies.keeplApp.sections.4.title') :
-               section.id === 'hypothesis' ? t('caseStudies.keeplApp.sections.5.title') :
-               section.id === 'user-flow' ? t('caseStudies.keeplApp.sections.6.title') :
-               section.id === 'metrics' ? t('caseStudies.keeplApp.sections.7.title') :
-               section.id === 'ui' ? t('caseStudies.keeplApp.sections.8.title') :
-               section.id === 'results' ? t('caseStudies.keeplApp.sections.9.title') :
-               section.title
-            ) : section.title}
+          {section.title}
 
         </h2>}
 
@@ -48,19 +36,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
           <div className="text-lg leading-relaxed">
 
-            {slug === 'keepl-app' ? (
-              section.id === 'overview' ? formatContent(t('caseStudies.keeplApp.sections.0.content')) : 
-             section.id === 'problem' ? formatContent(t('caseStudies.keeplApp.sections.1.content')) : 
-             section.id === 'product-discovery' ? formatContent(t('caseStudies.keeplApp.sections.2.content')) :
-             section.id === 'ux-research' ? formatContent(t('caseStudies.keeplApp.sections.3.content')) :
-             section.id === 'jtbd' ? formatContent(t('caseStudies.keeplApp.sections.4.content')) :
-             section.id === 'hypothesis' ? formatContent(t('caseStudies.keeplApp.sections.5.content')) :
-             section.id === 'user-flow' ? formatContent(t('caseStudies.keeplApp.sections.6.content')) :
-             section.id === 'metrics' ? formatContent(t('caseStudies.keeplApp.sections.7.content')) :
-             section.id === 'ui' ? formatContent(t('caseStudies.keeplApp.sections.8.content')) :
-             section.id === 'results' ? formatContent(t('caseStudies.keeplApp.sections.9.content')) :
-             formatContent(section.content)
-            ) : formatContent(section.content)}
+            {formatContent(section.content)}
 
           </div>
 
@@ -913,13 +889,13 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {/* UI section specific content */}
 
-        {section.id === 'ui' && (
+        {section.id === 'ui' && !(typeof section.content === 'string' && section.content.includes(':::slider')) && (
 
           <>
 
-            {/* Image pairs for desktop/mobile comparison in UI section */}
+            {/* When content has :::stage or :::slider, pairs/onboarding come from blocks; keep legacy render for EN */}
 
-            {section.imagePairs && section.imagePairs.length > 0 && (
+            {!(typeof section.content === 'string' && (section.content.includes(':::stage') || section.content.includes(':::slider'))) && section.imagePairs && section.imagePairs.length > 0 && (
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
 
@@ -985,9 +961,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
 
 
-            {/* Onboarding images slider for UI section */}
-
-            {section.onboardingImages && section.onboardingImages.length > 0 && (
+            {!(typeof section.content === 'string' && (section.content.includes(':::stage') || section.content.includes(':::slider'))) && section.onboardingImages && section.onboardingImages.length > 0 && (
 
               <div className="relative mt-8">
 
