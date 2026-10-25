@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect, useLayoutEffect } from 'react'
 
 const SWIPE_THRESHOLD = 40
 
@@ -13,12 +13,38 @@ const Chevron = ({ direction }) => (
   </svg>
 )
 
+// Desktop (>640px): stage height is computed once for all slides from the
+// LOWEST slide, i.e. the slide with the LARGEST aspect ratio (w/h). H =
+// clamp(Hmin, sceneWidth / maxAspect, Hmax). The widest/tallest slide does
+// not raise the stage; the tallest slide only determines the center position
+// of its image inside the fixed stage.
+const BREAKPOINT = 640
+
+const H_DESKTOP = { min: 240, max: 640 }
+const H_MOBILE_MIN = 280
+
 const CaseSlider = ({ items = [], onImageClick }) => {
   const total = items.length
+
+  // Guard clause kept, but placed after refs/hooks are declared so hooks are
+  // called unconditionally (React rules of hooks).
+  if (total === 0) {
+    // Still need to keep hook declarations reachable; declare before guard.
+  }
+
+  // Refs / state declared before guard so they are always initialized.
   const [active, setActive] = useState(0)
+  const [measured, setMeasured] = useState(false)
+  const [sizes, setSizes] = useState([])
   const pointerStart = useRef(null)
   const didSwipe = useRef(false)
+  const sceneRef = useRef(null)
+  const stageRef = useRef(null)
+  const roRef = useRef(null)
+  const rafId = useRef(null)
+  const mqRef = useRef(null)
 
+  // Guard again after declarations (no hooks after this).
   if (total === 0) return null
 
   const current = Math.min(active, total - 1)
@@ -29,6 +55,113 @@ const CaseSlider = ({ items = [], onImageClick }) => {
       return (base + delta + total) % total
     })
   }
+
+  function maxAspect() {
+    let best = 0
+    for (let i = 0; i < sizes.length; i++) {
+      const s = sizes[i]
+      if (!s || s.w <= 0 || s.h <= 0) continue
+      const a = s.w / s.h
+      if (a > best) best = a
+    }
+    return best || null
+  }
+
+  function sceneWidth() {
+    if (sceneRef.current) return sceneRef.current.clientWidth
+    if (typeof document !== 'undefined') return document.documentElement.clientWidth
+    return 0
+  }
+
+  function desktopHeightFor(width, maxAspectValue) {
+    if (!maxAspectValue) return H_DESKTOP.min
+    const raw = width / maxAspectValue
+    return Math.max(H_DESKTOP.min, Math.min(H_DESKTOP.max, Math.round(raw)))
+  }
+
+  function applyHeight() {
+    rafId.current = null
+    if (!sceneRef.current) return
+
+    const width = sceneWidth()
+    if (width <= 0) return
+
+    // Only compute desktop sizing for >640px. On mobile the scene uses
+    // height: auto and we do not set any inline height.
+    const mobileMode = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 640px)').matches
+
+    if (mobileMode) {
+      // Reset any previous inline height set on desktop, then leave scene on auto.
+      stageRef.current && (stageRef.current.style.height = '')
+      setMeasured(true)
+      return
+    }
+
+    const aspect = maxAspect()
+    const h = desktopHeightFor(width, aspect)
+
+    if (stageRef.current) {
+      stageRef.current.style.height = `${h}px`
+    }
+    setMeasured(true)
+  }
+
+  function onResize() {
+    if (rafId.current !== null) cancelAnimationFrame(rafId.current)
+    rafId.current = requestAnimationFrame(applyHeight)
+  }
+
+  // One ResizeObserver for the scene; created once, disconnected on cleanup.
+  useEffect(() => {
+    if (typeof ResizeObserver === 'undefined' || !sceneRef.current) return
+
+    const ro = new ResizeObserver(onResize)
+    ro.observe(sceneRef.current)
+    roRef.current = ro
+    return () => {
+      ro.disconnect()
+      roRef.current = null
+    }
+  }, [items]) // layout intent stable across image loads
+
+  // media query for breakpoint changes (mobile <-> desktop) in the same pass
+  // as direct width-based recalc when crossing 640px without a layout change.
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return
+    const mql = window.matchMedia('(max-width: 640px)')
+    const handler = () => applyHeight()
+    if (mql.addEventListener) {
+      mql.addEventListener('change', handler)
+    } else if (mql.addListener) {
+      mql.addListener(handler)
+    }
+    mqRef.current = mql
+    return () => {
+      if (mql.removeEventListener) {
+        mql.removeEventListener('change', handler)
+      } else if (mql.removeListener) {
+        mql.removeListener(handler)
+      }
+    }
+  }, [])
+
+  // After sizes change, recompute height asynchronously once to avoid
+  // thrashing during image load. onError does not remove a size, so a broken
+  // slide is simply not counted toward maxAspect.
+  useEffect(() => {
+    if (!measured) return
+    if (rafId.current !== null) cancelAnimationFrame(rafId.current)
+    rafId.current = requestAnimationFrame(applyHeight)
+    return () => {
+      if (rafId.current !== null) cancelAnimationFrame(rafId.current)
+      rafId.current = null
+    }
+  }, [sizes, measured])
+
+  // First mount: schedule one measurement.
+  useEffect(() => {
+    applyHeight()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleKeyDown = (event) => {
     if (total < 2) return
@@ -77,6 +210,23 @@ const CaseSlider = ({ items = [], onImageClick }) => {
       alt={item.caption || ''}
       loading={index === 0 ? 'eager' : 'lazy'}
       draggable="false"
+      onLoad={(e) => {
+        const el = e.target
+        setSizes((prev) => {
+          const next = prev.slice()
+          next[index] = { w: el.naturalWidth, h: el.naturalHeight }
+          return next
+        })
+      }}
+      onError={() => {
+        // Slide with failed load is excluded from sizing; do not break
+        // existing array shape.
+        setSizes((prev) => {
+          const next = prev.slice()
+          if (!next[index]) next[index] = { w: 0, h: 0 }
+          return next
+        })
+      }}
     />
   )
 
@@ -113,36 +263,42 @@ const CaseSlider = ({ items = [], onImageClick }) => {
     >
       <div
         className="case-slider__stage"
+        ref={sceneRef}
         onPointerDown={handlePointerDown}
         onPointerUp={handlePointerUp}
         onPointerCancel={() => {
           pointerStart.current = null
         }}
       >
-        {items.map((item, index) => (
-          <div
-            key={`${item.src}-${index}`}
-            className={`case-slider__slide${index === current ? ' is-active' : ''}`}
-            role="group"
-            aria-roledescription="slide"
-            aria-label={`${index + 1} из ${total}`}
-            aria-hidden={index !== current}
-          >
-            {onImageClick ? (
-              <button
-                type="button"
-                className="case-slider__media"
-                onClick={() => handleImageClick(item.src)}
-                tabIndex={index === current ? 0 : -1}
-                aria-label={item.caption ? `Открыть изображение: ${item.caption}` : 'Открыть изображение'}
-              >
-                {image(item, index)}
-              </button>
-            ) : (
-              image(item, index)
-            )}
-          </div>
-        ))}
+        <div
+          ref={stageRef}
+          className="case-slider__scene"
+        >
+          {items.map((item, index) => (
+            <div
+              key={`${item.src}-${index}`}
+              className={`case-slider__slide${index === current ? ' is-active' : ''}`}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${index + 1} из ${total}`}
+              aria-hidden={index !== current}
+            >
+              {onImageClick ? (
+                <button
+                  type="button"
+                  className="case-slider__media"
+                  onClick={() => handleImageClick(item.src)}
+                  tabIndex={index === current ? 0 : -1}
+                  aria-label={item.caption ? `Открыть изображение: ${item.caption}` : 'Открыть изображение'}
+                >
+                  {image(item, index)}
+                </button>
+              ) : (
+                image(item, index)
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="case-slider__controls">

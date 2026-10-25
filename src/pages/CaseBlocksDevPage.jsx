@@ -117,7 +117,7 @@ const CaseBlocksDevPage = () => {
           </p>
         </div>
 
-        <div className="case-chapter__content max-w-5xl">
+        <div className="case-chapter__content max-w-5xl min-w-0">
           {formatContent(sample, setSelectedImage, 'ru', 'add-transition')}
         </div>
       </main>

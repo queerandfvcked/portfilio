@@ -541,6 +541,7 @@
   .case-hero__inner {
     position: relative;
     z-index: 1;
+    min-width: 0;
   }
 
   .case-back {
@@ -815,6 +816,115 @@
     overflow: visible;
   }
 
+  /* Wide tables live inside .case-table-wrap so they can scroll inline.
+     Every ancestor that participates in layout gets min-width: 0 so it never
+     grows to fit the table, and no ancestor outside the wrap carries
+     overflow-x: visible that would pull the page wide. */
+  .case-chapter__body,
+  .case-chapter__body-inner,
+  .case-toc {
+    min-width: 0;
+  }
+  .case-chapter__body.is-open,
+  .case-chapter__body.is-static {
+    min-width: 0;
+  }
+  .case-chapter__body-inner,
+  .case-chapter__body-inner[hidden="until-found"] {
+    min-width: 0;
+  }
+
+  .case-table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-inline: contain;
+    mask-image: linear-gradient(
+      to right,
+      black calc(100% - 24px),
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      black calc(100% - 24px),
+      transparent
+    );
+  }
+
+  .case-table-wrap > table {
+    width: max-content;
+    min-width: max-content;
+    border-collapse: collapse;
+    table-layout: auto;
+  }
+
+  .case-table-wrap table th,
+  .case-table-wrap table td {
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    background-clip: padding-box;
+  }
+
+  .case-table-wrap table th {
+    color: var(--dim);
+    text-align: left;
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .case-table-wrap table th:first-child,
+  .case-table-wrap table td:first-child {
+    position: sticky;
+    left: 0;
+    background: var(--bg);
+    box-shadow: 1px 0 0 0 var(--line);
+    z-index: 1;
+    /* Force opaque so the sticky first column does not read as semitransparent
+       and text underneath does not show through (a common sticky + zebra issue). */
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  .case-table-wrap table tbody tr:nth-child(odd) td {
+    background-color: var(--bg);
+  }
+
+  .case-table-wrap table tbody tr:nth-child(even) td {
+    background-color: var(--bg-2);
+  }
+
+  .case-table-wrap table tbody tr:nth-child(odd) td:first-child {
+    background-color: var(--bg);
+  }
+
+  .case-table-wrap table tbody tr:nth-child(even) td:first-child {
+    background-color: var(--bg-2);
+    color: var(--text);
+  }
+
+  .case-table-wrap table tr {
+    background-color: transparent;
+  }
+
+  .case-table-wrap table th {
+    background-color: var(--surface);
+  }
+
+  .case-table-wrap table th:first-child {
+    background-color: var(--surface);
+    color: var(--text);
+  }
+
+  .case-table-wrap table tbody tr:nth-child(even) td {
+    background-color: var(--bg-2);
+  }
+
+  .case-table-wrap table tbody tr:nth-child(even) td:first-child {
+    background-color: var(--bg-2);
+    color: var(--text);
+  }
+
   .case-chapters__toolbar {
     display: flex;
     flex-wrap: wrap;
@@ -966,10 +1076,10 @@
   .case-chapter__body.is-static {
     grid-template-rows: 1fr;
   }
-
   .case-chapter__body-inner {
     min-height: 0;
     overflow: hidden;
+    min-width: 0;
   }
 
   .case-chapter__body-inner[hidden="until-found"] {
@@ -979,6 +1089,7 @@
   .case-chapter__body.is-open .case-chapter__body-inner,
   .case-chapter__body.is-static .case-chapter__body-inner {
     overflow: visible;
+    min-width: 0;
   }
 
   /* Motion: opacity/transform only, no layout animation. */
@@ -1010,6 +1121,7 @@
   .case-chapter__content .prose,
   .case-chapter__content > p {
     max-width: 70ch;
+    overflow-x: hidden;
   }
 
   .case-chapter__content .case-accent-word,
@@ -1028,6 +1140,12 @@
   .case-chapter__content .case-flow,
   .case-chapter__content .case-stats {
     max-width: none;
+    min-width: 0;
+  }
+
+  .case-chapter__content .case-table-wrap {
+    max-width: 100%;
+    min-width: 0;
   }
 
   .case-chapter__content img {

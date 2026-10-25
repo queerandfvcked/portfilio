@@ -625,7 +625,14 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
         }
 
-        return null
+        // Render any other div block through the wrapper so wide blocks
+        // (for example, a custom table from raw HTML) still scroll inside
+        // the chapter instead of dragging the whole page.
+        return (
+
+          <div key={index} className="case-table-wrap" dangerouslySetInnerHTML={{ __html: line }} />
+
+        )
 
       } else if (line.trim().startsWith('<div')) {
 
@@ -633,7 +640,7 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
         return (
 
-          <div key={index} dangerouslySetInnerHTML={{ __html: line }} />
+          <div key={index} className="case-table-wrap" dangerouslySetInnerHTML={{ __html: line }} />
 
         )
 
@@ -731,9 +738,9 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
         const table = (
 
-          <div key={index} className="overflow-x-auto mb-8">
+          <div key={index} className="case-table-wrap mb-8">
 
-            <table className="w-full border-collapse border border-accent-800/30 rounded-lg text-xs">
+            <table className="border-collapse border border-accent-800/30 rounded-lg text-xs">
 
               <thead>
 
