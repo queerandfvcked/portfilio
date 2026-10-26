@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
+import { getBlockCopy } from './labels'
 
 const CaseStage = ({
   items = [],
   layout = 'single',
   caseId,
   onImageClick,
-  compact = false
+  compact = false,
+  language
 }) => {
+  const copy = getBlockCopy(language)
   const [ratios, setRatios] = useState({})
   const isRow = layout === 'pair' || layout === 'trio'
 
@@ -44,7 +47,7 @@ const CaseStage = ({
                   type="button"
                   className="case-stage__media"
                   onClick={() => onImageClick(item.src)}
-                  aria-label={item.caption ? `Открыть изображение: ${item.caption}` : 'Открыть изображение'}
+                  aria-label={item.caption ? copy.openImageNamed(item.caption) : copy.openImage}
                 >
                   {image}
                 </button>

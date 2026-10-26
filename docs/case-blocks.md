@@ -30,6 +30,7 @@
 | `CaseStage` | Сцена для одной, двух или трёх картинок. |
 | `CaseSlider` | Слайдер картинок на вкладках-метках или шагах. |
 | `CaseFlow` | Схема из узлов и петель. |
+| `CaseEmbed` | iframe с белым списком хостов, соотношением сторон и `maxwidth`. |
 
 ## Синтаксис
 
@@ -210,6 +211,24 @@ loop 3>2 | нет
 ```
 
 Узлы: `circle`, `square`, `diamond`. Петли: `loop <откуда>><куда> | подпись`.
+
+### Embed
+
+```md
+:::embed url="https://embed.figma.com/proto/…&embed-host=share" ratio=16:9 mobileratio=4:5 maxwidth=800 title="Кликабельный Figma-прототип Hired"
+:::
+```
+
+Встраиваемый контент (iframe). Без строк внутри. Параметры:
+
+- `url` — обязательный, всегда приводится к `https://`.
+- `ratio` — соотношение сторон контейнера по умолчанию (`16:9`).
+- `mobileratio` — соотношение на ширине ≤640px, если задано.
+- `maxwidth` — максимальная ширина контейнера в пикселях.
+- `title` — обязательный текст для доступности (`title` у iframe).
+- `sandbox` — по умолчанию атрибут не ставится. `sandbox=wide` применяет набор `allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox`. Для Figma sandbox не ставится, а iframe получает `allowfullscreen`.
+
+Белый список хостов: `embed.figma.com`, `www.figma.com` (только путь `/embed`), `cdn.knightlab.com`. Если `url` не с этих хостов, блок ничего не выводит и пишет предупреждение в консоль. Парсер разбирает значения в кавычках как строки, поэтому `=`, `&` и `%` внутри длинного URL не ломают параметры.
 
 ## Акцентные слова
 

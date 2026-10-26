@@ -8,9 +8,18 @@ import { ImagePairDisplay } from './ImagePairDisplay'
 
 import { ZhabkaMascotShowcase } from './ZhabkaMascotFrame'
 
+/* Chapters whose data already contains ::: blocks must not render the legacy
+   image/additionalContent tree on top of the blocks. */
+const BLOCKS_MODE_IDS = new Set(['research-analysis', 'structure-design', 'final-mockups'])
+
 export function RegularSection({ section, isActive, slug, t, language, formatContent, openImageModal, currentSlide, setCurrentSlide, embedded = false, hideHeading = false }) {
 
     const Wrapper = embedded ? 'div' : 'section'
+
+    const blocksMode =
+        BLOCKS_MODE_IDS.has(section.id) &&
+        typeof section.content === 'string' &&
+        section.content.includes(':::')
 
     return (
 
@@ -43,6 +52,9 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
         </div>
 
 
+
+        {!blocksMode && (
+          <>
 
         {section.id === 'motion-states' && <ZhabkaMascotShowcase />}
 
@@ -1751,6 +1763,9 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
           </>
 
+        )}
+
+          </>
         )}
 
       </Wrapper>

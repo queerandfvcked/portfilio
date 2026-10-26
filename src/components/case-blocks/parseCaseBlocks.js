@@ -7,13 +7,17 @@ const nonEmptyLines = (lines) => lines.map((line) => line.trim()).filter(Boolean
 const cleanBold = (text) => text.replace(/\*\*/g, '').trim()
 
 const parseAttrs = (raw = '') => {
+  // Directive attribute list: NAME=VALUE with optional double- or single-quoted
+  // values. Quoted values may contain `=` and `&` and `%` (for example long
+  // Figma share URLs), so the regex keeps matching after the first quote until
+  // the matching closing quote.
   const attrs = {}
   const pattern = /([a-zA-Z][\w-]*)(?:=(?:"([^"]*)"|'([^']*)'|([^\s]+)))?/g
   let match = pattern.exec(raw)
 
   while (match) {
     attrs[match[1]] = match[2] ?? match[3] ?? match[4] ?? true
-    match = pattern.exec(raw)
+    match = pattern.exec(raw, match.index + match[0].length)
   }
 
   return attrs
@@ -263,6 +267,20 @@ export const buildCaseBlock = ({ name, attrs, lines, raw }) => {
         props: parseFlow(lines)
       }
 
+    case 'embed':
+      return {
+        type: 'embed',
+        props: {
+          url: attrs.url || '',
+          ratio: attrs.ratio || '16:9',
+          mobileRatio: attrs.mobileratio || '',
+          maxWidth: attrs.maxwidth || '',
+          title: attrs.title || '',
+          sandbox: attrs.sandbox || '',
+          raw: raw.trim()
+        }
+      }
+
     default:
       return {
         type: 'unknown',
@@ -270,6 +288,12 @@ export const buildCaseBlock = ({ name, attrs, lines, raw }) => {
       }
   }
 }
+
+export const EMBED_ALLOWED_HOSTS = new Set([
+  'embed.figma.com',
+  'www.figma.com',
+  'cdn.knightlab.com',
+])
 
 export const parseCaseBlocks = (content) => {
   if (!content) return []

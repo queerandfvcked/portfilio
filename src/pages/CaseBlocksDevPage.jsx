@@ -94,6 +94,12 @@ mistake | Слишком много выбора | Три равнозначны
 /assets/case-main/fintech-1400.webp | После изменений
 :::
 
+:::embed url="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" ratio=16:9 sandbox=wide title="Вайрфреймы: интерактивное сравнение"
+:::
+
+:::embed url="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" ratio=16:9 mobileratio=4:5 maxwidth=800 title="Кликабельный Figma-прототип Hired"
+:::
+
 :::flow
 circle | Старт | Пользователь открывает продукт
 square | Первый шаг | Выбирает сценарий

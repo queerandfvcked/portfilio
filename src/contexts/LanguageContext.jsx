@@ -650,8 +650,53 @@ const translations = {
           },
           {
             id: 'research-analysis',
-            title: 'Исследование и анализ',
-            content: 'Перед тем как начать работать над макетом, я разобрался, кто будет пользоваться сервисом и с какими задачами.\n\nДля этого я:\n- Сформировал образы соискателей и рекрутеров - что их раздражают, чего они боятся, что хотят упростить.\n- Выписал основные задачи, которые люди хотят решить с помощью сервиса.\n- Разложил путь пользователя по шагам - где он может застрять, где теряет мотивацию, где нужно подсветить следующую точку действия.\n\nТакже сделал разбор конкурентов - hh, LinkedIn, Glassdoor, Indeed, Ziprecruiter.',
+            label: "ИССЛЕДОВАНИЕ",
+            nav: "Исследование",
+            lead: "Перед тем как начать работать над макетом, я разобрался, кто будет пользоваться сервисом и с какими задачами.",
+            title: "Кто пользуется сервисом и чего на рынке *не хватает*",
+            content: `Для этого я:
+
+- Сформировал образы соискателей и рекрутеров: что их раздражает, чего они боятся, что хотят упростить.
+- Выписал основные задачи, которые люди хотят решить с помощью сервиса.
+- Разложил путь пользователя по шагам: где он может застрять, где теряет мотивацию, где нужно подсветить следующую точку действия.
+
+Также сделал разбор конкурентов:
+
+:::chips
+hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
+:::
+
+:::slider
+/assets/hired app/Competitive analysis/веб-сайты.jpg | Веб-сайты
+/assets/hired app/Competitive analysis/приложения.jpg | Мобильные приложения
+:::
+
+Отметил, что:
+
+:::rows
+**hh.** Нельзя понять, с какого резюме ты откликнулся.
+**LinkedIn.** Слишком сложная система: соцсеть и поиск работы в одном флаконе, разобраться непросто.
+**Фильтр формата работы.** Нигде не нашёл гибкого фильтра: например, я хочу работать удалённо, но если компания находится в моём городе, рассматриваю офис или гибрид. Таким образом, мне выдавались бы удалённые вакансии отовсюду и вакансии с любым форматом из моего города.
+:::
+
+:::stage layout=pair
+/assets/hired app/hh vs hired 1.png | hh: непонятно, с какого резюме отправлен отклик
+/assets/hired app/hh vs hired 2.png | Hired: резюме указано в отклике
+:::
+
+Я посмотрел, что уже существует на рынке, и вспомнил то, чего мне не хватало как соискателю. Отслеживал фидбэк в тг-чатах и через личные разговоры. На этом этапе стало понятно, какие функции не вызывают интереса (например, фильтр вакансий по языкам программирования), а какие находят отклик. На основе этого выделил набор функций, которые точно должны быть, и те, что казались хорошими на старте, но потом были отброшены.
+
+:::stage layout=single
+/assets/hired app/image features.png | Набросок возможных фич в FigJam
+:::
+
+Мы отказались от лишних фичей:
+
+:::rows
+**Виртуальные собеседования.** Сложно реализовать технически, а кроме того пользователи уже привыкли использовать для этого другие сервисы.
+**Обязательная обратная связь.** Это, конечно, обрадовало бы соискателей, но эйчары получили бы дополнительную головную боль.
+**Подготовка к собеседованиям.** Обернулась бы разочарованием для соискателей, потому что на реальном собеседовании могут быть совершенно другие вопросы, и недовольством для работодателя: он мог бы посчитать это нечестным.
+:::`,
             additionalContent: 'Отметил, что:\n- У hh нельзя понять, с какого резюме ты откликнулся.\n- У LinkedIn слишком сложная система: соц.сеть и поиск работы в одном флаконе, разобраться непросто.\n- Нигде не нашел гибкого фильтра в выборе формата работы: например, я хочу работать удаленно, но если компания находится в моем городе, то рассматриваю офис или гибрид. Таким образом, мне выдавались бы удаленные вакансии отовсюду и вакансии с любым форматом из моего города.',
             moreContent: 'Я посмотрел, что уже существует на рынке, и вспомнил то, чего мне не хватало как соискателю. Отслеживал фидбэк в тг-чатах и через личные разговоры. На этом этапе стало понятно, какие функции не вызывают интереса (например, фильтр вакансий по языкам программирования), а какие находят отклик.\n\nНа основе этого выделил набор функций, которые точно должны быть, и те, что казались хорошими на старте, но потом были отброшены.',
             images: ['/assets/hired app/Competitive analysis/веб-сайты.jpg', '/assets/hired app/Competitive analysis/приложения.jpg'],
@@ -663,8 +708,32 @@ const translations = {
           },
           {
             id: 'structure-design',
-            title: 'Структура и проектирование',
-            content: 'После исследований я собрал все в единую картину и начал проектирование продукта.',
+            label: "СТРУКТУРА",
+            nav: "Структура",
+            lead: "После исследований я собрал всё в единую картину и начал проектирование продукта.",
+            title: "От сценариев к *экранам*",
+            content: `## User Flow
+
+Построил флоу с учётом реальных сценариев. Учитывал технические ограничения и типовые паттерны поведения.
+
+:::stage layout=single
+/assets/hired app/Frame_1984077494.png
+:::
+
+## Информационная архитектура
+
+Определил, какие разделы будут, как они связаны и как логически выстроена навигация.
+
+:::stage layout=single
+/assets/hired app/Frame_1984077494 1.png
+:::
+
+## Вайрфреймы
+
+Сделал черновую отрисовку ключевых экранов, чтобы оценить, как будет выглядеть интерфейс и где у пользователя могут возникнуть проблемы.
+
+:::embed url="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" ratio=16:9 sandbox=wide title="Вайрфреймы: интерактивное сравнение"
+:::`,
             additionalContent: '## User Flow',
             moreContent: 'Построил флоу с учетом реальных сценариев. Учитывал технические ограничения и типовые паттерны поведения.',
             images: [],
@@ -677,8 +746,48 @@ const translations = {
           },
           {
             id: 'final-mockups',
-            title: 'Финальные макеты и прототип',
-            content: 'Полный визуал кейса я оформил на behance, сюда вставлю только пару ключевых флоу.',
+            label: "МАКЕТЫ",
+            nav: "Макеты и прототип",
+            lead: "Полный визуал кейса я оформил на Behance, сюда вставлю только пару ключевых флоу.",
+            title: "Ключевые флоу в *финальной* визуализации",
+            content: `## Поиск вакансии и отклик
+
+Пользователь быстро находит релевантные вакансии благодаря гибкому фильтру, который позволяет комбинировать локальные и удалённые форматы работы. Это устраняет необходимость просматривать сотни неподходящих предложений.
+
+:::stage layout=single
+/assets/hired app/pics.png
+:::
+
+После того как пользователь нашёл подходящую вакансию, он откликается на неё, предварительно выбрав резюме для отклика и по желанию прикрепив сопроводительное письмо. На странице вакансии отмечается, с каким резюме был отправлен отклик.
+
+:::stage layout=single
+/assets/hired app/stack.png
+:::
+
+## Создание резюме
+
+Опция создания резюме появляется сразу после регистрации. Также пользователь может в любой момент добавить новое резюме через вкладку «Профиль».
+
+:::stage layout=pair
+/assets/hired app/profile.png
+/assets/hired app/profile2.png
+:::
+
+Чтобы снизить барьер входа и мотивировать пользователя к отклику, процесс создания резюме был максимально упрощён. Мы разбили заполнение на 5 логических пошаговых этапов, исключив избыточную информацию и сфокусировавшись только на том, что первостепенно важно. На макетах шесть экранов, потому что у одного из этапов показаны два состояния.
+
+:::slider
+/assets/hired app/resume create 1.png | Экран 1
+/assets/hired app/resume create 2.png | Экран 2
+/assets/hired app/resume create 3.png | Экран 3
+/assets/hired app/resume create 4.png | Экран 4
+/assets/hired app/resume create 5.png | Экран 5
+/assets/hired app/resume create 6.png | Экран 6
+:::
+
+## Прототип
+
+:::embed url="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" ratio=16:9 mobileratio=4:5 maxwidth=800 title="Кликабельный Figma-прототип Hired"
+:::`,
             additionalContent: '## Поиск вакансии и отклик\n\nПользователь быстро находит релевантные вакансии благодаря гибкому фильтру, который позволяет комбинировать локальные и удаленные форматы работы. Это устраняет необходимость просматривать сотни неподходящих предложений.',
             images: ['/assets/hired app/pics.png'],
             additionalContent2: 'После того, как пользователь нашел подходящую вакансию, он откликается на нее, предварительно выбрав резюме для отклика и по желанию прикрепив сопроводительное письмо. На странице вакансии отмечается, с каким резюме был отправлен отклик.',
@@ -1366,32 +1475,45 @@ const translations = {
         sections: [
           {
             id: 'idea',
-            title: 'Idea',
-            content: 'After participating in a hackathon, my developer teammate approached me with a proposal to work on creating an MVP with subsequent development into a full-fledged product. Two factors influenced my quick agreement: first, I had already managed to immerse myself in the subject area while working on QuickVac, and second, when searching for a job, I repeatedly encountered shortcomings in existing services - our future competitors - so the idea of creating a convenient and user-friendly app ignited in me instantly.',
+            label: 'Idea',
+            nav: 'Idea',
+            title: 'An idea that grew out of a *hackathon* and personal experience',
+            lead: 'After participating in a hackathon, my developer teammate approached me with a proposal to work on creating an MVP with subsequent development into a full-fledged product. My quick agreement was influenced by two factors: first, I had already immersed myself in the subject area while working on QuickVac, and second, when searching for a job I repeatedly encountered shortcomings in existing services — our future competitors.',
+            content: 'So the idea of making a convenient and simple app for the user lit up in me instantly.',
             images: []
           },
           {
             id: 'process',
-            title: 'Process',
-            content: '- Idea formulation\nThe developer described the problems of the employment market and proposed creating an MVP, focusing on real user pain points.\n- Experience sharing and hypothesis discussion\nWe discussed typical job search scenarios and interactions with recruiters, identified key frustrating factors.\n- Initial feature list\nWithout binding to a specific structure, I formed a pool of features that should simplify the search and make the process more transparent for both sides.\n- Target audience research\nFormulated prototype personas, compiled JTBD and CJM.\n- Competitive analysis\nAnalyzed solutions from hh.ru, Indeed, LinkedIn and others - identified their UX weaknesses and best practices that could be adapted.\n- User Flow\nCreated a structure of user transitions for key scenarios: job search, response, response status.\n- Information architecture\nBuilt basic interface architecture, designed navigation, screens and their relationships.\n- Wireframes\nCreated draft wireframes.\n- Design system development\nDetermined styling, typography, color palette, component states and interaction patterns.\n- Mockups and interactive prototype\nDrawn screens in final visualization, assembled a clickable prototype.\n- Preparation for handoff to development\nFixed basic UI guidelines and component logic. Within the MVP, the team focused on quick assembly, so documentation was minimal but structured.',
+            label: 'Process',
+            nav: 'Process',
+            title: 'From idea to handoff in *development*',
+            lead: 'That was the path from formulating the idea to handing the mockups off to development. Below are the key stages and what I did at each.',
+            content: ':::flow\ncircle | Idea | The developer described the problems of the employment market and proposed creating an MVP, focusing on real user pain points. We discussed typical job search scenarios and interactions with recruiters, and wrote down the main frustrating factors.\nsquare | Feature list | Without binding to a specific structure, I formed a pool of features that should simplify the search and make the process more transparent for both sides.\nsquare | Audience research | I formulated prototype personas, compiled JTBD and CJM.\nsquare | Competitive analysis | I analyzed solutions from hh.ru, Indeed, LinkedIn and others: I identified their UX weaknesses and good practices that could be adapted.\nsquare | Structure | I composed the structure of user transitions for key scenarios (job search, response, response status), built the basic interface architecture, thought through navigation, screens and their relationships, and created draft wireframes.\nsquare | Design system | I defined the styling, typography, color palette, component states and interaction patterns.\nsquare | Mockups and prototype | I drew the screens in the final visualization and assembled a clickable prototype.\ncircle | Handoff to development | I fixed basic UI guidelines and component logic. Within the MVP the team aimed for fast assembly, so the documentation was minimal but structured.\n:::',
             images: []
           },
           {
             id: 'user-problem',
-            title: 'User Problem',
-            content: 'Job seekers face two difficulties that cause burnout and wasted time:\n- Low search relevance: existing filters are too rigid and do not allow combining work formats. The user is forced to choose between remote and office, leading to missing suitable vacancies.\n- Lack of transparency: after sending a response, a job seeker with multiple resumes cannot understand which resume was used, causing confusion and frustration.',
+            label: 'Problem',
+            nav: 'Problem',
+            title: 'Two difficulties that make job seekers *burn out*',
+            lead: 'Job seekers face two difficulties that cause burnout and loss of time.',
+            content: ':::cards cols=2\n**Low search relevance** | Existing filters are too rigid and do not allow combining work formats. The user is forced to choose between remote work and an office, which leads to missing suitable vacancies.\n**Lack of transparency** | After sending a response, a job seeker with multiple resumes cannot understand which resume was used, causing confusion and frustration.\n:::',
             images: []
           },
           {
             id: 'hypothesis',
-            title: 'Hypothesis',
-            content: 'If we offer a flexible filter that allows combining local and remote work formats, and add a single, transparent response status tracking center tied to a specific resume, then we will increase vacancy view conversion and reduce user anxiety levels.',
+            label: 'Hypothesis',
+            nav: 'Hypothesis',
+            title: 'Flexible filter and transparent *status* of responses',
+            lead: 'The two problems of job seekers I reduced to one testable hypothesis.',
+            content: ':::callout label="Hypothesis"\nIf we offer a flexible filter that allows combining local and remote work formats, and add a single transparent response-status tracking center linked to a specific resume, then we will increase vacancy view conversion and reduce user anxiety.\n:::',
             images: []
           },
           {
             id: 'research-analysis',
             title: 'Research & Analysis',
             content: 'Before starting to work on the mockup, I figured out who would use the service and what tasks they needed to solve.\n\nTo do this, I:\n- Formed images of job seekers and recruiters - what annoys them, what they fear, what they want to simplify.\n- Listed the main tasks that people want to solve using the service.\n- Laid out the user journey step by step - where they might get stuck, where they lose motivation, where to highlight the next action point.\n\nAlso analyzed competitors - hh, LinkedIn, Glassdoor, Indeed, Ziprecruiter.',
+            nav: 'Research',
             additionalContent: 'I noted that:\n- On hh, you cannot understand which resume you responded with.\n- LinkedIn has a too complex system: social network and job search in one bottle, hard to figure out.\n- Nowhere did I find a flexible filter for choosing work format: for example, I want to work remotely, but if the company is in my city, I consider office or hybrid. So I would get remote vacancies from everywhere and vacancies with any format from my city.',
             moreContent: 'I looked at what already exists on the market and remembered what I lacked as a job seeker. Tracked feedback in Telegram chats and through personal conversations. At this stage, it became clear which features do not generate interest (for example, filter vacancies by programming language) and which resonated.\n\nBased on this, I identified a set of features that should definitely be there and those that seemed good at first but were later abandoned.',
             images: ['/assets/hired app/Competitive analysis/веб-сайты.jpg', '/assets/hired app/Competitive analysis/приложения.jpg'],
@@ -1405,6 +1527,7 @@ const translations = {
             id: 'structure-design',
             title: 'Structure & Design',
             content: 'After research, I compiled everything into a single picture and began product design.',
+            nav: 'Structure',
             additionalContent: '## User Flow',
             moreContent: 'Built flow taking into account real scenarios. Considered technical constraints and typical behavior patterns.',
             images: [],
@@ -1419,6 +1542,7 @@ const translations = {
             id: 'final-mockups',
             title: 'Final Mockups & Prototype',
             content: 'I formatted the complete visual of the case on Behance, here I will insert just a couple of key flows.',
+            nav: 'Mockups and prototype',
             additionalContent: '## Job Search & Response\n\nUsers quickly find relevant vacancies thanks to a flexible filter that allows combining local and remote work formats. This eliminates the need to browse hundreds of unsuitable offers.',
             images: ['/assets/hired app/pics.png'],
             additionalContent2: 'After the user finds a suitable vacancy, they respond to it, first selecting a resume for the response and optionally attaching a cover letter. The vacancy page notes which resume was sent with the response.',

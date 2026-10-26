@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, useLayoutEffect } from 'react'
+import { getBlockCopy } from './labels'
 
 const SWIPE_THRESHOLD = 40
 
@@ -23,8 +24,9 @@ const BREAKPOINT = 640
 const H_DESKTOP = { min: 240, max: 640 }
 const H_MOBILE_MIN = 280
 
-const CaseSlider = ({ items = [], onImageClick }) => {
+const CaseSlider = ({ items = [], onImageClick, language }) => {
   const total = items.length
+  const copy = getBlockCopy(language)
 
   // Guard clause kept, but placed after refs/hooks are declared so hooks are
   // called unconditionally (React rules of hooks).
@@ -240,7 +242,7 @@ const CaseSlider = ({ items = [], onImageClick }) => {
             type="button"
             className="case-slider__media"
             onClick={() => handleImageClick(item.src)}
-            aria-label="Открыть изображение"
+            aria-label={copy.openImage}
           >
             {image(item, 0)}
           </button>
@@ -258,7 +260,7 @@ const CaseSlider = ({ items = [], onImageClick }) => {
       className="case-slider"
       role="group"
       aria-roledescription="carousel"
-      aria-label="Изображения"
+      aria-label={copy.images}
       onKeyDown={handleKeyDown}
     >
       <div
@@ -280,7 +282,7 @@ const CaseSlider = ({ items = [], onImageClick }) => {
               className={`case-slider__slide${index === current ? ' is-active' : ''}`}
               role="group"
               aria-roledescription="slide"
-              aria-label={`${index + 1} из ${total}`}
+              aria-label={copy.slidePosition(index + 1, total)}
               aria-hidden={index !== current}
             >
               {onImageClick ? (
@@ -289,7 +291,7 @@ const CaseSlider = ({ items = [], onImageClick }) => {
                   className="case-slider__media"
                   onClick={() => handleImageClick(item.src)}
                   tabIndex={index === current ? 0 : -1}
-                  aria-label={item.caption ? `Открыть изображение: ${item.caption}` : 'Открыть изображение'}
+                  aria-label={item.caption ? copy.openImageNamed(item.caption) : copy.openImage}
                 >
                   {image(item, index)}
                 </button>
@@ -306,13 +308,13 @@ const CaseSlider = ({ items = [], onImageClick }) => {
           type="button"
           className="case-slider__control"
           onClick={() => step(-1)}
-          aria-label="Предыдущий"
+          aria-label={copy.previous}
         >
           <Chevron direction="prev" />
         </button>
 
         <p className="case-slider__status" aria-live="polite">
-          <span className="mono-meta case-slider__label">{items[current].caption || `Слайд ${current + 1}`}</span>
+          <span className="mono-meta case-slider__label">{items[current].caption || copy.slide(current + 1)}</span>
           <span className="case-slider__sep" aria-hidden="true">·</span>
           <span className="mono-meta case-slider__count">{current + 1}/{total}</span>
         </p>
@@ -321,7 +323,7 @@ const CaseSlider = ({ items = [], onImageClick }) => {
           type="button"
           className="case-slider__control"
           onClick={() => step(1)}
-          aria-label="Следующий"
+          aria-label={copy.next}
         >
           <Chevron direction="next" />
         </button>

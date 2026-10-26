@@ -22,6 +22,7 @@ export const formatContent = (content, openImageModal, language, caseId) => {
           key={`case-block-${index}`}
           block={buildCaseBlock(segment.block)}
           caseId={caseId}
+          language={language}
           openImageModal={openImageModal}
         />
       )

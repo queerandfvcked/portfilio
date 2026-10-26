@@ -13,6 +13,7 @@ import CaseGallery from './CaseGallery'
 import CaseStage from './CaseStage'
 import CaseSlider from './CaseSlider'
 import CaseFlow from './CaseFlow'
+import CaseEmbed from './CaseEmbed'
 import './case-blocks.css'
 
 const renderers = {
@@ -29,10 +30,11 @@ const renderers = {
   gallery: CaseGallery,
   stage: CaseStage,
   slider: CaseSlider,
-  flow: CaseFlow
+  flow: CaseFlow,
+  embed: CaseEmbed
 }
 
-export const CaseBlock = ({ block, caseId, openImageModal }) => {
+export const CaseBlock = ({ block, caseId, language, openImageModal }) => {
   const Component = renderers[block.type]
 
   if (!Component) {
@@ -43,6 +45,7 @@ export const CaseBlock = ({ block, caseId, openImageModal }) => {
     <Component
       {...block.props}
       caseId={caseId}
+      language={language}
       onImageClick={openImageModal}
     />
   )

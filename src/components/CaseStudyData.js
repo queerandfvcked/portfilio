@@ -578,6 +578,10 @@ export function getCaseStudies(t, language = 'ru') {
 
           title: t('caseStudies.hiredApp.sections.4.title'),
 
+          label: tx('caseStudies.hiredApp.sections.4.label'),
+          nav: tx('caseStudies.hiredApp.sections.4.nav'),
+          lead: tx('caseStudies.hiredApp.sections.4.lead'),
+
           content: t('caseStudies.hiredApp.sections.4.content'),
 
           additionalContent: t('caseStudies.hiredApp.sections.4.additionalContent'),
@@ -598,6 +602,10 @@ export function getCaseStudies(t, language = 'ru') {
           collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.5.title'),
+
+          label: tx('caseStudies.hiredApp.sections.5.label'),
+          nav: tx('caseStudies.hiredApp.sections.5.nav'),
+          lead: tx('caseStudies.hiredApp.sections.5.lead'),
 
           content: t('caseStudies.hiredApp.sections.5.content'),
 
@@ -627,6 +635,10 @@ export function getCaseStudies(t, language = 'ru') {
           collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.6.title'),
+
+          label: tx('caseStudies.hiredApp.sections.6.label'),
+          nav: tx('caseStudies.hiredApp.sections.6.nav'),
+          lead: tx('caseStudies.hiredApp.sections.6.lead'),
 
           content: t('caseStudies.hiredApp.sections.6.content'),
 

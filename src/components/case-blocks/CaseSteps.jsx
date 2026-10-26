@@ -1,5 +1,6 @@
 import React, { Fragment, useId, useRef, useState } from 'react'
 import { InlineText } from './BlockText'
+import { getBlockCopy } from './labels'
 
 const StepsList = ({ steps = [], listId }) => (
   <ol id={listId} className="case-steps__list">
@@ -28,8 +29,9 @@ const StepsList = ({ steps = [], listId }) => (
   </ol>
 )
 
-const CaseSteps = ({ steps = [], scenarios = [] }) => {
+const CaseSteps = ({ steps = [], scenarios = [], language }) => {
   const [activeTab, setActiveTab] = useState(0)
+  const copy = getBlockCopy(language)
   const tabRefs = useRef([])
   const baseId = useId().replace(/:/g, '')
   const hasScenarios = scenarios.length > 0
@@ -72,7 +74,7 @@ const CaseSteps = ({ steps = [], scenarios = [] }) => {
 
   return (
     <div className="case-steps case-steps--tabs">
-      <div className="case-steps__tabs" role="tablist" aria-label="Сценарии">
+      <div className="case-steps__tabs" role="tablist" aria-label={copy.scenarios}>
         {scenarios.map((scenario, index) => {
           const selected = index === safeTab
           return (

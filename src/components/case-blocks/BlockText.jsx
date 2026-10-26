@@ -32,4 +32,6 @@ export const AccentText = ({ text }) => {
   })
 }
 
+export const EMPTY_NODE = null
+
 export default InlineText
