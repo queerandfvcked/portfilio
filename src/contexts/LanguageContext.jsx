@@ -813,7 +813,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 
 ## Прототип
 
-:::embed url="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" ratio=16:9 mobileratio=4:5 maxwidth=800 title="Кликабельный Figma-прототип Hired"
+:::embed url="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share&hide-ui=1" ratio=16:9 mobileratio=4:5 maxwidth=800 title="Кликабельный Figma-прототип Hired"
 :::`,
             additionalContent: '## Поиск вакансии и отклик\n\nПользователь быстро находит релевантные вакансии благодаря гибкому фильтру, который позволяет комбинировать локальные и удаленные форматы работы. Это устраняет необходимость просматривать сотни неподходящих предложений.',
             images: ['/assets/hired app/pics.png'],
@@ -1539,9 +1539,53 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
           },
           {
             id: 'research-analysis',
-            title: 'Research & Analysis',
-            content: 'Before starting to work on the mockup, I figured out who would use the service and what tasks they needed to solve.\n\nTo do this, I:\n- Formed images of job seekers and recruiters - what annoys them, what they fear, what they want to simplify.\n- Listed the main tasks that people want to solve using the service.\n- Laid out the user journey step by step - where they might get stuck, where they lose motivation, where to highlight the next action point.\n\nAlso analyzed competitors - hh, LinkedIn, Glassdoor, Indeed, Ziprecruiter.',
+            label: 'RESEARCH',
             nav: 'Research',
+            title: 'Who uses the service and what the market *lacks*',
+            lead: 'Before starting on the mockup, I figured out who would use the service and what tasks they needed to solve.',
+            content: `To do this, I:
+
+- Formed images of job seekers and recruiters - what annoys them, what they fear, what they want to simplify.
+- Listed the main tasks that people want to solve using the service.
+- Laid out the user journey step by step - where they might get stuck, where they lose motivation, where to highlight the next action point.
+
+I also analyzed competitors:
+
+:::chips
+hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
+:::
+
+:::slider
+/assets/hired app/Competitive analysis/веб-сайты.jpg | Websites
+/assets/hired app/Competitive analysis/приложения.jpg | Mobile Applications
+:::
+
+I noted that:
+
+:::rows
+**hh.** You cannot tell which resume you responded with.
+**LinkedIn.** The system is too complex: a social network and a job search in one place, hard to figure out.
+**Work format filter.** I didn't find a flexible filter anywhere: for example, I want to work remotely, but if the company is in my city, I would consider an office or hybrid. So I would get remote vacancies from everywhere and vacancies with any format from my city.
+:::
+
+:::stage layout=pair
+/assets/hired app/hh vs hired 1.png | hh: unclear which resume was used to respond
+/assets/hired app/hh vs hired 2.png | Hired: the resume is shown in the response
+:::
+
+I looked at what already exists on the market and remembered what I lacked as a job seeker. Tracked feedback in Telegram chats and through personal conversations. At this stage, it became clear which features do not generate interest (for example, filtering vacancies by programming language) and which resonated. Based on this, I identified a set of features that should definitely be there and those that seemed good at first but were later abandoned.
+
+:::stage layout=single
+/assets/hired app/image features.png | Draft of possible features in FigJam
+:::
+
+We abandoned unnecessary features:
+
+:::rows
+**Virtual interviews.** Difficult to implement technically, and besides, users are already used to using other services for this.
+**Mandatory feedback.** It would certainly please job seekers, but HR managers would get additional headaches.
+**Interview preparation.** It would be a disappointment for job seekers because the actual interview might have completely different questions, and dissatisfaction for the employer, who might consider it unfair.
+:::`,
             additionalContent: 'I noted that:\n- On hh, you cannot understand which resume you responded with.\n- LinkedIn has a too complex system: social network and job search in one bottle, hard to figure out.\n- Nowhere did I find a flexible filter for choosing work format: for example, I want to work remotely, but if the company is in my city, I consider office or hybrid. So I would get remote vacancies from everywhere and vacancies with any format from my city.',
             moreContent: 'I looked at what already exists on the market and remembered what I lacked as a job seeker. Tracked feedback in Telegram chats and through personal conversations. At this stage, it became clear which features do not generate interest (for example, filter vacancies by programming language) and which resonated.\n\nBased on this, I identified a set of features that should definitely be there and those that seemed good at first but were later abandoned.',
             images: ['/assets/hired app/Competitive analysis/веб-сайты.jpg', '/assets/hired app/Competitive analysis/приложения.jpg'],
@@ -1553,9 +1597,32 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
           },
           {
             id: 'structure-design',
-            title: 'Structure & Design',
-            content: 'After research, I compiled everything into a single picture and began product design.',
+            label: 'STRUCTURE',
             nav: 'Structure',
+            title: 'From scenarios to *screens*',
+            lead: 'After the research, I put everything into a single picture and began designing the product.',
+            content: `## User Flow
+
+Built the flow taking into account real scenarios. Considered technical constraints and typical behavior patterns.
+
+:::stage layout=single
+/assets/hired app/Frame_1984077494.png
+:::
+
+## Information Architecture
+
+Determined which sections there would be, how they connect and how the navigation is logically structured.
+
+:::stage layout=single
+/assets/hired app/Frame_1984077494 1.png
+:::
+
+## Wireframes
+
+Made draft sketches of key screens to evaluate how the interface would look and where users might run into problems.
+
+:::embed url="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" ratio=16:9 sandbox=wide title="Wireframes: interactive comparison"
+:::`,
             additionalContent: '## User Flow',
             moreContent: 'Built flow taking into account real scenarios. Considered technical constraints and typical behavior patterns.',
             images: [],
@@ -1568,9 +1635,48 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
           },
           {
             id: 'final-mockups',
-            title: 'Final Mockups & Prototype',
-            content: 'I formatted the complete visual of the case on Behance, here I will insert just a couple of key flows.',
+            label: 'MOCKUPS',
             nav: 'Mockups and prototype',
+            title: 'Key flows in the *final* visuals',
+            lead: "I put the full visual of the case on Behance; here I'm including just a couple of key flows.",
+            content: `## Job Search & Response
+
+Users quickly find relevant vacancies thanks to a flexible filter that allows combining local and remote work formats. This eliminates the need to browse hundreds of unsuitable offers.
+
+:::stage layout=single
+/assets/hired app/pics.png
+:::
+
+After the user finds a suitable vacancy, they respond to it, first selecting a resume for the response and optionally attaching a cover letter. The vacancy page notes which resume was sent with the response.
+
+:::stage layout=single
+/assets/hired app/stack.png
+:::
+
+## Resume Creation
+
+The resume creation option appears immediately after registration. The user can also add a new resume at any time through the Profile tab.
+
+:::stage layout=pair
+/assets/hired app/profile.png
+/assets/hired app/profile2.png
+:::
+
+To reduce the entry barrier and motivate users to respond, the resume creation process was maximally simplified. We divided the completion into 5 logical, sequential stages, excluding redundant information and focusing only on what is most important. The mockups show six screens because one of the stages is shown in two states.
+
+:::slider
+/assets/hired app/resume create 1.png | Screen 1
+/assets/hired app/resume create 2.png | Screen 2
+/assets/hired app/resume create 3.png | Screen 3
+/assets/hired app/resume create 4.png | Screen 4
+/assets/hired app/resume create 5.png | Screen 5
+/assets/hired app/resume create 6.png | Screen 6
+:::
+
+## Prototype
+
+:::embed url="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share&hide-ui=1" ratio=16:9 mobileratio=4:5 maxwidth=800 title="Clickable Figma prototype of Hired"
+:::`,
             additionalContent: '## Job Search & Response\n\nUsers quickly find relevant vacancies thanks to a flexible filter that allows combining local and remote work formats. This eliminates the need to browse hundreds of unsuitable offers.',
             images: ['/assets/hired app/pics.png'],
             additionalContent2: 'After the user finds a suitable vacancy, they respond to it, first selecting a resume for the response and optionally attaching a cover letter. The vacancy page notes which resume was sent with the response.',

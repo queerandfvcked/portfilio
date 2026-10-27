@@ -1069,17 +1069,18 @@ button.case-stage__media {
   }
 }
 
-/* Figma prototype: on desktop the frame is a portrait phone, so the prototype
-   fills it instead of sitting small inside a wide 16:9 letterbox. The toolbar
-   and controls rendered by the Figma embed stay inside the iframe.
+/* Figma prototype: the frame is a portrait phone at every width, so the
+   prototype fills it instead of sitting small inside a wide letterbox. The
+   toolbar and controls rendered by the Figma embed stay inside the iframe.
    `!important` overrides the per-block inline `max-width` (maxwidth= attr).
-   Knightlab and other embeds keep their own ratio. On <=640px nothing changes. */
-@media (min-width: 641px) {
-  .case-embed--figma {
-    width: 100%;
-    max-width: 460px !important;
-    aspect-ratio: 9 / 16;
-  }
+   The fixed 9 / 16 comes after the <=640px `.case-embed` rule, so it also wins
+   over the `--case-embed-mobile-ratio` fallback (mobileratio= attr), which is
+   meant for landscape media. Knightlab keeps its own ratio on all widths. */
+.case-embed--figma {
+  width: 100%;
+  max-width: 460px !important;
+  aspect-ratio: 9 / 16;
+  margin-inline: auto;
 }
 
 .case-block-fallback {
