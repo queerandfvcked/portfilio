@@ -12,6 +12,13 @@ import { ZhabkaMascotShowcase } from './ZhabkaMascotFrame'
    image/additionalContent tree on top of the blocks. */
 const BLOCKS_MODE_IDS = new Set(['research-analysis', 'structure-design', 'final-mockups'])
 
+/* Cases migrated to ::: blocks: in these cases the legacy fields (images,
+   additionalContent, moreContent, lastContent, finalSection, additionalImages,
+   finalImages, imagePairs, ctaImage, …) must not render on top of the blocks.
+   Scoped by slug on purpose — hired-app and keepl-app render legacy fields next
+   to blocks today, so a global rule would hide their content. */
+const LEGACY_BLOCK_SLUGS = new Set(['keepl-landing'])
+
 export function RegularSection({ section, isActive, slug, t, language, formatContent, openImageModal, currentSlide, setCurrentSlide, embedded = false, hideHeading = false }) {
 
     const Wrapper = embedded ? 'div' : 'section'
@@ -26,6 +33,10 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
     const hasBlocks =
         typeof section.content === 'string' &&
         section.content.includes(':::')
+
+    /* Legacy fields are hidden only where the chapter already has blocks and the
+       case is migrated; every other case keeps the previous render. */
+    const hideLegacyFields = LEGACY_BLOCK_SLUGS.has(slug) && hasBlocks
 
     return (
 
@@ -382,7 +393,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
           </div>
 
-        ) : (
+        ) : !hideLegacyFields && (
 
           <div className={section.id === 'research-analysis' ? "grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 mt-8" : "space-y-8 mb-8"}>
 
@@ -431,6 +442,12 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
         )}
 
         
+
+        {/* Legacy fields of the migrated keepl-landing case render only while the
+            chapter has no ::: blocks; everything below until the UI-specific
+            block is the legacy tree. */}
+        {!hideLegacyFields && (
+          <>
 
         {/* Additional content after images */}
 
@@ -910,6 +927,9 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
         )}
 
 
+
+          </>
+        )}
 
         {/* UI section specific content */}
 

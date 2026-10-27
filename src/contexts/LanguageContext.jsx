@@ -63,6 +63,11 @@ const translations = {
           solution: 'Гибкие цели, ручной ввод частичного прогресса, лёгкая альтернатива и эмоциональный контекст вместо стриков и давления.',
           result: 'Полнофункциональный MVP: 15+ экранов, 50+ компонентов. Готов к проверке гипотез, план валидации описан.'
         },
+        'keepl-landing': {
+          problem: 'Приложению нужна обязательная регистрация, а пользователь ещё не доверяет продукту и не видит его ценности.',
+          solution: 'Лендинг-«пре-активация»: от боли пользователя к решению, с интерактивными элементами, которые показывают ценность до создания аккаунта.',
+          result: 'Спроектирована целостная точка входа. Влияние на конверсию пока не измерено.'
+        },
         'hired-app': {
           problem: 'Соискатели теряют время и выгорают: фильтры слишком жёсткие (нельзя совместить удалёнку и офис), а после отклика с несколькими резюме не видно, что с ними происходит.',
           solution: 'Платформа с нуля: гибкий фильтр форматов работы и единый центр статусов откликов с привязкой к резюме.',
@@ -1033,26 +1038,95 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
         sections: [
           {
             id: 'problem',
-            title: 'Проблема',
-            content: '### Контекст\n\nKeepl - это MVP адаптивного трекера целей, который строится на гибкой методологии. Продукт нацелен на аудиторию, склонную к выгоранию от классических жестких таск-менеджеров.\n\n### Продуктовая проблема\n\nИз-за технических ограничений мы не смогли избежать обязательной регистрации аккаунта для использования приложения. В условиях перенасыщенного рынка трекеров привычек это создает две критические проблемы:\n\n- Высокий Friction: пользователь еще не доверяет продукту, но уже должен отдать свои данные.\n- Delayed TTV: момент осознания ценности продукта откладывается до завершения онбординга внутри приложения.\n\n### Бизнес-риск\n\nБез "прогрева" на лендинге большинство пользователей отвалятся на этапе авторизации, так и не узнав, чем keepl отличается от десятков аналогов.',
+            title: 'Регистрация раньше, чем *доверие*',
+            label: 'ПРОБЛЕМА',
+            nav: 'Проблема',
+            lead: 'Keepl - это MVP адаптивного трекера целей, который строится на гибкой методологии. Продукт нацелен на аудиторию, склонную к выгоранию от классических жестких таск-менеджеров.',
+            content: `Из-за технических ограничений мы не смогли избежать обязательной регистрации аккаунта для использования приложения. В условиях перенасыщенного рынка трекеров привычек это создает две критические проблемы:
+
+:::cards cols=2
+**High friction** | Пользователь еще не доверяет продукту, но уже должен отдать свои данные.
+**Delayed TTV** | Момент осознания ценности продукта откладывается до завершения онбординга внутри приложения.
+:::
+
+:::callout label="Бизнес-риск"
+Без «прогрева» на лендинге есть риск, что многие пользователи отвалятся на этапе авторизации, так и не узнав, чем Keepl отличается от десятков аналогов.
+:::`,
             images: []
           },
           {
             id: 'task-hypothesis',
-            title: 'Задача и гипотеза',
-            content: 'Как заставить пользователя пройти через "стену" регистрации, когда он еще ничего не знает о продукте?\n\n### Гипотеза\n\nЕсли мы вынесем демонстрацию ценности (aha-moment) на лендинг, то:\n\n- Конверсия в регистрацию вырастет, так как юзер будет мотивирован конкретным профитом, а не просто любопытством.\n- Activation Rate внутри приложения увеличится, так как пользователь придет уже "подготовленным" и будет знать, как работают ключевые фичи.',
+            title: 'Показать ценность до *регистрации*',
+            label: 'ГИПОТЕЗА',
+            nav: 'Гипотеза',
+            lead: 'Как заставить пользователя пройти через «стену» регистрации, когда он еще ничего не знает о продукте?',
+            content: `:::callout label="Гипотеза"
+Если мы вынесем демонстрацию ценности (aha-moment) на лендинг, то:
+:::
+
+:::cards cols=2
+**Конверсия в регистрацию** | Вырастет, так как юзер будет мотивирован конкретным профитом, а не просто любопытством.
+**Activation Rate** | Увеличится внутри приложения, так как пользователь придет уже «подготовленным» и будет знать, как работают ключевые фичи.
+:::`,
             images: []
           },
           {
             id: 'solution',
-            title: 'Решение',
-            content: 'Спроектировать лендинг, который работает как инструмент пре-активации: снимает страх перед обязательной регистрацией, обучая пользователя методологии Keepl и демонстрируя ценность продукта еще до создания аккаунта.',
+            title: 'Лендинг как инструмент *пре-активации*',
+            label: 'РЕШЕНИЕ',
+            nav: 'Решение',
+            content: `:::callout label="Решение"
+Спроектировать лендинг, который работает как инструмент пре-активации: снимает страх перед обязательной регистрацией, обучая пользователя методологии Keepl и демонстрируя ценность продукта еще до создания аккаунта.
+:::`,
             images: []
           },
           {
             id: 'implementation',
-            title: 'Реализация',
-            content: '## Hero-section & Philosophy\n\nПоскольку продукт требует регистрации, нужно было зацепить внимание пользователя не функционалом, а общностью ценностей.\n\nТекст о неидеальных днях бьет в боль целевой аудитории и объясняет зачем им нужен еще один трекер.',
+            title: 'Как устроен *лендинг*',
+            label: 'РЕАЛИЗАЦИЯ',
+            nav: 'Реализация',
+            content: `## Hero-section & Philosophy
+
+Поскольку продукт требует регистрации, нужно было зацепить внимание пользователя не функционалом, а общностью ценностей.
+
+Текст о неидеальных днях бьет в боль целевой аудитории и объясняет зачем им нужен еще один трекер.
+
+:::stage layout=single
+/assets/keepl landing page/Hero-section & Philosophy.png
+:::
+
+## What can you do with Keepl?
+
+Блок служит мостом между философией и интерфейсом. Я выделил конкретные действия, чтобы пользователь сразу "примерял" продукт на свой образ жизни.
+
+Это снижает когнитивную нагрузку и готовит юзера к онбордингу внутри приложения.
+
+:::stage layout=single
+/assets/keepl landing page/What can you do with Keepl.png
+:::
+
+## Features
+
+Вместо простого перечисления функций, каждый блок закрывает конкретный страх пользователя: сложность старта, риск выгорания, непонимание прогресса и отсутствие эмоциональной связи с результатом.
+
+:::stage layout=single
+/assets/keepl landing page/Features.png
+:::
+
+Для того, чтобы пользователь смог "пощупать" продукт до регистрации, я добавил интерактивности элементам интерфейса.
+
+Например, принцип работы легкой альтернативы юзер сможет понять, нажав на кнопку в карточке:
+
+:::stage layout=pair
+/assets/keepl landing page/card 1.png | До нажатия
+/assets/keepl landing page/card 2.png | После нажатия
+:::
+
+## Финальный CTA и футер
+
+:::stage layout=single
+/assets/keepl landing page/CTA and footer.png
+:::`,
             images: [],
             additionalContent: '## What can you do with Keepl?\n\nБлок служит мостом между философией и интерфейсом. Я выделил конкретные действия, чтобы пользователь сразу "примерил" продукт на свой образ жизни.\n\nЭто снижает когнитивную нагрузку и готовит юзера к онбордингу внутри приложения.',
             moreContent: '## Features\n\nВместо простого перечисления функций, каждый блок закрывает конкретный страх пользователя: сложность старта, риск выгорания, непонимание прогресса и отсутствие эмоциональной связи с результатом.',
@@ -1061,8 +1135,10 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
           },
           {
             id: 'results',
-            title: 'Результат',
-            content: 'На текущем этапе спроектирована целостная точка входа, которая транслирует методологию Keepl и подготавливает пользователя к регистрации.',
+            title: 'Целостная *точка входа*',
+            label: 'РЕЗУЛЬТАТ',
+            nav: 'Результат',
+            content: 'На текущем этапе спроектирована целостная точка входа, которая транслирует методологию Keepl и подготавливает пользователя к регистрации. Влияние на конверсию в регистрацию и Activation Rate пока не измерено.',
             images: []
           }
         ]
@@ -1134,6 +1210,11 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
           problem: 'Trackers measure progress as done / not done, so a missed day causes guilt rather than a desire to return.',
           solution: 'Flexible goals, manual partial progress, a lighter alternative and emotional context instead of streaks and pressure.',
           result: 'A full-featured MVP: 15+ screens, 50+ components. Ready to test hypotheses; the validation plan is documented.'
+        },
+        'keepl-landing': {
+          problem: "The app requires registration, while the user doesn't trust the product yet and can't see its value.",
+          solution: 'A “pre-activation” landing page: from the user\'s pain to the solution, with interactive elements that show the value before an account is created.',
+          result: 'A cohesive entry point has been designed. The impact on conversion has not been measured yet.'
         },
         'hired-app': {
           problem: 'Job seekers waste time and burn out: filters are too rigid (remote and office cannot be combined), and after applying with several resumes it is unclear what is happening to them.',
@@ -2057,26 +2138,95 @@ To reduce the entry barrier and motivate users to respond, the resume creation p
         sections: [
           {
             id: 'problem',
-            title: 'Problem',
-            content: '### Context\n\nKeepl is an MVP adaptive goal tracker built on flexible methodology. The product targets an audience prone to burnout from classic rigid task managers.\n\n### Product Problem\n\nDue to technical limitations, we couldn\'t avoid mandatory account registration for app use. In an oversaturated habit tracker market, this creates two critical problems:\n\n- High Friction: the user doesn\'t trust the product yet but must already give their data.\n- Delayed TTV: the moment of realizing the product\'s value is delayed until onboarding completion inside the app.\n\n### Business Risk\n\nWithout "warming up" on the landing page, most users will drop off at the authorization stage without ever knowing what makes Keepl different from dozens of alternatives.',
+            title: 'Registration before *trust*',
+            label: 'PROBLEM',
+            nav: 'Problem',
+            lead: 'Keepl is an MVP adaptive goal tracker built on flexible methodology. The product targets an audience prone to burnout from classic rigid task managers.',
+            content: `Due to technical limitations, we couldn't avoid mandatory account registration for app use. In an oversaturated habit tracker market, this creates two critical problems:
+
+:::cards cols=2
+**High friction** | The user doesn't trust the product yet but must already give their data.
+**Delayed TTV** | The moment of realizing the product's value is delayed until onboarding completion inside the app.
+:::
+
+:::callout label="Business risk"
+Without “warming up” on the landing page, there is a risk that many users will drop off at the authorization stage without ever knowing what makes Keepl different from dozens of alternatives.
+:::`,
             images: []
           },
           {
             id: 'task-hypothesis',
-            title: 'Task & Hypothesis',
-            content: 'How to make users go through the registration "wall" when they don\'t know anything about the product yet?\n\n### Hypothesis\n\nIf we move the value demonstration (aha-moment) to the landing page, then:\n\n- Conversion to registration will grow because the user will be motivated by specific benefits, not just curiosity.\n- Activation Rate inside the app will increase because users will arrive "prepared" and already know how key features work.',
+            title: 'Show the value before *registration*',
+            label: 'HYPOTHESIS',
+            nav: 'Hypothesis',
+            lead: 'How to make users go through the registration "wall" when they don\'t know anything about the product yet?',
+            content: `:::callout label="Hypothesis"
+If we move the value demonstration (aha-moment) to the landing page, then:
+:::
+
+:::cards cols=2
+**Conversion to registration** | Will grow because the user will be motivated by specific benefits, not just curiosity.
+**Activation Rate** | Will increase inside the app because users will arrive “prepared” and already know how key features work.
+:::`,
             images: []
           },
           {
             id: 'solution',
-            title: 'Solution',
-            content: 'Design a landing page that works as a pre-activation tool: removes fear of mandatory registration by teaching users Keepl methodology and demonstrating product value before account creation.',
+            title: 'The landing page as a *pre-activation* tool',
+            label: 'SOLUTION',
+            nav: 'Solution',
+            content: `:::callout label="Solution"
+Design a landing page that works as a pre-activation tool: removes fear of mandatory registration by teaching users Keepl methodology and demonstrating product value before account creation.
+:::`,
             images: []
           },
           {
             id: 'implementation',
-            title: 'Implementation',
-            content: '## Hero-section & Philosophy\n\nSince the product requires registration, I needed to grab attention not with features but with shared values.\n\nThe text about imperfect days hits the target audience\'s pain point and explains why they need another tracker.',
+            title: 'How the *landing page* is built',
+            label: 'IMPLEMENTATION',
+            nav: 'Implementation',
+            content: `## Hero-section & Philosophy
+
+Since the product requires registration, I needed to grab attention not with features but with shared values.
+
+The text about imperfect days hits the target audience's pain point and explains why they need another tracker.
+
+:::stage layout=single
+/assets/keepl landing page/Hero-section & Philosophy.png
+:::
+
+## What can you do with Keepl?
+
+The block serves as a bridge between philosophy and the interface. I highlighted specific actions so users could immediately "try on" the product for their lifestyle.
+
+This reduces cognitive load and prepares users for onboarding inside the app.
+
+:::stage layout=single
+/assets/keepl landing page/What can you do with Keepl.png
+:::
+
+## Features
+
+Instead of simply listing features, each block addresses a specific user fear: complexity of starting, risk of burnout, lack of understanding of progress, and absence of emotional connection to results.
+
+:::stage layout=single
+/assets/keepl landing page/Features.png
+:::
+
+To let users "feel" the product before registering, I added interactivity to interface elements.
+
+For example, users can understand how the lighter alternative works by clicking a button on the card:
+
+:::stage layout=pair
+/assets/keepl landing page/card 1.png | Before the click
+/assets/keepl landing page/card 2.png | After the click
+:::
+
+## Final CTA & Footer
+
+:::stage layout=single
+/assets/keepl landing page/CTA and footer.png
+:::`,
             images: [],
             additionalContent: '## What can you do with Keepl?\n\nThe block serves as a bridge between philosophy and the interface. I highlighted specific actions so users could immediately "try on" the product for their lifestyle.\n\nThis reduces cognitive load and prepares users for onboarding inside the app.',
             moreContent: '## Features\n\nInstead of simply listing features, each block addresses a specific user fear: complexity of starting, risk of burnout, lack of understanding of progress, and absence of emotional connection to results.',
@@ -2085,8 +2235,10 @@ To reduce the entry barrier and motivate users to respond, the resume creation p
           },
           {
             id: 'results',
-            title: 'Result',
-            content: 'At this stage, a cohesive entry point has been designed that conveys Keepl methodology and prepares users for registration.',
+            title: 'A cohesive *entry point*',
+            label: 'RESULT',
+            nav: 'Result',
+            content: 'At this stage, a cohesive entry point has been designed that conveys Keepl methodology and prepares users for registration. The impact on registration conversion and Activation Rate has not been measured yet.',
             images: []
           }
         ]

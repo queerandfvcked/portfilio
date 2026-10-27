@@ -794,6 +794,16 @@ export function getCaseStudies(t, language = 'ru') {
 
       takeaways: [],
 
+      tldr: {
+
+        problem: t('casePage.tldr.keepl-landing.problem'),
+
+        solution: t('casePage.tldr.keepl-landing.solution'),
+
+        result: t('casePage.tldr.keepl-landing.result')
+
+      },
+
       sections: [
 
         {
@@ -802,6 +812,10 @@ export function getCaseStudies(t, language = 'ru') {
           collapsible: false,
 
           title: t('caseStudies.keeplLanding.sections.0.title'),
+
+          label: tx('caseStudies.keeplLanding.sections.0.label'),
+          nav: tx('caseStudies.keeplLanding.sections.0.nav'),
+          lead: tx('caseStudies.keeplLanding.sections.0.lead'),
 
           content: t('caseStudies.keeplLanding.sections.0.content'),
 
@@ -816,6 +830,10 @@ export function getCaseStudies(t, language = 'ru') {
 
           title: t('caseStudies.keeplLanding.sections.1.title'),
 
+          label: tx('caseStudies.keeplLanding.sections.1.label'),
+          nav: tx('caseStudies.keeplLanding.sections.1.nav'),
+          lead: tx('caseStudies.keeplLanding.sections.1.lead'),
+
           content: t('caseStudies.keeplLanding.sections.1.content'),
 
           images: []
@@ -829,6 +847,10 @@ export function getCaseStudies(t, language = 'ru') {
 
           title: t('caseStudies.keeplLanding.sections.2.title'),
 
+          label: tx('caseStudies.keeplLanding.sections.2.label'),
+          nav: tx('caseStudies.keeplLanding.sections.2.nav'),
+          lead: tx('caseStudies.keeplLanding.sections.2.lead'),
+
           content: t('caseStudies.keeplLanding.sections.2.content'),
 
           images: []
@@ -841,6 +863,10 @@ export function getCaseStudies(t, language = 'ru') {
           collapsible: false,
 
           title: t('caseStudies.keeplLanding.sections.3.title'),
+
+          label: tx('caseStudies.keeplLanding.sections.3.label'),
+          nav: tx('caseStudies.keeplLanding.sections.3.nav'),
+          lead: tx('caseStudies.keeplLanding.sections.3.lead'),
 
           content: t('caseStudies.keeplLanding.sections.3.content'),
 
@@ -887,10 +913,13 @@ export function getCaseStudies(t, language = 'ru') {
         {
 
           id: 'results',
-          collapsible: true,
-          defaultOpen: false,
+          collapsible: false,
 
           title: t('caseStudies.keeplLanding.sections.4.title'),
+
+          label: tx('caseStudies.keeplLanding.sections.4.label'),
+          nav: tx('caseStudies.keeplLanding.sections.4.nav'),
+          lead: tx('caseStudies.keeplLanding.sections.4.lead'),
 
           content: t('caseStudies.keeplLanding.sections.4.content'),
 
