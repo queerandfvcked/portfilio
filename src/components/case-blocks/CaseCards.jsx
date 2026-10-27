@@ -1,8 +1,8 @@
 import React from 'react'
 import { InlineText } from './BlockText'
 
-const CaseCards = ({ cols = 3, numbered = false, items = [] }) => (
-  <div className={`case-cards case-cards--${cols}`}>
+const CaseCards = ({ cols = 3, numbered = false, featured = false, items = [] }) => (
+  <div className={`case-cards case-cards--${cols}${featured ? ' case-cards--featured' : ''}`}>
     {items.map((item, index) => (
       <article key={`${item.title}-${index}`} className="case-cards__item">
         {numbered && (

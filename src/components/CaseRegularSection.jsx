@@ -21,6 +21,12 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
         typeof section.content === 'string' &&
         section.content.includes(':::')
 
+    /* Chapters already built on ::: blocks must not render the legacy
+       sub-accordion (accordionTitle, flowSteps, items and their images) on top. */
+    const hasBlocks =
+        typeof section.content === 'string' &&
+        section.content.includes(':::')
+
     return (
 
       <Wrapper
@@ -62,7 +68,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {/* Sub-accordion after main content */}
 
-        {section.items && section.items.length > 0 && (
+        {!hasBlocks && section.items && section.items.length > 0 && (
 
           <div className="mt-10">
 

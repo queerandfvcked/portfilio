@@ -67,6 +67,10 @@ export function getCaseStudies(t, language = 'ru') {
 
           title: t('caseStudies.zhabka.sections.0.title'),
 
+          label: tx('caseStudies.zhabka.sections.0.label'),
+          nav: tx('caseStudies.zhabka.sections.0.nav'),
+          lead: tx('caseStudies.zhabka.sections.0.lead'),
+
           content: t('caseStudies.zhabka.sections.0.content'),
 
           images: []
@@ -80,6 +84,10 @@ export function getCaseStudies(t, language = 'ru') {
 
           title: t('caseStudies.zhabka.sections.1.title'),
 
+          label: tx('caseStudies.zhabka.sections.1.label'),
+          nav: tx('caseStudies.zhabka.sections.1.nav'),
+          lead: tx('caseStudies.zhabka.sections.1.lead'),
+
           content: t('caseStudies.zhabka.sections.1.content'),
 
           images: []
@@ -92,6 +100,10 @@ export function getCaseStudies(t, language = 'ru') {
           collapsible: false,
 
           title: t('caseStudies.zhabka.sections.2.title'),
+
+          label: tx('caseStudies.zhabka.sections.2.label'),
+          nav: tx('caseStudies.zhabka.sections.2.nav'),
+          lead: tx('caseStudies.zhabka.sections.2.lead'),
 
           content: t('caseStudies.zhabka.sections.2.content'),
 
@@ -112,6 +124,12 @@ export function getCaseStudies(t, language = 'ru') {
 
           title: t('caseStudies.zhabka.sections.3.title'),
 
+          label: tx('caseStudies.zhabka.sections.3.label'),
+          nav: tx('caseStudies.zhabka.sections.3.nav'),
+          lead: tx('caseStudies.zhabka.sections.3.lead'),
+
+          content: tx('caseStudies.zhabka.sections.3.content'),
+
           images: [],
 
           items: t('caseStudies.zhabka.sections.3.items')
@@ -124,6 +142,10 @@ export function getCaseStudies(t, language = 'ru') {
           collapsible: false,
 
           title: t('caseStudies.zhabka.sections.4.title'),
+
+          label: tx('caseStudies.zhabka.sections.4.label'),
+          nav: tx('caseStudies.zhabka.sections.4.nav'),
+          lead: tx('caseStudies.zhabka.sections.4.lead'),
 
           content: t('caseStudies.zhabka.sections.4.content'),
 
@@ -138,7 +160,28 @@ export function getCaseStudies(t, language = 'ru') {
 
           title: t('caseStudies.zhabka.sections.5.title'),
 
+          label: tx('caseStudies.zhabka.sections.5.label'),
+          nav: tx('caseStudies.zhabka.sections.5.nav'),
+          lead: tx('caseStudies.zhabka.sections.5.lead'),
+
           content: t('caseStudies.zhabka.sections.5.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'next',
+          collapsible: false,
+
+          title: t('caseStudies.zhabka.sections.6.title'),
+
+          label: tx('caseStudies.zhabka.sections.6.label'),
+          nav: tx('caseStudies.zhabka.sections.6.nav'),
+          lead: tx('caseStudies.zhabka.sections.6.lead'),
+
+          content: t('caseStudies.zhabka.sections.6.content'),
 
           images: []
 

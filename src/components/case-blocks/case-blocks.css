@@ -104,6 +104,13 @@
   line-height: 1.6;
 }
 
+/* Опция featured: первая карточка занимает всю ширину сетки на десктопе. */
+@media (min-width: 641px) {
+  .case-cards--featured .case-cards__item:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
 .case-triad {
   display: grid;
   gap: 18px;

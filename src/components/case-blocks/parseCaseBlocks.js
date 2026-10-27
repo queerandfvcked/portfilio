@@ -141,6 +141,7 @@ export const buildCaseBlock = ({ name, attrs, lines, raw }) => {
         props: {
           cols,
           numbered: attrs.numbered === true || attrs.numbered === 'true',
+          featured: attrs.featured === true || attrs.featured === 'true',
           items
         }
       }
