@@ -62,7 +62,13 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
         {!blocksMode && (
           <>
 
-        {section.id === 'motion-states' && <ZhabkaMascotShowcase />}
+        {/* The video row is limited by the same `.prose` wrapper as the ::: blocks,
+            so it lines up with rows/cards/stage instead of the full case column. */}
+        {section.id === 'motion-states' && (
+          <div className="prose">
+            <ZhabkaMascotShowcase label={t('casePage.zhabkaAnimations')} />
+          </div>
+        )}
 
 
 

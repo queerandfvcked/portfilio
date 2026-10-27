@@ -104,9 +104,11 @@
   line-height: 1.6;
 }
 
-/* Опция featured: первая карточка занимает всю ширину сетки на десктопе. */
+/* Опция featured: первая карточка занимает всю ширину сетки на десктопе.
+   featured=both добавляет к ней и последнюю карточку. */
 @media (min-width: 641px) {
-  .case-cards--featured .case-cards__item:first-child {
+  .case-cards--featured .case-cards__item:first-child,
+  .case-cards--featured-both .case-cards__item:last-child {
     grid-column: 1 / -1;
   }
 }

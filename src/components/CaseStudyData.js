@@ -155,6 +155,23 @@ export function getCaseStudies(t, language = 'ru') {
 
         {
 
+          id: 'stack',
+          collapsible: false,
+
+          title: t('caseStudies.zhabka.sections.7.title'),
+
+          label: tx('caseStudies.zhabka.sections.7.label'),
+          nav: tx('caseStudies.zhabka.sections.7.nav'),
+          lead: tx('caseStudies.zhabka.sections.7.lead'),
+
+          content: t('caseStudies.zhabka.sections.7.content'),
+
+          images: []
+
+        },
+
+        {
+
           id: 'results',
           collapsible: false,
 

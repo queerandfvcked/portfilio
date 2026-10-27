@@ -141,7 +141,13 @@ export const buildCaseBlock = ({ name, attrs, lines, raw }) => {
         props: {
           cols,
           numbered: attrs.numbered === true || attrs.numbered === 'true',
-          featured: attrs.featured === true || attrs.featured === 'true',
+          /* featured: голый флаг (или featured=true) — первая карточка на всю
+             ширину сетки. featured=both добавляет к ней и последнюю. */
+          featured:
+            attrs.featured === true ||
+            attrs.featured === 'true' ||
+            attrs.featured === 'both',
+          featuredBoth: attrs.featured === 'both',
           items
         }
       }

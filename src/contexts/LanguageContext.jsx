@@ -50,6 +50,7 @@ const translations = {
       viewCase: 'Смотреть кейс',
       pitchDeck: 'Презентация (PDF)',
       notFound: 'Кейс не найден',
+      zhabkaAnimations: 'Анимации Жабки',
       backHome: 'На главную',
       tldr: {
         zhabka: {
@@ -407,7 +408,7 @@ circle | AI-чат | Вместо сложных настроек пользов
             label: 'РЕШЕНИЯ',
             nav: 'Решения',
             title: 'Шесть продуктовых *решений*',
-            content: `:::cards cols=2 numbered featured
+            content: `:::cards cols=2 numbered featured=both
 **Объяснение вместо процента совпадения** | Вместо абстрактной оценки совпадения AI объясняет, почему считает вакансию подходящей или нет. Такой подход помогает быстрее принять решение и не создает ложного ощущения точности, которое может давать условный «87% match».
 **Управление поиском через AI-чат** | Пользователь может менять критерии поиска обычным сообщением, не переключаясь между настройками. AI обновляет профиль и начинает учитывать новые предпочтения при следующих синхронизациях.
 **Обогащение вакансий** | Если вакансия содержит ссылку на стороннюю площадку, приложение получает дополнительную информацию и объединяет ее с данными из Telegram. В результате пользователь видит структурированную карточку вместо необработанного текста поста.
@@ -495,6 +496,49 @@ circle | AI-чат | Вместо сложных настроек пользов
 **Автоматизация** | Автоматизировать процессы.
 **Персональные профили** | Адаптировать архитектуру под персональные профили.
 :::`,
+            images: []
+          },
+          {
+            id: 'stack',
+            label: 'СТЕК',
+            nav: 'Стек',
+            title: 'Под *капотом*',
+            lead: 'Из чего собран Zhabka: от сбора постов в Telegram до AI-разбора вакансий.',
+            content: `## Фронтенд
+
+:::chips
+React, Vite, JavaScript, CSS, PWA
+:::
+
+## Бэкенд
+
+:::chips
+Python, FastAPI, REST API
+:::
+
+## Сбор данных
+
+:::chips
+Telethon (MTProto API)
+:::
+
+Публикации собираются из Telegram-каналов через ссылку на публичную папку каналов.
+
+## AI
+
+:::chips
+Gemini API, OpenRouter
+:::
+
+Основная модель: gemini-3.1-flash-lite; OpenRouter подключён как альтернативный провайдер.
+
+## Хранение и обработка
+
+:::chips
+JSON-файлы, Python-скрипты
+:::
+
+Вакансии, обработанные публикации, профиль и настройки хранятся в локальных JSON-файлах. Python-скрипты классифицируют вакансии, извлекают структурированные данные и, где это возможно, обогащают информацию по ссылкам.`,
             images: []
           }
         ]
@@ -1078,6 +1122,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
       viewCase: 'View case',
       pitchDeck: 'Presentation (PDF)',
       notFound: 'Case study not found',
+      zhabkaAnimations: 'Zhabka animations',
       backHome: 'Back to home',
       tldr: {
         zhabka: {
@@ -1345,20 +1390,56 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
         sections: [
           {
             id: 'problem',
-            title: 'Problem',
-            content: 'While searching for a job, I subscribed to dozens of Telegram channels because some vacancies are published only there. However, finding relevant opportunities meant going through a constant stream of ads, duplicate posts, and irrelevant positions with the wrong specialization, seniority level, or location.\n\nEven potentially suitable vacancies had to be read in full and manually compared against my own criteria. Instead of focusing on finding a job, I spent time filtering through information noise, with most posts ending with the same thought: "Another one that doesn\'t fit."',
+            label: 'PROBLEM',
+            nav: 'Problem',
+            title: 'Vacancies were drowning in Telegram *noise*',
+            lead: 'While searching for a job, I subscribed to dozens of Telegram channels because some vacancies are published only there. However, finding relevant opportunities meant going through a constant stream of ads, duplicate posts, and irrelevant positions with the wrong specialization, seniority level, or location.',
+            content: 'Even potentially suitable vacancies had to be read in full and manually compared against my own criteria. Instead of focusing on finding a job, I spent time filtering through information noise, with most posts ending with the same thought: "Another one that doesn\'t fit."',
             images: []
           },
           {
             id: 'task',
-            title: 'Task',
-            content: 'My goal was to create a personal job search assistant — an AI secretary of sorts that monitors vacancy sources, filters relevant opportunities, and brings only positions that match my criteria.\n\nInstead of building another job aggregator, I wanted to create a tool that handles the most repetitive part of job searching: filtering information noise and evaluating initial relevance.',
+            label: 'TASK',
+            nav: 'Task',
+            title: 'Not an aggregator, but a personal *AI secretary*',
+            lead: 'My goal was to create a personal job search assistant — an AI secretary of sorts that monitors vacancy sources, filters relevant opportunities, and brings only positions that match my criteria.',
+            content: `:::callout label="Idea"
+Instead of building another job aggregator, I wanted to create a tool that handles the most repetitive part of job searching: filtering information noise and evaluating initial relevance.
+:::`,
             images: []
           },
           {
             id: 'solution',
-            title: 'Solution',
-            content: 'I transformed the manual monitoring of dozens of Telegram channels into a personalized job feed where AI performs the initial screening instead of the user.\n\nZhabka collects vacancies from selected sources, analyzes them based on the user\'s profile, and shows only relevant opportunities with explanations of why they match.',
+            label: 'PRODUCT',
+            nav: 'Product',
+            title: 'AI does the first pass *instead of me*',
+            lead: 'I transformed the manual monitoring of dozens of Telegram channels into a personalized job feed where AI performs the initial screening instead of the user.',
+            content: `Zhabka collects vacancies from selected sources, analyzes them based on the user's profile, and shows only relevant opportunities with explanations of why they match.
+
+## How the product works
+
+:::flow
+circle | Sources | Zhabka collects vacancies from selected sources.
+square | AI analysis | Instead of manually reviewing dozens of posts, AI analyzes new vacancies and compares them against the user's profile. Each vacancy includes an explanation of why it matches or does not match the defined criteria.
+square | Profile | Users can configure their search preferences: desired roles, experience level, work format, location, salary, and other criteria. Additional requirements can be added through the AI chat using natural language.
+square | Feed | Instead of monitoring multiple Telegram channels, users get a unified feed of relevant vacancies. Each card contains key information, AI reasoning, and a link to the original post.
+circle | AI chat | Instead of configuring every preference manually, users can interact with AI directly: refine requirements, add restrictions, and update their search profile using natural language.
+:::
+
+:::stage layout=pair
+/assets/zhabka/profile.png | Search profile: desktop
+/assets/zhabka/profile mob.png | Search profile: mobile
+:::
+
+:::stage layout=pair
+/assets/zhabka/inbox right drawer.png | Vacancy feed: desktop
+/assets/zhabka/mob inbox right drawer.png | Vacancy feed: mobile
+:::
+
+:::stage layout=pair
+/assets/zhabka/inbox chat.png | AI chat: desktop
+/assets/zhabka/mob inbox chat.png | AI chat: mobile
+:::`,
             images: [],
             accordionTitle: 'How the product works',
             flowSteps: [
@@ -1396,7 +1477,26 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
           },
           {
             id: 'product-decisions',
-            title: 'Product decisions',
+            label: 'DECISIONS',
+            nav: 'Decisions',
+            title: 'Six product *decisions*',
+            content: `:::cards cols=2 numbered featured=both
+**Explanations Instead of Match Scores** | Instead of assigning a match percentage, AI explains why a vacancy is relevant or not. This makes the decision easier to understand and avoids the false sense of precision often created by arbitrary matching scores.
+**Search Management Through AI Chat** | Users can update their search preferences using natural language instead of navigating through settings. AI updates the profile and applies the new criteria during future synchronizations.
+**Job Data Enrichment** | When a vacancy contains a link to an external job platform, the application enriches it with additional information and combines it with the original Telegram post. Users receive a structured job card instead of raw text.
+**Structured Job Summaries** | Instead of presenting long Telegram posts, AI extracts the most important information — requirements, work format, salary, tech stack, and other key details, which should let users evaluate vacancies within seconds.
+**Transparent Synchronization** | During testing, long synchronization times created uncertainty: it was impossible to tell whether the system was still working or had failed. To solve this, the interface displays the current processing stage and prevents duplicate synchronization requests.
+**Flexible Source Management** | Users can easily disable irrelevant sources or add new ones without reconfiguring their search preferences. Instead of continuous polling, scheduled auto-sync updates vacancies at predefined times, reducing unnecessary load while keeping the feed predictable.
+:::
+
+:::stage layout=single
+/assets/zhabka/sync.png | Synchronization status in the interface
+:::
+
+:::stage layout=pair
+/assets/zhabka/settings.png | Source settings: desktop
+/assets/zhabka/settings mob.png | Source settings: mobile
+:::`,
             images: [],
             items: [
               {
@@ -1435,19 +1535,48 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
           },
           {
             id: 'motion-states',
-            title: 'Motion & empty states',
+            label: 'MOTION',
+            nav: 'Motion',
+            title: 'The mascot in empty and *transitional* states',
             content: 'I added an animated Zhabka mascot to key interface states, so empty and transitional moments feel like part of the product rather than technical placeholders.'
           },
           {
             id: 'results',
-            title: 'Result',
-            content: 'Zhabka evolved from an idea of a personal AI assistant into a working tool that supports my job search process. After launching I stopped manually monitoring most Telegram channels and started using the app as my primary way to review new vacancies.\n\nAI does more than collect vacancies — it extracts key information and structures requirements. Based on initial sync data, Zhabka processes about 170 posts a day from dozens of channels and leaves 5–10 vacancies in the feed (≈4%), each featuring a clear explanation of why it matches my criteria.',
+            label: 'RESULT',
+            nav: 'Result',
+            title: 'A working tool I *use myself*',
+            lead: 'Zhabka evolved from an idea of a personal AI assistant into a working tool that supports my job search process. After launching I stopped manually monitoring most Telegram channels and started using the app as my primary way to review new vacancies.',
+            content: `AI does more than collect vacancies — it extracts key information and structures requirements.
+
+:::stats
+≈170 | posts a day processed from dozens of channels
+5–10 | vacancies remain in the feed
+≈4% | share of vacancies that remain in the feed
+:::
+
+According to the first sync data, every remaining vacancy has a clear explanation of why it matches my criteria.`,
             images: []
           },
           {
             id: 'next',
-            title: "What's next",
-            content: 'The next stage of the project is evolving it into a product for other users: expanding job sources beyond Telegram, improving automation, and adapting the architecture for personalized user profiles.',
+            label: 'NEXT',
+            nav: "What's next",
+            title: 'From a personal tool to a *product*',
+            lead: 'The next stage of the project is evolving it into a product for other users.',
+            content: `:::cards cols=3
+**More sources** | Expand the list of search sources beyond Telegram.
+**Automation** | Automate processes.
+**Personal profiles** | Adapt the architecture for personal profiles.
+:::`,
+            images: []
+          },
+          {
+            id: 'stack',
+            label: 'STACK',
+            nav: 'Stack',
+            title: 'Under the *hood*',
+            lead: 'What Zhabka is built from: from collecting Telegram posts to AI analysis of vacancies.',
+            content: '## Frontend\n\n:::chips\nReact, Vite, JavaScript, CSS, PWA\n:::\n\n## Backend\n\n:::chips\nPython, FastAPI, REST API\n:::\n\n## Data collection\n\n:::chips\nTelethon (MTProto API)\n:::\n\nPosts are collected from Telegram channels via a link to a public channel folder.\n\n## AI\n\n:::chips\nGemini API, OpenRouter\n:::\n\nThe main model is gemini-3.1-flash-lite; OpenRouter is connected as an alternative provider.\n\n## Storage and processing\n\n:::chips\nJSON files, Python scripts\n:::\n\nVacancies, processed posts, the profile, and settings are stored in local JSON files. Python scripts classify vacancies, extract structured data, and, where possible, enrich information from links.',
             images: []
           }
         ]
