@@ -1,7 +1,11 @@
 import React from 'react'
 import { InlineText } from './BlockText'
+import { useTranslation } from '../../contexts/LanguageContext'
 
-const CaseFindings = ({ items = [] }) => (
+const CaseFindings = ({ items = [] }) => {
+  const { t } = useTranslation()
+
+  return (
   <div className="case-findings">
     {items.map((item, index) => {
       const isGood = item.kind === 'good'
@@ -18,7 +22,7 @@ const CaseFindings = ({ items = [] }) => (
 
           <div className="case-findings__body">
             <span className="mono-meta case-findings__badge">
-              {isGood ? 'Хорошо' : 'Ошибка'}
+              {isGood ? t('casePage.findingGood') : t('casePage.findingMistake')}
             </span>
             <h3 className="case-findings__title">
               <InlineText text={item.title} />
@@ -33,6 +37,7 @@ const CaseFindings = ({ items = [] }) => (
       )
     })}
   </div>
-)
+  )
+}
 
 export default CaseFindings
