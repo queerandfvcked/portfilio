@@ -415,14 +415,24 @@ const CaseStudy = () => {
 
               {takeaways.length > 0 && (
                 <CaseChapter
-                  section={{ id: 'takeaways', title: t('casePage.learned'), collapsible: false }}
+                  section={{
+                    id: 'takeaways',
+                    label: t('casePage.learnedLabel'),
+                    title: t('casePage.learned'),
+                    collapsible: false
+                  }}
                   index={sections.length}
                   isActive={false}
                   isExpanded={false}
                   onToggle={() => {}}
                 >
                   <div className="case-chapter__content">
-                    <CaseRows items={takeaways} />
+                    {/* Same prose wrapper as regular chapters: it carries the
+                        shared max-width cap, so the cards line up with the rows
+                        inside other chapters instead of spanning the full column. */}
+                    <div className="prose">
+                      <CaseRows items={takeaways} />
+                    </div>
                   </div>
                 </CaseChapter>
               )}

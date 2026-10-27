@@ -86,7 +86,7 @@ export const CaseEmbed = ({
 
   return (
     <div
-      className="case-embed"
+      className={`case-embed${isFigma ? ' case-embed--figma' : ''}`}
       style={{
         '--case-embed-ratio': desktopRatio,
         '--case-embed-mobile-ratio': mobileRatioValue || desktopRatio,

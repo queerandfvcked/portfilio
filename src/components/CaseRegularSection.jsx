@@ -372,7 +372,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         ) : (
 
-          <div className={section.id === 'research-analysis' ? "grid grid-cols-1 md:grid-cols-2 gap-4 mt-8" : "space-y-8 mb-8"}>
+          <div className={section.id === 'research-analysis' ? "grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 mt-8" : "space-y-8 mb-8"}>
 
             {section.images.map((image, index) => (
 
@@ -392,7 +392,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-center text-secondary text-sm mt-2">{index === 0 ? t('caseStudies.hiredApp.sections.4.imageCaption1') : t('caseStudies.hiredApp.sections.4.imageCaption2')}</p>
+                    <p className="case-figure-caption text-center text-secondary text-sm">{index === 0 ? t('caseStudies.hiredApp.sections.4.imageCaption1') : t('caseStudies.hiredApp.sections.4.imageCaption2')}</p>
 
                   </div>
 
@@ -460,7 +460,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
         {section.additionalImages && section.additionalImages.length > 0 && section.id !== 'final-mockups' && (
 
-          <div className={section.id === 'research-analysis' ? "grid grid-cols-1 md:grid-cols-2 gap-4 mt-8" : "space-y-8 mb-8"}>
+          <div className={section.id === 'research-analysis' ? "grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 mt-8" : "space-y-8 mb-8"}>
 
             {section.additionalImages.map((image, index) => (
 
@@ -480,7 +480,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-center text-secondary text-sm mt-2">{index === 0 ? 'HH' : 'Hired'}</p>
+                    <p className="case-figure-caption text-center text-secondary text-sm">{index === 0 ? 'HH' : 'Hired'}</p>
 
                   </div>
 
@@ -646,7 +646,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                     />
 
-                    <p className="text-left text-secondary text-sm mt-2">{t('caseStudies.hiredApp.sections.4.abandonedFeatures').split('\n').map((line, i) => (
+                    <p className="case-figure-caption text-left text-secondary text-sm">{t('caseStudies.hiredApp.sections.4.abandonedFeatures').split('\n').map((line, i) => (
                       <React.Fragment key={i}>
                         {line}
                         {i < t('caseStudies.hiredApp.sections.4.abandonedFeatures').split('\n').length - 1 && <br />}
@@ -1091,7 +1091,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
             {/* Home screen images for UI section */}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 mt-8">
 
               <div className="cursor-pointer group" onClick={() => openImageModal('/assets/keepl app/home_placeholder.png')}>
 
@@ -1105,7 +1105,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Home</p>
+                <p className="case-figure-caption text-center text-secondary text-sm">Home</p>
 
               </div>
 
@@ -1121,7 +1121,7 @@ export function RegularSection({ section, isActive, slug, t, language, formatCon
 
                 />
 
-                <p className="text-center text-secondary text-sm mt-2">Create Goal</p>
+                <p className="case-figure-caption text-center text-secondary text-sm">Create Goal</p>
 
               </div>
 

@@ -554,7 +554,10 @@
 .case-stage__media {
   display: block;
   width: 100%;
-  height: 100%;
+  /* Must stay auto: a percentage height resolves against the grid item and
+     pushes the caption out of the item, so the block ends above its own
+     caption and the next paragraph sits right under the text. */
+  height: auto;
   padding: 0;
   border: none;
   background: transparent;
@@ -1066,6 +1069,19 @@ button.case-stage__media {
   }
 }
 
+/* Figma prototype: on desktop the frame is a portrait phone, so the prototype
+   fills it instead of sitting small inside a wide 16:9 letterbox. The toolbar
+   and controls rendered by the Figma embed stay inside the iframe.
+   `!important` overrides the per-block inline `max-width` (maxwidth= attr).
+   Knightlab and other embeds keep their own ratio. On <=640px nothing changes. */
+@media (min-width: 641px) {
+  .case-embed--figma {
+    width: 100%;
+    max-width: 460px !important;
+    aspect-ratio: 9 / 16;
+  }
+}
+
 .case-block-fallback {
   overflow-x: auto;
   padding: 16px;
@@ -1438,4 +1454,44 @@ button.case-stage__media {
     font-size: clamp(19px, 5.4vw, 22px);
     line-height: 1.3;
   }
+}
+
+/* Captions under images. The caption belongs to the image above it: 8px from
+   the image, and at least 24px of air before whatever follows. The bottom gap
+   comes from the block itself (.case-stage / .case-gallery margin-block:
+   24-32px); inside a stacked block the grid gap is raised only when the block
+   actually has captions, so uncaptioned stacks keep their current rhythm. */
+.case-gallery:has(.case-stage__caption) {
+  row-gap: 24px;
+}
+
+@media (max-width: 767px) {
+  .case-gallery:has(.case-stage__caption) {
+    gap: 24px;
+  }
+}
+
+/* Pair/trio stacks only below 641px; above that the images sit side by side
+   and their horizontal gap must keep the current 16px. */
+@media (max-width: 640px) {
+  .case-stage__grid:has(.case-stage__caption) {
+    gap: 24px;
+  }
+}
+
+/* Single-image slider: the grid gap would add to the caption's own 10px, so
+   the caption keeps its distance from the image only once. */
+.case-slider--single {
+  gap: 0;
+}
+
+/* Legacy captions (raw HTML image grids outside ::: blocks). */
+.case-figure-caption {
+  margin-top: 8px;
+}
+
+/* Legacy image grids are followed by a prose block with Tailwind's mt-12
+   (48px). After a caption the normal section rhythm applies instead. */
+.case-chapter__content .grid:has(.case-figure-caption) + .prose {
+  margin-top: 32px;
 }

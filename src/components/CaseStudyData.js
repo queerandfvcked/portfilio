@@ -520,10 +520,13 @@ export function getCaseStudies(t, language = 'ru') {
         {
 
           id: 'idea',
-          collapsible: true,
-          defaultOpen: false,
+          collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.0.title'),
+
+          label: tx('caseStudies.hiredApp.sections.0.label'),
+          nav: tx('caseStudies.hiredApp.sections.0.nav'),
+          lead: tx('caseStudies.hiredApp.sections.0.lead'),
 
           content: t('caseStudies.hiredApp.sections.0.content'),
 
@@ -534,10 +537,13 @@ export function getCaseStudies(t, language = 'ru') {
         {
 
           id: 'process',
-          collapsible: true,
-          defaultOpen: false,
+          collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.1.title'),
+
+          label: tx('caseStudies.hiredApp.sections.1.label'),
+          nav: tx('caseStudies.hiredApp.sections.1.nav'),
+          lead: tx('caseStudies.hiredApp.sections.1.lead'),
 
           content: t('caseStudies.hiredApp.sections.1.content'),
 
@@ -552,6 +558,10 @@ export function getCaseStudies(t, language = 'ru') {
 
           title: t('caseStudies.hiredApp.sections.2.title'),
 
+          label: tx('caseStudies.hiredApp.sections.2.label'),
+          nav: tx('caseStudies.hiredApp.sections.2.nav'),
+          lead: tx('caseStudies.hiredApp.sections.2.lead'),
+
           content: t('caseStudies.hiredApp.sections.2.content'),
 
           images: []
@@ -564,6 +574,10 @@ export function getCaseStudies(t, language = 'ru') {
           collapsible: false,
 
           title: t('caseStudies.hiredApp.sections.3.title'),
+
+          label: tx('caseStudies.hiredApp.sections.3.label'),
+          nav: tx('caseStudies.hiredApp.sections.3.nav'),
+          lead: tx('caseStudies.hiredApp.sections.3.lead'),
 
           content: t('caseStudies.hiredApp.sections.3.content'),
 
