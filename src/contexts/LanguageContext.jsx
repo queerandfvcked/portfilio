@@ -41,12 +41,12 @@ const translations = {
       learnedLabel: 'ВЫВОДЫ',
       findingGood: 'Хорошо',
       findingMistake: 'Ошибка',
-      includesLanding: 'Включает лендинг →',
+      includesLanding: 'Включает лендинг',
       landingTitle: 'Лендинг',
       landingTeaser: 'Как пользователь доходит до первого действия',
       landingBody: 'Из-за ограничений регистрации пользователю было трудно дойти до первого действия. Лендинг объясняет ценность продукта и помогает дойти до первого результата.',
       landingCta: 'Смотреть лендинг ↗',
-      fullCase: 'Полный кейс →',
+      fullCase: 'Полный кейс',
       viewCase: 'Смотреть кейс',
       pitchDeck: 'Презентация (PDF)',
       notFound: 'Кейс не найден',
@@ -374,39 +374,6 @@ circle | AI-чат | Вместо сложных настроек пользов
 /assets/zhabka/mob inbox chat.png | AI-чат: мобильная версия
 :::`,
             images: [],
-            accordionTitle: 'Как работает продукт',
-            flowSteps: [
-              'Telegram-каналы',
-              'AI анализирует вакансии',
-              'Сопоставляет с профилем',
-              'Попадает в персональную ленту',
-              'Уточняешь критерии через чат'
-            ],
-            items: [
-              {
-                id: 'ai-screening',
-                title: 'AI-анализ вакансий',
-                content: 'Вместо ручного просмотра десятков сообщений AI анализирует новые публикации и сравнивает их с профилем пользователя. Для каждой вакансии он показывает причину, почему предложение подходит или не соответствует заданным критериям.'
-              },
-              {
-                id: 'search-profile',
-                title: 'Профиль поиска',
-                content: 'Пользователь может настроить параметры поиска: желаемые роли, опыт, формат работы, локацию, зарплату и другие предпочтения. Дополнительные ограничения можно добавлять через AI-чат в свободной форме.',
-                imagePair: { desktop: '/assets/zhabka/profile.png', mobile: '/assets/zhabka/profile mob.png' }
-              },
-              {
-                id: 'vacancy-feed',
-                title: 'Персональная лента вакансий',
-                content: 'Вместо множества Telegram-каналов пользователь получает единую ленту с подходящими вакансиями. Каждая карточка содержит основную информацию, объяснение AI и ссылку на оригинальную публикацию.',
-                imagePair: { desktop: '/assets/zhabka/inbox right drawer.png', mobile: '/assets/zhabka/mob inbox right drawer.png' }
-              },
-              {
-                id: 'ai-chat',
-                title: 'Управление через AI-чат',
-                content: 'Вместо сложных настроек пользователь может общаться с AI напрямую: уточнять предпочтения, добавлять ограничения и изменять профиль поиска обычным текстом.',
-                imagePair: { desktop: '/assets/zhabka/inbox chat.png', mobile: '/assets/zhabka/mob inbox chat.png' }
-              }
-            ]
           },
           {
             id: 'product-decisions',
@@ -431,40 +398,6 @@ circle | AI-чат | Вместо сложных настроек пользов
 /assets/zhabka/settings mob.png | Настройки источников: мобильная версия
 :::`,
             images: [],
-            items: [
-              {
-                id: 'match-explanation',
-                title: '1. Вместо процента совпадения — объяснение решения',
-                content: 'Вместо абстрактной оценки совпадения AI объясняет, почему считает вакансию подходящей или нет. Такой подход помогает быстрее принять решение и не создает ложного ощущения точности, которое может давать условный «87% match».'
-              },
-              {
-                id: 'ai-chat-search',
-                title: '2. Управление поиском через AI-чат',
-                content: 'Пользователь может менять критерии поиска обычным сообщением, не переключаясь между настройками. AI обновляет профиль и начинает учитывать новые предпочтения при следующих синхронизациях.'
-              },
-              {
-                id: 'job-enrichment',
-                title: '3. Обогащение вакансий',
-                content: 'Если ваканция содержит ссылку на стороннюю площадку, приложение получает дополнительную информацию и объединяет ее с данными из Telegram. В результате пользователь видит структурированную карточку вместо необработанного текста поста.'
-              },
-              {
-                id: 'info-structuring',
-                title: '4. Структурирование информации',
-                content: 'Вместо длинного текста из Telegram AI выделяет ключевую информацию: требования, формат работы, зарплату, стек и другие важные детали. Это позволяет оценить вакансию за несколько секунд.'
-              },
-              {
-                id: 'transparent-sync',
-                title: '5. Прозрачная синхронизация',
-                content: 'Во время тестирования стало понятно, что длительная синхронизация вызывает неопределенность: непонятно, работает ли система или произошла ошибка. Поэтому интерфейс показывает текущий этап обработки данных и не позволяет запустить процесс повторно.',
-                image: '/assets/zhabka/sync.png'
-              },
-              {
-                id: 'source-management',
-                title: '6. Гибкая настройка источников',
-                content: 'Пользователь может в любой момент отключить нерелевантный источник или добавить новый, не переписывая профиль поиска заново. Автосинхронизация запускается по расписанию, а не постоянным опросом — это снижает нагрузку и делает обновления предсказуемыми.',
-                imagePair: { desktop: '/assets/zhabka/settings.png', mobile: '/assets/zhabka/settings mob.png' }
-              }
-            ]
           },
           {
             id: 'motion-states',
@@ -925,14 +858,6 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 **Обязательная обратная связь.** Это, конечно, обрадовало бы соискателей, но эйчары получили бы дополнительную головную боль.
 **Подготовка к собеседованиям.** Обернулась бы разочарованием для соискателей, потому что на реальном собеседовании могут быть совершенно другие вопросы, и недовольством для работодателя: он мог бы посчитать это нечестным.
 :::`,
-            additionalContent: 'Отметил, что:\n- У hh нельзя понять, с какого резюме ты откликнулся.\n- У LinkedIn слишком сложная система: соц.сеть и поиск работы в одном флаконе, разобраться непросто.\n- Нигде не нашел гибкого фильтра в выборе формата работы: например, я хочу работать удаленно, но если компания находится в моем городе, то рассматриваю офис или гибрид. Таким образом, мне выдавались бы удаленные вакансии отовсюду и вакансии с любым форматом из моего города.',
-            moreContent: 'Я посмотрел, что уже существует на рынке, и вспомнил то, чего мне не хватало как соискателю. Отслеживал фидбэк в тг-чатах и через личные разговоры. На этом этапе стало понятно, какие функции не вызывают интереса (например, фильтр вакансий по языкам программирования), а какие находят отклик.\n\nНа основе этого выделил набор функций, которые точно должны быть, и те, что казались хорошими на старте, но потом были отброшены.',
-            images: ['/assets/hired app/Competitive analysis/веб-сайты.jpg', '/assets/hired app/Competitive analysis/приложения.jpg'],
-            imageCaption1: 'Веб-сайты',
-            imageCaption2: 'Мобильные приложения',
-            finalImages: ['/assets/hired app/image features.png'],
-            additionalImages: ['/assets/hired app/hh vs hired 1.png', '/assets/hired app/hh vs hired 2.png'],
-            abandonedFeatures: 'Мы отказались от лишних фичей:\nВиртуальные собеседования сложно реализовать технически, а кроме того пользователи уже привыкли использовать другие сервисы для этого.\nЕсли бы обратная связь стала обязательной, это, конечно, обрадовало бы соискателей, но эйчары получили бы дополнительную головную боль.\nПодготовка к собеседованиям обернулась бы разочарованием для соискателей, потому что на реальном собеседовании могут быть совершенно другие вопросы, и недовольством для работодателя - он мог бы посчитать это нечестным.'
           },
           {
             id: 'structure-design',
@@ -962,15 +887,6 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 
 :::embed url="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" ratio=16:9 sandbox=wide title="Вайрфреймы: интерактивное сравнение"
 :::`,
-            additionalContent: '## User Flow',
-            moreContent: 'Построил флоу с учетом реальных сценариев. Учитывал технические ограничения и типовые паттерны поведения.',
-            images: [],
-            additionalImages: ['/assets/hired app/Frame_1984077494.png'],
-            additionalContent2: '## Информационная архитектура\n\nОпределил, какие разделы будут, как они связаны и как логически выстроена навигация.',
-            additionalContent3: '/assets/hired app/Frame_1984077494 1.png',
-            additionalContent4: '## Вайрфреймы\n\nСделал черновую отрисовку ключевых экранов, чтобы оценить, как будет выглядеть интерфейс и где у пользователя могут возникнуть проблемы.',
-            additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe loading="lazy" frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
-            finalImages: []
           },
           {
             id: 'final-mockups',
@@ -1016,17 +932,6 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 
 :::embed url="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share&hide-ui=1" ratio=16:9 mobileratio=4:5 maxwidth=800 title="Кликабельный Figma-прототип Hired"
 :::`,
-            additionalContent: '## Поиск вакансии и отклик\n\nПользователь быстро находит релевантные вакансии благодаря гибкому фильтру, который позволяет комбинировать локальные и удаленные форматы работы. Это устраняет необходимость просматривать сотни неподходящих предложений.',
-            images: ['/assets/hired app/pics.png'],
-            additionalContent2: 'После того, как пользователь нашел подходящую вакансию, он откликается на нее, предварительно выбрав резюме для отклика и по желанию прикрепив сопроводительное письмо. На странице вакансии отмечается, с каким резюме был отправлен отклик.',
-            additionalImages: ['/assets/hired app/stack.png'],
-            additionalContent3: '## Создание резюме',
-            additionalContent4: 'Опция создания резюме появляется сразу после регистрации. Также пользователь может в любой момент добавить новое резюме через вкладку "профиль".',
-            additionalImages2: ['/assets/hired app/profile.png', '/assets/hired app/profile2.png'],
-            additionalContent5: 'Чтобы снизить барьер входа и мотивировать пользователя к отклику, процесс создания резюме был максимально упрощен. Мы разбили заполнение на 5 логических, пошаговых этапов, исключив избыточную информацию и фокусируясь только на том, что первостепенно важно.',
-            additionalImages3: ['/assets/hired app/resume creating.png'],
-            additionalContent6: '## Прототип',
-            additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe loading="lazy" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
           }
         ]
       },
@@ -1127,11 +1032,6 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 :::stage layout=single
 /assets/keepl landing page/CTA and footer.png
 :::`,
-            images: [],
-            additionalContent: '## What can you do with Keepl?\n\nБлок служит мостом между философией и интерфейсом. Я выделил конкретные действия, чтобы пользователь сразу "примерил" продукт на свой образ жизни.\n\nЭто снижает когнитивную нагрузку и готовит юзера к онбордингу внутри приложения.',
-            moreContent: '## Features\n\nВместо простого перечисления функций, каждый блок закрывает конкретный страх пользователя: сложность старта, риск выгорания, непонимание прогресса и отсутствие эмоциональной связи с результатом.',
-            lastContent: 'Для того, чтобы пользователь смог "пощупать" продукт до регистрации, я добавил интерактивности элементам интерфейса.\n\nНапример, принцип работы легкой альтернативы юзер сможет понять, нажав на кнопку в карточке:',
-            finalSection: '## Финальный CTA и футер'
           },
           {
             id: 'results',
@@ -1189,12 +1089,12 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
       learnedLabel: 'TAKEAWAYS',
       findingGood: 'Good',
       findingMistake: 'Mistake',
-      includesLanding: 'Includes landing →',
+      includesLanding: 'Includes landing',
       landingTitle: 'Landing page',
       landingTeaser: 'How users reach their first action',
       landingBody: 'Registration limits made it hard for users to reach their first action. The landing page explains the product value and helps them get to their first result.',
       landingCta: 'View landing ↗',
-      fullCase: 'Full case →',
+      fullCase: 'Full case',
       viewCase: 'View case',
       pitchDeck: 'Presentation (PDF)',
       notFound: 'Case study not found',
@@ -1522,39 +1422,6 @@ circle | AI chat | Instead of configuring every preference manually, users can i
 /assets/zhabka/mob inbox chat.png | AI chat: mobile
 :::`,
             images: [],
-            accordionTitle: 'How the product works',
-            flowSteps: [
-              'Telegram channels',
-              'AI analyzes vacancies',
-              'Matches your profile',
-              'Lands in your personal feed',
-              'Refine criteria through chat'
-            ],
-            items: [
-              {
-                id: 'ai-screening',
-                title: 'AI-powered vacancy screening',
-                content: 'Instead of manually reviewing dozens of posts, AI analyzes new vacancies and compares them against the user\'s profile. Each vacancy includes an explanation of why it matches or does not match the defined criteria.'
-              },
-              {
-                id: 'search-profile',
-                title: 'Personal search profile',
-                content: 'Users can configure their search preferences: desired roles, experience level, work format, location, salary, and other criteria. Additional requirements can be added through the AI chat using natural language.',
-                imagePair: { desktop: '/assets/zhabka/profile.png', mobile: '/assets/zhabka/profile mob.png' }
-              },
-              {
-                id: 'vacancy-feed',
-                title: 'Unified vacancy feed',
-                content: 'Instead of monitoring multiple Telegram channels, users get a unified feed of relevant vacancies. Each card contains key information, AI reasoning, and a link to the original post.',
-                imagePair: { desktop: '/assets/zhabka/inbox right drawer.png', mobile: '/assets/zhabka/mob inbox right drawer.png' }
-              },
-              {
-                id: 'ai-chat',
-                title: 'AI chat as a control layer',
-                content: 'Instead of configuring every preference manually, users can interact with AI directly: refine requirements, add restrictions, and update their search profile using natural language.',
-                imagePair: { desktop: '/assets/zhabka/inbox chat.png', mobile: '/assets/zhabka/mob inbox chat.png' }
-              }
-            ]
           },
           {
             id: 'product-decisions',
@@ -1579,40 +1446,6 @@ circle | AI chat | Instead of configuring every preference manually, users can i
 /assets/zhabka/settings mob.png | Source settings: mobile
 :::`,
             images: [],
-            items: [
-              {
-                id: 'match-explanation',
-                title: '1. Explanations Instead of Match Scores',
-                content: 'Instead of assigning a match percentage, AI explains why a vacancy is relevant or not. This makes the decision easier to understand and avoids the false sense of precision often created by arbitrary matching scores.'
-              },
-              {
-                id: 'ai-chat-search',
-                title: '2. Search Management Through AI Chat',
-                content: 'Users can update their search preferences using natural language instead of navigating through settings. AI updates the profile and applies the new criteria during future synchronizations.'
-              },
-              {
-                id: 'job-enrichment',
-                title: '3. Job Data Enrichment',
-                content: 'When a vacancy contains a link to an external job platform, the application enriches it with additional information and combines it with the original Telegram post. Users receive a structured job card instead of raw text.'
-              },
-              {
-                id: 'info-structuring',
-                title: '4. Structured Job Summaries',
-                content: 'Instead of presenting long Telegram posts, AI extracts the most important information — requirements, work format, salary, tech stack, and other key details — allowing users to evaluate vacancies within seconds.'
-              },
-              {
-                id: 'transparent-sync',
-                title: '5. Transparent Synchronization',
-                content: 'During testing, long synchronization times created uncertainty: it was impossible to tell whether the system was still working or had failed. To solve this, the interface displays the current processing stage and prevents duplicate synchronization requests.',
-                image: '/assets/zhabka/sync.png'
-              },
-              {
-                id: 'source-management',
-                title: '6. Flexible Source Management',
-                content: 'Users can easily disable irrelevant sources or add new ones without reconfiguring their search preferences. Instead of continuous polling, scheduled auto-sync updates vacancies at predefined times, reducing unnecessary load while keeping the feed predictable.',
-                imagePair: { desktop: '/assets/zhabka/settings.png', mobile: '/assets/zhabka/settings mob.png' }
-              }
-            ]
           },
           {
             id: 'motion-states',
@@ -2025,14 +1858,6 @@ We abandoned unnecessary features:
 **Mandatory feedback.** It would certainly please job seekers, but HR managers would get additional headaches.
 **Interview preparation.** It would be a disappointment for job seekers because the actual interview might have completely different questions, and dissatisfaction for the employer, who might consider it unfair.
 :::`,
-            additionalContent: 'I noted that:\n- On hh, you cannot understand which resume you responded with.\n- LinkedIn has a too complex system: social network and job search in one bottle, hard to figure out.\n- Nowhere did I find a flexible filter for choosing work format: for example, I want to work remotely, but if the company is in my city, I consider office or hybrid. So I would get remote vacancies from everywhere and vacancies with any format from my city.',
-            moreContent: 'I looked at what already exists on the market and remembered what I lacked as a job seeker. Tracked feedback in Telegram chats and through personal conversations. At this stage, it became clear which features do not generate interest (for example, filter vacancies by programming language) and which resonated.\n\nBased on this, I identified a set of features that should definitely be there and those that seemed good at first but were later abandoned.',
-            images: ['/assets/hired app/Competitive analysis/веб-сайты.jpg', '/assets/hired app/Competitive analysis/приложения.jpg'],
-            imageCaption1: 'Websites',
-            imageCaption2: 'Mobile Applications',
-            finalImages: ['/assets/hired app/image features.png'],
-            additionalImages: ['/assets/hired app/hh vs hired 1.png', '/assets/hired app/hh vs hired 2.png'],
-            abandonedFeatures: 'We abandoned unnecessary features:\nVirtual interviews are difficult to implement technically, and besides, users are already used to using other services for this.\nIf feedback became mandatory, it would certainly please job seekers, but HR managers would get additional headaches.\nInterview preparation would be a disappointment for job seekers because the actual interview might have completely different questions, and dissatisfaction for the employer - they might consider it unfair.'
           },
           {
             id: 'structure-design',
@@ -2062,15 +1887,6 @@ Made draft sketches of key screens to evaluate how the interface would look and 
 
 :::embed url="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" ratio=16:9 sandbox=wide title="Wireframes: interactive comparison"
 :::`,
-            additionalContent: '## User Flow',
-            moreContent: 'Built flow taking into account real scenarios. Considered technical constraints and typical behavior patterns.',
-            images: [],
-            additionalImages: ['/assets/hired app/Frame_1984077494.png'],
-            additionalContent2: '## Information Architecture\n\nDetermined which sections would be, how they connect and how navigation is logically structured.',
-            additionalContent3: '/assets/hired app/Frame_1984077494 1.png',
-            additionalContent4: '## Wireframes\n\nMade draft sketches of key screens to evaluate how the interface would look and where users might encounter problems.',
-            additionalContent5: '<div style="position: relative; width: 100%; padding-bottom: 56.25%;"><iframe loading="lazy" frameborder="0" class="juxtapose" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=e1bccb4c-cff0-11f0-ba1b-0e6f42328d7d" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe></div>',
-            finalImages: []
           },
           {
             id: 'final-mockups',
@@ -2116,17 +1932,6 @@ To reduce the entry barrier and motivate users to respond, the resume creation p
 
 :::embed url="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share&hide-ui=1" ratio=16:9 mobileratio=4:5 maxwidth=800 title="Clickable Figma prototype of Hired"
 :::`,
-            additionalContent: '## Job Search & Response\n\nUsers quickly find relevant vacancies thanks to a flexible filter that allows combining local and remote work formats. This eliminates the need to browse hundreds of unsuitable offers.',
-            images: ['/assets/hired app/pics.png'],
-            additionalContent2: 'After the user finds a suitable vacancy, they respond to it, first selecting a resume for the response and optionally attaching a cover letter. The vacancy page notes which resume was sent with the response.',
-            additionalImages: ['/assets/hired app/stack.png'],
-            additionalContent3: '## Resume Creation',
-            additionalContent4: 'The resume creation option appears immediately after registration. The user can also add a new resume at any time through the profile tab.',
-            additionalImages2: ['/assets/hired app/profile.png', '/assets/hired app/profile2.png'],
-            additionalContent5: 'To reduce entry barriers and motivate users to respond, the resume creation process was maximally simplified. We divided the completion into 5 logical, sequential stages, excluding redundant information and focusing only on what is most important.',
-            additionalImages3: ['/assets/hired app/resume creating.png'],
-            additionalContent6: '## Prototype',
-            additionalContent7: '<div style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%;"><iframe loading="lazy" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://embed.figma.com/proto/J1DL62y8hKJYKosiXTzmDo/prototype?content-scaling=fixed&kind=proto&node-id=1-13507&page-id=0%3A1&scaling=scale-down&starting-point-node-id=1%3A12816&embed-host=share" allowfullscreen></iframe></div>'
           }
         ]
       },
@@ -2227,11 +2032,6 @@ For example, users can understand how the lighter alternative works by clicking 
 :::stage layout=single
 /assets/keepl landing page/CTA and footer.png
 :::`,
-            images: [],
-            additionalContent: '## What can you do with Keepl?\n\nThe block serves as a bridge between philosophy and the interface. I highlighted specific actions so users could immediately "try on" the product for their lifestyle.\n\nThis reduces cognitive load and prepares users for onboarding inside the app.',
-            moreContent: '## Features\n\nInstead of simply listing features, each block addresses a specific user fear: complexity of starting, risk of burnout, lack of understanding of progress, and absence of emotional connection to results.',
-            lastContent: 'To let users "feel" the product before registering, I added interactivity to interface elements.\n\nFor example, users can understand how the lighter alternative works by clicking a button on the card:',
-            finalSection: '## Final CTA & Footer'
           },
           {
             id: 'results',

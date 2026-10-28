@@ -1,6 +1,7 @@
 ﻿import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from '../contexts/LanguageContext'
+import { cancelScrollToTarget, scrollToTarget } from '../utils/scrollToTarget'
 
 // Sections to track. Their order is read from the DOM at runtime, so the
 // list does not have to match the order they happen to be rendered in.
@@ -30,9 +31,10 @@ const Header = () => {
 
   /* ── Navigation ─────────────────────────────────────── */
 
+  // Long case pages keep growing while their media loads, so a single
+  // scrollIntoView can stop short of the target — scrollToTarget re-aligns it.
   const scrollToAnchor = (id) => {
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    scrollToTarget(id)
   }
 
   // While already on the homepage we scroll in place instead of letting the
@@ -40,6 +42,7 @@ const Header = () => {
   const handleHomeClick = (e) => {
     if (!isHome) return
     e.preventDefault()
+    cancelScrollToTarget()
     window.scrollTo({ top: 0, behavior: 'smooth' })
     navigate('/', { replace: true })
   }
@@ -365,9 +368,6 @@ const Header = () => {
               }}
             >
               {t('nav.contact')}
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
             </button>
 
             <button
@@ -481,9 +481,6 @@ const Header = () => {
             <div className="mobile-menu__footer">
               <button type="button" className="mobile-menu__contact" onClick={handleMobileContact}>
                 <span>{t('nav.contact')}</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
               </button>
             </div>
           </div>

@@ -135,7 +135,7 @@ const ContactSidebar = ({ isOpen, onClose }) => {
 
             <button
               type="submit"
-              className="btn-primary btn-gradient-glow w-full"
+              className="btn-primary w-full"
             >
               Send Message
             </button>

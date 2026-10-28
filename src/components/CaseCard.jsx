@@ -47,9 +47,6 @@ const CaseCard = ({ project, priority = false }) => {
 
       <span className="case-card__link">
         {t('projects.viewCase')}
-        <span className="case-card__arrow" aria-hidden="true">
-          →
-        </span>
       </span>
     </div>
   )

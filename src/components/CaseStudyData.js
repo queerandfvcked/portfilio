@@ -107,13 +107,7 @@ export function getCaseStudies(t, language = 'ru') {
 
           content: t('caseStudies.zhabka.sections.2.content'),
 
-          images: [],
-
-          accordionTitle: t('caseStudies.zhabka.sections.2.accordionTitle'),
-
-          flowSteps: t('caseStudies.zhabka.sections.2.flowSteps'),
-
-          items: t('caseStudies.zhabka.sections.2.items')
+          images: []
 
         },
 
@@ -130,9 +124,7 @@ export function getCaseStudies(t, language = 'ru') {
 
           content: tx('caseStudies.zhabka.sections.3.content'),
 
-          images: [],
-
-          items: t('caseStudies.zhabka.sections.3.items')
+          images: []
 
         },
 
@@ -434,31 +426,7 @@ export function getCaseStudies(t, language = 'ru') {
           lead: tx('caseStudies.keeplApp.sections.8.lead'),
           content: tx('caseStudies.keeplApp.sections.8.content') || '',
 
-          images: [],
-
-          imagePairs: [
-
-            {
-
-              desktop: '/assets/keepl app/log_in.png',
-
-              mobile: '/assets/keepl app/log_in 1.png'
-
-            }
-
-          ],
-
-          onboardingImages: [
-
-            '/assets/keepl app/onboarding.png',
-
-            '/assets/keepl app/onboarding 2.png',
-
-            '/assets/keepl app/onboarding 3.png',
-
-            '/assets/keepl app/onboarding 4.png'
-
-          ]
+          images: []
 
         },
 
@@ -656,17 +624,7 @@ export function getCaseStudies(t, language = 'ru') {
           nav: tx('caseStudies.hiredApp.sections.4.nav'),
           lead: tx('caseStudies.hiredApp.sections.4.lead'),
 
-          content: t('caseStudies.hiredApp.sections.4.content'),
-
-          additionalContent: t('caseStudies.hiredApp.sections.4.additionalContent'),
-
-          moreContent: t('caseStudies.hiredApp.sections.4.moreContent'),
-
-          images: t('caseStudies.hiredApp.sections.4.images'),
-
-          finalImages: t('caseStudies.hiredApp.sections.4.finalImages'),
-
-          additionalImages: t('caseStudies.hiredApp.sections.4.additionalImages')
+          content: t('caseStudies.hiredApp.sections.4.content')
 
         },
 
@@ -681,25 +639,7 @@ export function getCaseStudies(t, language = 'ru') {
           nav: tx('caseStudies.hiredApp.sections.5.nav'),
           lead: tx('caseStudies.hiredApp.sections.5.lead'),
 
-          content: t('caseStudies.hiredApp.sections.5.content'),
-
-          additionalContent: t('caseStudies.hiredApp.sections.5.additionalContent'),
-
-          moreContent: t('caseStudies.hiredApp.sections.5.moreContent'),
-
-          images: t('caseStudies.hiredApp.sections.5.images'),
-
-          additionalImages: t('caseStudies.hiredApp.sections.5.additionalImages'),
-
-          additionalContent2: t('caseStudies.hiredApp.sections.5.additionalContent2'),
-
-          additionalContent3: t('caseStudies.hiredApp.sections.5.additionalContent3'),
-
-          additionalContent4: t('caseStudies.hiredApp.sections.5.additionalContent4'),
-
-          additionalContent5: t('caseStudies.hiredApp.sections.5.additionalContent5'),
-
-          finalImages: t('caseStudies.hiredApp.sections.5.finalImages')
+          content: t('caseStudies.hiredApp.sections.5.content')
 
         },
 
@@ -714,29 +654,7 @@ export function getCaseStudies(t, language = 'ru') {
           nav: tx('caseStudies.hiredApp.sections.6.nav'),
           lead: tx('caseStudies.hiredApp.sections.6.lead'),
 
-          content: t('caseStudies.hiredApp.sections.6.content'),
-
-          additionalContent: t('caseStudies.hiredApp.sections.6.additionalContent'),
-
-          images: t('caseStudies.hiredApp.sections.6.images'),
-
-          additionalContent2: t('caseStudies.hiredApp.sections.6.additionalContent2'),
-
-          additionalImages: t('caseStudies.hiredApp.sections.6.additionalImages'),
-
-          additionalContent3: t('caseStudies.hiredApp.sections.6.additionalContent3'),
-
-          additionalContent4: t('caseStudies.hiredApp.sections.6.additionalContent4'),
-
-          additionalImages2: t('caseStudies.hiredApp.sections.6.additionalImages2'),
-
-          additionalContent5: t('caseStudies.hiredApp.sections.6.additionalContent5'),
-
-          additionalImages3: t('caseStudies.hiredApp.sections.6.additionalImages3'),
-
-          additionalContent6: t('caseStudies.hiredApp.sections.6.additionalContent6'),
-
-          additionalContent7: t('caseStudies.hiredApp.sections.6.additionalContent7')
+          content: t('caseStudies.hiredApp.sections.6.content')
 
         }
 
@@ -870,43 +788,7 @@ export function getCaseStudies(t, language = 'ru') {
 
           content: t('caseStudies.keeplLanding.sections.3.content'),
 
-          images: ['/assets/keepl landing page/Hero-section & Philosophy.png'],
-
-          imageFullWidth: true,
-
-          additionalContent: t('caseStudies.keeplLanding.sections.3.additionalContent'),
-
-          additionalImages: ['/assets/keepl landing page/What can you do with Keepl.png'],
-
-          moreContent: t('caseStudies.keeplLanding.sections.3.moreContent'),
-
-          finalImages: ['/assets/keepl landing page/Features.png'],
-
-          lastContent: t('caseStudies.keeplLanding.sections.3.lastContent'),
-
-          imagePairs: [
-
-            {
-
-              desktop: '/assets/keepl landing page/card 1.png',
-
-              mobile: '/assets/keepl landing page/card 1.png'
-
-            },
-
-            {
-
-              desktop: '/assets/keepl landing page/card 2.png',
-
-              mobile: '/assets/keepl landing page/card 2.png'
-
-            }
-
-          ],
-
-          finalSection: t('caseStudies.keeplLanding.sections.3.finalSection'),
-
-          ctaImage: '/assets/keepl landing page/CTA and footer.png'
+          images: []
 
         },
 

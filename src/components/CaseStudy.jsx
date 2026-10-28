@@ -10,6 +10,7 @@ import CaseChapter from './CaseChapter'
 import CaseScene from './CaseScene'
 import CaseCard from './CaseCard'
 import CaseRows from './case-blocks/CaseRows'
+import { cancelScrollToTarget, scrollToTarget } from '../utils/scrollToTarget'
 
 const hasValue = (value) =>
   typeof value === 'string' && value.trim() !== '' && !value.startsWith('casePage.')
@@ -21,15 +22,6 @@ const hasSectionBody = (section) => {
 
   return Boolean(
     (section.images && section.images.length > 0) ||
-    (section.imagePairs && section.imagePairs.length > 0) ||
-    (section.onboardingImages && section.onboardingImages.length > 0) ||
-    (section.additionalImages && section.additionalImages.length > 0) ||
-    (section.items && section.items.length > 0) ||
-    (section.flowSteps && section.flowSteps.length > 0) ||
-    section.additionalContent ||
-    section.additionalContent2 ||
-    section.additionalContent3 ||
-    section.moreContent ||
     section.landingLinks
   )
 }
@@ -56,7 +48,6 @@ const CaseStudy = () => {
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
-  const [currentSlide, setCurrentSlide] = useState(0)
   const contentRef = useRef(null)
 
   const caseStudies = getCaseStudies(t, language)
@@ -189,25 +180,26 @@ const CaseStudy = () => {
     return () => observer.disconnect()
   }, [slug, language])
 
+  useEffect(() => cancelScrollToTarget, [])
+
   const scrollToSection = (sectionId) => {
-    if (sections.find((section) => section.id === sectionId)?.collapsible) {
+    const isCollapsible = Boolean(sections.find((section) => section.id === sectionId)?.collapsible)
+
+    if (isCollapsible) {
       setExpandedSections((prev) => ({ ...prev, [sectionId]: true }))
     }
 
-    window.setTimeout(() => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-    }, 40)
+    // Give a collapsible chapter a frame to expand before measuring it.
+    scrollToTarget(sectionId, { delay: isCollapsible ? 60 : 0 })
   }
 
   const scrollToTop = () => {
+    cancelScrollToTarget()
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const openLandingChapter = () => {
-    setExpandedSections((prev) => ({ ...prev, landing: true }))
-    window.setTimeout(() => {
-      document.getElementById('landing')?.scrollIntoView({ behavior: 'smooth' })
-    }, 40)
+    scrollToSection('landing')
   }
 
   if (!currentCase) {
@@ -395,14 +387,9 @@ const CaseStudy = () => {
                     <div className="case-chapter__content">
                       <RegularSection
                         section={section}
-                        isActive={activeSection === section.id}
-                        slug={slug}
                         t={t}
-                        language={language}
                         formatContent={formatContent}
                         openImageModal={openImageModal}
-                        currentSlide={currentSlide}
-                        setCurrentSlide={setCurrentSlide}
                         embedded
                         hideHeading
                       />

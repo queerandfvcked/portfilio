@@ -1494,14 +1494,3 @@ button.case-stage__media {
 .case-slider--single {
   gap: 0;
 }
-
-/* Legacy captions (raw HTML image grids outside ::: blocks). */
-.case-figure-caption {
-  margin-top: 8px;
-}
-
-/* Legacy image grids are followed by a prose block with Tailwind's mt-12
-   (48px). After a caption the normal section rhythm applies instead. */
-.case-chapter__content .grid:has(.case-figure-caption) + .prose {
-  margin-top: 32px;
-}
