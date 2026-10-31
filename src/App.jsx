@@ -73,11 +73,10 @@ function HomePage() {
   )
 }
 
-function App() {
+export function AppContent() {
   return (
-    <Router>
-      <LanguageProvider>
-        <div className="min-h-screen">
+    <LanguageProvider>
+      <div className="min-h-screen">
           <Header />
           <main>
             <ScrollToTop>
@@ -99,9 +98,16 @@ function App() {
               </Routes>
             </ScrollToTop>
           </main>
-          <Footer />
-        </div>
-      </LanguageProvider>
+        <Footer />
+      </div>
+    </LanguageProvider>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   )
 }

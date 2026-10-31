@@ -368,7 +368,7 @@ const CaseStudy = () => {
         </section>
       )}
 
-      <main className="case-main">
+      <div className="case-main">
         <div className="container">
           <div className="case-layout">
             <div className="case-toc">
@@ -456,7 +456,7 @@ const CaseStudy = () => {
             </div>
           </section>
         )}
-      </main>
+      </div>
 
       {selectedImage && (
         <>
@@ -479,7 +479,7 @@ const CaseStudy = () => {
                   src={selectedImage}
                   alt="Enlarged view"
                   className={`object-contain rounded-lg transition-transform duration-200 ${
-                    imageScale > 1 && window.innerWidth > 768 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'
+                    imageScale > 1 && typeof window !== 'undefined' && window.innerWidth > 768 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'
                   }`}
                   style={{
                     transform: `scale(${imageScale}) translate(${imagePosition.x / imageScale}px, ${imagePosition.y / imageScale}px)`,
@@ -495,7 +495,7 @@ const CaseStudy = () => {
               </div>
             </div>
 
-            {window.innerWidth > 768 && (
+            {typeof window !== 'undefined' && window.innerWidth > 768 && (
               <p className="fixed bottom-4 right-8 text-secondary text-sm pointer-events-none">{t('common.zoomHint')}</p>
             )}
           </div>
