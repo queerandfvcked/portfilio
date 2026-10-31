@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from '../contexts/LanguageContext'
 import useSpotlight from '../hooks/useSpotlight'
 import CaseScene, { CASE_GLOW } from './CaseScene'
+import { localizedPath } from '../utils/localizedPath'
 
 const CaseCard = ({ project, priority = false }) => {
-  const { t } = useTranslation()
+  const { t, language } = useTranslation()
   const cardRef = useRef(null)
 
   const isWide = project.variant === 'wide'
@@ -54,7 +55,7 @@ const CaseCard = ({ project, priority = false }) => {
   return (
     <Link
       ref={cardRef}
-      to={project.link}
+      to={localizedPath(language, project.link)}
       className={`case-card ${isWide ? `case-card--wide case-card--${project.id === 'zhabka' ? 'zhabka' : 'keepl'}` : 'case-card--compact'}`}
       style={{
         '--glow-rgb': glow.rgb,

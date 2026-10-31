@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from '../contexts/LanguageContext'
 import useSpotlight from '../hooks/useSpotlight'
+import { localizedPath } from '../utils/localizedPath'
 
 const CONTACT_HREFS = {
   telegram: 'https://t.me/icedcreamsoda',
@@ -120,8 +121,8 @@ const Footer = () => {
         <div className="footer-bottom">
           <p className="footer-bottom__copy">© {currentYear} – Andrian Shtark</p>
           <nav className="footer-bottom__nav" aria-label={contact.label}>
-            <a className="footer-bottom__link" href="/#projects">{t('nav.projects')}</a>
-            <a className="footer-bottom__link" href="/#about">{t('nav.about')}</a>
+            <a className="footer-bottom__link" href={localizedPath(language, '/#projects')}>{t('nav.projects')}</a>
+            <a className="footer-bottom__link" href={localizedPath(language, '/#about')}>{t('nav.about')}</a>
             <a className="footer-bottom__link" href="#contact">{t('nav.contact')}</a>
           </nav>
         </div>

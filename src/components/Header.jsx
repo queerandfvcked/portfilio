@@ -2,6 +2,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from '../contexts/LanguageContext'
 import { cancelScrollToTarget, scrollToTarget } from '../utils/scrollToTarget'
+import { isHomePath, localizedPath } from '../utils/localizedPath'
 
 // Sections to track. Their order is read from the DOM at runtime, so the
 // list does not have to match the order they happen to be rendered in.
@@ -26,7 +27,7 @@ const Header = () => {
   const mobileMenuRef = useRef(null)
   const menuWasOpen = useRef(false)
 
-  const isHome = location.pathname === '/'
+  const isHome = isHomePath(location.pathname)
   const showHeaderSurface = isScrolled && !isMobileMenuOpen
 
   /* ── Navigation ─────────────────────────────────────── */
@@ -44,7 +45,7 @@ const Header = () => {
     e.preventDefault()
     cancelScrollToTarget()
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    navigate('/', { replace: true })
+    navigate(localizedPath(language, '/'), { replace: true })
   }
 
   const handleSectionClick = (e, id) => {
@@ -225,7 +226,7 @@ const Header = () => {
 
   const navLinkClass = 'block px-4 py-2 rounded-full text-[13px] font-semibold transition-colors duration-200'
 
-  const navTarget = (item) => (item.id === 'home' ? '/' : `/#${item.id}`)
+  const navTarget = (item) => localizedPath(language, item.id === 'home' ? '/' : `/#${item.id}`)
 
   const navOnClick = (item) => (item.id === 'home' ? handleHomeClick : (e) => handleSectionClick(e, item.id))
 
@@ -295,7 +296,7 @@ const Header = () => {
           <div className="container h-full">
             <div className="flex h-full items-center justify-between gap-4">
           <Link
-            to="/"
+            to={localizedPath(language, '/')}
             onClick={handleHomeClick}
             className="flex items-center gap-2.5 shrink-0 group"
             aria-label="Andrian Shtark"

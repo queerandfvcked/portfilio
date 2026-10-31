@@ -1,5 +1,5 @@
 ﻿import { useState, useEffect, useRef } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, useLocation, Link } from 'react-router-dom'
 import { useTranslation } from '../contexts/LanguageContext'
 import CaseNavigation from './CaseNavigation'
 import { getCaseStudies } from './CaseStudyData'
@@ -11,6 +11,7 @@ import CaseScene from './CaseScene'
 import CaseCard from './CaseCard'
 import CaseRows from './case-blocks/CaseRows'
 import { cancelScrollToTarget, scrollToTarget } from '../utils/scrollToTarget'
+import { LANGUAGES, localizedPath } from '../utils/localizedPath'
 
 const hasValue = (value) =>
   typeof value === 'string' && value.trim() !== '' && !value.startsWith('casePage.')
@@ -38,8 +39,11 @@ const makeTeaser = (section) => {
 }
 
 const CaseStudy = () => {
-  const { slug } = useParams()
+  const { lang, slug: routeSlug } = useParams()
   const { t, language } = useTranslation()
+  const location = useLocation()
+  // /xx/zhabka must not render a real case: only /ru and /en are valid prefixes.
+  const slug = lang === undefined || LANGUAGES.includes(lang) ? routeSlug : undefined
 
   const [activeSection, setActiveSection] = useState('')
   const [expandedSections, setExpandedSections] = useState({})
@@ -180,6 +184,19 @@ const CaseStudy = () => {
     return () => observer.disconnect()
   }, [slug, language])
 
+  // Deep links like /ru/keepl-app#metrics: the hash has to survive both a hard
+  // load and a language switch, so align the named chapter once it is rendered.
+  useEffect(() => {
+    if (!location.hash) return
+
+    const id = decodeURIComponent(location.hash.slice(1))
+    if (!id) return
+
+    const timer = window.setTimeout(() => scrollToTarget(id), 80)
+
+    return () => window.clearTimeout(timer)
+  }, [slug, language, location.hash])
+
   useEffect(() => cancelScrollToTarget, [])
 
   const scrollToSection = (sectionId) => {
@@ -207,7 +224,7 @@ const CaseStudy = () => {
       <div className="case-page min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="font-heading text-3xl font-bold text-primary mb-8">{t('casePage.notFound')}</h1>
-          <Link to="/" className="btn-accent">
+          <Link to={localizedPath(language, '/')} className="btn-accent">
             {t('casePage.backHome')}
           </Link>
         </div>
@@ -241,7 +258,7 @@ const CaseStudy = () => {
         <AmbientBackground />
 
         <div className="container case-hero__inner">
-          <Link to="/#projects" className="case-back">
+          <Link to={localizedPath(language, '/#projects')} className="case-back">
             {t('casePage.back')}
           </Link>
 
@@ -277,7 +294,7 @@ const CaseStudy = () => {
                     }
 
                     return (
-                      <Link key={link.label} to={link.href} className={className}>
+                      <Link key={link.label} to={localizedPath(language, link.href)} className={className}>
                         {link.label}
                       </Link>
                     )
@@ -521,32 +538,36 @@ const CaseStudy = () => {
   )
 }
 
-const LandingLinks = ({ links }) => (
-  <div className="case-links">
-    {links.map((link) => {
-      const className = link.kind === 'primary' ? 'btn-accent' : 'btn-ghost'
+const LandingLinks = ({ links }) => {
+  const { language } = useTranslation()
 
-      if (link.external) {
+  return (
+    <div className="case-links">
+      {links.map((link) => {
+        const className = link.kind === 'primary' ? 'btn-accent' : 'btn-ghost'
+
+        if (link.external) {
+          return (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={className}
+            >
+              {link.label}
+            </a>
+          )
+        }
+
         return (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={className}
-          >
+          <Link key={link.label} to={localizedPath(language, link.href)} className={className}>
             {link.label}
-          </a>
+          </Link>
         )
-      }
-
-      return (
-        <Link key={link.label} to={link.href} className={className}>
-          {link.label}
-        </Link>
-      )
-    })}
-  </div>
-)
+      })}
+    </div>
+  )
+}
 
 export default CaseStudy

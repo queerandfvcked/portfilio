@@ -1,4 +1,6 @@
-﻿const isMissingTranslation = (value, key) =>
+﻿import { localizedPath } from '../utils/localizedPath'
+
+const isMissingTranslation = (value, key) =>
   value == null ||
   value === '' ||
   (typeof value === 'string' &&
@@ -475,7 +477,7 @@ export function getCaseStudies(t, language = 'ru') {
 
             { label: t('casePage.landingCta'), href: 'https://keepl.vercel.app/', kind: 'primary', external: true },
 
-            { label: t('casePage.fullCase'), href: '/keepl-landing', kind: 'ghost' }
+            { label: t('casePage.fullCase'), href: localizedPath(language, '/keepl-landing'), kind: 'ghost' }
 
           ]
 

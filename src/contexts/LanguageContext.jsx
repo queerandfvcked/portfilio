@@ -1,4 +1,6 @@
-import React, { createContext, useState, useContext, useEffect } from 'react'
+import React, { createContext, useContext, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { getLanguageFromPath, localizedPath } from '../utils/localizedPath'
 
 const translations = {
   ru: {
@@ -2062,11 +2064,11 @@ export const useTranslation = () => {
 }
 
 export const LanguageProvider = ({ children }) => {
-  // Инициализируем язык из localStorage или по умолчанию 'ru'
-  const [language, setLanguage] = useState(() => {
-    const savedLanguage = localStorage.getItem('language')
-    return savedLanguage || 'ru'
-  })
+  // Язык живёт в URL: /ru/... и /en/... — единственный источник правды.
+  // Всё, что не начинается с /en, считается языком по умолчанию.
+  const location = useLocation()
+  const navigate = useNavigate()
+  const language = getLanguageFromPath(location.pathname)
 
   const t = (key) => {
     const keys = key.split('.')
@@ -2086,11 +2088,16 @@ export const LanguageProvider = ({ children }) => {
     document.documentElement.lang = language
   }, [language])
 
+  // Переключатель остаётся на той же странице: меняется только языковой префикс,
+  // slug, query и hash сохраняются.
   const toggleLanguage = () => {
     const newLanguage = language === 'ru' ? 'en' : 'ru'
-    setLanguage(newLanguage)
-    // Сохраняем выбор в localStorage
-    localStorage.setItem('language', newLanguage)
+    const target = localizedPath(
+      newLanguage,
+      `${location.pathname}${location.search}${location.hash}`
+    )
+
+    navigate(target, { replace: true })
   }
 
   return (

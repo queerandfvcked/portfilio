@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom'
 import { LanguageProvider } from './contexts/LanguageContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -8,10 +8,33 @@ import Projects from './components/Projects'
 import CaseStudy from './components/CaseStudy'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import { DEFAULT_LANGUAGE, LANGUAGES, localizedPath } from './utils/localizedPath'
 
 const CaseBlocksDevPage = import.meta.env.DEV
   ? lazy(() => import('./pages/CaseBlocksDevPage'))
   : null
+
+// Keep in sync with the top-level keys in CaseStudyData.js.
+const CASE_SLUGS = ['zhabka', 'keepl-app', 'keepl-landing', 'hired-app', 'add-transition']
+
+const RedirectToDefaultLanguage = ({ path = '/' }) => {
+  const location = useLocation()
+  const target = localizedPath(
+    DEFAULT_LANGUAGE,
+    `${path}${location.search}${location.hash}`
+  )
+
+  return <Navigate to={target} replace />
+}
+
+const RootSegment = () => {
+  const { slug } = useParams()
+
+  if (LANGUAGES.includes(slug)) return <HomePage />
+  if (CASE_SLUGS.includes(slug)) return <RedirectToDefaultLanguage path={`/${slug}`} />
+
+  return <CaseStudy />
+}
 
 function HomePage() {
   useEffect(() => {
@@ -52,14 +75,14 @@ function HomePage() {
 
 function App() {
   return (
-    <LanguageProvider>
-      <Router>
+    <Router>
+      <LanguageProvider>
         <div className="min-h-screen">
           <Header />
           <main>
             <ScrollToTop>
               <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<RedirectToDefaultLanguage />} />
                 {CaseBlocksDevPage && (
                   <Route
                     path="/dev/blocks"
@@ -70,14 +93,16 @@ function App() {
                     )}
                   />
                 )}
-                <Route path="/:slug" element={<CaseStudy />} />
+                <Route path="/:slug" element={<RootSegment />} />
+                <Route path="/:lang/:slug" element={<CaseStudy />} />
+                <Route path="*" element={<CaseStudy />} />
               </Routes>
             </ScrollToTop>
           </main>
           <Footer />
         </div>
-      </Router>
-    </LanguageProvider>
+      </LanguageProvider>
+    </Router>
   )
 }
 

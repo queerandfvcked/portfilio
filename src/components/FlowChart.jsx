@@ -1,5 +1,7 @@
 import React, { useEffect, useId, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from '../contexts/LanguageContext'
+import { localizedPath } from '../utils/localizedPath'
 
 const VIEW_WIDTH = 1160
 const NODE_Y = 110
@@ -27,6 +29,7 @@ const FlowChart = ({
   className = '',
   defaultFirstStep = false
 }) => {
+  const { language } = useTranslation()
   const copy = {
     yes: labels.yes ?? '',
     no: labels.no ?? '',
@@ -126,7 +129,7 @@ const FlowChart = ({
     }
 
     return (
-      <Link to={link.href} className={className}>
+      <Link to={localizedPath(language, link.href)} className={className}>
         {link.label}
         <span aria-hidden="true">→</span>
       </Link>
