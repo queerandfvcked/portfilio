@@ -11,6 +11,13 @@
   ],
   "routes": [
     {
+      "src": "/about\\.md",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "continue": true
+    },
+    {
       "src": "/",
       "status": 307,
       "headers": {
