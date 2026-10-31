@@ -11,6 +11,20 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "status": 307,
+      "headers": {
+        "Location": "/ru"
+      }
+    },
+    {
+      "src": "/(zhabka|keepl-app|keepl-landing|hired-app|add-transition)/?$",
+      "status": 308,
+      "headers": {
+        "Location": "/ru/$1"
+      }
+    },
+    {
       "src": "/(favicon\\.ico|favicon\\.png|favicon\\.svg|favicon-16x16\\.png|apple-touch-icon\\.png)",
       "dest": "/$1",
       "headers": {

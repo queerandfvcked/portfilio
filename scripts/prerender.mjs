@@ -30,10 +30,26 @@ const stripManagedHeadTags = (html) =>
     .replace(/<meta\b(?=[^>]*(?:name|property)="(?:description|og:[^"]+|twitter:[^"]+)")[^>]*>\s*/gi, '')
     .replace(/<link\b(?=[^>]*rel="(?:canonical|alternate)")[^>]*>\s*/gi, '')
 
+const renderPersonJsonLd = (meta) => {
+  if (meta.slug) return null
+
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Andrian Shtark',
+    jobTitle: 'Product Designer',
+    url: meta.canonical,
+    sameAs: ['https://www.linkedin.com/in/andrian-shtark-19b0b23b1']
+  }
+
+  return `  <script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`
+}
+
 const renderHead = (meta) => {
   const alternates = meta.alternates
     .map((item) => `  <link rel="alternate" hreflang="${escapeHtml(item.hreflang)}" href="${escapeHtml(item.href)}">`)
     .join('\n')
+  const jsonLd = renderPersonJsonLd(meta)
 
   return [
     `  <title>${escapeHtml(meta.title)}</title>`,
@@ -51,7 +67,8 @@ const renderHead = (meta) => {
     '  <meta name="twitter:card" content="summary_large_image">',
     `  <meta name="twitter:title" content="${escapeHtml(meta.title)}">`,
     `  <meta name="twitter:description" content="${escapeHtml(meta.description)}">`,
-    `  <meta name="twitter:image" content="${escapeHtml(meta.image)}">`
+    `  <meta name="twitter:image" content="${escapeHtml(meta.image)}">`,
+    ...(jsonLd ? [jsonLd] : [])
   ].join('\n')
 }
 

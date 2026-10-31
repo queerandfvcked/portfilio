@@ -1,21 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://andrianshtark.vercel.app/</loc>
+    <loc>https://andrianshtark.vercel.app/ru</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en" />
   </url>
   <url>
-    <loc>https://andrianshtark.vercel.app/zhabka</loc>
+    <loc>https://andrianshtark.vercel.app/en</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en" />
   </url>
   <url>
-    <loc>https://andrianshtark.vercel.app/keepl-app</loc>
+    <loc>https://andrianshtark.vercel.app/ru/zhabka</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/zhabka" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/zhabka" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/zhabka" />
   </url>
   <url>
-    <loc>https://andrianshtark.vercel.app/keepl-landing</loc>
+    <loc>https://andrianshtark.vercel.app/en/zhabka</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/zhabka" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/zhabka" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/zhabka" />
   </url>
   <url>
-    <loc>https://andrianshtark.vercel.app/hired-app</loc>
+    <loc>https://andrianshtark.vercel.app/ru/keepl-app</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/keepl-app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/keepl-app" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/keepl-app" />
   </url>
   <url>
-    <loc>https://andrianshtark.vercel.app/add-transition</loc>
+    <loc>https://andrianshtark.vercel.app/en/keepl-app</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/keepl-app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/keepl-app" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/keepl-app" />
+  </url>
+  <url>
+    <loc>https://andrianshtark.vercel.app/ru/keepl-landing</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/keepl-landing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/keepl-landing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/keepl-landing" />
+  </url>
+  <url>
+    <loc>https://andrianshtark.vercel.app/en/keepl-landing</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/keepl-landing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/keepl-landing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/keepl-landing" />
+  </url>
+  <url>
+    <loc>https://andrianshtark.vercel.app/ru/hired-app</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/hired-app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/hired-app" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/hired-app" />
+  </url>
+  <url>
+    <loc>https://andrianshtark.vercel.app/en/hired-app</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/hired-app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/hired-app" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/hired-app" />
+  </url>
+  <url>
+    <loc>https://andrianshtark.vercel.app/ru/add-transition</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/add-transition" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/add-transition" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/add-transition" />
+  </url>
+  <url>
+    <loc>https://andrianshtark.vercel.app/en/add-transition</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/add-transition" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/add-transition" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/add-transition" />
   </url>
 </urlset>
