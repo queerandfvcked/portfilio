@@ -318,9 +318,9 @@ export const translations = {
         subtitle: 'Web & Mobile',
         description: 'Персональный AI-ассистент для поиска работы, который анализирует вакансии из Telegram, отбирает релевантные предложения и объясняет, почему они подходят именно пользователю. От идеи и UX-концепции до рабочего MVP с AI-интеграцией.',
         tags: ['Product Design', 'AI', 'PWA', 'Frontend (React)'],
-        heroImage: '/assets/zhabka casecard.png',
+        heroImage: '/assets/zhabka casecard.webp',
         heroImages: [
-          '/assets/zhabka casecard.png'
+          '/assets/zhabka casecard.webp'
         ],
         sections: [
           {
@@ -362,18 +362,18 @@ circle | AI-чат | Вместо сложных настроек пользов
 :::
 
 :::stage layout=pair
-/assets/zhabka/profile.png | Профиль поиска: десктоп
-/assets/zhabka/profile mob.png | Профиль поиска: мобильная версия
+/assets/zhabka/profile.webp | Профиль поиска: десктоп
+/assets/zhabka/profile mob.webp | Профиль поиска: мобильная версия
 :::
 
 :::stage layout=pair
-/assets/zhabka/inbox right drawer.png | Лента вакансий: десктоп
-/assets/zhabka/mob inbox right drawer.png | Лента вакансий: мобильная версия
+/assets/zhabka/inbox right drawer.webp | Лента вакансий: десктоп
+/assets/zhabka/mob inbox right drawer.webp | Лента вакансий: мобильная версия
 :::
 
 :::stage layout=pair
-/assets/zhabka/inbox chat.png | AI-чат: десктоп
-/assets/zhabka/mob inbox chat.png | AI-чат: мобильная версия
+/assets/zhabka/inbox chat.webp | AI-чат: десктоп
+/assets/zhabka/mob inbox chat.webp | AI-чат: мобильная версия
 :::`,
             images: [],
           },
@@ -392,12 +392,12 @@ circle | AI-чат | Вместо сложных настроек пользов
 :::
 
 :::stage layout=single
-/assets/zhabka/sync.png | Статус синхронизации в интерфейсе
+/assets/zhabka/sync.webp | Статус синхронизации в интерфейсе
 :::
 
 :::stage layout=pair
-/assets/zhabka/settings.png | Настройки источников: десктоп
-/assets/zhabka/settings mob.png | Настройки источников: мобильная версия
+/assets/zhabka/settings.webp | Настройки источников: десктоп
+/assets/zhabka/settings mob.webp | Настройки источников: мобильная версия
 :::`,
             images: [],
           },
@@ -488,11 +488,11 @@ JSON-файлы, Python-скрипты
         subtitle: 'Mobile App',
         description: 'Веб-приложение для достижения целей. Помогает пользователям отслеживать прогресс, учитывать эмоциональное состояние и бороться с выгоранием. Проектирование продукта с нуля: от анализа рынка и гипотез до разработки адаптивной дизайн-системы.',
         tags: ['Product Design', 'PWA', 'Frontend (React)'],
-        heroImage: '/assets/keepl app.png',
+        heroImage: '/assets/keepl app.webp',
         heroImages: [
-          '/assets/keepl app.png',
-          '/assets/keepl app/home_placeholder.png',
-          '/assets/keepl app/create_new_goal.png'
+          '/assets/keepl app.webp',
+          '/assets/keepl app/home_placeholder.webp',
+          '/assets/keepl app/create_new_goal.webp'
         ],
         sections: [
           {
@@ -502,7 +502,7 @@ JSON-файлы, Python-скрипты
             title: 'Из небольшого эксперимента вырос *продукт*',
             lead: 'Проект начался как эксперимент: я провёл небольшие интервью с друзьями, чтобы понять, с какими трудностями они сталкиваются при достижении своих задач и целей. На основе этих наблюдений я попробовал спроектировать несколько экранов мобильного приложения, которое помогает пользователю отслеживать прогресс и поддерживать мотивацию. Опыт оказался интересным, и я решил развить его в полноценный продукт.',
             content: '',
-            images: ['/assets/mini-research.png']
+            images: ['/assets/mini-research.webp']
           },
           {
             id: 'problem',
@@ -595,7 +595,7 @@ JSON-файлы, Python-скрипты
             nav: 'UI',
             title: 'Спокойный интерфейс вместо *агрессивной* продуктивности',
             lead: 'Дизайн Keepl отошёл от агрессивных интерфейсов продуктивности и сфокусировался на поддерживающей, гибкой и осознанной среде для достижения целей.',
-            content: `Я использовал мягкие скругления и тени, чтобы снизить визуальную резкость, и спокойную палитру, которая не режет глаз при ежедневном использовании. Мобильная версия сделана как PWA: её можно сохранить на хоум скрин и пользоваться как обычным приложением. Чтобы она вела себя нативно, сайд бар сменился таб баром, а модалки стали bottom sheet.\n\n### Главный челлендж: форма создания цели\n\nГлавный челлендж был не в архитектуре, а в том, чтобы сделать её понятной. Из-за множества параметров форма создания цели несколько раз перерабатывалась: я упрощал последовательность шагов, сокращал когнитивную нагрузку и убирал перегруженные состояния, проверяя сценарий неформально. Продукт ещё не запущен, поэтому это были качественные итерации; после запуска я бы валидировал решение через completion rate и drop-off на этапе создания цели.\n\n## Первый вход в приложение\n\n:::slider\n/assets/keepl app/log_in.png | Десктоп\n/assets/keepl app/log_in 1.png | Мобильная версия\n:::\n\n:::gallery cols=2\n/assets/keepl app/onboarding.png | Шаг 1\n/assets/keepl app/onboarding 2.png | Шаг 2\n/assets/keepl app/onboarding 3.png | Шаг 3\n/assets/keepl app/onboarding 4.png | Шаг 4\n:::\n\nПосле регистрации короткий онбординг подсвечивает ключевые возможности. Моя цель — сократить Time to Value, чтобы пользователь как можно быстрее понял пользу приложения.\n\n## Создание цели\n\nЭкран Home сразу предлагает создать цель: по кнопке пользователь попадает на экран создания.\n\n:::slider\n/assets/keepl app/home_placeholder.png | Home\n/assets/keepl app/create_new_goal.png | Create Goal\n:::\n\nВ отличие от большинства аналогичных сервисов, Keepl позволяет кастомизировать цель: выбирать единицы измерения, группировать подцели и добавлять лёгкую альтернативу. Чтобы гибкость не ударила по Activation Rate, я использовал постепенное раскрытие: сложные настройки опциональны, а при желании Keepl работает как обычный трекер привычек. Например, цель можно сделать одноразовой: тогда сабголы не обновляются ежедневно, а после их выполнения цель отмечается завершённой.\n\n:::slider\n/assets/keepl app/create_new_goal 1.png | Десктоп\n/assets/keepl app/create_goal.png | Мобильная версия\n:::\n\nПосле сохранения пользователь попадает на экран созданной цели. Круглый прогресс-бар за текущий день даёт мгновенную обратную связь, а карточка-мотиватор поддерживает эмоциональную вовлечённость: ценность продукта видна сразу, и есть повод вернуться завтра.\n\n:::slider\n/assets/keepl app/goal screen desktop.png | Десктоп\n/assets/keepl app/goal screen mobile.png | Мобильная версия\n:::\n\n## Ежедневный прогресс и эмоциональный фидбек\n\nЧтобы сохранить ощущение движения, даже если цель выполнена не полностью, я добавил ввод результата вручную. Частичный успех попадает в прогресс и графики, влияет на регулярность и поддерживает North Star Metric — weekly active goal days. Мгновенная визуализация на прогресс-баре даёт дофаминовый отклик и закрепляет паттерн ежедневного использования. Сервис не «принуждает», а мотивирует через визуализацию любого вложенного усилия.\n\nОпциональный трекер настроения собирает данные для рефлексии: в будущем это поможет увидеть связь между привычками и эмоциональным состоянием.\n\n:::slider\n/assets/keepl app/modal.png | Модальное окно\n/assets/keepl app/overlay.png | Оверлей\n:::\n\nОтмечать задачи можно и на главном экране Home. Там же сводка по сегодняшнему прогрессу (сколько задач выполнено по каждой цели, средний муд, совет-подсказка) и карточки сабголов: их можно закрыть сразу или дополнять прогресс мануальным вводом.\n\n:::slider\n/assets/keepl app/home.png | Десктоп\n/assets/keepl app/home mobile.png | Мобильная версия\n:::\n\n## Анализ и визуализация прогресса\n\nДля борьбы с выгоранием и повышения осознанности Keepl показывает аналитику: прогресс по цели можно смотреть во вкладках «Неделя» и «Месяц», чтобы видеть динамику и не терять фокус.\n\n:::slider\n/assets/keepl app/goal 2 desktop.png | Десктоп\n/assets/keepl app/goal 2 mobile.png | Мобильная версия\n:::\n\nКалендарь позволяет удобно перемещаться между временными периодами.\n\n:::stage layout=single\n/assets/keepl app/goaldetail calendar.png\n:::\n\nОбщая страница Progress даёт суммарную оценку активности по всем целям. Переход от детализации к обобщению помогает увидеть масштаб проделанной работы, что должно влиять на User Self-Efficacy.\n\n:::slider\n/assets/keepl app/progress desktop.png | Десктоп\n/assets/keepl app/progress mobile.png | Мобильная версия\n:::\n\nДля визуально-ориентированных целей, например фитнеса, я добавил Галерею: при создании цели пользователь выбирает, нужна ли загрузка фото. Если да, на странице цели появляется возможность добавлять изображения, а просматривать их можно там же или во вкладке «Галерея». Это не просто хранилище, а инструмент Emotional Retention: путь, увиденный через фото, даёт мощное визуальное подкрепление.\n\n:::slider\n/assets/keepl app/gallery 1 desktop.png | Десктоп\n/assets/keepl app/gallery 1 mobile.png | Мобильная версия\n:::\n\n:::slider\n/assets/keepl app/gallery 2 desktop.png | Десктоп\n/assets/keepl app/gallery 2 mobile.png | Мобильная версия\n:::\n\n## Завершение цели\n\nВ Keepl завершение цели полностью подконтрольно пользователю. Я намеренно отказался от жёстких дедлайнов, чтобы снизить тревожность и избежать давления временных рамок. Когда результат достигнут, цель можно завершить через простой флоу: она попадает в «завершённые», где графики, фото и история остаются доступными для рефлексии. Реактивация цели в один клик сохраняет гибкость: если пользователь решит вернуться к привычке, настраивать всё заново не нужно.\n\n:::slider\n/assets/keepl app/goals desktop.png | Десктоп\n/assets/keepl app/goals mobile.png | Мобильная версия\n:::\n\n## Профиль\n\nСервис на стадии MVP, поэтому настроек пока мало: можно сменить аватарку и юзернейм, поменять пароль и удалить аккаунт. Также я добавил раздел Quick Stats с общими показателями: количество активных дней и число выполненных подцелей. Он даёт ощущение масштаба проделанной работы на самом верхнем уровне.\n\n:::slider\n/assets/keepl app/profile desktop.png | Десктоп\n/assets/keepl app/profile mobile.png | Мобильная версия\n:::`,
+            content: `Я использовал мягкие скругления и тени, чтобы снизить визуальную резкость, и спокойную палитру, которая не режет глаз при ежедневном использовании. Мобильная версия сделана как PWA: её можно сохранить на хоум скрин и пользоваться как обычным приложением. Чтобы она вела себя нативно, сайд бар сменился таб баром, а модалки стали bottom sheet.\n\n### Главный челлендж: форма создания цели\n\nГлавный челлендж был не в архитектуре, а в том, чтобы сделать её понятной. Из-за множества параметров форма создания цели несколько раз перерабатывалась: я упрощал последовательность шагов, сокращал когнитивную нагрузку и убирал перегруженные состояния, проверяя сценарий неформально. Продукт ещё не запущен, поэтому это были качественные итерации; после запуска я бы валидировал решение через completion rate и drop-off на этапе создания цели.\n\n## Первый вход в приложение\n\n:::slider\n/assets/keepl app/log_in.webp | Десктоп\n/assets/keepl app/log_in 1.webp | Мобильная версия\n:::\n\n:::gallery cols=2\n/assets/keepl app/onboarding.webp | Шаг 1\n/assets/keepl app/onboarding 2.webp | Шаг 2\n/assets/keepl app/onboarding 3.webp | Шаг 3\n/assets/keepl app/onboarding 4.webp | Шаг 4\n:::\n\nПосле регистрации короткий онбординг подсвечивает ключевые возможности. Моя цель — сократить Time to Value, чтобы пользователь как можно быстрее понял пользу приложения.\n\n## Создание цели\n\nЭкран Home сразу предлагает создать цель: по кнопке пользователь попадает на экран создания.\n\n:::slider\n/assets/keepl app/home_placeholder.webp | Home\n/assets/keepl app/create_new_goal.webp | Create Goal\n:::\n\nВ отличие от большинства аналогичных сервисов, Keepl позволяет кастомизировать цель: выбирать единицы измерения, группировать подцели и добавлять лёгкую альтернативу. Чтобы гибкость не ударила по Activation Rate, я использовал постепенное раскрытие: сложные настройки опциональны, а при желании Keepl работает как обычный трекер привычек. Например, цель можно сделать одноразовой: тогда сабголы не обновляются ежедневно, а после их выполнения цель отмечается завершённой.\n\n:::slider\n/assets/keepl app/create_new_goal 1.webp | Десктоп\n/assets/keepl app/create_goal.webp | Мобильная версия\n:::\n\nПосле сохранения пользователь попадает на экран созданной цели. Круглый прогресс-бар за текущий день даёт мгновенную обратную связь, а карточка-мотиватор поддерживает эмоциональную вовлечённость: ценность продукта видна сразу, и есть повод вернуться завтра.\n\n:::slider\n/assets/keepl app/goal screen desktop.webp | Десктоп\n/assets/keepl app/goal screen mobile.webp | Мобильная версия\n:::\n\n## Ежедневный прогресс и эмоциональный фидбек\n\nЧтобы сохранить ощущение движения, даже если цель выполнена не полностью, я добавил ввод результата вручную. Частичный успех попадает в прогресс и графики, влияет на регулярность и поддерживает North Star Metric — weekly active goal days. Мгновенная визуализация на прогресс-баре даёт дофаминовый отклик и закрепляет паттерн ежедневного использования. Сервис не «принуждает», а мотивирует через визуализацию любого вложенного усилия.\n\nОпциональный трекер настроения собирает данные для рефлексии: в будущем это поможет увидеть связь между привычками и эмоциональным состоянием.\n\n:::slider\n/assets/keepl app/modal.webp | Модальное окно\n/assets/keepl app/overlay.webp | Оверлей\n:::\n\nОтмечать задачи можно и на главном экране Home. Там же сводка по сегодняшнему прогрессу (сколько задач выполнено по каждой цели, средний муд, совет-подсказка) и карточки сабголов: их можно закрыть сразу или дополнять прогресс мануальным вводом.\n\n:::slider\n/assets/keepl app/home.webp | Десктоп\n/assets/keepl app/home mobile.webp | Мобильная версия\n:::\n\n## Анализ и визуализация прогресса\n\nДля борьбы с выгоранием и повышения осознанности Keepl показывает аналитику: прогресс по цели можно смотреть во вкладках «Неделя» и «Месяц», чтобы видеть динамику и не терять фокус.\n\n:::slider\n/assets/keepl app/goal 2 desktop.webp | Десктоп\n/assets/keepl app/goal 2 mobile.webp | Мобильная версия\n:::\n\nКалендарь позволяет удобно перемещаться между временными периодами.\n\n:::stage layout=single\n/assets/keepl app/goaldetail calendar.webp\n:::\n\nОбщая страница Progress даёт суммарную оценку активности по всем целям. Переход от детализации к обобщению помогает увидеть масштаб проделанной работы, что должно влиять на User Self-Efficacy.\n\n:::slider\n/assets/keepl app/progress desktop.webp | Десктоп\n/assets/keepl app/progress mobile.webp | Мобильная версия\n:::\n\nДля визуально-ориентированных целей, например фитнеса, я добавил Галерею: при создании цели пользователь выбирает, нужна ли загрузка фото. Если да, на странице цели появляется возможность добавлять изображения, а просматривать их можно там же или во вкладке «Галерея». Это не просто хранилище, а инструмент Emotional Retention: путь, увиденный через фото, даёт мощное визуальное подкрепление.\n\n:::slider\n/assets/keepl app/gallery 1 desktop.webp | Десктоп\n/assets/keepl app/gallery 1 mobile.webp | Мобильная версия\n:::\n\n:::slider\n/assets/keepl app/gallery 2 desktop.webp | Десктоп\n/assets/keepl app/gallery 2 mobile.webp | Мобильная версия\n:::\n\n## Завершение цели\n\nВ Keepl завершение цели полностью подконтрольно пользователю. Я намеренно отказался от жёстких дедлайнов, чтобы снизить тревожность и избежать давления временных рамок. Когда результат достигнут, цель можно завершить через простой флоу: она попадает в «завершённые», где графики, фото и история остаются доступными для рефлексии. Реактивация цели в один клик сохраняет гибкость: если пользователь решит вернуться к привычке, настраивать всё заново не нужно.\n\n:::slider\n/assets/keepl app/goals desktop.webp | Десктоп\n/assets/keepl app/goals mobile.webp | Мобильная версия\n:::\n\n## Профиль\n\nСервис на стадии MVP, поэтому настроек пока мало: можно сменить аватарку и юзернейм, поменять пароль и удалить аккаунт. Также я добавил раздел Quick Stats с общими показателями: количество активных дней и число выполненных подцелей. Он даёт ощущение масштаба проделанной работы на самом верхнем уровне.\n\n:::slider\n/assets/keepl app/profile desktop.webp | Десктоп\n/assets/keepl app/profile mobile.webp | Мобильная версия\n:::`,
             images: []
           },
           {
@@ -675,13 +675,13 @@ JSON-файлы, Python-скрипты
             title: 'Что у семи конкурентов работает, а что *мешает*',
             lead: 'Я разобрал, как семь приложений для учёта финансов устроили экран добавления операции.',
             content: `:::slider
-/assets/New folder/Competitive analysis/coinkeeper.png | Coinkeeper
-/assets/New folder/Competitive analysis/money manager.png | Money Manager
-/assets/New folder/Competitive analysis/incomes.png | Incomes
-/assets/New folder/Competitive analysis/ZenMoney.png | ZenMoney
-/assets/New folder/Competitive analysis/Monefy.png | Monefy
-/assets/New folder/Competitive analysis/Spendee.png | Spendee
-/assets/New folder/Competitive analysis/Money Mgr.png | Money Mgr
+/assets/New folder/Competitive analysis/coinkeeper.webp | Coinkeeper
+/assets/New folder/Competitive analysis/money manager.webp | Money Manager
+/assets/New folder/Competitive analysis/incomes.webp | Incomes
+/assets/New folder/Competitive analysis/ZenMoney.webp | ZenMoney
+/assets/New folder/Competitive analysis/Monefy.webp | Monefy
+/assets/New folder/Competitive analysis/Spendee.webp | Spendee
+/assets/New folder/Competitive analysis/Money Mgr.webp | Money Mgr
 :::
 
 ## Что работает
@@ -830,8 +830,8 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 :::
 
 :::slider
-/assets/hired app/Competitive analysis/веб-сайты.jpg | Веб-сайты
-/assets/hired app/Competitive analysis/приложения.jpg | Мобильные приложения
+/assets/hired app/Competitive analysis/веб-сайты.webp | Веб-сайты
+/assets/hired app/Competitive analysis/приложения.webp | Мобильные приложения
 :::
 
 Отметил, что:
@@ -843,14 +843,14 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 :::
 
 :::stage layout=pair
-/assets/hired app/hh vs hired 1.png | hh: непонятно, с какого резюме отправлен отклик
-/assets/hired app/hh vs hired 2.png | Hired: резюме указано в отклике
+/assets/hired app/hh vs hired 1.webp | hh: непонятно, с какого резюме отправлен отклик
+/assets/hired app/hh vs hired 2.webp | Hired: резюме указано в отклике
 :::
 
 Я посмотрел, что уже существует на рынке, и вспомнил то, чего мне не хватало как соискателю. Отслеживал фидбэк в тг-чатах и через личные разговоры. На этом этапе стало понятно, какие функции не вызывают интереса (например, фильтр вакансий по языкам программирования), а какие находят отклик. На основе этого выделил набор функций, которые точно должны быть, и те, что казались хорошими на старте, но потом были отброшены.
 
 :::stage layout=single
-/assets/hired app/image features.png | Набросок возможных фич в FigJam
+/assets/hired app/image features.webp | Набросок возможных фич в FigJam
 :::
 
 Мы отказались от лишних фичей:
@@ -872,7 +872,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 Построил флоу с учётом реальных сценариев. Учитывал технические ограничения и типовые паттерны поведения.
 
 :::stage layout=single
-/assets/hired app/Frame_1984077494.png
+/assets/hired app/Frame_1984077494.webp
 :::
 
 ## Информационная архитектура
@@ -880,7 +880,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 Определил, какие разделы будут, как они связаны и как логически выстроена навигация.
 
 :::stage layout=single
-/assets/hired app/Frame_1984077494 1.png
+/assets/hired app/Frame_1984077494 1.webp
 :::
 
 ## Вайрфреймы
@@ -901,13 +901,13 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 Пользователь быстро находит релевантные вакансии благодаря гибкому фильтру, который позволяет комбинировать локальные и удалённые форматы работы. Это устраняет необходимость просматривать сотни неподходящих предложений.
 
 :::stage layout=single
-/assets/hired app/pics.png
+/assets/hired app/pics.webp
 :::
 
 После того как пользователь нашёл подходящую вакансию, он откликается на неё, предварительно выбрав резюме для отклика и по желанию прикрепив сопроводительное письмо. На странице вакансии отмечается, с каким резюме был отправлен отклик.
 
 :::stage layout=single
-/assets/hired app/stack.png
+/assets/hired app/stack.webp
 :::
 
 ## Создание резюме
@@ -915,19 +915,19 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 Опция создания резюме появляется сразу после регистрации. Также пользователь может в любой момент добавить новое резюме через вкладку «Профиль».
 
 :::stage layout=pair
-/assets/hired app/profile.png
-/assets/hired app/profile2.png
+/assets/hired app/profile.webp
+/assets/hired app/profile2.webp
 :::
 
 Чтобы снизить барьер входа и мотивировать пользователя к отклику, процесс создания резюме был максимально упрощён. Мы разбили заполнение на 5 логических пошаговых этапов, исключив избыточную информацию и сфокусировавшись только на том, что первостепенно важно. На макетах шесть экранов, потому что у одного из этапов показаны два состояния.
 
 :::slider
-/assets/hired app/resume create 1.png | Экран 1
-/assets/hired app/resume create 2.png | Экран 2
-/assets/hired app/resume create 3.png | Экран 3
-/assets/hired app/resume create 4.png | Экран 4
-/assets/hired app/resume create 5.png | Экран 5
-/assets/hired app/resume create 6.png | Экран 6
+/assets/hired app/resume create 1.webp | Экран 1
+/assets/hired app/resume create 2.webp | Экран 2
+/assets/hired app/resume create 3.webp | Экран 3
+/assets/hired app/resume create 4.webp | Экран 4
+/assets/hired app/resume create 5.webp | Экран 5
+/assets/hired app/resume create 6.webp | Экран 6
 :::
 
 ## Прототип
@@ -999,7 +999,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 Текст о неидеальных днях бьет в боль целевой аудитории и объясняет зачем им нужен еще один трекер.
 
 :::stage layout=single
-/assets/keepl landing page/Hero-section & Philosophy.png
+/assets/keepl landing page/Hero-section & Philosophy.webp
 :::
 
 ## What can you do with Keepl?
@@ -1009,7 +1009,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 Это снижает когнитивную нагрузку и готовит юзера к онбордингу внутри приложения.
 
 :::stage layout=single
-/assets/keepl landing page/What can you do with Keepl.png
+/assets/keepl landing page/What can you do with Keepl.webp
 :::
 
 ## Features
@@ -1017,7 +1017,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 Вместо простого перечисления функций, каждый блок закрывает конкретный страх пользователя: сложность старта, риск выгорания, непонимание прогресса и отсутствие эмоциональной связи с результатом.
 
 :::stage layout=single
-/assets/keepl landing page/Features.png
+/assets/keepl landing page/Features.webp
 :::
 
 Для того, чтобы пользователь смог "пощупать" продукт до регистрации, я добавил интерактивности элементам интерфейса.
@@ -1025,14 +1025,14 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 Например, принцип работы легкой альтернативы юзер сможет понять, нажав на кнопку в карточке:
 
 :::stage layout=pair
-/assets/keepl landing page/card 1.png | До нажатия
-/assets/keepl landing page/card 2.png | После нажатия
+/assets/keepl landing page/card 1.webp | До нажатия
+/assets/keepl landing page/card 2.webp | После нажатия
 :::
 
 ## Финальный CTA и футер
 
 :::stage layout=single
-/assets/keepl landing page/CTA and footer.png
+/assets/keepl landing page/CTA and footer.webp
 :::`,
           },
           {
@@ -1366,9 +1366,9 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
         subtitle: 'Web & Mobile',
         description: "A personal AI-powered job search assistant that analyzes Telegram job posts, filters relevant opportunities, and explains why each vacancy matches the user's preferences. From the initial product idea and UX concept to a fully functional MVP with AI integration.",
         tags: ['Product Design', 'AI', 'PWA', 'Frontend (React)'],
-        heroImage: '/assets/zhabka casecard.png',
+        heroImage: '/assets/zhabka casecard.webp',
         heroImages: [
-          '/assets/zhabka casecard.png'
+          '/assets/zhabka casecard.webp'
         ],
         sections: [
           {
@@ -1410,18 +1410,18 @@ circle | AI chat | Instead of configuring every preference manually, users can i
 :::
 
 :::stage layout=pair
-/assets/zhabka/profile.png | Search profile: desktop
-/assets/zhabka/profile mob.png | Search profile: mobile
+/assets/zhabka/profile.webp | Search profile: desktop
+/assets/zhabka/profile mob.webp | Search profile: mobile
 :::
 
 :::stage layout=pair
-/assets/zhabka/inbox right drawer.png | Vacancy feed: desktop
-/assets/zhabka/mob inbox right drawer.png | Vacancy feed: mobile
+/assets/zhabka/inbox right drawer.webp | Vacancy feed: desktop
+/assets/zhabka/mob inbox right drawer.webp | Vacancy feed: mobile
 :::
 
 :::stage layout=pair
-/assets/zhabka/inbox chat.png | AI chat: desktop
-/assets/zhabka/mob inbox chat.png | AI chat: mobile
+/assets/zhabka/inbox chat.webp | AI chat: desktop
+/assets/zhabka/mob inbox chat.webp | AI chat: mobile
 :::`,
             images: [],
           },
@@ -1440,12 +1440,12 @@ circle | AI chat | Instead of configuring every preference manually, users can i
 :::
 
 :::stage layout=single
-/assets/zhabka/sync.png | Synchronization status in the interface
+/assets/zhabka/sync.webp | Synchronization status in the interface
 :::
 
 :::stage layout=pair
-/assets/zhabka/settings.png | Source settings: desktop
-/assets/zhabka/settings mob.png | Source settings: mobile
+/assets/zhabka/settings.webp | Source settings: desktop
+/assets/zhabka/settings mob.webp | Source settings: mobile
 :::`,
             images: [],
           },
@@ -1502,11 +1502,11 @@ According to the first sync data, every remaining vacancy has a clear explanatio
         subtitle: 'Mobile App',
         description: 'Web application for achieving goals. Helps users track progress, consider emotional state and fight burnout. Product design from scratch: from market analysis and hypotheses to adaptive design system development.',
         tags: ['Product Design', 'Web App', 'Frontend (React)'],
-        heroImage: '/assets/keepl app.png',
+        heroImage: '/assets/keepl app.webp',
         heroImages: [
-          '/assets/keepl app.png',
-          '/assets/keepl app/home_placeholder.png',
-          '/assets/keepl app/create_new_goal.png'
+          '/assets/keepl app.webp',
+          '/assets/keepl app/home_placeholder.webp',
+          '/assets/keepl app/create_new_goal.webp'
         ],
         sections: [
           {
@@ -1516,7 +1516,7 @@ According to the first sync data, every remaining vacancy has a clear explanatio
             title: 'A small experiment that grew into a *product*',
             lead: 'The project started as an experiment: I ran small interviews with friends to understand what difficulties they face when pursuing their tasks and goals. Based on these observations, I tried designing a few screens of a mobile app that helps users track progress and stay motivated. The experience turned out to be interesting, so I decided to develop it into a full product.',
             content: '',
-            images: ['/assets/mini-research.png']
+            images: ['/assets/mini-research.webp']
           },
           {
             id: 'problem',
@@ -1609,7 +1609,7 @@ According to the first sync data, every remaining vacancy has a clear explanatio
             nav: 'UI',
             title: 'A calm interface instead of *aggressive* productivity',
             lead: 'Keepl\'s design moves away from aggressive productivity interfaces and focuses on a supportive, flexible and conscious environment for achieving goals.',
-            content: 'I used soft corners and shadows to reduce visual harshness, and a calm color palette that doesn\'t strain the eye with daily use. The mobile version is built as a PWA: it can be saved to the home screen and used like a regular app. To make it behave natively, the sidebar became a tab bar and modals became bottom sheets.\n\n### Main challenge: the goal creation form\n\nThe main challenge wasn\'t the architecture but making it understandable. With so many parameters, the goal creation form was reworked several times: I simplified the sequence of steps, reduced cognitive load and removed overloaded states, checking the scenario informally. The product hasn\'t launched yet, so these were qualitative iterations; after launch I would validate the solution through completion rate and drop-off at the goal creation step.\n\n## First login\n\n:::slider\n/assets/keepl app/log_in.png | Desktop\n/assets/keepl app/log_in 1.png | Mobile version\n:::\n\n:::gallery cols=2\n/assets/keepl app/onboarding.png | Step 1\n/assets/keepl app/onboarding 2.png | Step 2\n/assets/keepl app/onboarding 3.png | Step 3\n/assets/keepl app/onboarding 4.png | Step 4\n:::\n\nAfter sign-up, a short onboarding highlights the key features. My goal is to reduce Time to Value so the user understands the app\'s benefit as quickly as possible.\n\n## Goal creation\n\nThe Home screen immediately offers to create a goal: the button takes the user to the creation screen.\n\n:::slider\n/assets/keepl app/home_placeholder.png | Home\n/assets/keepl app/create_new_goal.png | Create Goal\n:::\n\nUnlike most similar services, Keepl lets users customize a goal: choose units of measurement, group subgoals and add a lighter alternative. So that flexibility doesn\'t hurt the Activation Rate, I used progressive disclosure: advanced settings are optional, and if desired Keepl works like an ordinary habit tracker. For example, a goal can be one-time: then subgoals aren\'t updated daily, and once they\'re done the goal is marked complete.\n\n:::slider\n/assets/keepl app/create_new_goal 1.png | Desktop\n/assets/keepl app/create_goal.png | Mobile version\n:::\n\nAfter saving, the user lands on the screen of the newly created goal. A circular progress bar for the current day gives instant feedback, and the motivator card supports emotional engagement: the product\'s value is visible right away, and there\'s a reason to come back tomorrow.\n\n:::slider\n/assets/keepl app/goal screen desktop.png | Desktop\n/assets/keepl app/goal screen mobile.png | Mobile version\n:::\n\n## Daily progress and emotional feedback\n\nTo keep the sense of movement even when a goal isn\'t fully done, I added manual result input. Partial success counts toward progress and charts, affects regularity and supports the North Star Metric, weekly active goal days. Instant visualization on the progress bar gives a dopamine response and reinforces the pattern of daily use. The service doesn\'t "force", it motivates by visualizing any effort invested.\n\nOptional mood tracking collects data for reflection: in the future it will help users see the link between their habits and emotional state.\n\n:::slider\n/assets/keepl app/modal.png | Modal window\n/assets/keepl app/overlay.png | Overlay\n:::\n\nTasks can also be marked on the Home screen. It also has a summary of today\'s progress (how many tasks are done for each goal, average mood, a tip) and subgoal cards: they can be closed at once or filled in gradually with manual input.\n\n:::slider\n/assets/keepl app/home.png | Desktop\n/assets/keepl app/home mobile.png | Mobile version\n:::\n\n## Progress analysis and visualization\n\nTo fight burnout and build awareness, Keepl shows analytics: progress on a goal can be viewed in the "Week" and "Month" tabs to see the dynamics and keep focus.\n\n:::slider\n/assets/keepl app/goal 2 desktop.png | Desktop\n/assets/keepl app/goal 2 mobile.png | Mobile version\n:::\n\nThe calendar makes it easy to move between periods.\n\n:::stage layout=single\n/assets/keepl app/goaldetail calendar.png\n:::\n\nThe overall Progress page gives a summary of activity across all goals. Moving from detail to the big picture helps users see the scale of what they\'ve done, which should influence User Self-Efficacy.\n\n:::slider\n/assets/keepl app/progress desktop.png | Desktop\n/assets/keepl app/progress mobile.png | Mobile version\n:::\n\nFor visually oriented goals, such as fitness, I added a Gallery: when creating a goal, the user chooses whether to enable photo upload. If so, the goal page gets the option to add images, and they can be viewed there or in the "Gallery" tab. It\'s not just storage but an Emotional Retention tool: seeing your path through photos gives powerful visual reinforcement.\n\n:::slider\n/assets/keepl app/gallery 1 desktop.png | Desktop\n/assets/keepl app/gallery 1 mobile.png | Mobile version\n:::\n\n:::slider\n/assets/keepl app/gallery 2 desktop.png | Desktop\n/assets/keepl app/gallery 2 mobile.png | Mobile version\n:::\n\n## Completing a goal\n\nIn Keepl, completing a goal is fully under the user\'s control. I deliberately avoided hard deadlines to reduce anxiety and avoid the pressure of time limits. When the user feels the result is achieved, they can complete the goal through a simple flow: it moves to "Completed", where charts, photos and the history of successes stay available for reflection. One-click reactivation keeps the system flexible: if the user decides to return to the habit, they don\'t need to set everything up again.\n\n:::slider\n/assets/keepl app/goals desktop.png | Desktop\n/assets/keepl app/goals mobile.png | Mobile version\n:::\n\n## Profile\n\nThe service is at the MVP stage, so there are few settings for now: users can change the avatar and username, change the password and delete the account. I also built a Quick Stats section with overall figures: the number of active days and the number of completed subgoals. It gives a sense of the scale of what you\'ve done at the highest level.\n\n:::slider\n/assets/keepl app/profile desktop.png | Desktop\n/assets/keepl app/profile mobile.png | Mobile version\n:::',
+            content: 'I used soft corners and shadows to reduce visual harshness, and a calm color palette that doesn\'t strain the eye with daily use. The mobile version is built as a PWA: it can be saved to the home screen and used like a regular app. To make it behave natively, the sidebar became a tab bar and modals became bottom sheets.\n\n### Main challenge: the goal creation form\n\nThe main challenge wasn\'t the architecture but making it understandable. With so many parameters, the goal creation form was reworked several times: I simplified the sequence of steps, reduced cognitive load and removed overloaded states, checking the scenario informally. The product hasn\'t launched yet, so these were qualitative iterations; after launch I would validate the solution through completion rate and drop-off at the goal creation step.\n\n## First login\n\n:::slider\n/assets/keepl app/log_in.webp | Desktop\n/assets/keepl app/log_in 1.webp | Mobile version\n:::\n\n:::gallery cols=2\n/assets/keepl app/onboarding.webp | Step 1\n/assets/keepl app/onboarding 2.webp | Step 2\n/assets/keepl app/onboarding 3.webp | Step 3\n/assets/keepl app/onboarding 4.webp | Step 4\n:::\n\nAfter sign-up, a short onboarding highlights the key features. My goal is to reduce Time to Value so the user understands the app\'s benefit as quickly as possible.\n\n## Goal creation\n\nThe Home screen immediately offers to create a goal: the button takes the user to the creation screen.\n\n:::slider\n/assets/keepl app/home_placeholder.webp | Home\n/assets/keepl app/create_new_goal.webp | Create Goal\n:::\n\nUnlike most similar services, Keepl lets users customize a goal: choose units of measurement, group subgoals and add a lighter alternative. So that flexibility doesn\'t hurt the Activation Rate, I used progressive disclosure: advanced settings are optional, and if desired Keepl works like an ordinary habit tracker. For example, a goal can be one-time: then subgoals aren\'t updated daily, and once they\'re done the goal is marked complete.\n\n:::slider\n/assets/keepl app/create_new_goal 1.webp | Desktop\n/assets/keepl app/create_goal.webp | Mobile version\n:::\n\nAfter saving, the user lands on the screen of the newly created goal. A circular progress bar for the current day gives instant feedback, and the motivator card supports emotional engagement: the product\'s value is visible right away, and there\'s a reason to come back tomorrow.\n\n:::slider\n/assets/keepl app/goal screen desktop.webp | Desktop\n/assets/keepl app/goal screen mobile.webp | Mobile version\n:::\n\n## Daily progress and emotional feedback\n\nTo keep the sense of movement even when a goal isn\'t fully done, I added manual result input. Partial success counts toward progress and charts, affects regularity and supports the North Star Metric, weekly active goal days. Instant visualization on the progress bar gives a dopamine response and reinforces the pattern of daily use. The service doesn\'t "force", it motivates by visualizing any effort invested.\n\nOptional mood tracking collects data for reflection: in the future it will help users see the link between their habits and emotional state.\n\n:::slider\n/assets/keepl app/modal.webp | Modal window\n/assets/keepl app/overlay.webp | Overlay\n:::\n\nTasks can also be marked on the Home screen. It also has a summary of today\'s progress (how many tasks are done for each goal, average mood, a tip) and subgoal cards: they can be closed at once or filled in gradually with manual input.\n\n:::slider\n/assets/keepl app/home.webp | Desktop\n/assets/keepl app/home mobile.webp | Mobile version\n:::\n\n## Progress analysis and visualization\n\nTo fight burnout and build awareness, Keepl shows analytics: progress on a goal can be viewed in the "Week" and "Month" tabs to see the dynamics and keep focus.\n\n:::slider\n/assets/keepl app/goal 2 desktop.webp | Desktop\n/assets/keepl app/goal 2 mobile.webp | Mobile version\n:::\n\nThe calendar makes it easy to move between periods.\n\n:::stage layout=single\n/assets/keepl app/goaldetail calendar.webp\n:::\n\nThe overall Progress page gives a summary of activity across all goals. Moving from detail to the big picture helps users see the scale of what they\'ve done, which should influence User Self-Efficacy.\n\n:::slider\n/assets/keepl app/progress desktop.webp | Desktop\n/assets/keepl app/progress mobile.webp | Mobile version\n:::\n\nFor visually oriented goals, such as fitness, I added a Gallery: when creating a goal, the user chooses whether to enable photo upload. If so, the goal page gets the option to add images, and they can be viewed there or in the "Gallery" tab. It\'s not just storage but an Emotional Retention tool: seeing your path through photos gives powerful visual reinforcement.\n\n:::slider\n/assets/keepl app/gallery 1 desktop.webp | Desktop\n/assets/keepl app/gallery 1 mobile.webp | Mobile version\n:::\n\n:::slider\n/assets/keepl app/gallery 2 desktop.webp | Desktop\n/assets/keepl app/gallery 2 mobile.webp | Mobile version\n:::\n\n## Completing a goal\n\nIn Keepl, completing a goal is fully under the user\'s control. I deliberately avoided hard deadlines to reduce anxiety and avoid the pressure of time limits. When the user feels the result is achieved, they can complete the goal through a simple flow: it moves to "Completed", where charts, photos and the history of successes stay available for reflection. One-click reactivation keeps the system flexible: if the user decides to return to the habit, they don\'t need to set everything up again.\n\n:::slider\n/assets/keepl app/goals desktop.webp | Desktop\n/assets/keepl app/goals mobile.webp | Mobile version\n:::\n\n## Profile\n\nThe service is at the MVP stage, so there are few settings for now: users can change the avatar and username, change the password and delete the account. I also built a Quick Stats section with overall figures: the number of active days and the number of completed subgoals. It gives a sense of the scale of what you\'ve done at the highest level.\n\n:::slider\n/assets/keepl app/profile desktop.webp | Desktop\n/assets/keepl app/profile mobile.webp | Mobile version\n:::',
             images: []
           },
           {
@@ -1689,13 +1689,13 @@ According to the first sync data, every remaining vacancy has a clear explanatio
             title: 'What works and what gets in the way at *seven* competitors',
             lead: 'I looked at how seven personal finance apps built their add-transaction screen.',
             content: `:::slider
-/assets/New folder/Competitive analysis/coinkeeper.png | Coinkeeper
-/assets/New folder/Competitive analysis/money manager.png | Money Manager
-/assets/New folder/Competitive analysis/incomes.png | Incomes
-/assets/New folder/Competitive analysis/ZenMoney.png | ZenMoney
-/assets/New folder/Competitive analysis/Monefy.png | Monefy
-/assets/New folder/Competitive analysis/Spendee.png | Spendee
-/assets/New folder/Competitive analysis/Money Mgr.png | Money Mgr
+/assets/New folder/Competitive analysis/coinkeeper.webp | Coinkeeper
+/assets/New folder/Competitive analysis/money manager.webp | Money Manager
+/assets/New folder/Competitive analysis/incomes.webp | Incomes
+/assets/New folder/Competitive analysis/ZenMoney.webp | ZenMoney
+/assets/New folder/Competitive analysis/Monefy.webp | Monefy
+/assets/New folder/Competitive analysis/Spendee.webp | Spendee
+/assets/New folder/Competitive analysis/Money Mgr.webp | Money Mgr
 :::
 
 ## What works
@@ -1830,8 +1830,8 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 :::
 
 :::slider
-/assets/hired app/Competitive analysis/веб-сайты.jpg | Websites
-/assets/hired app/Competitive analysis/приложения.jpg | Mobile Applications
+/assets/hired app/Competitive analysis/веб-сайты.webp | Websites
+/assets/hired app/Competitive analysis/приложения.webp | Mobile Applications
 :::
 
 I noted that:
@@ -1843,14 +1843,14 @@ I noted that:
 :::
 
 :::stage layout=pair
-/assets/hired app/hh vs hired 1.png | hh: unclear which resume was used to respond
-/assets/hired app/hh vs hired 2.png | Hired: the resume is shown in the response
+/assets/hired app/hh vs hired 1.webp | hh: unclear which resume was used to respond
+/assets/hired app/hh vs hired 2.webp | Hired: the resume is shown in the response
 :::
 
 I looked at what already exists on the market and remembered what I lacked as a job seeker. Tracked feedback in Telegram chats and through personal conversations. At this stage, it became clear which features do not generate interest (for example, filtering vacancies by programming language) and which resonated. Based on this, I identified a set of features that should definitely be there and those that seemed good at first but were later abandoned.
 
 :::stage layout=single
-/assets/hired app/image features.png | Draft of possible features in FigJam
+/assets/hired app/image features.webp | Draft of possible features in FigJam
 :::
 
 We abandoned unnecessary features:
@@ -1872,7 +1872,7 @@ We abandoned unnecessary features:
 Built the flow taking into account real scenarios. Considered technical constraints and typical behavior patterns.
 
 :::stage layout=single
-/assets/hired app/Frame_1984077494.png
+/assets/hired app/Frame_1984077494.webp
 :::
 
 ## Information Architecture
@@ -1880,7 +1880,7 @@ Built the flow taking into account real scenarios. Considered technical constrai
 Determined which sections there would be, how they connect and how the navigation is logically structured.
 
 :::stage layout=single
-/assets/hired app/Frame_1984077494 1.png
+/assets/hired app/Frame_1984077494 1.webp
 :::
 
 ## Wireframes
@@ -1901,13 +1901,13 @@ Made draft sketches of key screens to evaluate how the interface would look and 
 Users quickly find relevant vacancies thanks to a flexible filter that allows combining local and remote work formats. This eliminates the need to browse hundreds of unsuitable offers.
 
 :::stage layout=single
-/assets/hired app/pics.png
+/assets/hired app/pics.webp
 :::
 
 After the user finds a suitable vacancy, they respond to it, first selecting a resume for the response and optionally attaching a cover letter. The vacancy page notes which resume was sent with the response.
 
 :::stage layout=single
-/assets/hired app/stack.png
+/assets/hired app/stack.webp
 :::
 
 ## Resume Creation
@@ -1915,19 +1915,19 @@ After the user finds a suitable vacancy, they respond to it, first selecting a r
 The resume creation option appears immediately after registration. The user can also add a new resume at any time through the Profile tab.
 
 :::stage layout=pair
-/assets/hired app/profile.png
-/assets/hired app/profile2.png
+/assets/hired app/profile.webp
+/assets/hired app/profile2.webp
 :::
 
 To reduce the entry barrier and motivate users to respond, the resume creation process was maximally simplified. We divided the completion into 5 logical, sequential stages, excluding redundant information and focusing only on what is most important. The mockups show six screens because one of the stages is shown in two states.
 
 :::slider
-/assets/hired app/resume create 1.png | Screen 1
-/assets/hired app/resume create 2.png | Screen 2
-/assets/hired app/resume create 3.png | Screen 3
-/assets/hired app/resume create 4.png | Screen 4
-/assets/hired app/resume create 5.png | Screen 5
-/assets/hired app/resume create 6.png | Screen 6
+/assets/hired app/resume create 1.webp | Screen 1
+/assets/hired app/resume create 2.webp | Screen 2
+/assets/hired app/resume create 3.webp | Screen 3
+/assets/hired app/resume create 4.webp | Screen 4
+/assets/hired app/resume create 5.webp | Screen 5
+/assets/hired app/resume create 6.webp | Screen 6
 :::
 
 ## Prototype
@@ -1999,7 +1999,7 @@ Since the product requires registration, I needed to grab attention not with fea
 The text about imperfect days hits the target audience's pain point and explains why they need another tracker.
 
 :::stage layout=single
-/assets/keepl landing page/Hero-section & Philosophy.png
+/assets/keepl landing page/Hero-section & Philosophy.webp
 :::
 
 ## What can you do with Keepl?
@@ -2009,7 +2009,7 @@ The block serves as a bridge between philosophy and the interface. I highlighted
 This reduces cognitive load and prepares users for onboarding inside the app.
 
 :::stage layout=single
-/assets/keepl landing page/What can you do with Keepl.png
+/assets/keepl landing page/What can you do with Keepl.webp
 :::
 
 ## Features
@@ -2017,7 +2017,7 @@ This reduces cognitive load and prepares users for onboarding inside the app.
 Instead of simply listing features, each block addresses a specific user fear: complexity of starting, risk of burnout, lack of understanding of progress, and absence of emotional connection to results.
 
 :::stage layout=single
-/assets/keepl landing page/Features.png
+/assets/keepl landing page/Features.webp
 :::
 
 To let users "feel" the product before registering, I added interactivity to interface elements.
@@ -2025,14 +2025,14 @@ To let users "feel" the product before registering, I added interactivity to int
 For example, users can understand how the lighter alternative works by clicking a button on the card:
 
 :::stage layout=pair
-/assets/keepl landing page/card 1.png | Before the click
-/assets/keepl landing page/card 2.png | After the click
+/assets/keepl landing page/card 1.webp | Before the click
+/assets/keepl landing page/card 2.webp | After the click
 :::
 
 ## Final CTA & Footer
 
 :::stage layout=single
-/assets/keepl landing page/CTA and footer.png
+/assets/keepl landing page/CTA and footer.webp
 :::`,
           },
           {

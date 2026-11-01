@@ -1,6 +1,7 @@
 ﻿import React, { Fragment } from 'react'
 import CaseBlock from './case-blocks/CaseBlocks'
 import { buildCaseBlock, parseCaseBlocks } from './case-blocks/parseCaseBlocks'
+import CaseFigure from './case-blocks/CaseFigure'
 
 export const formatContent = (content, openImageModal, language, caseId) => {
     if (!content) return null
@@ -94,11 +95,11 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/coinkeeper.png")}>
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/coinkeeper.webp")}>
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/coinkeeper.png" 
+                src="/assets/New folder/Competitive analysis/coinkeeper.webp" 
 
                 alt="Coinkeeper"
 
@@ -120,11 +121,11 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/money manager.png")}>
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/money manager.webp")}>
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/money manager.png" 
+                src="/assets/New folder/Competitive analysis/money manager.webp" 
 
                 alt="Money Manager"
 
@@ -146,11 +147,11 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/incomes.png")}>
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/incomes.webp")}>
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/incomes.png" 
+                src="/assets/New folder/Competitive analysis/incomes.webp" 
 
                 alt="Incomes"
 
@@ -172,11 +173,11 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/ZenMoney.png")}>
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/ZenMoney.webp")}>
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/ZenMoney.png" 
+                src="/assets/New folder/Competitive analysis/ZenMoney.webp" 
 
                 alt="ZenMoney"
 
@@ -198,11 +199,11 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/Monefy.png")}>
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/Monefy.webp")}>
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/Monefy.png" 
+                src="/assets/New folder/Competitive analysis/Monefy.webp" 
 
                 alt="Monefy"
 
@@ -224,11 +225,11 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/Spendee.png")}>
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/Spendee.webp")}>
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/Spendee.png" 
+                src="/assets/New folder/Competitive analysis/Spendee.webp" 
 
                 alt="Spendee"
 
@@ -250,11 +251,11 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex justify-center items-center w-full my-8">
 
-            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/Money Mgr.png")}>
+            <div className="cursor-pointer group relative max-w-md" onClick={() => openImageModal("/assets/New folder/Competitive analysis/Money Mgr.webp")}>
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/Money Mgr.png" 
+                src="/assets/New folder/Competitive analysis/Money Mgr.webp" 
 
                 alt="Money Mgr"
 
@@ -276,19 +277,13 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex flex-col lg:flex-row gap-10 my-12">
 
-            <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini.png")}>
-
-              <img 
-
-                src="/assets/New folder/iPhone_13_mini.png" 
-
-                alt="iPhone 13 mini mockup"
-
-                className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
-
-              />
-
-            </div>
+            <CaseFigure
+              className="lg:w-1/2"
+              src="/assets/New folder/iPhone_13_mini.webp"
+              alt="iPhone 13 mini mockup"
+              onClick={openImageModal}
+              language={language}
+            />
 
             <div className="lg:w-1/2">
 
@@ -340,19 +335,13 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex flex-col lg:flex-row gap-10 my-12">
 
-            <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini.png")}>
-
-              <img 
-
-                src="/assets/New folder/iPhone_13_mini.png" 
-
-                alt="iPhone 13 mini mockup"
-
-                className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
-
-              />
-
-            </div>
+            <CaseFigure
+              className="lg:w-1/2"
+              src="/assets/New folder/iPhone_13_mini.webp"
+              alt="iPhone 13 mini mockup"
+              onClick={openImageModal}
+              language={language}
+            />
 
             <div className="lg:w-1/2">
 
@@ -404,19 +393,13 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex flex-col lg:flex-row gap-10 my-12">
 
-            <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 1.png")}>
-
-              <img 
-
-                src="/assets/New folder/iPhone_13_mini 1.png" 
-
-                alt="iPhone 13 mini mockup 1"
-
-                className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
-
-              />
-
-            </div>
+            <CaseFigure
+              className="lg:w-1/2"
+              src="/assets/New folder/iPhone_13_mini 1.webp"
+              alt="iPhone 13 mini mockup 1"
+              onClick={openImageModal}
+              language={language}
+            />
 
             <div className="lg:w-1/2">
 
@@ -462,19 +445,13 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
           <div key={index} className="flex flex-col lg:flex-row gap-10 my-12">
 
-            <div className="lg:w-1/2 cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 1.png")}>
-
-              <img 
-
-                src="/assets/New folder/iPhone_13_mini 1.png" 
-
-                alt="iPhone 13 mini mockup 1"
-
-                className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
-
-              />
-
-            </div>
+            <CaseFigure
+              className="lg:w-1/2"
+              src="/assets/New folder/iPhone_13_mini 1.webp"
+              alt="iPhone 13 mini mockup 1"
+              onClick={openImageModal}
+              language={language}
+            />
 
             <div className="lg:w-1/2">
 
@@ -526,47 +503,29 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
             <div className="flex flex-col lg:flex-row gap-8 justify-start items-center w-full my-12">
 
-              <div className="w-full lg:w-[30%] cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 2.png")}>
+              <CaseFigure
+                className="w-full lg:w-[30%]"
+                src="/assets/New folder/iPhone_13_mini 2.webp"
+                alt="iPhone 13 mini mockup 2"
+                onClick={openImageModal}
+                language={language}
+              />
 
-                <img 
+              <CaseFigure
+                className="w-full lg:w-[30%]"
+                src="/assets/New folder/iPhone_13_mini 3.webp"
+                alt="iPhone 13 mini mockup 3"
+                onClick={openImageModal}
+                language={language}
+              />
 
-                  src="/assets/New folder/iPhone_13_mini 2.png" 
-
-                  alt="iPhone 13 mini mockup 2"
-
-                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
-
-                />
-
-              </div>
-
-              <div className="w-full lg:w-[30%] cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 3.png")}>
-
-                <img 
-
-                  src="/assets/New folder/iPhone_13_mini 3.png" 
-
-                  alt="iPhone 13 mini mockup 3"
-
-                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
-
-                />
-
-              </div>
-
-              <div className="w-full lg:w-[30%] cursor-pointer group" onClick={() => openImageModal("/assets/New folder/iPhone_13_mini 4.png")}>
-
-                <img 
-
-                  src="/assets/New folder/iPhone_13_mini 4.png" 
-
-                  alt="iPhone 13 mini mockup 4"
-
-                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
-
-                />
-
-              </div>
+              <CaseFigure
+                className="w-full lg:w-[30%]"
+                src="/assets/New folder/iPhone_13_mini 4.webp"
+                alt="iPhone 13 mini mockup 4"
+                onClick={openImageModal}
+                language={language}
+              />
 
             </div>
 
@@ -592,7 +551,7 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/zenmoney 1.png" 
+                src="/assets/New folder/Competitive analysis/zenmoney 1.webp" 
 
                 alt="ZenMoney 1"
 
@@ -602,7 +561,7 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/zenmoney 2.png" 
+                src="/assets/New folder/Competitive analysis/zenmoney 2.webp" 
 
                 alt="ZenMoney 2"
 
@@ -612,7 +571,7 @@ const formatLegacyContent = (content, openImageModal, language) => {
 
               <img 
 
-                src="/assets/New folder/Competitive analysis/zenmoney 3.png" 
+                src="/assets/New folder/Competitive analysis/zenmoney 3.webp" 
 
                 alt="ZenMoney 3"
 

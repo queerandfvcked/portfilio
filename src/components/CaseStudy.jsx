@@ -407,6 +407,7 @@ const CaseStudy = () => {
                         t={t}
                         formatContent={formatContent}
                         openImageModal={openImageModal}
+                        language={language}
                         embedded
                         hideHeading
                       />

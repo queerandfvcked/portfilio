@@ -1,10 +1,16 @@
 ﻿import React from 'react'
 
 import { ZhabkaMascotShowcase } from './ZhabkaMascotFrame'
+import CaseFigure from './case-blocks/CaseFigure'
 
-export function RegularSection({ section, t, formatContent, openImageModal, embedded = false, hideHeading = false }) {
+export function RegularSection({ section, t, formatContent, openImageModal, embedded = false, hideHeading = false, language }) {
 
     const Wrapper = embedded ? 'div' : 'section'
+
+    // Caption for the clickable images: titles carry markdown emphasis (*word*)
+    // and some sections hold more than one image, so number them in that case.
+    const images = section.images || []
+    const figureCaption = String(section.title || '').replace(/\*/g, '').trim()
 
     return (
 
@@ -46,21 +52,21 @@ export function RegularSection({ section, t, formatContent, openImageModal, embe
 
           <div className="space-y-8 mb-8">
 
-            {section.images.map((image, index) => (
+            {images.map((image, index) => (
 
-              <div key={index} className="cursor-pointer group" onClick={() => openImageModal(image)}>
+              <CaseFigure
 
-                <img
+                key={index}
 
-                  src={image}
+                src={image}
 
-                  alt={`${section.title} - Image ${index + 1}`}
+                alt={images.length > 1 ? `${figureCaption} ${index + 1}` : figureCaption}
 
-                  className="w-full h-auto rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105"
+                onClick={openImageModal}
 
-                />
+                language={language}
 
-              </div>
+              />
 
             ))}
 

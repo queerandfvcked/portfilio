@@ -32,7 +32,7 @@ export function getCaseStudies(t, language = 'ru') {
 
       heroImages: [
 
-        '/assets/zhabka casecard.png'
+        '/assets/zhabka casecard.webp'
 
       ],
 
@@ -216,11 +216,11 @@ export function getCaseStudies(t, language = 'ru') {
 
       heroImages: [
 
-        '/assets/keepl app.png',
+        '/assets/keepl app.webp',
 
-        '/assets/keepl app/home_placeholder.png',
+        '/assets/keepl app/home_placeholder.webp',
 
-        '/assets/keepl app/create_new_goal.png'
+        '/assets/keepl app/create_new_goal.webp'
 
       ],
 
@@ -286,7 +286,7 @@ export function getCaseStudies(t, language = 'ru') {
           lead: tx('caseStudies.keeplApp.sections.0.lead'),
           content: tx('caseStudies.keeplApp.sections.0.content') || '',
 
-          images: ['/assets/mini-research.png']
+          images: ['/assets/mini-research.webp']
 
         },
 
@@ -471,7 +471,7 @@ export function getCaseStudies(t, language = 'ru') {
 
           content: tx('casePage.landingBody') || '',
 
-          images: ['/assets/landing.png'],
+          images: ['/assets/landing.webp'],
 
           landingLinks: [
 
@@ -501,9 +501,9 @@ export function getCaseStudies(t, language = 'ru') {
 
       heroImages: [
 
-        '/assets/hired app.png',
+        '/assets/hired app.webp',
 
-        '/assets/hired app/Frame_1984077494.png'
+        '/assets/hired app/Frame_1984077494.webp'
 
       ],
 
@@ -674,15 +674,11 @@ export function getCaseStudies(t, language = 'ru') {
 
       tags: t('caseStudies.keeplLanding.tags'),
 
-      heroImage: '/assets/landing.png',
+      heroImage: '/assets/landing.webp',
 
       heroImages: [
 
-        '/assets/landing.png',
-
-        '/assets/keepl landing page/desktop.png',
-
-        '/assets/keepl landing page/mobile.png'
+        '/assets/landing.webp'
 
       ],
 
@@ -829,7 +825,7 @@ export function getCaseStudies(t, language = 'ru') {
 
       heroImages: [
 
-        '/assets/New folder/hero.png'
+        '/assets/New folder/hero.webp'
 
       ],
 
