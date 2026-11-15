@@ -14,7 +14,9 @@ const JOBS = [
   { src: 'keepl desktop.png', out: 'keepl-desktop', alpha: true, widths: [800, 1200, 1600, 2000] },
   { src: 'keepl mob.png', out: 'keepl-mobile', alpha: true, widths: [800, 1200, 1600] },
   { src: 'fintech.png', out: 'fintech', alpha: false, widths: [700, 1000, 1400, 2000] },
-  { src: 'hired.png', out: 'hired', alpha: false, widths: [700, 1000, 1400, 2000] }
+  { src: 'hired.png', out: 'hired', alpha: false, widths: [700, 1000, 1400, 2000] },
+  { src: 'plata-qr-atm.png', out: 'plata-atm', alpha: true, widths: [800] },
+  { src: 'plata-qr-phone.png', out: 'plata-phone', alpha: true, widths: [800, 1200, 1600, 2000] }
 ]
 
 const kb = (bytes) => `${Math.round(bytes / 1024)} kB`

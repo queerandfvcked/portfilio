@@ -188,6 +188,19 @@ export const translations = {
         scope: 'Исследование, UX/UI, React-фронтенд'
       },
       {
+        id: 'plata-qr',
+        title: 'Plata — снятие наличных по QR',
+        cardTitle: 'Plata: снятие по QR',
+        summary: 'Тестовое задание: фича для существующего fintech-приложения — от точки входа до банкомата, с защитой кода и разбором сбоев.',
+        description: 'Тестовое задание Plata (Мексика): сквозной сценарий снятия наличных по QR без карты. Точка входа, счёт и сумма, живой QR, подтверждение на телефоне у банкомата, защита от утечки кода и сбои — логику проверил кликабельным прототипом.',
+        link: '/plata-qr',
+        variant: 'wide',
+        domain: ['FinTech', 'Тестовое задание'],
+        platform: 'Mobile + ATM',
+        scope: 'Сценарии, безопасность, UI, прототип',
+        highlight: { value: '60+', label: 'экранов и состояний' }
+      },
+      {
         id: 'add-transition',
         title: 'Проектирование интерфейса добавления операций',
         cardTitle: 'Добавление операции',
@@ -1234,6 +1247,19 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
         domain: ['Goals & habits', 'Wellbeing'],
         platform: 'Web + Mobile (PWA)',
         scope: 'Research, UX/UI, React front end'
+      },
+      {
+        id: 'plata-qr',
+        title: 'Plata — cardless QR withdrawal',
+        cardTitle: 'Plata: QR withdrawal',
+        summary: 'Test assignment: a feature for an existing fintech app, from entry point to the ATM, with code security and failure handling.',
+        description: 'A test assignment for Plata (Mexico): an end-to-end cardless cash withdrawal flow. Entry point, account and amount, a live QR, on-phone confirmation at the ATM, protection against code leaks and failure states — the logic is checked with a clickable prototype.',
+        link: '/plata-qr',
+        variant: 'wide',
+        domain: ['FinTech', 'Test assignment'],
+        platform: 'Mobile + ATM',
+        scope: 'Flows, security, UI, prototype',
+        highlight: { value: '60+', label: 'screens and states' }
       },
       {
         id: 'add-transition',

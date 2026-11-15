@@ -36,6 +36,18 @@ export const CASE_IMAGES = {
     height: 1800,
     alpha: false,
     widths: [700, 1000, 1400, 2000]
+  },
+  'plata-atm': {
+    width: 898,
+    height: 1935,
+    alpha: true,
+    widths: [800]
+  },
+  'plata-phone': {
+    width: 3237,
+    height: 2792,
+    alpha: true,
+    widths: [800, 1200, 1600, 2000]
   }
 }
 
@@ -43,5 +55,6 @@ export const CASE_MEDIA = {
   zhabka: { laptop: 'zhabka-desktop', phone: 'zhabka-mobile', cover: 'zhabka-desktop' },
   'keepl-app': { laptop: 'keepl-desktop', phone: 'keepl-mobile', cover: 'keepl-desktop' },
   'add-transition': { cover: 'fintech' },
-  'hired-app': { cover: 'hired' }
+  'hired-app': { cover: 'hired' },
+  'plata-qr': { laptop: 'plata-atm', phone: 'plata-phone' }
 }

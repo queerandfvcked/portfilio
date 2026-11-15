@@ -5,6 +5,11 @@ import useSpotlight from '../hooks/useSpotlight'
 import CaseScene, { CASE_GLOW } from './CaseScene'
 import { localizedPath } from '../utils/localizedPath'
 
+const WIDE_CARD_VARIANTS = {
+  zhabka: 'zhabka',
+  'plata-qr': 'plata'
+}
+
 const CaseCard = ({ project, priority = false }) => {
   const { t, language } = useTranslation()
   const cardRef = useRef(null)
@@ -56,7 +61,7 @@ const CaseCard = ({ project, priority = false }) => {
     <Link
       ref={cardRef}
       to={localizedPath(language, project.link)}
-      className={`case-card ${isWide ? `case-card--wide case-card--${project.id === 'zhabka' ? 'zhabka' : 'keepl'}` : 'case-card--compact'}`}
+      className={`case-card ${isWide ? `case-card--wide case-card--${WIDE_CARD_VARIANTS[project.id] || 'keepl'}` : 'case-card--compact'}`}
       style={{
         '--glow-rgb': glow.rgb,
         '--glow-a': glow.alpha,

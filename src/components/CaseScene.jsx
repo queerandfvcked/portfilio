@@ -7,7 +7,8 @@ export const CASE_GLOW = {
   zhabka: { rgb: '70 120 200', alpha: 0.28, position: '72% 8%' },
   'keepl-app': { rgb: '95 227 176', alpha: 0.24, position: '28% 42%' },
   'add-transition': { rgb: '95 227 176', alpha: 0.18, position: '50% 0%' },
-  'hired-app': { rgb: '95 227 176', alpha: 0.16, position: '50% 0%' }
+  'hired-app': { rgb: '95 227 176', alpha: 0.16, position: '50% 0%' },
+  'plata-qr': { rgb: 'var(--plata-rgb)', alpha: 0.22, position: '50% 20%' }
 }
 
 const HERO_SCENES = {
