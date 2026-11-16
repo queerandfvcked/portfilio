@@ -40,6 +40,12 @@ Status: design case.
 - UX audit and redesign of the add-transaction flow in a finance app; flows of 7 competitors reviewed.
 - Case: https://andrianshtark.vercel.app/en/add-transition
 
+### Plata — cardless cash withdrawal by QR
+Status: test assignment, not released.
+- End-to-end flow in an existing fintech app: entry point, account and amount, a 24-hour code, ATM handover and failure states.
+- Checked with a clickable prototype: 60+ screens and states, 80 logic tests; not tested with users.
+- Case: https://andrianshtark.vercel.app/en/plata-qr
+
 ## How I work
 
 A loop of seven steps: problem → hypotheses → scenarios → logic (checked in a prototype) → design → implementation → validation. If a step doesn't hold, I go back to an earlier one.

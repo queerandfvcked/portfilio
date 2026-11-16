@@ -72,4 +72,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/add-transition" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/add-transition" />
   </url>
+  <url>
+    <loc>https://andrianshtark.vercel.app/ru/plata-qr</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/plata-qr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/plata-qr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/plata-qr" />
+  </url>
+  <url>
+    <loc>https://andrianshtark.vercel.app/en/plata-qr</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://andrianshtark.vercel.app/ru/plata-qr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrianshtark.vercel.app/en/plata-qr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrianshtark.vercel.app/en/plata-qr" />
+  </url>
 </urlset>

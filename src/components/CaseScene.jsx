@@ -21,7 +21,19 @@ const HERO_SCENES = {
     aspect: '1.07',
     laptop: { left: '0%', top: '0%', width: '88%' },
     phone: { left: '69.5%', top: '17.6%', width: '29%', rotate: '-8deg' }
+  },
+  /* Plata keeps its positions in CSS: the ATM has to be cropped by the scene
+     bottom on desktop and shown whole on mobile, which inline styles cannot
+     switch between. See .case-scene--hero.case-scene--plata in index.css. */
+  'plata-qr': {
+    aspect: '1.2'
   }
+}
+
+const HERO_SCENE_CLASS = {
+  zhabka: 'zhabka',
+  'keepl-app': 'keepl',
+  'plata-qr': 'plata'
 }
 
 const CaseScene = ({ project, variant = 'card', priority = false }) => {
@@ -40,7 +52,7 @@ const CaseScene = ({ project, variant = 'card', priority = false }) => {
     if (scene) {
       return (
         <div
-          className={`case-scene case-scene--hero case-scene--${project.id === 'zhabka' ? 'zhabka' : 'keepl'}`}
+          className={`case-scene case-scene--hero case-scene--${HERO_SCENE_CLASS[project.id] || 'keepl'}`}
           style={{ ...glowStyle, '--scene-aspect': scene.aspect }}
         >
           <div className="case-scene__laptop" style={scene.laptop}>

@@ -15,7 +15,7 @@ const CaseBlocksDevPage = import.meta.env.DEV
   : null
 
 // Keep in sync with the top-level keys in CaseStudyData.js.
-const CASE_SLUGS = ['zhabka', 'keepl-app', 'keepl-landing', 'hired-app', 'add-transition']
+const CASE_SLUGS = ['zhabka', 'keepl-app', 'keepl-landing', 'hired-app', 'add-transition', 'plata-qr']
 
 const RedirectToDefaultLanguage = ({ path = '/' }) => {
   const location = useLocation()

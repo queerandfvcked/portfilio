@@ -79,6 +79,11 @@ export const translations = {
           problem: 'В приложениях для учёта финансов простую трату фиксируют за 3–4 шага, а необязательные поля и одинаковый вес элементов размывают фокус.',
           solution: 'Один экран: сумма в фокусе, расход по умолчанию, 4–5 частых категорий в один тап, кнопка «Сохранить» всегда на виду.',
           result: 'Операция за 2–3 тапа одной рукой, чистая иерархия и меньше нагрузки на внимание.'
+        },
+        'plata-qr': {
+          problem: 'Нужно спроектировать снятие наличных по QR в существующем приложении: вход, защита кода, банкомат и все сбои.',
+          solution: 'Вход через виджет «Cash» на Home; QR живёт 24 ч, обновляется каждые 30 с, а банкомат ждёт подтверждения на телефоне.',
+          result: 'Логика проверена прототипом: 80 тестов и прогоны сбоев; на пользователях не тестировалось — это тестовое задание.'
         }
       },
       cases: {
@@ -135,6 +140,19 @@ export const translations = {
           role: 'Продуктовый дизайнер, лендинг и React-фронтенд',
           status: 'Опубликован',
           stats: []
+        },
+        'plata-qr': {
+          role: 'Продуктовый дизайнер: сценарии, интерфейсы, прототип',
+          status: 'Тестовое задание, без релиза',
+          stats: [
+            { value: '60+', label: 'экранов и состояний' },
+            { value: '80', label: 'тестов логики' }
+          ],
+          takeaways: [
+            { title: 'Дизайн денег — это состояния', text: 'Главный риск был не в экранах, а в моментах, когда деньги непонятно где, поэтому каждый сбой я довёл до выдачи или возврата.' },
+            { title: 'Защита стоит там, где работает', text: 'Скриншот не запретить, поэтому самый сильный барьер стоит у банкомата, а не на экране с QR.' },
+            { title: 'Допущения называю вслух', text: 'Лимиты, комиссия Cuenta и правила бэкенда не из брифа: отдельный список показывает, где кончается логика и начинается догадка.' }
+          ]
         }
       }
     },
@@ -1057,6 +1075,267 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
             images: []
           }
         ]
+      },
+      plataQr: {
+        title: 'Plata — снятие наличных по QR',
+        subtitle: 'Mobile + ATM',
+        description: 'Тестовое задание Plata: спроектировал сквозной сценарий снятия наличных по QR в существующем приложении — от точки входа до банкомата, с защитой кода и всеми сбоями.',
+        tags: ['Product Design', 'FinTech', 'UX'],
+        sections: [
+          {
+            id: 'task',
+            label: 'ЗАДАЧА',
+            nav: 'Задача',
+            title: 'Самое сложное — не QR, а *наличные*',
+            lead: 'Plata поставила задачу спроектировать снятие наличных по QR в существующем приложении: вход, счёт и сумма, код на 24 часа, поиск банкомата, защита от утечки и «no gaps in the logic». Я прочитал её как задачу про деньги, а не про экраны: выданные наличные не отозвать, поэтому ошибка здесь дороже, чем в обычном платеже.',
+            content: `:::callout label="Задание"
+Клиент Plata снимает наличные без карты по QR из приложения. QR привязан к счёту и сумме и живёт 24 часа. Нужен сквозной опыт: от точки входа до выдачи, со всеми сбоями.
+:::
+
+:::rows
+**Вход.** Не рядом с Transfer и Deposit: нужно найти другое понятное место.
+**Счёт и сумма.** От них зависит код, после создания их не поменять.
+**Банкомат.** Найти ближайший и увидеть остальные.
+**Безопасность.** Код может уйти из приложения: скриншот, пересылка.
+**Весь опыт.** До, во время и после снятия.
+**Сбои.** Состояния, граничные случаи, никаких дыр в логике.
+:::
+
+Это тестовое задание: в релиз оно не уходило, влияние на пользователей я не измерял. Всё, чего не было в брифе (лимиты, комиссии, правила бэкенда), я принял за допущение и вынес в отдельную главу.`,
+            images: []
+          },
+          {
+            id: 'research',
+            label: 'РЕСЁРЧ',
+            nav: 'Ресёрч',
+            title: 'Банкомат уже принимает *Apple Pay*',
+            lead: 'У банкоматов Plata уже есть бесконтактная оплата картой и Apple Pay, поэтому первый честный вопрос — зачем вообще QR. Я начал с него и с того, кто показывает код: телефон или банкомат.',
+            content: `:::cards cols=2
+**Телефон показывает QR** | BDO (Филиппины). Код создаётся заранее, банкомат его сканирует. Это подходит заданию: счёт и сумма выбраны до подхода к машине.
+**Банкомат показывает QR** | CommBank, TBC, OCBC, Woori, BOCOM. Телефон сканирует код у банкомата. В задании код живёт 24 часа и привязан к сумме, поэтому его должен создавать телефон.
+:::
+
+:::callout label="Чем QR лучше Apple Pay"
+Честно: для человека с рабочей картой — ничем. QR выигрывает, когда карта недоступна (заморожена, отменена, перевыпускается), и он ограничивает риск одной суммой на 24 часа вместо всей карты.
+:::`,
+            images: []
+          },
+          {
+            id: 'hypotheses',
+            label: 'ГИПОТЕЗЫ',
+            nav: 'Гипотезы',
+            title: 'Три гипотезы, на которых *держится* дизайн',
+            lead: 'Из брифа и ресёрча я собрал три предположения, и каждое определило свою часть продукта. Проверить их на пользователях не было возможности, поэтому дальше видно, где решение стоит на логике, а где на допущении.',
+            content: `:::cards cols=3 numbered
+**Снятие — не платёж** | Редкое действие с высокой ценой ошибки не должно стоять в одном ряду с Transfer и Deposit. Результат: виджет Cash на Home.
+**QR не удержать в приложении** | Скриншот и пересылку не запретить, поэтому код делаем ограниченным и отзывным, а главную защиту ставим у банкомата. Результат: подтверждение на телефоне.
+**Деньги всегда в понятном состоянии** | Сумма удерживается при создании кода и дальше либо выдаётся, либо возвращается. Результат: карта сбоев и состояние «Processing».
+:::`,
+            images: []
+          },
+          {
+            id: 'map',
+            label: 'USER FLOW',
+            nav: 'Карта сценариев',
+            title: 'Все сценарии *на одной схеме*',
+            lead: 'Основной путь идёт слева направо: вход, счёт, сумма, подтверждение, QR, банкомат, итог. Над каждым шагом — побочные пути, под ним — сбои. Полные карты экранов лежат в конце кейса.',
+            content: `:::stats
+7 | шагов основного пути
+12 | побочных путей
+20 | сбоев и граничных случаев
+:::
+
+:::stage layout=single
+/assets/plata-qr/flow-scheme.webp | Основной путь, побочные пути сверху, сбои снизу
+:::
+
+Часть сбоев нарисована экранами, часть описана только на схеме: так я распределил время между глубиной и широтой.`,
+            images: []
+          },
+          {
+            id: 'failures',
+            label: 'СБОИ',
+            nav: 'Сбои',
+            title: 'Деньги *не зависают* ни в одном сбое',
+            lead: 'Самая дорогая ошибка в этом флоу — деньги в неопределённом состоянии: списали, а наличных нет. Поэтому сумма удерживается при создании кода и дальше заканчивается одним из двух исходов: выдана или возвращена.',
+            content: `:::chain
+Код создан
+Сумма удержана
+Банкомат выдаёт наличные
+Выдано или возвращено
+:::
+
+:::cards cols=3
+**Не подтвердил за 60 с** | Банкомат перестаёт ждать. Код остаётся активным, ничего не списано.
+**Телефон офлайн** | Подтверждение не уходит: экран объясняет причину и предлагает повторить соединение.
+**В банкомате нет наличных** | Ничего не списано, код активен, можно идти к другому банкомату.
+**Не забрал за 30 с** | Банкомат втягивает деньги, сумма возвращается, причина показана.
+**Обрыв при выдаче** | Состояние «Processing»: сумма в удержании, пока банкомат не ответит. Дальше выдано или возвращено.
+**Три неверных 8-значных кода** | Код отменяется, сумма освобождается.
+:::
+
+:::callout label="Допущение"
+Банкомат — источник истины. Телефон досинхронизируется, а «Processing» появляется только при обрыве связи между банкоматом и банком.
+:::
+
+Обе развилки «Processing» (выдано и возврат) я прогнал в прототипе.`,
+            images: []
+          },
+          {
+            id: 'entry',
+            label: 'ВХОД',
+            nav: 'Вход',
+            title: 'Снятие — не платёж, поэтому *виджет*',
+            lead: 'Бриф запретил ставить вход рядом с Transfer и Deposit, и это совпало с моим выводом: снятие наличных — редкое действие с высокой ценой ошибки, а не очередной платёж. Я поставил на Home стеклянный виджет Cash между блоком Transactions и карточками счетов: он сам показывает, есть ли у меня живой код.',
+            content: `:::stage layout=pair
+/assets/plata-qr/home-brief.webp | Home из брифа Plata: входа нет
+/assets/plata-qr/home-widget-active.webp | Мой вариант: виджет Cash с активным кодом
+:::
+
+:::cards cols=3
+**Нет кода** | Бледная сфера, подзаголовок подсказывает ближайший банкомат. Если он далеко или геолокация выключена, текст меняется.
+**Код активен** | Цветная сфера и строка «Cash ready · $500 · 23 h left». Тап открывает QR, ничего искать не нужно.
+**Код истёк или отменён** | В том же виджете появляется «Create new QR». Состояние не пропадает молча.
+:::
+
+:::rows
+**Почему не рядом с Transfer.** Рядом с платежами снятие провоцирует случайные нажатия, а один виджет ещё и отвечает на вопрос «есть ли у меня живой код» без открытия экранов.
+**Цена.** Виджет заметен меньше таба. Для редкого действия это приемлемо, и есть второй вход.
+**Второй вход.** Экран карты после Freeze или Discard: шит «Need cash while your card is unavailable?». Это тот случай, где QR сильнее Apple Pay.
+**Допущение.** Одновременно активен один QR: новый отменяет старый.
+:::`,
+            images: []
+          },
+          {
+            id: 'amount',
+            label: 'СУММА',
+            nav: 'Счёт и сумма',
+            title: 'Комиссия показана *до* решения',
+            lead: 'Crédito — это кредитная карта, и снятие с неё считается cash advance с комиссией. Никто не должен узнавать о комиссии, когда наличные уже выданы, поэтому экран суммы показывает её сразу, вместе с тем, сколько денег останется после удержания.',
+            content: `:::stage layout=pair
+/assets/plata-qr/amount-cuenta.webp | Cuenta: без комиссии (допущение), остаток после удержания
+/assets/plata-qr/amount-credito.webp | Crédito: комиссия и общая сумма удержания
+:::
+
+:::chain
+$500 на руки
+Комиссия $20,30 (3,5% + НДС)
+Удержано $520,30
+Останется $4 769,09
+:::
+
+:::rows
+**Одно поле, четыре чипа.** $200, $500, $1,000 и $2,000 покрывают частые суммы, а лимиты написаны под полем.
+**Ошибки с выходом.** Если введено $5 100 и денег не хватает, интерфейс предлагает «Use $5,000», а не просто красную подпись.
+**Банкомат как подсказка, не выбор.** Код привязан к счёту и сумме, а не к машине: привязка добавляет шаг и новый сбой «не тот банкомат», а код живёт 24 часа на ≈30 точках.
+**Допущения.** Шаг $100, максимум $6,000 на код, $10,000 в день. Что Cuenta без комиссии — моя догадка: на экране суммы у банкомата Plata есть шаблонная строка «VAT included», так что это не факт.
+:::`,
+            images: []
+          },
+          {
+            id: 'protection',
+            label: 'ЗАЩИТА',
+            nav: 'Защита',
+            title: 'Скриншот не *опустошит* банкомат',
+            lead: 'QR может уйти из приложения: скриншот, пересылка. Запретить это нельзя, поэтому я сделал код заметным и отзывным, а главную защиту поставил у банкомата: после скана владелец должен подтвердить снятие на своём телефоне.',
+            content: `:::cards cols=3 numbered
+**Предотвратить** | Face ID или passcode перед QR, размытие в переключателе приложений, смена токена каждые 30 с.
+**Обнаружить** | Окно «Code = cash» после скриншота, плашка «code works like cash», вотермарк с временем.
+**Отреагировать** | Revoke в один тап, «This isn't me» у банкомата, статус «Code cancelled» и пуш.
+:::
+
+:::stage layout=pair
+/assets/plata-qr/qr-screenshot.webp | Скриншот: Revoke или Keep
+/assets/plata-qr/approve-on-phone.webp | Подтверждение на телефоне после скана
+:::
+
+:::callout label="Главная идея"
+После скана банкомат ждёт 60 секунд, а телефон спрашивает: «Withdraw $500 at Plata ATM Oceanía?» с комиссией, Face ID и кнопкой «This isn't me». Украденный скриншот сам по себе банкомат не откроет. Подтверждение на телефоне — моё предложение второго фактора, в брифе его нет.
+:::
+
+:::rows
+**Честно про базу.** Face ID перед QR лишь сужает окно случайного доступа и не главная защита. Окно после скриншота стоит одного тапа тем, кто снял экран без злого умысла.
+**Цена.** Один лишний шаг у банкомата, несколько секунд. Это цена безопасности.
+**Допущение.** Одноразовость кода и лимит попыток обеспечивает бэкенд, а мёртвый код банкомат отвергает фразой «Code is no longer valid».
+:::`,
+            images: []
+          },
+          {
+            id: 'assumptions',
+            label: 'ДОПУЩЕНИЯ',
+            nav: 'Допущения',
+            title: 'Что я *принял за данность*',
+            lead: 'Бриф не задаёт лимиты, комиссии и правила бэкенда, поэтому я сделал допущения и записал их, чтобы их можно было оспорить. Ниже — то, на чём держится дизайн, и где я могу ошибаться.',
+            content: `:::rows
+**Лимиты.** Шаг $100, максимум $6,000 на код и $10,000 в день. Цифры правдоподобные, но не данные Plata.
+**Один активный QR.** Новый код отменяет старый, а сумма удерживается при создании кода, так что деньги не окажутся в двух кодах сразу.
+**Cuenta без комиссии.** Догадка: на экране суммы у банкомата Plata есть шаблонная строка «VAT included».
+**Банкомат — источник истины.** Телефон досинхронизируется, а «Processing» появляется только при обрыве связи между банкоматом и банком.
+**Правила бэкенда.** Одноразовость кода и лимит попыток обеспечивает бэкенд, а мёртвый код банкомат отвергает фразой «Code is no longer valid».
+**Янтарный для «closes soon».** В палитре Plata такого цвета нет, это моё добавление.
+**Разная цена ошибки.** Три неверных 8-значных кода у банкомата отменяют код и освобождают деньги: так мог подбирать посторонний. Три неверных passcode на телефоне код оставляют активным: ошибся владелец. Это решение, а не случайность.
+:::`,
+            images: []
+          },
+          {
+            id: 'verification',
+            label: 'ПРОВЕРКА',
+            nav: 'Проверка',
+            title: 'Что проверил и что *проверил бы дальше*',
+            lead: 'Я не только нарисовал сценарии, но и прогнал их: собрал кликабельный прототип (симулятор телефона и банкомата, панель сценариев, журнал событий) и написал 80 тестов логики. На пользователях я его не тестировал: проверялась логика, а не удобство.',
+            content: `:::cards cols=2
+**Что проверено** | Нет тупиков, удержанные деньги всегда выдаются или возвращаются, активен только один QR, каждый сбой заканчивается финальным или восстановимым состоянием.
+**Ручные прогоны** | Таймеры 60 и 30 с, passcode, офлайн, баланс, заморозка при активном QR, Crédito с комиссией, «Processing» в обе стороны, сбои банкомата, список банкоматов.
+:::
+
+:::callout label="Не проверено"
+Feature unavailable, недоступный счёт на выборе счёта, дневной лимит, три неверных passcode на подтверждении, три неверных кода у банкомата, заморозка после скана. Они нарисованы на схеме и описаны, но прогонов у них нет.
+:::
+
+### Что проверил бы дальше
+
+:::rows
+**Привязка к банкомату.** Проверить на пользователях, нужен ли выбор машины: я отказался от него ради простоты, но это гипотеза.
+**Подтверждение на телефоне.** Замерить, сколько секунд оно добавляет у банкомата и не бросают ли люди операцию на втором шаге.
+**Виджет на Home.** Проверить, находят ли люди вход без подсказки, ведь он заметен меньше таба.
+**Лимиты и комиссия Cuenta.** Сверить допущения с реальными правилами бэкенда.
+:::`,
+            images: []
+          },
+          {
+            id: 'ui',
+            label: 'UI',
+            nav: 'Дизайн-система',
+            title: 'Дизайн-система Plata, которую я *реконструировал*',
+            lead: 'У меня не было доступа к файлам Plata, поэтому токены и паттерны я восстанавливал по публичным экранам: цвета, радиусы, отступы, стекло, шиты, tab bar. Я собрал из них библиотеку переменных в Figma, чтобы новые экраны выглядели родными.',
+            content: `:::stage layout=single
+/assets/plata-qr/design-tokens.webp | Библиотека переменных, восстановленная по публичным экранам Plata
+:::
+
+:::rows
+**Полноценные экраны — только табы.** Все сценарии — шиты, максимум два слоя: основной шит и маленький поверх.
+**Цвет.** Оранжевый только для главной кнопки, indigo для всего выбираемого (рамка, чип, радио), зелёный для успеха, красный для ошибки.
+**Форма.** Радиус 28, верх шита 48, кнопка-пилюля высотой 56, жирные заголовки.
+**Стекло.** Стеклянные виджеты, серебристо-перламутровый фон Home и плавающий tab bar.
+**Что добавил я.** Янтарный для «closes soon»: в палитре Plata такого нет.
+:::`,
+            images: []
+          },
+          {
+            id: 'scenarios',
+            label: 'ВСЕ СЦЕНАРИИ',
+            nav: 'Все сценарии',
+            title: 'Три карты сценариев и *более 60 состояний*',
+            lead: 'Полные карты экранов лежат здесь: каждый сбой и побочный путь показан отдельным кадром со стрелками между состояниями. Фрагменты открываются в полном размере, так что любой экран можно рассмотреть вблизи.',
+            content: `:::slider
+/assets/plata-qr/map1-create.webp | Создание QR
+/assets/plata-qr/map2-main-path.webp | У банкомата: основной путь
+/assets/plata-qr/map2-failures.webp | У банкомата: сбои
+/assets/plata-qr/map3-lifecycle.webp | Жизненный цикл и защита
+:::`,
+            images: []
+          }
+        ]
       }
     },
     // Footer
@@ -1140,6 +1419,11 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
           problem: 'In finance apps, a simple expense takes 3–4 steps, while optional fields and equal visual weight blur focus.',
           solution: 'One screen: amount in focus, expense selected by default, 4–5 frequent categories one tap away, the Save button always visible.',
           result: 'A transaction in 2–3 taps with one hand, a clear hierarchy and less attention load.'
+        },
+        'plata-qr': {
+          problem: 'Design cardless cash withdrawal in an existing app: entry point, code security, the ATM and every failure.',
+          solution: 'A Cash widget on Home; the QR lives 24 h, refreshes every 30 s, and the ATM waits for approval on the phone.',
+          result: 'Logic checked with a prototype: 80 tests and failure runs; not tested with users, as this is a test assignment.'
         }
       },
       cases: {
@@ -1196,6 +1480,19 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
           role: 'Product designer, landing page and React frontend',
           status: 'Live',
           stats: []
+        },
+        'plata-qr': {
+          role: 'Product designer: flows, interfaces, prototype',
+          status: 'Test assignment, not released',
+          stats: [
+            { value: '60+', label: 'screens and states' },
+            { value: '80', label: 'logic tests' }
+          ],
+          takeaways: [
+            { title: 'Design money as states', text: 'The main risk was not in the screens but in the moments when money is in an unclear place, so every failure ends in dispensed or returned.' },
+            { title: 'Protect where it works', text: 'A screenshot cannot be banned, so the strongest barrier sits at the ATM, not on the QR screen.' },
+            { title: 'Name your assumptions', text: 'Limits, the Cuenta fee and backend rules are not from the brief: a separate list shows where logic ends and a guess begins.' }
+          ]
         }
       }
     },
@@ -2067,6 +2364,267 @@ For example, users can understand how the lighter alternative works by clicking 
             label: 'RESULT',
             nav: 'Result',
             content: 'At this stage, a cohesive entry point has been designed that conveys Keepl methodology and prepares users for registration. The impact on registration conversion and Activation Rate has not been measured yet.',
+            images: []
+          }
+        ]
+      },
+      plataQr: {
+        title: 'Plata — cardless QR withdrawal',
+        subtitle: 'Mobile + ATM',
+        description: 'A Plata test assignment: I designed an end-to-end cardless cash withdrawal flow for an existing app, from the entry point to the ATM, with code security and every failure state.',
+        tags: ['Product Design', 'FinTech', 'UX'],
+        sections: [
+          {
+            id: 'task',
+            label: 'TASK',
+            nav: 'Task',
+            title: 'The hard part is not the QR but the *cash*',
+            lead: 'Plata asked for cardless cash withdrawal in an existing app: entry point, account and amount, a 24-hour code, finding an ATM, leak protection and no gaps in the logic. I read it as a problem about money, not screens: cash that has been dispensed cannot be taken back, so a mistake here costs more than in a regular payment.',
+            content: `:::callout label="Brief"
+A Plata customer withdraws cash without a card using a QR code from the app. The code is tied to an account and an amount and lives for 24 hours. The task is an end-to-end experience, from the entry point to the cash, including every failure.
+:::
+
+:::rows
+**Entry.** Not next to Transfer and Deposit: find another clear place.
+**Account and amount.** The code depends on them and they cannot change after creation.
+**ATM.** Find the nearest one and see the rest.
+**Security.** The code can leave the app: a screenshot, a forward.
+**Full experience.** Before, during and after the withdrawal.
+**Failures.** States, edge cases and no gaps in the logic.
+:::
+
+This is a test assignment: it was never released, and I did not measure the impact on users. Everything the brief did not specify (limits, fees, backend rules) I treated as an assumption and listed in a separate chapter.`,
+            images: []
+          },
+          {
+            id: 'research',
+            label: 'RESEARCH',
+            nav: 'Research',
+            title: 'ATMs already accept *Apple Pay*',
+            lead: 'Plata ATMs already take contactless cards and Apple Pay, so the first honest question is why QR at all. I started there, and with who shows the code: the phone or the ATM.',
+            content: `:::cards cols=2
+**The phone shows the QR** | BDO (Philippines). The code is created in advance and the ATM scans it. This fits the brief: the account and amount are chosen before reaching the machine.
+**The ATM shows the QR** | CommBank, TBC, OCBC, Woori, BOCOM. The phone scans the code at the machine. In this brief the code lives for 24 hours and is tied to an amount, so the phone has to create it.
+:::
+
+:::callout label="Why QR over Apple Pay"
+Honestly: for someone with a working card, it is not better. QR wins when the card is unavailable (frozen, discarded, being reissued), and it limits exposure to one amount for 24 hours instead of the whole card.
+:::`,
+            images: []
+          },
+          {
+            id: 'hypotheses',
+            label: 'HYPOTHESES',
+            nav: 'Hypotheses',
+            title: 'Three hypotheses *the design rests on*',
+            lead: 'From the brief and the research I distilled three assumptions, and each one shaped a part of the product. I had no way to test them with users, so what follows shows where a decision rests on logic and where it rests on an assumption.',
+            content: `:::cards cols=3 numbered
+**Withdrawal is not a payment** | A rare, high-stakes action should not sit in the same row as Transfer and Deposit. Result: a Cash widget on Home.
+**The QR cannot be kept inside the app** | Screenshots and forwarding cannot be blocked, so the code is limited and revocable, and the main protection moves to the ATM. Result: approval on the phone.
+**Money is always in a clear state** | The amount is held when the code is created and then either dispensed or returned. Result: the failure map and the Processing state.
+:::`,
+            images: []
+          },
+          {
+            id: 'map',
+            label: 'USER FLOW',
+            nav: 'Flow map',
+            title: 'Every scenario *on one diagram*',
+            lead: 'The main path runs left to right: entry, account, amount, confirmation, QR, ATM, result. Side paths sit above each step and failures below it. The full screen maps are at the end of the case.',
+            content: `:::stats
+7 | steps on the main path
+12 | side paths
+20 | failures and edge cases
+:::
+
+:::stage layout=single
+/assets/plata-qr/flow-scheme.webp | Main path, side paths above, failures below
+:::
+
+Some failures are drawn as screens and some exist only on the diagram: that is how I split my time between depth and breadth.`,
+            images: []
+          },
+          {
+            id: 'failures',
+            label: 'FAILURES',
+            nav: 'Failures',
+            title: 'Money *never gets stuck* in a failure',
+            lead: 'The costliest mistake in this flow is money in an unclear state: charged, but no cash. So the amount is held when the code is created and always ends in one of two outcomes: dispensed or returned.',
+            content: `:::chain
+Code created
+Amount held
+ATM dispenses cash
+Dispensed or returned
+:::
+
+:::cards cols=3
+**Not confirmed in 60 s** | The ATM stops waiting. The code stays active and nothing is charged.
+**Phone offline** | The approval cannot go through: the screen explains why and offers to retry the connection.
+**ATM out of cash** | Nothing is charged and the code stays active, so another ATM works.
+**Cash not taken in 30 s** | The ATM pulls the cash back, the amount is returned and the reason is shown.
+**Connection drops while dispensing** | The Processing state: the amount stays on hold until the ATM reports. Then it is dispensed or returned.
+**Three wrong 8-digit codes** | The code is cancelled and the amount is released.
+:::
+
+:::callout label="Assumption"
+The ATM is the source of truth. The phone catches up afterwards, and Processing appears only when the connection between the ATM and the bank drops.
+:::
+
+I ran both Processing outcomes (dispensed and refunded) in the prototype.`,
+            images: []
+          },
+          {
+            id: 'entry',
+            label: 'ENTRY',
+            nav: 'Entry',
+            title: 'Withdrawal is not a payment, so a *widget*',
+            lead: 'The brief ruled out placing the entry next to Transfer and Deposit, which matched my own conclusion: cash withdrawal is a rare action with a costly mistake, not another payment. I put a glass Cash widget on Home between Transactions and the account cards, and it shows by itself whether I have a live code.',
+            content: `:::stage layout=pair
+/assets/plata-qr/home-brief.webp | Plata's Home from the brief: no entry
+/assets/plata-qr/home-widget-active.webp | My version: the Cash widget with an active code
+:::
+
+:::cards cols=3
+**No code** | A pale sphere, and the subtitle hints at the nearest ATM. If it is far away or location is off, the text changes.
+**Code active** | A colored sphere and the line "Cash ready · $500 · 23 h left". A tap opens the QR, nothing to search for.
+**Code expired or cancelled** | The same widget shows "Create new QR". The state does not vanish silently.
+:::
+
+:::rows
+**Why not next to Transfer.** Next to payments, withdrawal invites accidental taps, and one widget also answers "do I have a live code" without opening anything.
+**Trade-off.** The widget is less visible than a tab. For a rare action that is acceptable, and there is a second entry.
+**Second entry.** The card screen after Freeze or Discard: a sheet "Need cash while your card is unavailable?". This is where QR beats Apple Pay.
+**Assumption.** One QR is active at a time: a new one cancels the old one.
+:::`,
+            images: []
+          },
+          {
+            id: 'amount',
+            label: 'AMOUNT',
+            nav: 'Account and amount',
+            title: 'The fee is shown *before* the decision',
+            lead: 'Crédito is a credit card, so withdrawing from it is a cash advance with a fee. Nobody should discover a fee after the cash is out, so the amount screen shows it up front, together with how much money is left after the hold.',
+            content: `:::stage layout=pair
+/assets/plata-qr/amount-cuenta.webp | Cuenta: no fee (an assumption), balance after the hold
+/assets/plata-qr/amount-credito.webp | Crédito: the fee and the total held
+:::
+
+:::chain
+$500 in hand
+Fee $20.30 (3.5% + VAT)
+Held $520.30
+Left $4,769.09
+:::
+
+:::rows
+**One field, four chips.** $200, $500, $1,000 and $2,000 cover the common amounts, and the limits are written under the field.
+**Errors with a way out.** If someone enters $5,100 and the balance falls short, the interface suggests "Use $5,000" instead of just a red line.
+**The ATM is a hint, not a choice.** The code is tied to the account and the amount, not to a machine: binding adds a step and a new failure, "wrong ATM", and the code lives 24 hours across ≈30 locations.
+**Assumptions.** Step $100, max $6,000 per code, $10,000 per day. That Cuenta has no fee is my guess: Plata's ATM amount screen has a template "VAT included" line, so it is not a fact.
+:::`,
+            images: []
+          },
+          {
+            id: 'protection',
+            label: 'PROTECTION',
+            nav: 'Protection',
+            title: 'A screenshot cannot *empty* an ATM',
+            lead: 'A QR can leave the app: a screenshot, a forward. That cannot be blocked, so I made the code visible and revocable and put the main protection at the ATM: after the scan, the owner has to approve the withdrawal on their own phone.',
+            content: `:::cards cols=3 numbered
+**Prevent** | Face ID or passcode before the QR, a blurred app switcher, a token that changes every 30 s.
+**Detect** | The "Code = cash" prompt after a screenshot, a "code works like cash" banner, a timestamp watermark.
+**React** | Revoke in one tap, "This isn't me" at the ATM, a "Code cancelled" status and a push.
+:::
+
+:::stage layout=pair
+/assets/plata-qr/qr-screenshot.webp | Screenshot: Revoke or Keep
+/assets/plata-qr/approve-on-phone.webp | Approval on the phone after the scan
+:::
+
+:::callout label="Core idea"
+After the scan the ATM waits 60 seconds, and the phone asks: "Withdraw $500 at Plata ATM Oceanía?" with the fee, Face ID and a "This isn't me" button. A stolen screenshot alone cannot open the ATM. Approval on the phone is my proposal for a second factor; the brief does not mention it.
+:::
+
+:::rows
+**Honest about the basics.** Face ID before the QR only narrows accidental access and is not the main protection. The screenshot prompt costs one tap for people who screenshot innocently.
+**Trade-off.** One extra step at the machine, a few seconds. That is the price of safety.
+**Assumption.** One-time use and attempt limits are enforced by the backend, and a dead code is rejected by the ATM with "Code is no longer valid".
+:::`,
+            images: []
+          },
+          {
+            id: 'assumptions',
+            label: 'ASSUMPTIONS',
+            nav: 'Assumptions',
+            title: 'What I *took for granted*',
+            lead: 'The brief does not set limits, fees or backend rules, so I made assumptions and wrote them down so they can be challenged. Below is what the design rests on and where I may be wrong.',
+            content: `:::rows
+**Limits.** Step $100, max $6,000 per code and $10,000 per day. The numbers are plausible, not Plata data.
+**One active QR.** A new code cancels the old one, and the amount is held when the code is created, so money can never sit in two codes at once.
+**Cuenta has no fee.** A guess: Plata's ATM amount screen has a template "VAT included" line.
+**The ATM is the source of truth.** The phone catches up afterwards, and Processing appears only when the connection between the ATM and the bank drops.
+**Backend rules.** One-time use and attempt limits are enforced by the backend, and a dead code is rejected by the ATM with "Code is no longer valid".
+**Amber for "closes soon".** Plata's palette has no such color, so this is my addition.
+**A different cost of a mistake.** Three wrong 8-digit codes at the ATM cancel the code and release the money: a stranger could be guessing. Three wrong passcodes on the phone leave the code active: the owner made a typo. This is a decision, not an accident.
+:::`,
+            images: []
+          },
+          {
+            id: 'verification',
+            label: 'VERIFICATION',
+            nav: 'Verification',
+            title: 'What I checked and what I *would check next*',
+            lead: 'I did not only draw the scenarios, I ran them: I built a clickable prototype (a phone and ATM simulator, a scenario panel, an event log) and wrote 80 logic tests. I did not test it with users: it checked the logic, not the usability.',
+            content: `:::cards cols=2
+**What is verified** | No dead ends, held money is always dispensed or returned, only one QR is active, and every failure ends in a terminal or recoverable state.
+**Manual runs** | The 60 s and 30 s timers, passcode, offline, balance, an account frozen with an active QR, Crédito with the fee, Processing both ways, ATM failures, the ATM list.
+:::
+
+:::callout label="Not verified"
+Feature unavailable, an unavailable account on account selection, the daily limit, three wrong passcodes on approval, three wrong codes at the ATM, a freeze after the scan. They are drawn on the diagram and described, but have no runs.
+:::
+
+### What I would check next
+
+:::rows
+**Binding to an ATM.** Test with users whether choosing a machine is needed: I left it out for simplicity, but that is a hypothesis.
+**Approval on the phone.** Measure how many seconds it adds at the ATM and whether people drop out at the second step.
+**The Home widget.** Check whether people find the entry without a hint, since it is less visible than a tab.
+**Limits and the Cuenta fee.** Validate the assumptions against the real backend rules.
+:::`,
+            images: []
+          },
+          {
+            id: 'ui',
+            label: 'UI',
+            nav: 'Design system',
+            title: 'The Plata design system, *reconstructed*',
+            lead: 'I had no access to the Plata files, so I rebuilt the tokens and patterns from public screens: colors, radii, spacing, glass, sheets, the tab bar. I turned them into a variables library in Figma so new screens look native.',
+            content: `:::stage layout=single
+/assets/plata-qr/design-tokens.webp | Variables library rebuilt from public Plata screens
+:::
+
+:::rows
+**Full screens only for tabs.** Every scenario is a sheet, with at most two layers: the main sheet and a small one on top.
+**Color.** Orange only for the main button, indigo for everything selectable (border, chip, radio), green for success, red for errors.
+**Shape.** Radius 28, sheet top 48, a pill button 56 high, bold headings.
+**Glass.** Glass widgets, a silvery pearl Home background and a floating tab bar.
+**What I added.** Amber for "closes soon": Plata's palette has no such color.
+:::`,
+            images: []
+          },
+          {
+            id: 'scenarios',
+            label: 'ALL SCENARIOS',
+            nav: 'All scenarios',
+            title: 'Three scenario maps and *60+ states*',
+            lead: 'The full screen maps live here: every failure and side path is its own frame, with arrows between the states. Fragments open at full size, so any screen can be examined up close.',
+            content: `:::slider
+/assets/plata-qr/map1-create.webp | Creating the QR
+/assets/plata-qr/map2-main-path.webp | At the ATM: main path
+/assets/plata-qr/map2-failures.webp | At the ATM: failures
+/assets/plata-qr/map3-lifecycle.webp | Lifecycle and security
+:::`,
             images: []
           }
         ]

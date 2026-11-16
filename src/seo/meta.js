@@ -1,5 +1,5 @@
 export const BASE_URL = 'https://andrianshtark.vercel.app'
-export const CASE_SLUGS = ['zhabka', 'keepl-app', 'keepl-landing', 'hired-app', 'add-transition']
+export const CASE_SLUGS = ['zhabka', 'keepl-app', 'keepl-landing', 'hired-app', 'add-transition', 'plata-qr']
 
 /* Titles and descriptions are fixed here, not taken from the content dictionaries. */
 const CASE_META = {
@@ -51,6 +51,16 @@ const CASE_META = {
     ru: {
       title: 'Добавление операции — кейс | Andrian Shtark',
       description: 'UX-аудит и редизайн добавления операции в финансовом приложении: быстрый и понятный ввод трат и доходов. Разбор 7 конкурентов.'
+    }
+  },
+  'plata-qr': {
+    en: {
+      title: 'Plata: QR withdrawal — case study | Andrian Shtark',
+      description: 'A Plata test assignment: an end-to-end cardless QR cash withdrawal flow, from the entry point to the ATM, with code security and failure states.'
+    },
+    ru: {
+      title: 'Plata: снятие наличных по QR — кейс | Andrian Shtark',
+      description: 'Тестовое задание Plata: сквозной сценарий снятия наличных по QR без карты — от точки входа до банкомата, с защитой кода и разбором сбоев.'
     }
   }
 }

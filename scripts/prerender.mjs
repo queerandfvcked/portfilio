@@ -8,7 +8,7 @@ const distDir = path.join(root, 'dist')
 const ssrCandidates = ['entry-server.mjs', 'entry-server.js']
 
 const LANGUAGES = ['ru', 'en']
-const CASE_SLUGS = ['zhabka', 'keepl-app', 'keepl-landing', 'hired-app', 'add-transition']
+const CASE_SLUGS = ['zhabka', 'keepl-app', 'keepl-landing', 'hired-app', 'add-transition', 'plata-qr']
 
 const PAGES = LANGUAGES.flatMap((lang) => [
   { lang, slug: null, url: `/${lang}` },

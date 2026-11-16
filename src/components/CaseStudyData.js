@@ -487,6 +487,254 @@ export function getCaseStudies(t, language = 'ru') {
 
     },
 
+    'plata-qr': {
+
+      title: t('caseStudies.plataQr.title'),
+
+      subtitle: t('caseStudies.plataQr.subtitle'),
+
+      description: t('caseStudies.plataQr.description'),
+
+      tags: t('caseStudies.plataQr.tags'),
+
+      heroImage: '/assets/case-main/plata-phone-1600.webp',
+
+      meta: {
+
+        role: t('casePage.roleValue'),
+
+        status: t('casePage.cases.plata-qr.status')
+
+      },
+
+      stats: t('casePage.cases.plata-qr.stats'),
+
+      links: [],
+
+      takeaways: t('casePage.cases.plata-qr.takeaways'),
+
+      tldr: {
+
+        problem: t('casePage.tldr.plata-qr.problem'),
+
+        solution: t('casePage.tldr.plata-qr.solution'),
+
+        result: t('casePage.tldr.plata-qr.result')
+
+      },
+
+      sections: [
+
+        {
+
+          id: 'task',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.0.title'),
+
+          label: tx('caseStudies.plataQr.sections.0.label'),
+          nav: tx('caseStudies.plataQr.sections.0.nav'),
+          lead: tx('caseStudies.plataQr.sections.0.lead'),
+
+          content: t('caseStudies.plataQr.sections.0.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'research',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.1.title'),
+
+          label: tx('caseStudies.plataQr.sections.1.label'),
+          nav: tx('caseStudies.plataQr.sections.1.nav'),
+          lead: tx('caseStudies.plataQr.sections.1.lead'),
+
+          content: t('caseStudies.plataQr.sections.1.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'hypotheses',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.2.title'),
+
+          label: tx('caseStudies.plataQr.sections.2.label'),
+          nav: tx('caseStudies.plataQr.sections.2.nav'),
+          lead: tx('caseStudies.plataQr.sections.2.lead'),
+
+          content: t('caseStudies.plataQr.sections.2.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'map',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.3.title'),
+
+          label: tx('caseStudies.plataQr.sections.3.label'),
+          nav: tx('caseStudies.plataQr.sections.3.nav'),
+          lead: tx('caseStudies.plataQr.sections.3.lead'),
+
+          content: t('caseStudies.plataQr.sections.3.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'entry',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.5.title'),
+
+          label: tx('caseStudies.plataQr.sections.5.label'),
+          nav: tx('caseStudies.plataQr.sections.5.nav'),
+          lead: tx('caseStudies.plataQr.sections.5.lead'),
+
+          content: t('caseStudies.plataQr.sections.5.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'amount',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.6.title'),
+
+          label: tx('caseStudies.plataQr.sections.6.label'),
+          nav: tx('caseStudies.plataQr.sections.6.nav'),
+          lead: tx('caseStudies.plataQr.sections.6.lead'),
+
+          content: t('caseStudies.plataQr.sections.6.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'protection',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.7.title'),
+
+          label: tx('caseStudies.plataQr.sections.7.label'),
+          nav: tx('caseStudies.plataQr.sections.7.nav'),
+          lead: tx('caseStudies.plataQr.sections.7.lead'),
+
+          content: t('caseStudies.plataQr.sections.7.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'failures',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.4.title'),
+
+          label: tx('caseStudies.plataQr.sections.4.label'),
+          nav: tx('caseStudies.plataQr.sections.4.nav'),
+          lead: tx('caseStudies.plataQr.sections.4.lead'),
+
+          content: t('caseStudies.plataQr.sections.4.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'assumptions',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.8.title'),
+
+          label: tx('caseStudies.plataQr.sections.8.label'),
+          nav: tx('caseStudies.plataQr.sections.8.nav'),
+          lead: tx('caseStudies.plataQr.sections.8.lead'),
+
+          content: t('caseStudies.plataQr.sections.8.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'verification',
+          collapsible: false,
+
+          title: t('caseStudies.plataQr.sections.9.title'),
+
+          label: tx('caseStudies.plataQr.sections.9.label'),
+          nav: tx('caseStudies.plataQr.sections.9.nav'),
+          lead: tx('caseStudies.plataQr.sections.9.lead'),
+
+          content: t('caseStudies.plataQr.sections.9.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'ui',
+          collapsible: true,
+          defaultOpen: false,
+
+          title: t('caseStudies.plataQr.sections.10.title'),
+
+          label: tx('caseStudies.plataQr.sections.10.label'),
+          nav: tx('caseStudies.plataQr.sections.10.nav'),
+          lead: tx('caseStudies.plataQr.sections.10.lead'),
+
+          content: t('caseStudies.plataQr.sections.10.content'),
+
+          images: []
+
+        },
+
+        {
+
+          id: 'scenarios',
+          collapsible: true,
+          defaultOpen: false,
+
+          title: t('caseStudies.plataQr.sections.11.title'),
+
+          label: tx('caseStudies.plataQr.sections.11.label'),
+          nav: tx('caseStudies.plataQr.sections.11.nav'),
+          lead: tx('caseStudies.plataQr.sections.11.lead'),
+
+          content: t('caseStudies.plataQr.sections.11.content'),
+
+          images: []
+
+        }
+
+      ]
+
+    },
+
     'hired-app': {
 
       title: t('caseStudies.hiredApp.title'),

@@ -1372,6 +1372,61 @@
     border-radius: 12px;
   }
 
+  /* Plata hero: the ATM stands on the scene's bottom edge and is cropped only by
+     it (cover, top-aligned), while the phone overlaps from the left and hangs
+     below. Positions live here rather than in HERO_SCENES so mobile can switch
+     to the whole-ATM composition: inline styles would win over this block. */
+  .case-scene--hero.case-scene--plata .case-scene__laptop {
+    left: 30%;
+    top: 3%;
+    width: 44%;
+    height: 97%;
+  }
+
+  .case-scene--hero.case-scene--plata .case-scene__laptop > *,
+  .case-scene--hero.case-scene--plata .case-scene__laptop picture,
+  .case-scene--hero.case-scene--plata .case-scene__laptop img {
+    height: 100%;
+  }
+
+  .case-scene--hero.case-scene--plata .case-scene__laptop img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .case-scene--hero.case-scene--plata .case-scene__phone {
+    left: 0;
+    top: 48%;
+    width: 54%;
+  }
+
+  @media (max-width: 1023px) {
+    /* Same as the mobile card: a square scene, the whole ATM on its floor and a
+       smaller phone on the left, with no mask. */
+    .case-scene--hero.case-scene--plata {
+      aspect-ratio: 1 / 1;
+    }
+
+    .case-scene--hero.case-scene--plata .case-scene__laptop {
+      left: 54%;
+      top: 4%;
+      width: 44.5%;
+      height: 96%;
+    }
+
+    .case-scene--hero.case-scene--plata .case-scene__laptop img {
+      object-fit: contain;
+      object-position: bottom center;
+    }
+
+    .case-scene--hero.case-scene--plata .case-scene__phone {
+      left: 0;
+      top: 42%;
+      width: 60%;
+    }
+  }
+
   /* ── Process flow ────────────────────────────────────── */
   .process-flow {
     position: relative;
