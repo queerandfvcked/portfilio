@@ -48,6 +48,12 @@ export const CASE_IMAGES = {
     height: 2792,
     alpha: true,
     widths: [800, 1200, 1600, 2000]
+  },
+  'plata-cover': {
+    width: 2000,
+    height: 1250,
+    alpha: true,
+    widths: [800, 1200, 1600]
   }
 }
 
@@ -56,5 +62,5 @@ export const CASE_MEDIA = {
   'keepl-app': { laptop: 'keepl-desktop', phone: 'keepl-mobile', cover: 'keepl-desktop' },
   'add-transition': { cover: 'fintech' },
   'hired-app': { cover: 'hired' },
-  'plata-qr': { laptop: 'plata-atm', phone: 'plata-phone' }
+  'plata-qr': { laptop: 'plata-atm', phone: 'plata-phone', cover: 'plata-cover' }
 }

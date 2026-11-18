@@ -178,6 +178,19 @@ export const translations = {
     },
     projectsList: [
       {
+        id: 'plata-qr',
+        title: 'Plata — снятие наличных по QR',
+        cardTitle: 'Plata: снятие по QR',
+        summary: 'Тестовое задание: фича для существующего fintech-приложения — от точки входа до банкомата, с защитой кода и разбором сбоев.',
+        description: 'Тестовое задание Plata (Мексика): сквозной сценарий снятия наличных по QR без карты. Точка входа, счёт и сумма, живой QR, подтверждение на телефоне у банкомата, защита от утечки кода и сбои — логику проверил кликабельным прототипом.',
+        link: '/plata-qr',
+        variant: 'wide',
+        domain: ['FinTech', 'Тестовое задание'],
+        platform: 'Mobile + ATM',
+        scope: 'Сценарии, безопасность, UI, прототип',
+        highlight: { value: '60+', label: 'экранов и состояний' }
+      },
+      {
         id: 'zhabka',
         title: 'Zhabka',
         cardTitle: 'Zhabka',
@@ -204,19 +217,6 @@ export const translations = {
         domain: ['Цели и привычки', 'Wellbeing'],
         platform: 'Web + Mobile (PWA)',
         scope: 'Исследование, UX/UI, React-фронтенд'
-      },
-      {
-        id: 'plata-qr',
-        title: 'Plata — снятие наличных по QR',
-        cardTitle: 'Plata: снятие по QR',
-        summary: 'Тестовое задание: фича для существующего fintech-приложения — от точки входа до банкомата, с защитой кода и разбором сбоев.',
-        description: 'Тестовое задание Plata (Мексика): сквозной сценарий снятия наличных по QR без карты. Точка входа, счёт и сумма, живой QR, подтверждение на телефоне у банкомата, защита от утечки кода и сбои — логику проверил кликабельным прототипом.',
-        link: '/plata-qr',
-        variant: 'wide',
-        domain: ['FinTech', 'Тестовое задание'],
-        platform: 'Mobile + ATM',
-        scope: 'Сценарии, безопасность, UI, прототип',
-        highlight: { value: '60+', label: 'экранов и состояний' }
       },
       {
         id: 'add-transition',
@@ -1200,7 +1200,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 
 :::rows
 **Почему не рядом с Transfer.** Рядом с платежами снятие провоцирует случайные нажатия, а один виджет ещё и отвечает на вопрос «есть ли у меня живой код» без открытия экранов.
-**Цена.** Виджет заметен меньше таба. Для редкого действия это приемлемо, и есть второй вход.
+**Цена.** Виджет стоит на самом видном месте Home ради действия, которое нужно редко. Возможно, такая заметность избыточна: об этом в «Что проверил бы дальше».
 **Второй вход.** Экран карты после Freeze или Discard: шит «Need cash while your card is unavailable?». Это тот случай, где QR сильнее Apple Pay.
 **Допущение.** Одновременно активен один QR: новый отменяет старый.
 :::`,
@@ -1240,7 +1240,7 @@ $500 на руки
             lead: 'QR может уйти из приложения: скриншот, пересылка. Запретить это нельзя, поэтому я сделал код заметным и отзывным, а главную защиту поставил у банкомата: после скана владелец должен подтвердить снятие на своём телефоне.',
             content: `:::cards cols=3 numbered
 **Предотвратить** | Face ID или passcode перед QR, размытие в переключателе приложений, смена токена каждые 30 с.
-**Обнаружить** | Окно «Code = cash» после скриншота, плашка «code works like cash», вотермарк с временем.
+**Обнаружить** | Окно «Code = cash» сразу после скриншота: предупреждение появляется в момент риска, а не висит на экране постоянно.
 **Отреагировать** | Revoke в один тап, «This isn't me» у банкомата, статус «Code cancelled» и пуш.
 :::
 
@@ -1297,7 +1297,7 @@ Feature unavailable, недоступный счёт на выборе счёт�
 :::rows
 **Привязка к банкомату.** Проверить на пользователях, нужен ли выбор машины: я отказался от него ради простоты, но это гипотеза.
 **Подтверждение на телефоне.** Замерить, сколько секунд оно добавляет у банкомата и не бросают ли люди операцию на втором шаге.
-**Виджет на Home.** Проверить, находят ли люди вход без подсказки, ведь он заметен меньше таба.
+**Место входа.** Виджет стоит на самом видном месте Home. Проверить, насколько вообще нужна функция снятия без карты: если она редкая, вход лучше перенести с главного экрана глубже.
 **Лимиты и комиссия Cuenta.** Сверить допущения с реальными правилами бэкенда.
 :::`,
             images: []
@@ -1327,11 +1327,19 @@ Feature unavailable, недоступный счёт на выборе счёт�
             nav: 'Все сценарии',
             title: 'Три карты сценариев и *более 60 состояний*',
             lead: 'Полные карты экранов лежат здесь: каждый сбой и побочный путь показан отдельным кадром со стрелками между состояниями. Фрагменты открываются в полном размере, так что любой экран можно рассмотреть вблизи.',
-            content: `:::slider
-/assets/plata-qr/map1-create.webp | Создание QR
-/assets/plata-qr/map2-main-path.webp | У банкомата: основной путь
-/assets/plata-qr/map2-failures.webp | У банкомата: сбои
-/assets/plata-qr/map3-lifecycle.webp | Жизненный цикл и защита
+            content: `### Карта 1: создание QR
+:::stage layout=single
+/assets/plata-qr/map1-create.webp | Вход, счёт, сумма, подтверждение, QR
+:::
+
+### Карта 2: у банкомата
+:::stage layout=single
+/assets/plata-qr/map2-main-path.webp | Основной путь, сбои сверху и снизу
+:::
+
+### Карта 3: жизненный цикл и защита
+:::stage layout=single
+/assets/plata-qr/map3-lifecycle.webp | Отмена, скриншот, истёк при скане, «This isn't me»
 :::`,
             images: []
           }
@@ -1518,6 +1526,19 @@ Feature unavailable, недоступный счёт на выборе счёт�
     },
     projectsList: [
       {
+        id: 'plata-qr',
+        title: 'Plata — cardless QR withdrawal',
+        cardTitle: 'Plata: QR withdrawal',
+        summary: 'Test assignment: a feature for an existing fintech app, from entry point to the ATM, with code security and failure handling.',
+        description: 'A test assignment for Plata (Mexico): an end-to-end cardless cash withdrawal flow. Entry point, account and amount, a live QR, on-phone confirmation at the ATM, protection against code leaks and failure states — the logic is checked with a clickable prototype.',
+        link: '/plata-qr',
+        variant: 'wide',
+        domain: ['FinTech', 'Test assignment'],
+        platform: 'Mobile + ATM',
+        scope: 'Flows, security, UI, prototype',
+        highlight: { value: '60+', label: 'screens and states' }
+      },
+      {
         id: 'zhabka',
         title: 'Zhabka',
         cardTitle: 'Zhabka',
@@ -1544,19 +1565,6 @@ Feature unavailable, недоступный счёт на выборе счёт�
         domain: ['Goals & habits', 'Wellbeing'],
         platform: 'Web + Mobile (PWA)',
         scope: 'Research, UX/UI, React front end'
-      },
-      {
-        id: 'plata-qr',
-        title: 'Plata — cardless QR withdrawal',
-        cardTitle: 'Plata: QR withdrawal',
-        summary: 'Test assignment: a feature for an existing fintech app, from entry point to the ATM, with code security and failure handling.',
-        description: 'A test assignment for Plata (Mexico): an end-to-end cardless cash withdrawal flow. Entry point, account and amount, a live QR, on-phone confirmation at the ATM, protection against code leaks and failure states — the logic is checked with a clickable prototype.',
-        link: '/plata-qr',
-        variant: 'wide',
-        domain: ['FinTech', 'Test assignment'],
-        platform: 'Mobile + ATM',
-        scope: 'Flows, security, UI, prototype',
-        highlight: { value: '60+', label: 'screens and states' }
       },
       {
         id: 'add-transition',
@@ -2492,7 +2500,7 @@ I ran both Processing outcomes (dispensed and refunded) in the prototype.`,
 
 :::rows
 **Why not next to Transfer.** Next to payments, withdrawal invites accidental taps, and one widget also answers "do I have a live code" without opening anything.
-**Trade-off.** The widget is less visible than a tab. For a rare action that is acceptable, and there is a second entry.
+**Trade-off.** The widget sits in the most visible spot on Home for an action people need rarely. That much prominence may be too much: see "What I would check next".
 **Second entry.** The card screen after Freeze or Discard: a sheet "Need cash while your card is unavailable?". This is where QR beats Apple Pay.
 **Assumption.** One QR is active at a time: a new one cancels the old one.
 :::`,
@@ -2532,7 +2540,7 @@ Left $4,769.09
             lead: 'A QR can leave the app: a screenshot, a forward. That cannot be blocked, so I made the code visible and revocable and put the main protection at the ATM: after the scan, the owner has to approve the withdrawal on their own phone.',
             content: `:::cards cols=3 numbered
 **Prevent** | Face ID or passcode before the QR, a blurred app switcher, a token that changes every 30 s.
-**Detect** | The "Code = cash" prompt after a screenshot, a "code works like cash" banner, a timestamp watermark.
+**Detect** | The "Code = cash" prompt right after a screenshot: the warning appears at the moment of risk instead of sitting on the screen all the time.
 **React** | Revoke in one tap, "This isn't me" at the ATM, a "Code cancelled" status and a push.
 :::
 
@@ -2589,7 +2597,7 @@ Feature unavailable, an unavailable account on account selection, the daily limi
 :::rows
 **Binding to an ATM.** Test with users whether choosing a machine is needed: I left it out for simplicity, but that is a hypothesis.
 **Approval on the phone.** Measure how many seconds it adds at the ATM and whether people drop out at the second step.
-**The Home widget.** Check whether people find the entry without a hint, since it is less visible than a tab.
+**Where the entry lives.** The widget takes the most visible spot on Home. Check how often people need cardless withdrawal at all: if it is rare, the entry belongs deeper than the home screen.
 **Limits and the Cuenta fee.** Validate the assumptions against the real backend rules.
 :::`,
             images: []
@@ -2619,11 +2627,19 @@ Feature unavailable, an unavailable account on account selection, the daily limi
             nav: 'All scenarios',
             title: 'Three scenario maps and *60+ states*',
             lead: 'The full screen maps live here: every failure and side path is its own frame, with arrows between the states. Fragments open at full size, so any screen can be examined up close.',
-            content: `:::slider
-/assets/plata-qr/map1-create.webp | Creating the QR
-/assets/plata-qr/map2-main-path.webp | At the ATM: main path
-/assets/plata-qr/map2-failures.webp | At the ATM: failures
-/assets/plata-qr/map3-lifecycle.webp | Lifecycle and security
+            content: `### Map 1: creating the QR
+:::stage layout=single
+/assets/plata-qr/map1-create.webp | Entry, account, amount, confirmation, QR
+:::
+
+### Map 2: at the ATM
+:::stage layout=single
+/assets/plata-qr/map2-main-path.webp | Main path, failures above and below
+:::
+
+### Map 3: lifecycle and security
+:::stage layout=single
+/assets/plata-qr/map3-lifecycle.webp | Cancellation, screenshot, expired during scan, "This isn't me"
 :::`,
             images: []
           }

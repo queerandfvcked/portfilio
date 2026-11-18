@@ -38,6 +38,18 @@ const makeTeaser = (section) => {
   return plain.length > 150 ? `${plain.slice(0, 147)}…` : plain
 }
 
+const clampNumber = (value, min, max) => Math.min(Math.max(value, min), max)
+
+const clampModalOffset = (offset, scale, rendered, viewport) => {
+  const maxX = Math.max(0, (rendered.w * scale - viewport.w) / 2)
+  const maxY = Math.max(0, (rendered.h * scale - viewport.h) / 2)
+
+  return {
+    x: clampNumber(offset.x, -maxX, maxX),
+    y: clampNumber(offset.y, -maxY, maxY)
+  }
+}
+
 const CaseStudy = () => {
   const { lang, slug: routeSlug } = useParams()
   const { t, language } = useTranslation()
@@ -51,8 +63,23 @@ const CaseStudy = () => {
   const [imageScale, setImageScale] = useState(1)
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
+  const [maxImageScale, setMaxImageScale] = useState(3)
+  const [animateTransform, setAnimateTransform] = useState(false)
+  const [reduceMotion, setReduceMotion] = useState(false)
+  const [renderedSize, setRenderedSize] = useState({ w: 0, h: 0 })
   const contentRef = useRef(null)
+  const modalImageRef = useRef(null)
+  const scaleRef = useRef(1)
+  const positionRef = useRef({ x: 0, y: 0 })
+  const maxScaleRef = useRef(3)
+  const renderedRef = useRef({ w: 0, h: 0 })
+  const pointersRef = useRef(new Map())
+  const dragRef = useRef(null)
+  const pinchRef = useRef(null)
+  const movedRef = useRef(0)
+  const suppressClickUntilRef = useRef(0)
+  const lastTapRef = useRef(null)
+  const lastToggleRef = useRef(0)
 
   const caseStudies = getCaseStudies(t, language)
   const currentCase = caseStudies[slug]
@@ -81,66 +108,316 @@ const CaseStudy = () => {
   }
 
   const openImageModal = (imageSrc) => {
+    pointersRef.current.clear()
+    dragRef.current = null
+    pinchRef.current = null
+    movedRef.current = 0
+    suppressClickUntilRef.current = 0
+    lastTapRef.current = null
+    lastToggleRef.current = 0
+    renderedRef.current = { w: 0, h: 0 }
+    scaleRef.current = 1
+    positionRef.current = { x: 0, y: 0 }
+    maxScaleRef.current = 3
+    setImageScale(1)
+    setImagePosition({ x: 0, y: 0 })
+    setMaxImageScale(3)
+    setRenderedSize({ w: 0, h: 0 })
+    setIsDragging(false)
+    setAnimateTransform(false)
+    setReduceMotion(
+      typeof window !== 'undefined' &&
+        Boolean(window.matchMedia) &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    )
     setSelectedImage(imageSrc)
     document.body.style.overflow = 'hidden'
   }
 
   const closeImageModal = () => {
+    pointersRef.current.clear()
+    dragRef.current = null
+    pinchRef.current = null
+    movedRef.current = 0
+    suppressClickUntilRef.current = 0
+    lastTapRef.current = null
+    renderedRef.current = { w: 0, h: 0 }
+    scaleRef.current = 1
+    positionRef.current = { x: 0, y: 0 }
     setSelectedImage(null)
     setImageScale(1)
     setImagePosition({ x: 0, y: 0 })
+    setRenderedSize({ w: 0, h: 0 })
     setIsDragging(false)
+    setAnimateTransform(false)
     document.body.style.overflow = 'auto'
   }
 
-  const handleImageWheel = (e) => {
-    if (window.innerWidth <= 768) return
+  const applyView = (nextScale, rawOffset, animate = false) => {
+    const scale = clampNumber(nextScale, 1, maxScaleRef.current)
+    const offset = clampModalOffset(rawOffset, scale, renderedRef.current, {
+      w: window.innerWidth,
+      h: window.innerHeight
+    })
 
-    e.preventDefault()
-    const delta = e.deltaY > 0 ? 0.9 : 1.1
-    const newScale = Math.min(Math.max(0.5, imageScale * delta), 3)
-    setImageScale(newScale)
+    scaleRef.current = scale
+    positionRef.current = offset
+    setImageScale(scale)
+    setImagePosition(offset)
+    setAnimateTransform(animate)
+  }
 
-    if (newScale === 1) {
-      setImagePosition({ x: 0, y: 0 })
+  const imageCenter = () => {
+    const node = modalImageRef.current
+    if (!node) return null
+
+    const rect = node.getBoundingClientRect()
+
+    return {
+      x: rect.left + rect.width / 2 - positionRef.current.x,
+      y: rect.top + rect.height / 2 - positionRef.current.y
     }
   }
 
-  const handleMouseDown = (e) => {
-    if (imageScale <= 1) return
+  const zoomAtPoint = (nextScale, clientX, clientY, animate = false) => {
+    const center = imageCenter()
+    if (!center) return
 
-    setIsDragging(true)
-    setDragStart({
-      x: e.clientX - imagePosition.x,
-      y: e.clientY - imagePosition.y
-    })
-    e.preventDefault()
+    const oldScale = scaleRef.current
+    const target = clampNumber(nextScale, 1, maxScaleRef.current)
+    if (target === oldScale) return
+
+    const ratio = target / oldScale
+    const oldOffset = positionRef.current
+    const point = { x: clientX - center.x, y: clientY - center.y }
+
+    applyView(
+      target,
+      {
+        x: point.x - (point.x - oldOffset.x) * ratio,
+        y: point.y - (point.y - oldOffset.y) * ratio
+      },
+      animate
+    )
   }
 
-  const handleMouseMove = (e) => {
-    if (!isDragging || imageScale <= 1) return
+  const toggleZoom = (clientX, clientY) => {
+    const now = performance.now()
+    if (now - lastToggleRef.current < 350) return
+    lastToggleRef.current = now
 
-    setImagePosition({
-      x: e.clientX - dragStart.x,
-      y: e.clientY - dragStart.y
-    })
+    if (scaleRef.current > 1.01) {
+      zoomAtPoint(1, clientX, clientY, true)
+      return
+    }
+
+    const rendered = renderedRef.current
+    const node = modalImageRef.current
+    if (!node || !rendered.w) return
+
+    const naturalScale = clampNumber(node.naturalWidth / rendered.w, 1, maxScaleRef.current)
+    zoomAtPoint(naturalScale, clientX, clientY, true)
   }
 
-  const handleMouseUp = () => {
-    setIsDragging(false)
+  const handleModalImageLoad = (event) => {
+    const node = event.currentTarget
+    const rendered = { w: node.offsetWidth, h: node.offsetHeight }
+    renderedRef.current = rendered
+    setRenderedSize(rendered)
+
+    const ratio = rendered.w > 0 ? node.naturalWidth / rendered.w : 1
+    const maxScale = clampNumber(ratio, 3, 40)
+    maxScaleRef.current = maxScale
+    setMaxImageScale(maxScale)
+
+    if (scaleRef.current > maxScale) {
+      applyView(maxScale, positionRef.current)
+    }
+  }
+
+  const handleImageDoubleClick = (event) => {
+    event.stopPropagation()
+    toggleZoom(event.clientX, event.clientY)
+  }
+
+  const handlePointerDown = (event) => {
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId)
+    } catch {
+      // Synthetic events and older browsers may not have an active pointer.
+    }
+
+    pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY })
+    movedRef.current = 0
+    suppressClickUntilRef.current = 0
+    setAnimateTransform(false)
+
+    if (pointersRef.current.size === 1) {
+      dragRef.current = {
+        pointerId: event.pointerId,
+        lastX: event.clientX,
+        lastY: event.clientY
+      }
+      pinchRef.current = null
+      setIsDragging(scaleRef.current > 1)
+      return
+    }
+
+    if (pointersRef.current.size === 2) {
+      const [a, b] = [...pointersRef.current.values()]
+      const center = imageCenter()
+      if (!center) return
+
+      pinchRef.current = {
+        startDist: Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)),
+        startScale: scaleRef.current,
+        startOffset: { ...positionRef.current },
+        center,
+        startMid: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }
+      }
+      dragRef.current = null
+      setIsDragging(true)
+    }
+  }
+
+  const handlePointerMove = (event) => {
+    const pointer = pointersRef.current.get(event.pointerId)
+    if (!pointer) return
+
+    movedRef.current += Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y)
+    pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY })
+
+    if (pointersRef.current.size === 2 && pinchRef.current) {
+      const [a, b] = [...pointersRef.current.values()]
+      const pinch = pinchRef.current
+      const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }
+      const dist = Math.max(1, Math.hypot(a.x - b.x, a.y - b.y))
+      const target = clampNumber(pinch.startScale * (dist / pinch.startDist), 1, maxScaleRef.current)
+      const ratio = target / pinch.startScale
+
+      applyView(target, {
+        x:
+          mid.x -
+          pinch.center.x -
+          (pinch.startMid.x - pinch.center.x - pinch.startOffset.x) * ratio,
+        y:
+          mid.y -
+          pinch.center.y -
+          (pinch.startMid.y - pinch.center.y - pinch.startOffset.y) * ratio
+      })
+      return
+    }
+
+    if (pointersRef.current.size === 1 && dragRef.current?.pointerId === event.pointerId) {
+      if (scaleRef.current <= 1) return
+
+      const drag = dragRef.current
+      applyView(scaleRef.current, {
+        x: positionRef.current.x + (event.clientX - drag.lastX),
+        y: positionRef.current.y + (event.clientY - drag.lastY)
+      })
+      drag.lastX = event.clientX
+      drag.lastY = event.clientY
+    }
+  }
+
+  const handlePointerEnd = (event) => {
+    const moved = movedRef.current > 4
+    if (moved) suppressClickUntilRef.current = performance.now() + 300
+
+    try {
+      event.currentTarget.releasePointerCapture(event.pointerId)
+    } catch {
+      // No active capture (synthetic events, pointer already released).
+    }
+
+    pointersRef.current.delete(event.pointerId)
+
+    if (pointersRef.current.size === 1) {
+      const [[id, point]] = pointersRef.current.entries()
+      dragRef.current = {
+        pointerId: id,
+        lastX: point.x,
+        lastY: point.y
+      }
+      pinchRef.current = null
+      setIsDragging(scaleRef.current > 1)
+    } else if (pointersRef.current.size === 0) {
+      dragRef.current = null
+      pinchRef.current = null
+      setIsDragging(false)
+    }
+
+    if (
+      event.type === 'pointerup' &&
+      event.pointerType === 'touch' &&
+      !moved &&
+      pointersRef.current.size === 0
+    ) {
+      const now = performance.now()
+      const last = lastTapRef.current
+
+      if (last && now - last.t < 320 && Math.hypot(event.clientX - last.x, event.clientY - last.y) < 30) {
+        lastTapRef.current = null
+        toggleZoom(event.clientX, event.clientY)
+      } else {
+        lastTapRef.current = { t: now, x: event.clientX, y: event.clientY }
+      }
+    }
+  }
+
+  const handleBackdropClick = () => {
+    if (performance.now() < suppressClickUntilRef.current) return
+    closeImageModal()
   }
 
   useEffect(() => {
-    if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove)
-      document.addEventListener('mouseup', handleMouseUp)
+    if (!selectedImage) return
 
-      return () => {
-        document.removeEventListener('mousemove', handleMouseMove)
-        document.removeEventListener('mouseup', handleMouseUp)
-      }
+    const node = modalImageRef.current
+    if (!node) return
+
+    const onWheel = (event) => {
+      event.preventDefault()
+
+      const rendered = renderedRef.current
+      if (!rendered.w || !rendered.h) return
+
+      const center = imageCenter()
+      if (!center) return
+
+      const oldScale = scaleRef.current
+      const target = clampNumber(
+        oldScale * Math.exp(-event.deltaY * 0.0015),
+        1,
+        maxScaleRef.current
+      )
+      if (target === oldScale) return
+
+      const ratio = target / oldScale
+      const oldOffset = positionRef.current
+      const point = { x: event.clientX - center.x, y: event.clientY - center.y }
+
+      applyView(target, {
+        x: point.x - (point.x - oldOffset.x) * ratio,
+        y: point.y - (point.y - oldOffset.y) * ratio
+      })
     }
-  }, [isDragging, dragStart])
+
+    node.addEventListener('wheel', onWheel, { passive: false })
+    return () => node.removeEventListener('wheel', onWheel)
+  }, [selectedImage])
+
+  useEffect(() => {
+    if (!selectedImage) return
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') closeImageModal()
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [selectedImage])
 
   const formatContent = (content) => formatContentRaw(content, openImageModal, language, slug)
 
@@ -471,30 +748,40 @@ const CaseStudy = () => {
             </svg>
           </button>
           <div
-            className="fixed inset-0 z-50 flex bg-black/90 p-4 animate-fade-in overflow-auto"
-            onClick={closeImageModal}
+            className="fixed inset-0 z-50 flex bg-black/90 p-4 animate-fade-in overflow-hidden"
+            onClick={handleBackdropClick}
           >
-            <div className="relative max-w-6xl m-auto animate-scale-in">
-              <div className={`relative ${imageScale > 1 ? '' : 'overflow-hidden max-h-[90vh]'}`}>
-                <img
-                  src={selectedImage}
-                  alt="Enlarged view"
-                  className={`object-contain rounded-lg transition-transform duration-200 ${
-                    imageScale > 1 && typeof window !== 'undefined' && window.innerWidth > 768 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'
-                  }`}
-                  style={{
-                    transform: `scale(${imageScale}) translate(${imagePosition.x / imageScale}px, ${imagePosition.y / imageScale}px)`,
-                    transformOrigin: 'center',
-                    maxHeight: '90vh',
-                    minWidth: '200px',
-                    userSelect: 'none'
-                  }}
-                  onWheel={handleImageWheel}
-                  onMouseDown={handleMouseDown}
-                  onClick={(e) => e.stopPropagation()}
-                />
-              </div>
-            </div>
+            <img
+              ref={modalImageRef}
+              src={selectedImage}
+              alt="Enlarged view"
+              draggable="false"
+              decoding="async"
+              aria-label={`Enlarged view, zoom ${Math.round(imageScale * 100)}%, up to ${Math.round(maxImageScale * 100)}%`}
+              className="object-contain rounded-lg"
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                width: renderedSize.w ? `${renderedSize.w * imageScale}px` : undefined,
+                height: renderedSize.h ? `${renderedSize.h * imageScale}px` : undefined,
+                maxWidth: renderedSize.w ? 'none' : 'min(72rem, calc(100% - 32px))',
+                maxHeight: renderedSize.h ? 'none' : '90vh',
+                transform: `translate(-50%, -50%) translate(${imagePosition.x}px, ${imagePosition.y}px)`,
+                transition: animateTransform && !reduceMotion ? 'transform 140ms var(--ease)' : 'none',
+                userSelect: 'none',
+                WebkitUserSelect: 'none',
+                touchAction: 'none',
+                cursor: isDragging ? 'grabbing' : imageScale > 1 ? 'grab' : 'zoom-in'
+              }}
+              onLoad={handleModalImageLoad}
+              onDoubleClick={handleImageDoubleClick}
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerEnd}
+              onPointerCancel={handlePointerEnd}
+              onClick={(e) => e.stopPropagation()}
+            />
 
             {typeof window !== 'undefined' && window.innerWidth > 768 && (
               <p className="fixed bottom-4 right-8 text-secondary text-sm pointer-events-none">{t('common.zoomHint')}</p>
