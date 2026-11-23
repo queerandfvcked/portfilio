@@ -562,7 +562,7 @@ const CaseStudy = () => {
                           key={link.label}
                           href={link.href}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel={link.rel || 'noopener noreferrer'}
                           className={className}
                         >
                           {link.label}

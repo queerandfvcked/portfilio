@@ -51,6 +51,7 @@ export const translations = {
       fullCase: 'Полный кейс',
       viewCase: 'Смотреть кейс',
       pitchDeck: 'Презентация (PDF)',
+      openPrototype: 'Открыть прототип',
       notFound: 'Кейс не найден',
       zhabkaAnimations: 'Анимации Жабки',
       backHome: 'На главную',
@@ -83,7 +84,7 @@ export const translations = {
         'plata-qr': {
           problem: 'Нужно спроектировать снятие наличных по QR в существующем приложении: вход, защита кода, банкомат и все сбои.',
           solution: 'Вход через виджет «Cash» на Home; QR живёт 24 ч, обновляется каждые 30 с, а банкомат ждёт подтверждения на телефоне.',
-          result: 'Логика проверена прототипом: 80 тестов и прогоны сбоев; на пользователях не тестировалось — это тестовое задание.'
+          result: 'Логика проверена прототипом: 81 тест и прогоны сбоев; на пользователях не тестировалось — это тестовое задание.'
         }
       },
       cases: {
@@ -146,7 +147,7 @@ export const translations = {
           status: 'Тестовое задание, без релиза',
           stats: [
             { value: '60+', label: 'экранов и состояний' },
-            { value: '80', label: 'тестов логики' }
+            { value: '81', label: 'тестов логики' }
           ],
           takeaways: [
             { title: 'Дизайн денег — это состояния', text: 'Главный риск был не в экранах, а в моментах, когда деньги непонятно где, поэтому каждый сбой я довёл до выдачи или возврата.' },
@@ -1101,7 +1102,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 **Сбои.** Состояния, граничные случаи, никаких дыр в логике.
 :::
 
-Это тестовое задание: в релиз оно не уходило, влияние на пользователей я не измерял. Всё, чего не было в брифе (лимиты, комиссии, правила бэкенда), я принял за допущение и вынес в отдельную главу.`,
+Это тестовое задание: в релиз оно не уходило, влияние на пользователей я не измерял. Всё, чего не было в брифе (лимиты, комиссии, правила бэкенда), я принял за допущение и вынес в отдельную главу. На задание отводилось 5 рабочих дней. Я вложил их в логику и сбои, а визуально довёл до конца только ключевые кадры: бриф сам разрешает не выравнивать все экраны.`,
             images: []
           },
           {
@@ -1115,8 +1116,15 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 **Банкомат показывает QR** | CommBank, TBC, OCBC, Woori, BOCOM. Телефон сканирует код у банкомата. В задании код живёт 24 часа и привязан к сумме, поэтому его должен создавать телефон.
 :::
 
-:::callout label="Чем QR лучше Apple Pay"
-Честно: для человека с рабочей картой — ничем. QR выигрывает, когда карта недоступна (заморожена, отменена, перевыпускается), и он ограничивает риск одной суммой на 24 часа вместо всей карты.
+:::callout label="Зачем тогда QR"
+QR не заменяет бесконтакт: он нужен там, где бесконтакт не работает или не подходит.
+:::
+
+:::rows
+**Когда карты нет.** Она заморожена, отменена или перевыпускается: код работает без неё.
+**Любой телефон.** Не нужны ни Apple Pay, ни NFC, ни конкретный кошелёк: достаточно экрана.
+**Ограниченный риск.** Код привязан к одной сумме на 24 часа, а не ко всей карте.
+**Для другого человека.** Код (QR или 8 цифр) можно передать близкому: он вводит его у банкомата, а вы подтверждаете снятие на своём телефоне, где видны сумма и банкомат. Это сценарий, который допускает дизайн, а не проверенная потребность.
 :::`,
             images: []
           },
@@ -1201,7 +1209,7 @@ hh, LinkedIn, Glassdoor, Indeed, ZipRecruiter
 :::rows
 **Почему не рядом с Transfer.** Рядом с платежами снятие провоцирует случайные нажатия, а один виджет ещё и отвечает на вопрос «есть ли у меня живой код» без открытия экранов.
 **Цена.** Виджет стоит на самом видном месте Home ради действия, которое нужно редко. Возможно, такая заметность избыточна: об этом в «Что проверил бы дальше».
-**Второй вход.** Экран карты после Freeze или Discard: шит «Need cash while your card is unavailable?». Это тот случай, где QR сильнее Apple Pay.
+**Второй вход.** Экран карты после Freeze или Discard: шит «Need cash while your card is unavailable?». Это тот случай, где QR сильнее Apple Pay. Вход описан на схеме, но экран я не рисовал, и в прототип он не вошёл.
 **Допущение.** Одновременно активен один QR: новый отменяет старый.
 :::`,
             images: []
@@ -1274,6 +1282,7 @@ $500 на руки
 **Правила бэкенда.** Одноразовость кода и лимит попыток обеспечивает бэкенд, а мёртвый код банкомат отвергает фразой «Code is no longer valid».
 **Янтарный для «closes soon».** В палитре Plata такого цвета нет, это моё добавление.
 **Разная цена ошибки.** Три неверных 8-значных кода у банкомата отменяют код и освобождают деньги: так мог подбирать посторонний. Три неверных passcode на телефоне код оставляют активным: ошибся владелец. Это решение, а не случайность.
+**Ротация кода.** QR обновляется каждые 30 секунд: интервал взят по аналогии с одноразовыми кодами в приложениях, данных Plata у меня нет. Старый токен перестаёт приниматься, так что скриншот живёт полминуты. 8-значный код в моей версии не обновляется вместе с QR: его можно продиктовать и ввести вручную, но и подсмотреть его проще. От злоупотребления защищают три неверные попытки и подтверждение на телефоне владельца.
 :::`,
             images: []
           },
@@ -1282,14 +1291,16 @@ $500 на руки
             label: 'ПРОВЕРКА',
             nav: 'Проверка',
             title: 'Что проверил и что *проверил бы дальше*',
-            lead: 'Я не только нарисовал сценарии, но и прогнал их: собрал кликабельный прототип (симулятор телефона и банкомата, панель сценариев, журнал событий) и написал 80 тестов логики. На пользователях я его не тестировал: проверялась логика, а не удобство.',
+            lead: 'Я не только нарисовал сценарии, но и прогнал их: собрал кликабельный прототип (симулятор телефона и банкомата, панель сценариев, журнал событий) и написал 81 тест логики. На пользователях я его не тестировал: проверялась логика, а не удобство.',
             content: `:::cards cols=2
 **Что проверено** | Нет тупиков, удержанные деньги всегда выдаются или возвращаются, активен только один QR, каждый сбой заканчивается финальным или восстановимым состоянием.
 **Ручные прогоны** | Таймеры 60 и 30 с, passcode, офлайн, баланс, заморозка при активном QR, Crédito с комиссией, «Processing» в обе стороны, сбои банкомата, список банкоматов.
 :::
 
+Прототип открыт для всех: кнопка «Открыть прототип» вверху страницы. Он собран для проверки логики, а не как финальный дизайн: итоговый дизайн — макеты.
+
 :::callout label="Не проверено"
-Feature unavailable, недоступный счёт на выборе счёта, дневной лимит, три неверных passcode на подтверждении, три неверных кода у банкомата, заморозка после скана. Они нарисованы на схеме и описаны, но прогонов у них нет.
+Feature unavailable, недоступный счёт на выборе счёта, дневной лимит, три неверных passcode на подтверждении, три неверных кода у банкомата, заморозка после скана, вход с экрана карты. Они нарисованы на схеме и описаны, но прогонов у них нет.
 :::
 
 ### Что проверил бы дальше
@@ -1299,6 +1310,8 @@ Feature unavailable, недоступный счёт на выборе счёт�
 **Подтверждение на телефоне.** Замерить, сколько секунд оно добавляет у банкомата и не бросают ли люди операцию на втором шаге.
 **Место входа.** Виджет стоит на самом видном месте Home. Проверить, насколько вообще нужна функция снятия без карты: если она редкая, вход лучше перенести с главного экрана глубже.
 **Лимиты и комиссия Cuenta.** Сверить допущения с реальными правилами бэкенда.
+**Снятие для другого человека.** Дизайн допускает, что владелец передаёт код близкому, а сам подтверждает снятие на телефоне. Проверить, нужен ли такой сценарий и не станет ли он каналом для мошенников: подтверждение с суммой и банкоматом на экране должно это ограничивать.
+**Интервал и ротация 8-значного кода.** Подобрать, как часто обновлять QR (30 секунд взяты по аналогии), и решить, нужна ли ротация и для 8 цифр: так безопаснее, но передать код близкому на расстоянии станет труднее.
 :::`,
             images: []
           },
@@ -1399,6 +1412,7 @@ Feature unavailable, недоступный счёт на выборе счёт�
       fullCase: 'Full case',
       viewCase: 'View case',
       pitchDeck: 'Presentation (PDF)',
+      openPrototype: 'Open prototype',
       notFound: 'Case study not found',
       zhabkaAnimations: 'Zhabka animations',
       backHome: 'Back to home',
@@ -1431,7 +1445,7 @@ Feature unavailable, недоступный счёт на выборе счёт�
         'plata-qr': {
           problem: 'Design cardless cash withdrawal in an existing app: entry point, code security, the ATM and every failure.',
           solution: 'A Cash widget on Home; the QR lives 24 h, refreshes every 30 s, and the ATM waits for approval on the phone.',
-          result: 'Logic checked with a prototype: 80 tests and failure runs; not tested with users, as this is a test assignment.'
+          result: 'Logic checked with a prototype: 81 tests and failure runs; not tested with users, as this is a test assignment.'
         }
       },
       cases: {
@@ -1494,7 +1508,7 @@ Feature unavailable, недоступный счёт на выборе счёт�
           status: 'Test assignment, not released',
           stats: [
             { value: '60+', label: 'screens and states' },
-            { value: '80', label: 'logic tests' }
+            { value: '81', label: 'logic tests' }
           ],
           takeaways: [
             { title: 'Design money as states', text: 'The main risk was not in the screens but in the moments when money is in an unclear place, so every failure ends in dispensed or returned.' },
@@ -2401,7 +2415,7 @@ A Plata customer withdraws cash without a card using a QR code from the app. The
 **Failures.** States, edge cases and no gaps in the logic.
 :::
 
-This is a test assignment: it was never released, and I did not measure the impact on users. Everything the brief did not specify (limits, fees, backend rules) I treated as an assumption and listed in a separate chapter.`,
+This is a test assignment: it was never released, and I did not measure the impact on users. Everything the brief did not specify (limits, fees, backend rules) I treated as an assumption and listed in a separate chapter. I had 5 working days for the assignment. I spent them on the logic and the failure cases, and polished only the key frames: the brief itself says not every screen needs the same level of attention.`,
             images: []
           },
           {
@@ -2415,8 +2429,15 @@ This is a test assignment: it was never released, and I did not measure the impa
 **The ATM shows the QR** | CommBank, TBC, OCBC, Woori, BOCOM. The phone scans the code at the machine. In this brief the code lives for 24 hours and is tied to an amount, so the phone has to create it.
 :::
 
-:::callout label="Why QR over Apple Pay"
-Honestly: for someone with a working card, it is not better. QR wins when the card is unavailable (frozen, discarded, being reissued), and it limits exposure to one amount for 24 hours instead of the whole card.
+:::callout label="So why QR"
+QR does not replace contactless: it is for the places where contactless does not work or does not fit.
+:::
+
+:::rows
+**When there is no card.** It is frozen, discarded or being reissued: the code works without it.
+**Any phone.** No Apple Pay, no NFC, no particular wallet: a screen is enough.
+**Limited exposure.** The code is tied to one amount for 24 hours, not to the whole card.
+**For someone else.** The code (QR or 8 digits) can be passed to a trusted person: they use it at the ATM, and you approve the withdrawal on your own phone, where the amount and the ATM are shown. This is a scenario the design allows, not a validated need.
 :::`,
             images: []
           },
@@ -2501,7 +2522,7 @@ I ran both Processing outcomes (dispensed and refunded) in the prototype.`,
 :::rows
 **Why not next to Transfer.** Next to payments, withdrawal invites accidental taps, and one widget also answers "do I have a live code" without opening anything.
 **Trade-off.** The widget sits in the most visible spot on Home for an action people need rarely. That much prominence may be too much: see "What I would check next".
-**Second entry.** The card screen after Freeze or Discard: a sheet "Need cash while your card is unavailable?". This is where QR beats Apple Pay.
+**Second entry.** The card screen after Freeze or Discard: a sheet "Need cash while your card is unavailable?". This is where QR beats Apple Pay. The entry is on the diagram, but I did not draw the screen, and it is not in the prototype.
 **Assumption.** One QR is active at a time: a new one cancels the old one.
 :::`,
             images: []
@@ -2574,6 +2595,7 @@ After the scan the ATM waits 60 seconds, and the phone asks: "Withdraw $500 at P
 **Backend rules.** One-time use and attempt limits are enforced by the backend, and a dead code is rejected by the ATM with "Code is no longer valid".
 **Amber for "closes soon".** Plata's palette has no such color, so this is my addition.
 **A different cost of a mistake.** Three wrong 8-digit codes at the ATM cancel the code and release the money: a stranger could be guessing. Three wrong passcodes on the phone leave the code active: the owner made a typo. This is a decision, not an accident.
+**Code rotation.** The QR refreshes every 30 seconds: I took the interval from the one-time codes used in authenticator apps, and I have no Plata data. The old token stops working, so a screenshot lives for half a minute. The 8-digit code does not refresh with the QR in my version: it can be read out and typed by hand, but it is also easier to spy on. Three wrong attempts and approval on the owner's phone protect against misuse.
 :::`,
             images: []
           },
@@ -2582,14 +2604,16 @@ After the scan the ATM waits 60 seconds, and the phone asks: "Withdraw $500 at P
             label: 'VERIFICATION',
             nav: 'Verification',
             title: 'What I checked and what I *would check next*',
-            lead: 'I did not only draw the scenarios, I ran them: I built a clickable prototype (a phone and ATM simulator, a scenario panel, an event log) and wrote 80 logic tests. I did not test it with users: it checked the logic, not the usability.',
+            lead: 'I did not only draw the scenarios, I ran them: I built a clickable prototype (a phone and ATM simulator, a scenario panel, an event log) and wrote 81 logic tests. I did not test it with users: it checked the logic, not the usability.',
             content: `:::cards cols=2
 **What is verified** | No dead ends, held money is always dispensed or returned, only one QR is active, and every failure ends in a terminal or recoverable state.
 **Manual runs** | The 60 s and 30 s timers, passcode, offline, balance, an account frozen with an active QR, Crédito with the fee, Processing both ways, ATM failures, the ATM list.
 :::
 
+The prototype is open to everyone: see the "Open prototype" button at the top of the page. It was built to test the logic, not as the final design: the final design is the mockups.
+
 :::callout label="Not verified"
-Feature unavailable, an unavailable account on account selection, the daily limit, three wrong passcodes on approval, three wrong codes at the ATM, a freeze after the scan. They are drawn on the diagram and described, but have no runs.
+Feature unavailable, an unavailable account on account selection, the daily limit, three wrong passcodes on approval, three wrong codes at the ATM, a freeze after the scan, the entry from the card screen. They are drawn on the diagram and described, but have no runs.
 :::
 
 ### What I would check next
@@ -2599,6 +2623,8 @@ Feature unavailable, an unavailable account on account selection, the daily limi
 **Approval on the phone.** Measure how many seconds it adds at the ATM and whether people drop out at the second step.
 **Where the entry lives.** The widget takes the most visible spot on Home. Check how often people need cardless withdrawal at all: if it is rare, the entry belongs deeper than the home screen.
 **Limits and the Cuenta fee.** Validate the assumptions against the real backend rules.
+**Withdrawal for someone else.** The design allows an owner to pass the code to a trusted person and approve the withdrawal on their own phone. Check whether people need this, and whether it becomes a channel for scammers: the approval screen with the amount and the ATM is meant to limit that.
+**Interval and rotation of the 8-digit code.** Decide how often the QR should refresh (30 seconds is an analogy) and whether the 8 digits should rotate too: that is safer, but handing the code to a trusted person at a distance becomes harder.
 :::`,
             images: []
           },

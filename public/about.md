@@ -1,6 +1,6 @@
 # Andrian Shtark — Product Designer
 
-Last updated: 2026-10-31
+Last updated: 2026-11-23
 Portfolio: https://andrianshtark.vercel.app/en (Russian: https://andrianshtark.vercel.app/ru)
 Contact: Telegram @icedcreamsoda · andrianshtark@gmail.com · LinkedIn https://www.linkedin.com/in/andrian-shtark-19b0b23b1
 Open to: product / UX designer roles, primarily B2C.
@@ -43,8 +43,9 @@ Status: design case.
 ### Plata — cardless cash withdrawal by QR
 Status: test assignment, not released.
 - End-to-end flow in an existing fintech app: entry point, account and amount, a 24-hour code, ATM handover and failure states.
-- Checked with a clickable prototype: 60+ screens and states, 80 logic tests; not tested with users.
+- Checked with a clickable prototype: 60+ screens and states, 81 logic tests; not tested with users.
 - Case: https://andrianshtark.vercel.app/en/plata-qr
+- Prototype: https://andrianshtark.vercel.app/prototypes/plata-qr/
 
 ## How I work
 

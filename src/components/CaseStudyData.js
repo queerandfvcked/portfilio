@@ -509,7 +509,23 @@ export function getCaseStudies(t, language = 'ru') {
 
       stats: t('casePage.cases.plata-qr.stats'),
 
-      links: [],
+      links: [
+
+        {
+
+          label: t('casePage.openPrototype'),
+
+          href: '/prototypes/plata-qr/index.html',
+
+          kind: 'primary',
+
+          external: true,
+
+          rel: 'noopener'
+
+        }
+
+      ],
 
       takeaways: t('casePage.cases.plata-qr.takeaways'),
 
