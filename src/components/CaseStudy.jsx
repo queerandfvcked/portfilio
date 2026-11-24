@@ -10,6 +10,8 @@ import CaseChapter from './CaseChapter'
 import CaseScene from './CaseScene'
 import CaseCard from './CaseCard'
 import CaseRows from './case-blocks/CaseRows'
+import CaseTiledMap from './CaseTiledMap'
+import { TILED_MAPS } from './tiledMaps'
 import { cancelScrollToTarget, scrollToTarget } from '../utils/scrollToTarget'
 import { LANGUAGES, localizedPath } from '../utils/localizedPath'
 
@@ -736,7 +738,16 @@ const CaseStudy = () => {
         )}
       </div>
 
-      {selectedImage && (
+      {selectedImage && TILED_MAPS[selectedImage] && (
+        <CaseTiledMap
+          map={TILED_MAPS[selectedImage]}
+          onClose={closeImageModal}
+          hint={t('common.zoomHint')}
+          language={language}
+        />
+      )}
+
+      {selectedImage && !TILED_MAPS[selectedImage] && (
         <>
           <button
             className="fixed top-4 right-4 z-[60] text-white hover:text-accent-400 transition-colors animate-slide-down"

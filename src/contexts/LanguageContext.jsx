@@ -1300,7 +1300,7 @@ $500 на руки
 Прототип открыт для всех: кнопка «Открыть прототип» вверху страницы. Он собран для проверки логики, а не как финальный дизайн: итоговый дизайн — макеты.
 
 :::callout label="Не проверено"
-Feature unavailable, недоступный счёт на выборе счёта, дневной лимит, три неверных passcode на подтверждении, три неверных кода у банкомата, заморозка после скана, вход с экрана карты. Они нарисованы на схеме и описаны, но прогонов у них нет.
+Feature unavailable, недоступный счёт на выборе счёта, дневной лимит, вход с экрана карты. Они нарисованы на схеме и описаны, но прогонов у них нет.
 :::
 
 ### Что проверил бы дальше
@@ -2613,7 +2613,7 @@ After the scan the ATM waits 60 seconds, and the phone asks: "Withdraw $500 at P
 The prototype is open to everyone: see the "Open prototype" button at the top of the page. It was built to test the logic, not as the final design: the final design is the mockups.
 
 :::callout label="Not verified"
-Feature unavailable, an unavailable account on account selection, the daily limit, three wrong passcodes on approval, three wrong codes at the ATM, a freeze after the scan, the entry from the card screen. They are drawn on the diagram and described, but have no runs.
+Feature unavailable, an unavailable account on account selection, the daily limit, the entry from the card screen. They are drawn on the diagram and described, but have no runs.
 :::
 
 ### What I would check next

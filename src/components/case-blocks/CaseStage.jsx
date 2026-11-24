@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { getBlockCopy } from './labels'
+import { TILED_MAPS } from '../tiledMaps'
 
 const CaseStage = ({
   items = [],
@@ -27,9 +28,12 @@ const CaseStage = ({
     >
       <div className="case-stage__grid">
         {items.map((item, index) => {
+          // Huge maps are shown as a light preview; the click still passes the
+          // original path, which is the key of the tiled viewer.
+          const tiledMap = TILED_MAPS[item.src]
           const image = (
             <img
-              src={item.src}
+              src={tiledMap ? tiledMap.preview : item.src}
               alt={item.caption || ''}
               loading="lazy"
               onLoad={isRow ? handleImageLoad(index) : undefined}
